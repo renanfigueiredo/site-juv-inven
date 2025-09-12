@@ -10,12 +10,16 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
   <style>
+    /* DESIGN PREMIUM IGUAL AO INDEX */
     :root {
       --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
       --gradient-accent: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
       --gradient-dark: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
+      --glow-color: #ff6b6b;
       --neon-blue: #00d4ff;
       --neon-purple: #bd5eff;
+      --neon-cyan: #00f2fe;
       --glass-bg: rgba(255, 255, 255, 0.05);
       --glass-border: rgba(255, 255, 255, 0.1);
     }
@@ -23,10 +27,22 @@
     body {
       font-family: 'Poppins', sans-serif !important;
       background: var(--gradient-dark) !important;
+      background-color: #0c0c0c !important;
       min-height: 100vh;
       color: #ffffff;
+      overflow-x: hidden;
     }
 
+    /* EFEITOS GLASSMORPHISM */
+    .glass-effect {
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+    }
+
+    /* BOTÃO VOLTAR PREMIUM */
     .back-btn {
       position: fixed;
       top: 2rem;
@@ -41,12 +57,28 @@
       text-decoration: none;
       font-weight: 500;
       transition: all 0.3s ease;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     }
 
+    .back-btn:hover {
+      background: rgba(255, 255, 255, 0.15);
+      color: var(--neon-blue);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(0, 212, 255, 0.3);
+    }
+
+    /* CONTAINER PRINCIPAL */
     .sermon-container {
       max-width: 1000px;
       margin: 0 auto;
       padding: 6rem 2rem 4rem;
+    }
+
+    /* HEADER DA MENSAGEM */
+    .sermon-header {
+      text-align: center;
+      margin-bottom: 4rem;
+      position: relative;
     }
 
     .sermon-title {
@@ -56,58 +88,223 @@
       background: var(--gradient-accent);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      color: #4facfe;
-      text-align: center;
+      background-clip: text;
       margin-bottom: 1rem;
+      text-shadow: 0 0 30px rgba(79, 172, 254, 0.5);
+      color: #4facfe;
     }
 
-    .verse-highlight, .sermon-section {
+    @supports not (-webkit-background-clip: text) {
+      .sermon-title {
+        color: #4facfe !important;
+        background: none !important;
+        text-shadow: 0 0 20px rgba(79, 172, 254, 0.8);
+      }
+    }
+
+    .sermon-subtitle {
+      font-size: 1.2rem;
+      color: rgba(255, 255, 255, 0.7);
+      font-weight: 300;
+    }
+
+    /* VERSÍCULO DESTAQUE */
+    .verse-highlight {
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      border: 2px solid var(--neon-blue);
+      border-radius: 20px;
+      padding: 2.5rem;
+      margin: 3rem 0;
+      text-align: center;
+      font-size: 1.3rem;
+      line-height: 1.8;
+      color: #ffffff;
+      box-shadow: 0 0 40px rgba(0, 212, 255, 0.3);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .verse-highlight::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(0, 212, 255, 0.1), transparent);
+      animation: sparkle 3s infinite;
+    }
+
+    .verse-highlight:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 60px rgba(0, 212, 255, 0.5);
+    }
+
+    @keyframes sparkle {
+      0% { transform: rotate(0deg) translate(-50%, -50%); }
+      100% { transform: rotate(360deg) translate(-50%, -50%); }
+    }
+
+    /* SEÇÕES */
+    .sermon-section {
       background: var(--glass-bg);
       backdrop-filter: blur(20px);
       border: 1px solid var(--glass-border);
       border-radius: 20px;
-      padding: 2.5rem;
+      padding: 3rem;
       margin: 3rem 0;
+      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
       color: #ffffff;
     }
 
-    .verse-highlight {
-      border: 2px solid var(--neon-blue);
-      text-align: center;
-      cursor: pointer;
-      transition: all 0.3s ease;
+    .sermon-section p,
+    .sermon-section li,
+    .sermon-section .text-muted,
+    .sermon-section .small {
+      color: rgba(255, 255, 255, 0.9) !important;
+    }
+
+    .sermon-section .lead {
+      color: #ffffff !important;
+      font-weight: 500;
     }
 
     .section-title {
       font-family: 'Montserrat', sans-serif;
       font-size: 2.2rem;
+      font-weight: 700;
       color: var(--neon-blue);
-      text-align: center;
       margin-bottom: 2rem;
+      text-align: center;
+      position: relative;
     }
 
-    .structure-card, .practice-card {
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 3px;
+      background: var(--gradient-accent);
+      border-radius: 2px;
+    }
+
+    /* CARDS ESTRUTURA */
+    .structure-card {
       background: var(--glass-bg);
       backdrop-filter: blur(15px);
       border: 1px solid var(--glass-border);
       border-radius: 15px;
       padding: 2rem;
       height: 100%;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
       color: #ffffff;
+    }
+
+    .structure-card p,
+    .structure-card li,
+    .structure-card .text-muted,
+    .structure-card .small {
+      color: rgba(255, 255, 255, 0.9) !important;
+    }
+
+    .structure-card .bg-dark {
+      background: rgba(0, 0, 0, 0.4) !important;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .structure-card .bg-dark p,
+    .structure-card .bg-dark .small {
+      color: rgba(255, 255, 255, 0.95) !important;
+    }
+
+    .structure-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--gradient-secondary);
+    }
+
+    .structure-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
     }
 
     .card-number {
       font-size: 3rem;
       font-weight: 800;
-      color: #667eea;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
       margin-bottom: 1rem;
+      color: #667eea;
     }
 
-    .card-title, .practice-title {
+    @supports not (-webkit-background-clip: text) {
+      .card-number {
+        color: #667eea !important;
+        background: none !important;
+      }
+    }
+
+    .card-title {
       font-family: 'Montserrat', sans-serif;
       font-size: 1.4rem;
+      font-weight: 700;
       color: var(--neon-blue);
       margin-bottom: 1.5rem;
+    }
+
+    /* APLICAÇÕES PRÁTICAS */
+    .practice-card, .application-card {
+      background: var(--glass-bg);
+      backdrop-filter: blur(15px);
+      border: 1px solid var(--glass-border);
+      border-radius: 15px;
+      padding: 2rem;
+      text-align: center;
+      transition: all 0.3s ease;
+      height: 100%;
+      color: #ffffff;
+    }
+
+    .application-card {
+      text-align: left;
+    }
+
+    .application-card .card-header {
+      margin: -2rem -2rem 2rem -2rem;
+      padding: 1.5rem 2rem;
+      border-radius: 15px 15px 0 0;
+    }
+
+    .practice-card p,
+    .practice-card li,
+    .practice-card .small,
+    .practice-card .text-muted,
+    .application-card p,
+    .application-card li,
+    .application-card .small,
+    .application-card .text-muted {
+      color: rgba(255, 255, 255, 0.9) !important;
+    }
+
+    .practice-card:hover,
+    .application-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 15px 35px rgba(189, 94, 255, 0.3);
     }
 
     .practice-icon {
@@ -116,42 +313,149 @@
       margin-bottom: 1rem;
     }
 
+    .practice-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--neon-purple);
+      margin-bottom: 1rem;
+    }
+
+    /* PERGUNTAS GCG */
     .question-item {
       background: var(--glass-bg);
-      border: 1px solid var(--glass-border);
-      border-radius: 15px;
-      padding: 2rem;
-      margin: 2rem 0;
-      display: flex;
-      align-items: flex-start;
-      gap: 1.5rem;
+      backdrop-filter: blur(10px);
+      border-left: 4px solid var(--neon-blue);
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      color: #ffffff;
+    }
+
+    .question-item p,
+    .question-item .small,
+    .question-item .text-muted {
+      color: rgba(255, 255, 255, 0.9) !important;
+    }
+
+    .question-item:hover {
+      background: rgba(255, 255, 255, 0.08);
+      transform: translateX(10px);
     }
 
     .question-number {
-      background: var(--gradient-primary);
-      color: white;
-      width: 40px;
-      height: 40px;
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      background: var(--gradient-accent);
+      color: #000;
       border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      text-align: center;
+      line-height: 30px;
       font-weight: 700;
-      flex-shrink: 0;
+      margin-right: 1rem;
     }
 
+    /* ORAÇÃO FINAL */
     .prayer-section {
-      background: linear-gradient(135deg, var(--neon-purple) 0%, var(--neon-blue) 100%);
+      background: var(--gradient-secondary);
       border-radius: 20px;
       padding: 3rem;
       text-align: center;
+      color: #ffffff;
+      box-shadow: 0 0 50px rgba(240, 147, 251, 0.4);
     }
 
+    .prayer-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 2rem;
+    }
+
+    .prayer-text {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      font-style: italic;
+    }
+
+    .prayer-subsection {
+      margin: 2rem 0;
+      text-align: left;
+    }
+
+    .prayer-list {
+      list-style: none;
+      padding-left: 1rem;
+    }
+
+    .prayer-list li {
+      margin: 0.5rem 0;
+      position: relative;
+    }
+
+    .prayer-list li::before {
+      content: "✨";
+      position: absolute;
+      left: -1rem;
+    }
+
+    .prayer-conclusion {
+      margin-top: 3rem;
+      font-size: 1.2rem;
+    }
+
+    .prayer-amen {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: var(--neon-cyan);
+    }
+
+    /* RESPONSIVIDADE */
     @media (max-width: 768px) {
-      .sermon-container { padding: 4rem 1rem 2rem; }
-      .sermon-title { font-size: 2.5rem; }
-      .back-btn { top: 1rem; left: 1rem; }
-      .question-item { flex-direction: column; text-align: center; }
+      .back-btn {
+        top: 1rem;
+        left: 1rem;
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+      }
+
+      .sermon-container {
+        padding: 5rem 1rem 3rem;
+      }
+
+      .sermon-title {
+        font-size: 2.5rem;
+      }
+
+      .verse-highlight {
+        padding: 2rem;
+        font-size: 1.1rem;
+      }
+
+      .sermon-section {
+        padding: 2rem;
+      }
+
+      .section-title {
+        font-size: 1.8rem;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .sermon-title {
+        font-size: 2rem;
+      }
+
+      .verse-highlight {
+        padding: 1.5rem;
+        font-size: 1rem;
+      }
+
+      .sermon-section {
+        padding: 1.5rem;
+      }
     }
   </style>
 </head>
@@ -162,96 +466,357 @@
   </a>
   
   <div class="sermon-container">
+    <!-- HEADER -->
     <header class="sermon-header">
       <h1 class="sermon-title">Liberdade dos Vícios</h1>
-      <p class="sermon-subtitle">Mensagem 06 • 1 Coríntios 10:13 • Vitória sobre tentações</p>
+      <p class="sermon-subtitle">Mensagem 06 • 1 Coríntios 10:13 • Vitória sobre tentações e dependências</p>
     </header>
 
+    <!-- VERSÍCULO PRINCIPAL -->
     <div class="verse-highlight verse-ref" data-ref="1Co 10:13">
       <i class="bi bi-unlock-fill fs-1 text-info mb-3"></i>
-      <p class="mb-3">"Não vos sobreveio tentação que não fosse humana; mas Deus é fiel e não permitirá que sejais tentados além das vossas forças..."</p>
+      <p class="mb-3">"Não vos sobreveio tentação que não fosse humana; mas Deus é fiel e não permitirá que sejais tentados além das vossas forças; pelo contrário, juntamente com a tentação, vos proverá livramento, para que a possais suportar."</p>
       <strong>— 1 Coríntios 10:13</strong>
+      <div class="mt-3 text-info">
+        <i class="bi bi-hand-index me-2"></i>
+        <small>Clique para ver o contexto completo</small>
+      </div>
     </div>
 
+    <!-- OBJETIVO DA MENSAGEM -->
+    <div class="sermon-section">
+      <div class="text-center mb-4">
+        <i class="bi bi-bullseye fs-1 text-warning mb-3"></i>
+        <h3 class="text-warning">Objetivo da Mensagem</h3>
+      </div>
+      <p class="lead text-center">
+        <strong>Capacitar os jovens com a verdade bíblica sobre tentações e vícios</strong>, mostrando que Deus sempre provê uma saída e que a liberdade real é possível através de Cristo. Equipar com estratégias práticas para vencer dependências e viver na plenitude da graça libertadora de Deus.
+      </p>
+    </div>
+
+    <!-- ESTRUTURA DA MENSAGEM -->
     <div class="sermon-section">
       <h2 class="section-title">Estrutura da Mensagem</h2>
+      
       <div class="row g-4">
         <div class="col-12 col-md-4">
           <div class="structure-card">
             <div class="card-number">1</div>
-            <h3 class="card-title">Natureza da Tentação</h3>
-            <ul><li>Comum a todos</li><li>Não é pecado</li><li>Tem limites</li></ul>
+            <h3 class="card-title">A Realidade da Tentação</h3>
+            <p class="text-muted mb-3"><strong>"Não vos sobreveio tentação que não fosse humana"</strong></p>
+            
+            <h5 class="text-danger mb-3">🔴 Verdades sobre Tentação:</h5>
+            <ul class="mb-4">
+              <li><strong>Universal (koinos):</strong> Comum a toda humanidade, você não está sozinho</li>
+              <li><strong>Humana (anthropinos):</strong> Dentro dos limites da experiência humana normal</li>
+              <li><strong>Não é pecado:</strong> Ser tentado não é pecar, Jesus foi tentado (Hb 4:15)</li>
+              <li><strong>Tem origem:</strong> Lust da carne, lust dos olhos, soberba da vida (1Jo 2:16)</li>
+            </ul>
+            
+            <div class="bg-dark p-3 rounded">
+              <h6 class="text-warning">💡 Reflexão:</h6>
+              <p class="mb-0 small">Paulo desmistifica a tentação. Não é algo sobrenatural ou específico seu - é parte da condição humana. Isso tira o isolamento e a vergonha, criando base para buscar ajuda e solução.</p>
+            </div>
           </div>
         </div>
+
         <div class="col-12 col-md-4">
           <div class="structure-card">
             <div class="card-number">2</div>
-            <h3 class="card-title">Fidelidade de Deus</h3>
-            <ul><li>Deus é fiel</li><li>Não permite além das forças</li><li>Sempre provê escape</li></ul>
+            <h3 class="card-title">A Fidelidade de Deus</h3>
+            <p class="text-muted mb-3"><strong>"Mas Deus é fiel"</strong></p>
+            
+            <h5 class="text-success mb-3">🟢 Garantias Divinas:</h5>
+            <ul class="mb-4">
+              <li><strong>Deus é fiel (pistos):</strong> Confiável, não falha, cumpre promessas</li>
+              <li><strong>Limite estabelecido:</strong> "Não permitirá além das vossas forças"</li>
+              <li><strong>Conhece sua capacidade:</strong> Deus sabe exatamente até onde você aguenta</li>
+              <li><strong>Está no controle:</strong> A tentação não é maior que Seu poder</li>
+              <li><strong>Promessa pessoal:</strong> Para VOCÊ especificamente</li>
+            </ul>
+            
+            <div class="bg-dark p-3 rounded">
+              <h6 class="text-warning">💡 Reflexão:</h6>
+              <p class="mb-0 small">A fidelidade de Deus é o fundamento da nossa vitória. Ele não é um espectador passivo da nossa luta - está ativamente envolvido, limitando e controlando o que chega até nós.</p>
+            </div>
           </div>
         </div>
+
         <div class="col-12 col-md-4">
           <div class="structure-card">
             <div class="card-number">3</div>
-            <h3 class="card-title">Estratégia de Vitória</h3>
-            <ul><li>Buscar a saída</li><li>Resistir ativamente</li><li>Confiar em Deus</li></ul>
+            <h3 class="card-title">A Provisão da Saída</h3>
+            <p class="text-muted mb-3"><strong>"Vos proverá livramento"</strong></p>
+            
+            <h5 class="text-info mb-3">🔵 A Saída (Ekbasis):</h5>
+            <ul class="mb-4">
+              <li><strong>Sempre existe:</strong> "Juntamente com a tentação" - nunca vem sozinha</li>
+              <li><strong>Divina provisão:</strong> Deus provê, não depende só de você</li>
+              <li><strong>Capacitação:</strong> "Para que a possais suportar" - força para resistir</li>
+              <li><strong>Múltiplas formas:</strong> Fuga física, resistência espiritual, ajuda humana</li>
+              <li><strong>No momento certo:</strong> Disponível quando você precisa</li>
+            </ul>
+            
+            <div class="bg-dark p-3 rounded">
+              <h6 class="text-warning">💡 Reflexão:</h6>
+              <p class="mb-0 small">A palavra "ekbasis" significa "caminho para fora" - como uma saída de emergência. Deus sempre coloca uma "porta vermelha" em cada situação de tentação. Nossa responsabilidade é procurá-la e usá-la.</p>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
+    <!-- APLICAÇÕES PRÁTICAS -->
     <div class="sermon-section">
       <h2 class="section-title">Aplicações Práticas</h2>
+      
       <div class="row g-4">
-        <div class="col-12 col-md-4">
-          <div class="practice-card">
-            <div class="practice-icon"><i class="bi bi-door-open-fill"></i></div>
-            <h4 class="practice-title">Busque a Saída</h4>
-            <p>Identifique sempre a "porta de escape" que Deus provê</p>
+        <div class="col-12 col-lg-6">
+          <div class="application-card">
+            <div class="card-header bg-primary">
+              <h4 class="mb-0 text-white">🚨 Plano de Emergência Espiritual</h4>
+            </div>
+            <div class="card-body">
+              <h5 class="text-primary mb-3">⚡ Protocolo Anti-Tentação (Memorize!)</h5>
+              <p class="mb-3"><strong>Acrônimo FUGA:</strong></p>
+              <ul class="mb-4">
+                <li><strong>F</strong>reie imediatamente - pare tudo que está fazendo</li>
+                <li><strong>U</strong>se a Palavra - cite um versículo em voz alta</li>
+                <li><strong>G</strong>rite por ajuda - ore em voz alta, ligue para alguém</li>
+                <li><strong>A</strong>faste-se fisicamente - mude de ambiente/aplicativo/lugar</li>
+              </ul>
+              
+              <h5 class="text-warning mb-3">📱 Kit Sobrevivência Digital</h5>
+              <p class="mb-3"><strong>Tenha sempre acessível:</strong></p>
+              <ol>
+                <li><strong>3 versículos de combate</strong> salvos no celular (1Co 10:13, Tg 4:7, 1Pe 5:8-9)</li>
+                <li><strong>Lista de 5 pessoas</strong> que pode ligar em emergência</li>
+                <li><strong>Playlist de adoração</strong> para trocar o foco rapidamente</li>
+                <li><strong>App de accountability</strong> ou timer para momentos críticos</li>
+                <li><strong>Foto com versículo</strong> como papel de parede</li>
+              </ol>
+              
+              <div class="bg-light p-3 rounded mt-3">
+                <h6 class="text-dark">📝 Exemplo Prático - Vício em Pornografia:</h6>
+                <p class="mb-2"><strong>Momento da tentação:</strong> "FUGA - paro, declaro 1Co 10:13, oro alto, saio do quarto"</p>
+                <p class="mb-0"><strong>Resultado:</strong> Quebra do padrão automático, abre espaço para Deus agir</p>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="col-12 col-md-4">
-          <div class="practice-card">
-            <div class="practice-icon"><i class="bi bi-people-fill"></i></div>
-            <h4 class="practice-title">Prestação de Contas</h4>
-            <p>Tenha alguém para compartilhar suas lutas</p>
+
+        <div class="col-12 col-lg-6">
+          <div class="application-card">
+            <div class="card-header bg-success">
+              <h4 class="mb-0 text-white">💪 Construindo Resistência Espiritual</h4>
+            </div>
+            <div class="card-body">
+              <h5 class="text-success mb-3">🌅 Rotina Matinal de Proteção (5 min)</h5>
+              <ul class="mb-4">
+                <li><strong>Oração de cobertura:</strong> "Senhor, seja meu escudo hoje"</li>
+                <li><strong>Confissão de identidade:</strong> "Sou filho de Deus, mais que vencedor"</li>
+                <li><strong>Declaração de 1Co 10:13:</strong> Ler em voz alta com fé</li>
+                <li><strong>Visualização da vitória:</strong> Se veja dizendo "não" e sendo livre</li>
+              </ul>
+              
+              <h5 class="text-info mb-3">🤝 Sistema de Prestação de Contas</h5>
+              <ul class="mb-4">
+                <li><strong>Parceiro de oração:</strong> Alguém que sabe da sua luta e ora por você</li>
+                <li><strong>Check-ins semanais:</strong> "Como foi sua semana? Onde Deus te ajudou?"</li>
+                <li><strong>Transparência total:</strong> Sem máscaras, vulnerabilidade mútua</li>
+                <li><strong>Celebração de vitórias:</strong> Reconhecer cada dia/semana de liberdade</li>
+              </ul>
+              
+              <div class="bg-warning bg-opacity-10 p-3 rounded">
+                <h6 class="text-warning">⚡ Desafio da Semana:</h6>
+                <p class="mb-2"><strong>Dia 1-2:</strong> Identifique seus 3 maiores gatilhos de tentação</p>
+                <p class="mb-2"><strong>Dia 3-4:</strong> Crie um plano específico de fuga para cada gatilho</p>
+                <p class="mb-2"><strong>Dia 5-6:</strong> Pratique o protocolo FUGA em situações de menor tentação</p>
+                <p class="mb-0"><strong>Dia 7:</strong> Compartilhe suas vitórias com seu parceiro de prestação de contas</p>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="col-12 col-md-4">
-          <div class="practice-card">
-            <div class="practice-icon"><i class="bi bi-shield-check"></i></div>
-            <h4 class="practice-title">Plano de Batalha</h4>
-            <p>Tenha estratégias prontas para momentos de tentação</p>
+      </div>
+
+      <div class="row g-4 mt-4">
+        <div class="col-12">
+          <div class="application-card">
+            <div class="card-header bg-danger">
+              <h4 class="mb-0 text-white">🎯 Estratégias por Tipo de Vício</h4>
+            </div>
+            <div class="card-body">
+              <div class="row g-4">
+                <div class="col-12 col-md-4">
+                  <h5 class="text-danger">📱 Vícios Digitais</h5>
+                  <p><strong>Pornografia, redes sociais, jogos</strong></p>
+                  <ol>
+                    <li>Filtros de internet obrigatórios</li>
+                    <li>Celular fora do quarto à noite</li>
+                    <li>Apps de controle de tempo</li>
+                    <li>Atividades físicas como substituto</li>
+                    <li>Adoração quando der vontade</li>
+                  </ol>
+                </div>
+                
+                <div class="col-12 col-md-4">
+                  <h5 class="text-warning">🍺 Substâncias</h5>
+                  <p><strong>Álcool, drogas, cigarro</strong></p>
+                  <ol>
+                    <li>Evite ambientes de risco completamente</li>
+                    <li>Novo círculo social saudável</li>
+                    <li>Hidratação e exercício como ritual</li>
+                    <li>Acompanhamento médico quando necessário</li>
+                    <li>Grupos de apoio cristãos (Celebrando a Recuperação)</li>
+                  </ol>
+                </div>
+                
+                <div class="col-12 col-md-4">
+                  <h5 class="text-info">💭 Vícios Comportamentais</h5>
+                  <p><strong>Mentira, raiva, compulsões</strong></p>
+                  <ol>
+                    <li>Identifique os gatilhos emocionais</li>
+                    <li>Respiração profunda antes de reagir</li>
+                    <li>Substitua o padrão por oração</li>
+                    <li>Peça perdão imediatamente quando falhar</li>
+                    <li>Terapia cristã para raízes profundas</li>
+                  </ol>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
+    <!-- PERGUNTAS PARA GCG -->
     <div class="sermon-section">
       <h2 class="section-title">Perguntas para GCG</h2>
       
       <div class="question-item">
         <span class="question-number">1</span>
-        <div><p><strong>Qual sua principal área de tentação/vício?</strong></p></div>
+        <div>
+          <p><strong>Quebra-Gelo Seguro:</strong> Se você pudesse dar um "apelido" para sua maior tentação/luta (sem precisar dizer qual é), que nome daria? (Ex: "O Sussurador", "A Armadilha", "O Ladrão de Paz")</p>
+          <p class="text-muted"><em>Objetivo: Criar um ambiente seguro para reconhecer lutas sem exposição excessiva</em></p>
+        </div>
       </div>
       
       <div class="question-item">
         <span class="question-number">2</span>
-        <div><p><strong>Que "saídas" Deus tem providenciado e você não tem usado?</strong></p></div>
+        <div>
+          <p><strong>Identificação de Padrões:</strong> Pensando nas suas tentações, quando elas geralmente "atacam" mais forte? Em que situações, horários ou estados emocionais você se sente mais vulnerável?</p>
+          <p class="text-muted"><em>Objetivo: Ajudar na identificação de gatilhos para melhor prevenção e preparo</em></p>
+        </div>
       </div>
       
       <div class="question-item">
         <span class="question-number">3</span>
-        <div><p><strong>Como você pode se preparar melhor para a próxima tentação?</strong></p></div>
+        <div>
+          <p><strong>Descobrindo as Saídas:</strong> Conte sobre uma vez recente em que você conseguiu resistir a uma tentação. O que funcionou? Que "saída" Deus providenciou que você aproveitou?</p>
+          <p class="text-muted"><em>Objetivo: Celebrar vitórias e identificar estratégias que já funcionam na vida de cada pessoa</em></p>
+        </div>
+      </div>
+      
+      <div class="question-item">
+        <span class="question-number">4</span>
+        <div>
+          <p><strong>Mitos e Verdades:</strong> Qual mentira você mais acredita sobre suas lutas? (Ex: "sou o único que luta com isso", "nunca vou conseguir mudar", "Deus está cansado de me perdoar")</p>
+          <p class="text-muted"><em>Objetivo: Identificar mentiras que enfraquecem a fé e substituí-las por verdades bíblicas</em></p>
+        </div>
+      </div>
+      
+      <div class="question-item">
+        <span class="question-number">5</span>
+        <div>
+          <p><strong>Sistema de Apoio:</strong> Você tem alguém na sua vida que sabe das suas lutas e te ajuda? Se não, quem poderia ser essa pessoa? Como o grupo pode te apoiar melhor nessa área?</p>
+          <p class="text-muted"><em>Objetivo: Fortalecer redes de apoio e quebrar o isolamento que alimenta vícios</em></p>
+        </div>
+      </div>
+      
+      <div class="question-item">
+        <span class="question-number">6</span>
+        <div>
+          <p><strong>Plano de Ação:</strong> Se você aplicasse o protocolo "FUGA" (Freie, Use a Palavra, Grite por ajuda, Afaste-se) na sua principal tentação, como seria na prática? Vamos criar um plano específico juntos!</p>
+          <p class="text-muted"><em>Objetivo: Transformar conceitos teóricos em estratégias práticas e personalizadas</em></p>
+        </div>
+      </div>
+      
+      <div class="question-item">
+        <span class="question-number">7</span>
+        <div>
+          <p><strong>Fé Prática:</strong> Como a promessa de 1 Coríntios 10:13 ("Deus é fiel e sempre provê uma saída") muda sua perspectiva sobre suas lutas? O que você precisa para crer mais nessa verdade?</p>
+          <p class="text-muted"><em>Objetivo: Fortalecer a fé na fidelidade de Deus e na possibilidade real de vitória</em></p>
+        </div>
       </div>
     </div>
 
+    <!-- ORAÇÃO FINAL -->
     <div class="prayer-section">
-      <h2 class="prayer-title"><i class="bi bi-unlock-fill me-3"></i>Oração pela Liberdade</h2>
+      <h2 class="prayer-title">
+        <i class="bi bi-unlock-fill me-3"></i>
+        Oração de Libertação e Vitória
+      </h2>
       <div class="prayer-text">
-        <p><strong>"Pai, obrigado porque Tu és fiel e sempre provês uma saída."</strong></p>
-        <p>Ajuda-me a reconhecer as tentações e buscar Tua saída. Que eu não confie na minha força, mas na Tua fidelidade.</p>
-        <p><strong>Liberta-me e usa minha liberdade para Tua glória. Amém.</strong></p>
+        <p class="text-center mb-4"><em>"Não vos sobreveio tentação que não fosse humana; mas Deus é fiel e não permitirá que sejais tentados além das vossas forças; pelo contrário, juntamente com a tentação, vos proverá livramento, para que a possais suportar." - 1 Coríntios 10:13</em></p>
+        
+        <div class="prayer-subsection">
+          <h4 class="text-primary">🙏 Reconhecimento da Realidade</h4>
+          <p><strong>"Pai Celestial, venho diante de Ti reconhecendo que sou humano e que enfrento tentações reais.</strong> Não vou fingir que sou forte ou que consigo sozinho. As lutas são reais:</p>
+          <ul class="prayer-list">
+            <li>Vícios que parecem maiores que minha força</li>
+            <li>Tentações que me assombram repetidamente</li>
+            <li>Momentos de fraqueza onde me sinto derrotado</li>
+            <li>Vergonha que me faz esconder ao invés de buscar ajuda</li>
+            <li>Desânimo quando caio nas mesmas armadilhas</li>
+          </ul>
+          <p><strong>Mas hoje escolho crer que Tu tens poder maior que qualquer vício ou tentação.</strong></p>
+        </div>
+
+        <div class="prayer-subsection">
+          <h4 class="text-success">🛡️ Declaração da Tua Fidelidade</h4>
+          <p><strong>"Senhor, declaro que Tu és fiel. Tu nunca falhaste, nunca faltaste, nunca me abandonaste.</strong> Creio que:</p>
+          <ul class="prayer-list">
+            <li><strong>Tu conheces meus limites</strong> e nunca permites tentação além do que posso suportar</li>
+            <li><strong>Tu estás no controle</strong> mesmo quando eu me sinto fora de controle</li>
+            <li><strong>Tu sempre provês uma saída</strong> mesmo quando eu não a vejo</li>
+            <li><strong>Tua graça é suficiente</strong> para qualquer fraqueza minha</li>
+            <li><strong>Tua misericórdia se renova</strong> a cada manhã, mesmo depois das minhas falhas</li>
+          </ul>
+        </div>
+
+        <div class="prayer-subsection">
+          <h4 class="text-warning">⚔️ Pedido de Capacitação</h4>
+          <p><strong>"Pai, capacita-me para a vitória que já conquistaste por mim na cruz.</strong> Peço:</p>
+          <ul class="prayer-list">
+            <li>Discernimento para reconhecer as tentações antes que se tornem irresistíveis</li>
+            <li>Sabedoria para identificar e usar as saídas que Tu provês</li>
+            <li>Coragem para buscar ajuda e quebrar o isolamento</li>
+            <li>Disciplina para estabelecer limites e proteções saudáveis</li>
+            <li>Perseverança para não desistir mesmo quando cair</li>
+            <li>Humildade para depender de Ti ao invés de confiar na minha força</li>
+          </ul>
+        </div>
+
+        <div class="prayer-subsection">
+          <h4 class="text-info">💫 Compromisso de Fé</h4>
+          <p><strong>"Senhor, hoje faço um compromisso contigo:</strong></p>
+          <ul class="prayer-list">
+            <li>Vou memorizar 1 Coríntios 10:13 e declará-lo nas tentações</li>
+            <li>Vou buscar um parceiro de oração para prestação de contas</li>
+            <li>Vou criar um plano prático de fuga para cada área de luta</li>
+            <li>Vou celebrar cada vitória, por menor que seja</li>
+            <li>Vou confiar na Tua fidelidade mesmo quando não sentir</li>
+          </ul>
+          <p>Não confio na minha determinação, mas na Tua graça. Não dependo da minha força, mas do Teu poder.</p>
+        </div>
+
+        <div class="prayer-conclusion">
+          <p class="text-center"><strong>"Que minha vida seja testemunho da Tua fidelidade. Que outros vejam que é possível vencer, não porque sou especial, mas porque Tu és fiel.</strong></p>
+          
+          <p class="text-center"><strong>Quebra toda cadeia, liberta toda prisão, vence todo vício. Em nome de Jesus, que tem todo poder e autoridade sobre as trevas.</strong></p>
+          
+          <p class="text-center prayer-amen"><strong>A Ti seja toda glória pela vitória que já é minha em Cristo. Amém!</strong></p>
+        </div>
       </div>
     </div>
   </div>

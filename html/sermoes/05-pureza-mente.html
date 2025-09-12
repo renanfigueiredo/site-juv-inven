@@ -10,10 +10,13 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
   <style>
+    /* DESIGN PREMIUM IGUAL AO INDEX */
     :root {
       --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
       --gradient-accent: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
       --gradient-dark: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
+      --glow-color: #ff6b6b;
       --neon-blue: #00d4ff;
       --neon-purple: #bd5eff;
       --glass-bg: rgba(255, 255, 255, 0.05);
@@ -23,10 +26,22 @@
     body {
       font-family: 'Poppins', sans-serif !important;
       background: var(--gradient-dark) !important;
+      background-color: #0c0c0c !important;
       min-height: 100vh;
       color: #ffffff;
+      overflow-x: hidden;
     }
 
+    /* EFEITOS GLASSMORPHISM */
+    .glass-effect {
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+    }
+
+    /* BOTÃO VOLTAR PREMIUM */
     .back-btn {
       position: fixed;
       top: 2rem;
@@ -41,23 +56,28 @@
       text-decoration: none;
       font-weight: 500;
       transition: all 0.3s ease;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     }
 
     .back-btn:hover {
       background: rgba(255, 255, 255, 0.15);
       color: var(--neon-blue);
       transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(0, 212, 255, 0.3);
     }
 
+    /* CONTAINER PRINCIPAL */
     .sermon-container {
       max-width: 1000px;
       margin: 0 auto;
       padding: 6rem 2rem 4rem;
     }
 
+    /* HEADER DA MENSAGEM */
     .sermon-header {
       text-align: center;
       margin-bottom: 4rem;
+      position: relative;
     }
 
     .sermon-title {
@@ -68,10 +88,26 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      color: #4facfe;
       margin-bottom: 1rem;
+      text-shadow: 0 0 30px rgba(79, 172, 254, 0.5);
+      color: #4facfe;
     }
 
+    @supports not (-webkit-background-clip: text) {
+      .sermon-title {
+        color: #4facfe !important;
+        background: none !important;
+        text-shadow: 0 0 20px rgba(79, 172, 254, 0.8);
+      }
+    }
+
+    .sermon-subtitle {
+      font-size: 1.2rem;
+      color: rgba(255, 255, 255, 0.7);
+      font-weight: 300;
+    }
+
+    /* VERSÍCULO DESTAQUE */
     .verse-highlight {
       background: var(--glass-bg);
       backdrop-filter: blur(20px);
@@ -81,10 +117,37 @@
       margin: 3rem 0;
       text-align: center;
       font-size: 1.3rem;
+      line-height: 1.8;
+      color: #ffffff;
+      box-shadow: 0 0 40px rgba(0, 212, 255, 0.3);
       cursor: pointer;
       transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
     }
 
+    .verse-highlight::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(0, 212, 255, 0.1), transparent);
+      animation: sparkle 3s infinite;
+    }
+
+    .verse-highlight:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 60px rgba(0, 212, 255, 0.5);
+    }
+
+    @keyframes sparkle {
+      0% { transform: rotate(0deg) translate(-50%, -50%); }
+      100% { transform: rotate(360deg) translate(-50%, -50%); }
+    }
+
+    /* SEÇÕES */
     .sermon-section {
       background: var(--glass-bg);
       backdrop-filter: blur(20px);
@@ -92,7 +155,20 @@
       border-radius: 20px;
       padding: 3rem;
       margin: 3rem 0;
+      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
       color: #ffffff;
+    }
+
+    .sermon-section p,
+    .sermon-section li,
+    .sermon-section .text-muted,
+    .sermon-section .small {
+      color: rgba(255, 255, 255, 0.9) !important;
+    }
+
+    .sermon-section .lead {
+      color: #ffffff !important;
+      font-weight: 500;
     }
 
     .section-title {
@@ -100,34 +176,169 @@
       font-size: 2.2rem;
       font-weight: 700;
       color: var(--neon-blue);
-      text-align: center;
       margin-bottom: 2rem;
+      text-align: center;
+      position: relative;
     }
 
-    .structure-card, .practice-card {
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 3px;
+      background: var(--gradient-accent);
+      border-radius: 2px;
+    }
+
+    /* CARDS ESTRUTURA */
+    .structure-card {
       background: var(--glass-bg);
       backdrop-filter: blur(15px);
       border: 1px solid var(--glass-border);
       border-radius: 15px;
       padding: 2rem;
-      transition: all 0.3s ease;
       height: 100%;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
       color: #ffffff;
+    }
+
+    .structure-card p,
+    .structure-card li,
+    .structure-card .text-muted,
+    .structure-card .small {
+      color: rgba(255, 255, 255, 0.9) !important;
+    }
+
+    .structure-card .bg-dark {
+      background: rgba(0, 0, 0, 0.4) !important;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .structure-card .bg-dark p,
+    .structure-card .bg-dark .small {
+      color: rgba(255, 255, 255, 0.95) !important;
+    }
+
+    .structure-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--gradient-secondary);
+    }
+
+    .structure-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
     }
 
     .card-number {
       font-size: 3rem;
       font-weight: 800;
-      color: #667eea;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
       margin-bottom: 1rem;
+      color: #667eea;
     }
 
-    .card-title, .practice-title {
+    @supports not (-webkit-background-clip: text) {
+      .card-number {
+        color: #667eea !important;
+        background: none !important;
+      }
+    }
+
+    .card-title {
       font-family: 'Montserrat', sans-serif;
       font-size: 1.4rem;
       font-weight: 700;
       color: var(--neon-blue);
       margin-bottom: 1.5rem;
+    }
+
+    /* APLICAÇÕES PRÁTICAS */
+    .practice-card, .application-card {
+      background: var(--glass-bg);
+      backdrop-filter: blur(15px);
+      border: 1px solid var(--glass-border);
+      border-radius: 15px;
+      padding: 2rem;
+      text-align: center;
+      transition: all 0.3s ease;
+      height: 100%;
+      color: #ffffff;
+    }
+
+    .application-card {
+      text-align: left;
+    }
+
+    .application-card .card-header {
+      margin: -2rem -2rem 2rem -2rem;
+      padding: 1.5rem 2rem;
+      border-radius: 15px 15px 0 0;
+      border: none !important;
+    }
+
+    .application-card .card-body {
+      padding: 0;
+    }
+
+    /* Melhorar contraste dos textos nos cards */
+    .application-card h5,
+    .application-card h6 {
+      text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    }
+
+    .application-card ol,
+    .application-card ul {
+      padding-left: 1.5rem;
+    }
+
+    .application-card ol li,
+    .application-card ul li {
+      margin-bottom: 0.5rem;
+      line-height: 1.6;
+    }
+
+    /* Caixas de destaque melhoradas */
+    .bg-info.bg-opacity-20,
+    .bg-warning.bg-opacity-20,
+    .bg-success.bg-opacity-20,
+    .bg-danger.bg-opacity-20 {
+      backdrop-filter: blur(5px);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+
+    .practice-card p,
+    .practice-card li,
+    .practice-card .small,
+    .practice-card .text-muted,
+    .application-card p,
+    .application-card li,
+    .application-card .small,
+    .application-card .text-muted {
+      color: rgba(255, 255, 255, 0.9) !important;
+    }
+
+    .practice-card .text-start ul {
+      color: rgba(255, 255, 255, 0.8) !important;
+    }
+
+    .practice-card:hover,
+    .application-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 15px 35px rgba(189, 94, 255, 0.3);
     }
 
     .practice-icon {
@@ -136,37 +347,57 @@
       margin-bottom: 1rem;
     }
 
+    .practice-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--neon-purple);
+      margin-bottom: 1rem;
+    }
+
+    /* PERGUNTAS GCG */
     .question-item {
       background: var(--glass-bg);
-      border: 1px solid var(--glass-border);
-      border-radius: 15px;
-      padding: 2rem;
-      margin: 2rem 0;
-      display: flex;
-      align-items: flex-start;
-      gap: 1.5rem;
+      backdrop-filter: blur(10px);
+      border-left: 4px solid var(--neon-blue);
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      color: #ffffff;
+    }
+
+    .question-item p,
+    .question-item .small,
+    .question-item .text-muted {
+      color: rgba(255, 255, 255, 0.9) !important;
+    }
+
+    .question-item:hover {
+      background: rgba(255, 255, 255, 0.08);
+      transform: translateX(10px);
     }
 
     .question-number {
-      background: var(--gradient-primary);
-      color: white;
-      width: 40px;
-      height: 40px;
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      background: var(--gradient-accent);
+      color: #000;
       border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      text-align: center;
+      line-height: 30px;
       font-weight: 700;
-      flex-shrink: 0;
+      margin-right: 1rem;
     }
 
+    /* ORAÇÃO FINAL */
     .prayer-section {
-      background: linear-gradient(135deg, var(--neon-purple) 0%, var(--neon-blue) 100%);
+      background: var(--gradient-secondary);
       border-radius: 20px;
       padding: 3rem;
-      margin: 4rem 0;
       text-align: center;
       color: #ffffff;
+      box-shadow: 0 0 50px rgba(240, 147, 251, 0.4);
     }
 
     .prayer-title {
@@ -176,11 +407,65 @@
       margin-bottom: 2rem;
     }
 
+    .prayer-text {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      font-style: italic;
+    }
+
+    /* RESPONSIVIDADE */
     @media (max-width: 768px) {
-      .sermon-container { padding: 4rem 1rem 2rem; }
-      .sermon-title { font-size: 2.5rem; }
-      .back-btn { top: 1rem; left: 1rem; }
-      .question-item { flex-direction: column; text-align: center; }
+      .back-btn {
+        top: 1rem;
+        left: 1rem;
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+      }
+
+      .sermon-container {
+        padding: 5rem 1rem 3rem;
+      }
+
+      .sermon-title {
+        font-size: 2.5rem;
+      }
+
+      .verse-highlight {
+        padding: 2rem;
+        font-size: 1.1rem;
+      }
+
+      .sermon-section {
+        padding: 2rem;
+      }
+
+      .section-title {
+        font-size: 1.8rem;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .sermon-title {
+        font-size: 2rem;
+      }
+
+      .verse-highlight {
+        padding: 1.5rem;
+        font-size: 1rem;
+      }
+
+      .sermon-section {
+        padding: 1.5rem;
+      }
+    }
+
+    /* iOS Safari específico para títulos */
+    @supports (-webkit-appearance: none) {
+      .sermon-title {
+        color: #4facfe !important;
+        background: none !important;
+        -webkit-text-fill-color: #4facfe !important;
+      }
     }
   </style>
 </head>
@@ -206,12 +491,16 @@
       </div>
     </div>
 
+    <!-- OBJETIVO DA MENSAGEM -->
     <div class="sermon-section">
       <div class="text-center mb-4">
+        <i class="bi bi-bullseye fs-1 text-warning mb-3"></i>
         <h3 class="text-warning">Objetivo da Mensagem</h3>
       </div>
       <p class="lead text-center">
-        <strong>Renovar a mente</strong> focando nos pensamentos que agradam a Deus e edificam o caráter.
+        <strong>Transformar nossa vida mental através da renovação do entendimento</strong>, aprendendo a aplicar os filtros bíblicos 
+        de Filipenses 4:8 em nossos pensamentos, escolhendo conscientemente focar no que é verdadeiro, nobre, correto, puro, 
+        amável e digno de louvor, resultando em paz interior e caráter cristão maduro.
       </p>
     </div>
 
@@ -222,39 +511,64 @@
         <div class="col-12 col-md-4">
           <div class="structure-card">
             <div class="card-number">1</div>
-            <h3 class="card-title">Filtros Mentais</h3>
-            <ul class="mb-3">
-              <li>Verdadeiro</li>
-              <li>Nobre</li>
-              <li>Correto</li>
-              <li>Puro</li>
+            <h3 class="card-title">Filtros de Verdade</h3>
+            <p class="text-muted mb-3"><strong>Critérios Fundamentais</strong></p>
+            
+            <h5 class="text-success mb-3">✅ Os Primeiros Filtros:</h5>
+            <ul class="mb-4">
+              <li><strong>Verdadeiro (alethos):</strong> Corresponde à realidade, não é falso ou enganoso</li>
+              <li><strong>Nobre (semnos):</strong> Digno, respeitável, que inspira reverência</li>
+              <li><strong>Correto (dikaios):</strong> Justo, reto, conforme os padrões divinos</li>
+              <li><strong>Puro (hagnos):</strong> Santo, limpo, sem contaminação moral</li>
             </ul>
+            
+            <div class="bg-dark p-3 rounded">
+              <h6 class="text-warning">💡 Reflexão:</h6>
+              <p class="mb-0 small">Paulo começa com fundamentos absolutos. Antes de pensar em algo, devemos perguntar: "Isso é verdade? É digno? É justo? É puro?" Estes são filtros não-negociáveis para a mente cristã.</p>
+            </div>
           </div>
         </div>
 
         <div class="col-12 col-md-4">
           <div class="structure-card">
             <div class="card-number">2</div>
-            <h3 class="card-title">Qualidades Positivas</h3>
-            <ul class="mb-3">
-              <li>Amável</li>
-              <li>De boa fama</li>
-              <li>Excelente</li>
-              <li>Digno de louvor</li>
+            <h3 class="card-title">Qualidades de Caráter</h3>
+            <p class="text-muted mb-3"><strong>Atributos Relacionais</strong></p>
+            
+            <h5 class="text-warning mb-3">💛 Características Interpessoais:</h5>
+            <ul class="mb-4">
+              <li><strong>Amável (prosphiles):</strong> Que atrai afeto, gera amor e carinho</li>
+              <li><strong>De boa fama (euphemos):</strong> Que tem boa reputação, fala bem dos outros</li>
+              <li><strong>Excelente (arete):</strong> Virtude moral, excelência de caráter</li>
+              <li><strong>Digno de louvor (epainos):</strong> Que merece ser elogiado e reconhecido</li>
             </ul>
+            
+            <div class="bg-dark p-3 rounded">
+              <h6 class="text-warning">💡 Reflexão:</h6>
+              <p class="mb-0 small">Aqui Paulo foca no impacto social dos nossos pensamentos. Nossos pensamentos afetam como vemos e tratamos as pessoas. Mente pura gera relacionamentos saudáveis.</p>
+            </div>
           </div>
         </div>
 
         <div class="col-12 col-md-4">
           <div class="structure-card">
             <div class="card-number">3</div>
-            <h3 class="card-title">Transformação</h3>
-            <ul class="mb-3">
-              <li>Renovação da mente</li>
-              <li>Mudança de caráter</li>
-              <li>Paz interior</li>
-              <li>Vida abundante</li>
+            <h3 class="card-title">Transformação Resultante</h3>
+            <p class="text-muted mb-3"><strong>Frutos da Mente Renovada</strong></p>
+            
+            <h5 class="text-info mb-3">🔵 Resultados Práticos:</h5>
+            <ul class="mb-4">
+              <li><strong>Paz interior (v.9):</strong> O Deus da paz estará conosco</li>
+              <li><strong>Estabilidade emocional:</strong> Menos ansiedade e preocupação</li>
+              <li><strong>Caráter cristão:</strong> Semelhança com Cristo nos pensamentos</li>
+              <li><strong>Relacionamentos saudáveis:</strong> Forma como vemos e tratamos outros</li>
+              <li><strong>Testemunho eficaz:</strong> Mente pura atrai outros para Cristo</li>
             </ul>
+            
+            <div class="bg-dark p-3 rounded">
+              <h6 class="text-warning">💡 Reflexão:</h6>
+              <p class="mb-0 small">Paulo não está apenas dando conselhos morais - está mostrando uma transformação completa. Quando nossa mente é renovada, toda nossa vida muda: emoções, relacionamentos e testemunho.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -264,25 +578,117 @@
       <h2 class="section-title">Aplicações Práticas</h2>
       
       <div class="row g-4">
-        <div class="col-12 col-md-4">
-          <div class="practice-card">
-            <div class="practice-icon"><i class="bi bi-funnel-fill"></i></div>
-            <h4 class="practice-title">Filtro Mental</h4>
-            <p>Antes de pensar, pergunte: "Isso passa no filtro de Filipenses 4:8?"</p>
+        <div class="col-12 col-lg-6">
+          <div class="application-card">
+            <div class="card-header bg-primary">
+              <h4 class="mb-0 text-white">🧠 Laboratório Mental - Exercícios Diários</h4>
+            </div>
+            <div class="card-body">
+              <h5 class="text-primary mb-3">🕐 Auditoria dos Pensamentos (Manhã - 5 min)</h5>
+              <p class="mb-3"><strong>Técnica da Análise Filtrada:</strong></p>
+              <ul class="mb-4">
+                <li>Ao acordar, faça 3 respirações profundas</li>
+                <li>Identifique o primeiro pensamento que vem à mente</li>
+                <li>Passe-o pelos 8 filtros de Filipenses 4:8</li>
+                <li>Se não passar, substitua por um pensamento bíblico</li>
+                <li>Ore: "Senhor, renova minha mente hoje com Tua verdade"</li>
+              </ul>
+              
+              <h5 class="text-warning mb-3">🌙 Limpeza Mental (Noite - 10 min)</h5>
+              <p class="mb-3"><strong>Técnica do Despejo Mental:</strong></p>
+              <ol>
+                <li><strong>Escreva</strong> tudo que passou pela sua mente hoje (3 min)</li>
+                <li><strong>Classifique</strong> cada pensamento com os 8 filtros (5 min)</li>
+                <li><strong>Substitua</strong> pensamentos negativos por versículos (2 min)</li>
+                <li><strong>Ore</strong> entregando sua mente para Cristo antes de dormir</li>
+              </ol>
+              
+              <div class="bg-info bg-opacity-20 border border-info border-opacity-30 p-3 rounded mt-3">
+                <h6 class="text-info fw-bold">📝 Exemplo Prático:</h6>
+                <p class="mb-2 text-white"><strong>Pensamento identificado:</strong> "Fulano sempre me ignora, ele não gosta de mim"</p>
+                <p class="mb-2 text-white"><strong>Análise:</strong> ❌ Não é verdadeiro (baseado em suposição), ❌ Não é nobre (gera ressentimento)</p>
+                <p class="mb-0 text-white"><strong>Substituição:</strong> "Vou orar por ele e procurar uma oportunidade de conversar com amor"</p>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="col-12 col-md-4">
-          <div class="practice-card">
-            <div class="practice-icon"><i class="bi bi-trash3-fill"></i></div>
-            <h4 class="practice-title">Limpeza Digital</h4>
-            <p>Remova conteúdos que não passam no teste bíblico</p>
+
+        <div class="col-12 col-lg-6">
+          <div class="application-card">
+            <div class="card-header bg-success">
+              <h4 class="mb-0 text-white">💚 Transformação de Relacionamentos</h4>
+            </div>
+            <div class="card-body">
+              <h5 class="text-success mb-3">👥 Família & Amizades</h5>
+              <ul class="mb-4">
+                <li><strong>Antes de falar com alguém:</strong> Filtre seus pensamentos sobre essa pessoa pelos 8 critérios</li>
+                <li><strong>Exercício da gratidão:</strong> Todo dia, pense em 3 qualidades de quem te irrita</li>
+                <li><strong>Oração intercessória:</strong> Ore por quem você tem dificuldade de amar</li>
+                <li><strong>Palavras que edificam:</strong> Só permita pensamentos que gerem palavras construtivas</li>
+              </ul>
+              
+              <h5 class="text-info mb-3">💼 Trabalho & Estudos</h5>
+              <ul class="mb-4">
+                <li><strong>Fofocas e críticas:</strong> Use o filtro "de boa fama" - isso edifica ou destrói?</li>
+                <li><strong>Competitividade tóxica:</strong> Substitua pensamentos de inveja por pensamentos de celebração</li>
+                <li><strong>Pressão e ansiedade:</strong> Quando vier ansiedade, pare e pense: "O que é verdadeiro sobre esta situação?"</li>
+                <li><strong>Conflitos:</strong> Antes de responder, filtre sua reação pelos critérios de pureza e nobreza</li>
+              </ul>
+              
+              <div class="bg-warning bg-opacity-20 border border-warning border-opacity-30 p-3 rounded">
+                <h6 class="text-warning fw-bold">⚡ Desafio Semanal:</h6>
+                <p class="mb-2 text-white"><strong>Semana 1:</strong> Foque nos filtros de verdade - questione suposições</p>
+                <p class="mb-2 text-white"><strong>Semana 2:</strong> Pratique nobreza - eleve o nível dos seus pensamentos</p>
+                <p class="mb-2 text-white"><strong>Semana 3:</strong> Exercite pureza - limpe pensamentos contaminados</p>
+                <p class="mb-0 text-white"><strong>Semana 4:</strong> Integre todos os filtros - transformação completa</p>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="col-12 col-md-4">
-          <div class="practice-card">
-            <div class="practice-icon"><i class="bi bi-book-half"></i></div>
-            <h4 class="practice-title">Alimento Mental</h4>
-            <p>Escolha livros, músicas e conteúdos edificantes</p>
+      </div>
+
+      <div class="row g-4 mt-4">
+        <div class="col-12">
+          <div class="application-card">
+            <div class="card-header bg-danger">
+              <h4 class="mb-0 text-white">🚨 Situações de Emergência Mental</h4>
+            </div>
+            <div class="card-body">
+              <div class="row g-4">
+                <div class="col-12 col-md-4">
+                  <h5 class="text-danger">🔥 Quando a Raiva Explodir</h5>
+                  <ol>
+                    <li>PARE imediatamente</li>
+                    <li>Respire fundo 5 vezes</li>
+                    <li>Pergunte: "Isso é correto e nobre?"</li>
+                    <li>Ore: "Senhor, controla meus pensamentos"</li>
+                    <li>Só então responda ou aja</li>
+                  </ol>
+                </div>
+                
+                <div class="col-12 col-md-4">
+                  <h5 class="text-warning">😰 Quando a Ansiedade Atacar</h5>
+                  <ol>
+                    <li>Identifique o medo por trás da ansiedade</li>
+                    <li>Questione: "Isso é verdadeiro?"</li>
+                    <li>Substitua por uma promessa bíblica</li>
+                    <li>Declare: "Deus está no controle"</li>
+                    <li>Louve até a paz vir</li>
+                  </ol>
+                </div>
+                
+                <div class="col-12 col-md-4">
+                  <h5 class="text-info">💙 Quando a Tristeza Dominar</h5>
+                  <ol>
+                    <li>Permita-se sentir (é humano)</li>
+                    <li>Filtre: "O que é verdadeiro sobre meu futuro?"</li>
+                    <li>Foque no que é digno de louvor na sua vida</li>
+                    <li>Conecte-se com alguém amável</li>
+                    <li>Lembre-se: "Isso também passará"</li>
+                  </ol>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -294,34 +700,128 @@
       <div class="question-item">
         <span class="question-number">1</span>
         <div>
-          <p><strong>Que tipo de pensamento tem dominado sua mente ultimamente?</strong></p>
+          <p><strong>Auditoria Pessoal:</strong> Que tipo de pensamento tem dominado sua mente ultimamente? Identifique padrões específicos de pensamentos negativos, preocupações recorrentes ou obsessões mentais que você tem enfrentado.</p>
+          <p class="text-muted"><em>Objetivo: Criar autoconsciência sobre hábitos mentais não saudáveis</em></p>
         </div>
       </div>
       
       <div class="question-item">
         <span class="question-number">2</span>
         <div>
-          <p><strong>O que você precisa remover ou adicionar em sua "dieta mental"?</strong></p>
+          <p><strong>Filtro da Verdade:</strong> Conte sobre uma situação recente onde você descobriu que seus pensamentos eram baseados em suposições falsas ao invés de fatos. Como você poderia ter aplicado o filtro "é verdadeiro?" naquela situação?</p>
+          <p class="text-muted"><em>Objetivo: Praticar discernimento entre fatos e interpretações pessoais</em></p>
         </div>
       </div>
       
       <div class="question-item">
         <span class="question-number">3</span>
         <div>
-          <p><strong>Como você pode aplicar o "filtro de Filipenses 4:8" no seu dia a dia?</strong></p>
+          <p><strong>Transformação de Relacionamentos:</strong> Pense numa pessoa com quem você tem dificuldades. Como seus pensamentos sobre essa pessoa se alinham ou contradizem os filtros "nobre", "amável" e "de boa fama"? O que precisa mudar?</p>
+          <p class="text-muted"><em>Objetivo: Aplicar os filtros bíblicos aos relacionamentos difíceis</em></p>
+        </div>
+      </div>
+      
+      <div class="question-item">
+        <span class="question-number">4</span>
+        <div>
+          <p><strong>Limpeza Digital:</strong> Avalie sua "dieta mental" - redes sociais, entretenimento, conversas, músicas. O que você precisa remover ou adicionar para que sua mente seja alimentada com conteúdo que passa no teste de Filipenses 4:8?</p>
+          <p class="text-muted"><em>Objetivo: Criar um ambiente mental saudável através de escolhas conscientes</em></p>
+        </div>
+      </div>
+      
+      <div class="question-item">
+        <span class="question-number">5</span>
+        <div>
+          <p><strong>Batalha Espiritual:</strong> Em que área da sua vida mental você sente que há maior guerra espiritual? Como você pode fortalecer sua mente com a Palavra de Deus nessa área específica? Compartilhe versículos que têm ajudado você.</p>
+          <p class="text-muted"><em>Objetivo: Identificar pontos de vulnerabilidade e fortalecer com armas espirituais</em></p>
+        </div>
+      </div>
+      
+      <div class="question-item">
+        <span class="question-number">6</span>
+        <div>
+          <p><strong>Exercício da Gratidão:</strong> Paulo diz para pensar no que é "digno de louvor". Mesmo no meio de suas lutas atuais, quais são 5 coisas específicas pelas quais você pode genuinamente louvar a Deus? Como focar nessas coisas muda sua perspectiva?</p>
+          <p class="text-muted"><em>Objetivo: Treinar a mente para ver a bondade de Deus mesmo nas dificuldades</em></p>
+        </div>
+      </div>
+      
+      <div class="question-item">
+        <span class="question-number">7</span>
+        <div>
+          <p><strong>Compromisso Prático:</strong> Qual dos 8 filtros de Filipenses 4:8 é mais desafiador para você aplicar? Crie um plano prático e específico para exercitar esse filtro durante esta semana. Como o grupo pode te ajudar nessa área?</p>
+          <p class="text-muted"><em>Objetivo: Transformar insight em ação concreta com apoio comunitário</em></p>
         </div>
       </div>
     </div>
 
     <div class="prayer-section">
       <h2 class="prayer-title">
-        <i class="bi bi-lightbulb-fill me-3"></i>
-        Oração pela Mente
+        <i class="bi bi-heart-fill me-3"></i>
+        Oração de Consagração Mental
       </h2>
       <div class="prayer-text">
-        <p><strong>"Senhor, renova minha mente. Ajuda-me a focar no que é verdadeiro, nobre e puro."</strong></p>
-        <p>Remove de mim pensamentos que não Te agradam. Que minha mente seja transformada pela Tua Palavra.</p>
-        <p><strong>Que meus pensamentos reflitam Teu caráter santo. Amém.</strong></p>
+        <p class="text-center mb-4"><em>"Finalmente, irmãos, tudo o que é verdadeiro, tudo o que é nobre, tudo o que é correto, tudo o que é puro, tudo o que é amável, tudo o que é de boa fama, se há algo de excelente ou digno de louvor, pensem nessas coisas." - Filipenses 4:8</em></p>
+        
+        <div class="prayer-subsection">
+          <h4 class="text-primary">🙏 Confissão e Arrependimento</h4>
+          <p><strong>"Pai celestial, reconheço que nem sempre meus pensamentos têm Te agradado.</strong> Confesso que muitas vezes permiti que minha mente se enchesse de:</p>
+          <ul class="prayer-list">
+            <li>Pensamentos de inveja, comparação e ressentimento</li>
+            <li>Preocupações que demonstram falta de confiança em Ti</li>
+            <li>Fantasias e desejos que não são puros nem santos</li>
+            <li>Críticas e julgamentos que destroem ao invés de edificar</li>
+            <li>Mentiras que aceito sobre mim mesmo e sobre outros</li>
+          </ul>
+          <p><strong>Perdoa-me, Senhor, e purifica minha mente.</strong></p>
+        </div>
+
+        <div class="prayer-subsection">
+          <h4 class="text-success">🌟 Consagração e Entrega</h4>
+          <p><strong>"Entrego a Ti, Senhor, cada pensamento, cada imaginação, cada sonho.</strong> Que minha mente seja:</p>
+          <ul class="prayer-list">
+            <li><strong>Verdadeira:</strong> Fundamentada em Tua Palavra, não em mentiras do inimigo</li>
+            <li><strong>Nobre:</strong> Elevada, digna, que busca sempre o que é superior</li>
+            <li><strong>Correta:</strong> Alinhada com Tua justiça e Teus princípios</li>
+            <li><strong>Pura:</strong> Santa, limpa, separada para Ti</li>
+            <li><strong>Amável:</strong> Que enxerga as pessoas com Teus olhos de amor</li>
+            <li><strong>De boa fama:</strong> Que fala bem dos outros e edifica</li>
+            <li><strong>Excelente:</strong> Que busca sempre a excelência do Teu Reino</li>
+            <li><strong>Digna de louvor:</strong> Que Te glorifica em cada pensamento</li>
+          </ul>
+        </div>
+
+        <div class="prayer-subsection">
+          <h4 class="text-warning">⚔️ Proteção Espiritual</h4>
+          <p><strong>"Senhor, coloca uma guarda sobre minha mente.</strong> Que o capacete da salvação proteja meus pensamentos dos ataques do inimigo. Quando vier a tentação mental, que eu:</p>
+          <ul class="prayer-list">
+            <li>Imediatamente clame pelo sangue de Jesus</li>
+            <li>Lembre-me de Tuas promessas e Tua fidelidade</li>
+            <li>Substitua pensamentos impuros por versículos bíblicos</li>
+            <li>Busque a ajuda de irmãos em oração</li>
+            <li>Me refugie na adoração e no louvor</li>
+          </ul>
+        </div>
+
+        <div class="prayer-subsection">
+          <h4 class="text-info">💫 Transformação Diária</h4>
+          <p><strong>"Pai, renova minha mente dia após dia.</strong> Que ao acordar, meu primeiro pensamento seja em Ti. Durante o dia, que eu:</p>
+          <ul class="prayer-list">
+            <li>Filtre cada pensamento pelos critérios de Filipenses 4:8</li>
+            <li>Medite em Tua Palavra continuamente</li>
+            <li>Tenha pensamentos de gratidão e louvor</li>
+            <li>Veja as pessoas através do Teu amor</li>
+            <li>Busque sempre o que edifica e abençoa</li>
+          </ul>
+          <p>Que ao deitar, minha mente esteja em paz, descansando em Tuas promessas."</p>
+        </div>
+
+        <div class="prayer-conclusion">
+          <p class="text-center"><strong>"Que minha mente seja um jardim onde florescem pensamentos que Te agradam. Que ela seja um templo santo onde Tu habitas e reinas. Que cada pensamento seja levado cativo à obediência de Cristo.</strong></p>
+          
+          <p class="text-center"><strong>Em nome de Jesus, meu Salvador e Senhor, que tem poder para transformar completamente minha mente e meu coração.</strong></p>
+          
+          <p class="text-center prayer-amen"><strong>Amém e Amém!</strong></p>
+        </div>
       </div>
     </div>
   </div>
@@ -329,6 +829,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="../../verses.js"></script>
   <script>
+    // Interação com versículos
     document.querySelectorAll('.verse-ref').forEach(ref => {
       ref.addEventListener('click', function() {
         const verseKey = this.getAttribute('data-ref');
@@ -349,6 +850,182 @@
         this.insertAdjacentElement('afterend', expanded);
       });
     });
+
+    // Animação dos cards de estrutura
+    const observerStructure = new IntersectionObserver((entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.style.transform = 'translateY(0)';
+            entry.target.style.opacity = '1';
+          }, index * 200);
+        }
+      });
+    });
+
+    document.querySelectorAll('.structure-card').forEach(card => {
+      card.style.transform = 'translateY(50px)';
+      card.style.opacity = '0';
+      card.style.transition = 'all 0.6s ease';
+      observerStructure.observe(card);
+    });
+
+    // Animação dos cards de aplicação
+    const observerApplication = new IntersectionObserver((entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.style.transform = 'scale(1)';
+            entry.target.style.opacity = '1';
+          }, index * 300);
+        }
+      });
+    });
+
+    document.querySelectorAll('.application-card').forEach(card => {
+      card.style.transform = 'scale(0.9)';
+      card.style.opacity = '0';
+      card.style.transition = 'all 0.8s ease';
+      observerApplication.observe(card);
+    });
+
+    // Filtro mental interativo
+    function createMentalFilter() {
+      const filterTypes = [
+        'Verdadeiro', 'Nobre', 'Correto', 'Puro', 
+        'Amável', 'De boa fama', 'Excelente', 'Digno de louvor'
+      ];
+      
+      let currentFilter = 0;
+      
+      setInterval(() => {
+        const filterElements = document.querySelectorAll('.filter-highlight');
+        filterElements.forEach(el => el.classList.remove('filter-highlight'));
+        
+        const targetElements = document.querySelectorAll(`[data-filter="${filterTypes[currentFilter]}"]`);
+        targetElements.forEach(el => {
+          el.classList.add('filter-highlight');
+          el.style.background = 'linear-gradient(45deg, rgba(0,255,255,0.2), rgba(255,0,255,0.2))';
+          el.style.transform = 'scale(1.05)';
+          el.style.transition = 'all 0.5s ease';
+        });
+        
+        setTimeout(() => {
+          targetElements.forEach(el => {
+            el.style.background = '';
+            el.style.transform = 'scale(1)';
+          });
+        }, 2000);
+        
+        currentFilter = (currentFilter + 1) % filterTypes.length;
+      }, 3000);
+    }
+
+    // Efeito de ripple nas perguntas
+    document.querySelectorAll('.question-item').forEach(question => {
+      question.addEventListener('click', function(e) {
+        const ripple = document.createElement('div');
+        ripple.style.position = 'absolute';
+        ripple.style.borderRadius = '50%';
+        ripple.style.background = 'rgba(0, 255, 255, 0.3)';
+        ripple.style.transform = 'scale(0)';
+        ripple.style.animation = 'ripple 0.6s ease-out';
+        ripple.style.left = (e.clientX - this.offsetLeft - 25) + 'px';
+        ripple.style.top = (e.clientY - this.offsetTop - 25) + 'px';
+        ripple.style.width = '50px';
+        ripple.style.height = '50px';
+        
+        this.style.position = 'relative';
+        this.appendChild(ripple);
+        
+        setTimeout(() => {
+          ripple.remove();
+        }, 600);
+      });
+    });
+
+    // Contador de palavras-chave da pureza
+    function highlightPurityWords() {
+      const purityWords = ['pureza', 'mente', 'pensamentos', 'filtro', 'transformação', 'renovação'];
+      const content = document.body.innerHTML;
+      
+      purityWords.forEach(word => {
+        const regex = new RegExp(`\\b${word}\\b`, 'gi');
+        document.body.innerHTML = document.body.innerHTML.replace(regex, 
+          `<span class="purity-word" style="color: var(--neon-cyan); font-weight: bold; text-shadow: 0 0 5px var(--neon-cyan);">${word}</span>`
+        );
+      });
+    }
+
+    // Oração interativa
+    document.querySelector('.prayer-section').addEventListener('mouseenter', function() {
+      this.style.background = 'linear-gradient(45deg, rgba(255,215,0,0.1), rgba(255,20,147,0.1))';
+      this.style.transform = 'scale(1.02)';
+      this.style.transition = 'all 0.5s ease';
+    });
+
+    document.querySelector('.prayer-section').addEventListener('mouseleave', function() {
+      this.style.background = '';
+      this.style.transform = 'scale(1)';
+    });
+
+    // Inicializar efeitos
+    setTimeout(() => {
+      createMentalFilter();
+      highlightPurityWords();
+    }, 1000);
+
+    // Sparkles dinâmicos
+    function createSparkle() {
+      const sparkle = document.createElement('div');
+      sparkle.className = 'sparkle-dynamic';
+      sparkle.style.cssText = `
+        position: fixed;
+        width: 4px;
+        height: 4px;
+        background: radial-gradient(circle, #fff, transparent);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 1000;
+        left: ${Math.random() * window.innerWidth}px;
+        top: ${Math.random() * window.innerHeight}px;
+        animation: sparkleFloat 3s ease-out forwards;
+      `;
+      
+      document.body.appendChild(sparkle);
+      
+      setTimeout(() => sparkle.remove(), 3000);
+    }
+
+    // Criar sparkles periodicamente
+    setInterval(createSparkle, 500);
+
+    // CSS para animações dinâmicas
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes ripple {
+        to {
+          transform: scale(4);
+          opacity: 0;
+        }
+      }
+      
+      @keyframes sparkleFloat {
+        0% { opacity: 1; transform: translateY(0px) rotate(0deg); }
+        100% { opacity: 0; transform: translateY(-100px) rotate(360deg); }
+      }
+      
+      .purity-word {
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      
+      .purity-word:hover {
+        transform: scale(1.2);
+        filter: drop-shadow(0 0 10px currentColor);
+      }
+    `;
+    document.head.appendChild(style);
   </script>
 </body>
 </html>
