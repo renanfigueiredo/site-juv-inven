@@ -12,6 +12,17 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
   <link rel="stylesheet" href="./styles.css" />
   <style>
+    /* SUPORTE ESPECIFICO PARA iOS SAFARI */
+    body.ios-device {
+      background: #0f172a !important;
+      background-image: none !important;
+    }
+    
+    body.ios-device.light {
+      background: #f8fafc !important;
+      background-image: none !important;
+    }
+
     /* DESIGN PREMIUM COM ELEMENTOS VISUAIS MODERNOS */
     :root {
       --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -636,22 +647,38 @@
       // Detectar iOS Safari
       const isIOSSafari = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
       
+      // Adicionar classe iOS ao body se for iOS
+      if (isIOSSafari) {
+        body.classList.add('ios-device');
+        console.log('iOS Safari detectado - aplicando correções específicas');
+      }
+      
       // Função para aplicar tema no iOS
       function applyIOSTheme(isLight) {
         if (isIOSSafari) {
           if (isLight) {
-            // Tema claro para iOS
-            body.style.background = '#f1f5f9';
-            body.style.backgroundImage = 'linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 50%, #ffffff 100%)';
+            // Tema claro para iOS - COR SÓLIDA
+            body.style.setProperty('background', '#f8fafc', 'important');
+            body.style.setProperty('background-image', 'none', 'important');
           } else {
-            // Tema escuro para iOS
-            body.style.background = '#0c0c0c';
-            body.style.backgroundImage = 'linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%)';
+            // Tema escuro para iOS - COR SÓLIDA
+            body.style.setProperty('background', '#0f172a', 'important');
+            body.style.setProperty('background-image', 'none', 'important');
           }
-          // Forçar re-render
-          body.style.display = 'none';
-          body.offsetHeight;
-          body.style.display = '';
+          // Forçar re-render múltiplas vezes com diferentes técnicas
+          requestAnimationFrame(() => {
+            body.style.display = 'none';
+            body.offsetHeight;
+            body.style.display = '';
+            
+            // Segunda tentativa de forçar repaint
+            setTimeout(() => {
+              body.style.transform = 'translateZ(0)';
+              setTimeout(() => {
+                body.style.transform = '';
+              }, 10);
+            }, 20);
+          });
         }
       }
       
