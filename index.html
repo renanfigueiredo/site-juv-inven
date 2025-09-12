@@ -28,9 +28,27 @@
     body {
       font-family: 'Poppins', sans-serif !important;
       background: var(--gradient-dark) !important;
+      /* Fallback para iOS Safari */
+      background: -webkit-linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%) !important;
+      background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%) !important;
       min-height: 100vh;
       position: relative;
       overflow-x: hidden;
+    }
+
+    /* CORREÇÃO ESPECÍFICA PARA iOS SAFARI */
+    @supports (-webkit-appearance: none) {
+      body {
+        background: #0c0c0c !important;
+        background: -webkit-linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%) !important;
+        background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%) !important;
+      }
+      
+      body.light {
+        background: #f1f5f9 !important;
+        background: -webkit-linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 50%, #ffffff 100%) !important;
+        background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 50%, #ffffff 100%) !important;
+      }
     }
 
     /* CORES DO TEXTO PADRÃO */
@@ -613,6 +631,18 @@
       const body = document.body;
       const icon = themeToggle.querySelector('i');
       
+      // Detectar iOS Safari
+      const isIOSSafari = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+      
+      // Função para forçar repaint no iOS
+      function forceIOSRepaint() {
+        if (isIOSSafari) {
+          body.style.display = 'none';
+          body.offsetHeight; // trigger reflow
+          body.style.display = '';
+        }
+      }
+      
       // Verificar tema salvo
       const savedTheme = localStorage.getItem('theme') || 'dark';
       if (savedTheme === 'light') {
@@ -620,8 +650,10 @@
         icon.className = 'bi bi-moon-stars-fill';  // Lua no tema claro
         document.documentElement.style.setProperty('--glass-bg', 'rgba(255, 255, 255, 0.4)');
         document.documentElement.style.setProperty('--glass-border', 'rgba(0, 0, 0, 0.2)');
+        forceIOSRepaint();
       } else {
         icon.className = 'bi bi-sun-fill';  // Sol no tema escuro
+        forceIOSRepaint();
       }
 
       // Funcionalidade do toggle
@@ -639,6 +671,9 @@
           document.documentElement.style.setProperty('--glass-bg', 'rgba(255, 255, 255, 0.05)');
           document.documentElement.style.setProperty('--glass-border', 'rgba(255, 255, 255, 0.1)');
         }
+        
+        // Forçar repaint no iOS após mudança de tema
+        forceIOSRepaint();
         
         // Animação do toggle
         themeToggle.style.transform = 'scale(0.8)';
