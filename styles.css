@@ -1,0 +1,211 @@
+:root{
+  --blue:#0B3C5D;
+  --black:#101010;
+  --orange:#FF6B35;
+  --light:#F2F2F2;
+  --text-primary:#ffffff;
+  --text-secondary:#b8c5d1;
+  --text-muted:#7a8997;
+  --text-on-warning:#000000;
+  --glass-bg:rgba(255,255,255,0.06);
+  --glass-bd:rgba(255,255,255,0.14);
+}
+
+body{
+  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;
+  background:linear-gradient(135deg,var(--blue),var(--black));
+  color:var(--text-primary);
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+}
+
+/* Tema escuro com melhor contraste */
+body.dark{
+  --blue:#062434;
+  --black:#0a0a0a;
+  --orange:#ff814f;
+  --light:#f0f4f8;
+  --text-primary:#f0f4f8;
+  --text-secondary:#cbd5e0;
+  --text-muted:#9ca3af;
+  --text-on-warning:#000000;
+  background:linear-gradient(135deg,var(--black),#16232c)!important;
+}
+
+/* Sistema de texto responsivo aos temas */
+.text-primary { color: var(--text-primary) !important; }
+.text-secondary { color: var(--text-secondary) !important; }
+.text-muted { color: var(--text-muted) !important; }
+
+/* Melhor contraste para botões warning */
+.btn-warning{
+  --bs-btn-color:var(--text-on-warning);
+  --bs-btn-bg:var(--orange);
+  --bs-btn-border-color:var(--orange);
+  --bs-btn-hover-bg:#ff8747;
+  --bs-btn-hover-border-color:#ff8747;
+  --bs-btn-hover-color:var(--text-on-warning);
+  --bs-btn-active-color:var(--text-on-warning);
+  font-weight: 600;
+}
+.hero .glass{
+  background:var(--glass-bg);
+  border:1px solid var(--glass-bd);
+  border-radius:20px;
+  box-shadow:0 10px 35px -5px rgba(0,0,0,.45);
+}
+
+.glass-sm{
+  background:var(--glass-bg)!important;
+  border:1px solid var(--glass-bd)!important;
+  border-radius:12px;
+}
+
+.section h2{
+  font-family:Montserrat,Impact,Arial Black;
+  font-weight:800;
+  color:var(--orange);
+  letter-spacing:.5px;
+}
+
+.card{
+  background:var(--glass-bg);
+  border:1px solid var(--glass-bd);
+  color:var(--text-primary);
+}
+
+.card.link{
+  cursor:pointer;
+  transition:.25s;
+}
+
+.card.link:hover{
+  background:rgba(255,255,255,0.1);
+}
+
+.footer{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:24px 20px;
+  border-top:1px solid rgba(255,255,255,.08);
+  background:rgba(0,0,0,.25);
+  margin-top:auto;
+  color:var(--text-secondary);
+}
+.navbar{
+  backdrop-filter:saturate(140%) blur(10px);
+  background:rgba(0,0,0,0.45)!important;
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:14px;
+}
+
+/* Melhor contraste para links da navbar */
+.navbar-nav .nav-link {
+  color: var(--text-secondary) !important;
+}
+
+.navbar-nav .nav-link:hover {
+  color: var(--text-primary) !important;
+}
+
+.navbar-brand {
+  color: var(--text-primary) !important;
+}
+
+/* Scrollbar com melhor contraste */
+::-webkit-scrollbar{width:10px}
+::-webkit-scrollbar-track{background:#0c1a22}
+::-webkit-scrollbar-thumb{background:#243d49;border-radius:6px}
+::-webkit-scrollbar-thumb:hover{background:#335769}
+
+/* Melhor contraste para modais */
+.modal-content {
+  background: var(--black) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--glass-bd) !important;
+}
+
+.modal-header {
+  border-bottom: 1px solid var(--glass-bd) !important;
+}
+
+.modal-footer {
+  border-top: 1px solid var(--glass-bd) !important;
+}
+
+/* Botões outline com melhor contraste */
+.btn-outline-light {
+  --bs-btn-color: var(--text-secondary);
+  --bs-btn-border-color: var(--text-muted);
+  --bs-btn-hover-color: var(--text-primary);
+  --bs-btn-hover-bg: rgba(255,255,255,0.1);
+  --bs-btn-hover-border-color: var(--text-secondary);
+}
+
+.btn-outline-warning {
+  --bs-btn-color: var(--orange);
+  --bs-btn-border-color: var(--orange);
+  --bs-btn-hover-color: var(--text-on-warning);
+  --bs-btn-hover-bg: var(--orange);
+  --bs-btn-hover-border-color: var(--orange);
+}
+
+/* Badges com contraste garantido */
+.badge.bg-warning {
+  background-color: var(--orange) !important;
+  color: #000000 !important;
+  font-weight: 600;
+}
+
+.bg-warning {
+  background-color: var(--orange) !important;
+}
+
+.text-dark {
+  color: #000000 !important;
+}
+
+/* Cards com header warning */
+.card-header.bg-warning {
+  background-color: var(--orange) !important;
+  color: #000000 !important;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+/* Alertas com melhor visibilidade */
+.alert-warning {
+  background-color: rgba(255, 193, 7, 0.15) !important;
+  border: 1px solid var(--orange) !important;
+  color: var(--text-primary) !important;
+}
+
+/* Estilos específicos para a estrutura simplificada */
+.section h2 {
+  font-size: 2.25rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+/* Melhor espaçamento para botões de sermões */
+.section .d-flex.gap-2 {
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.section .btn-sm {
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+}
+
+/* Cards de pilares mais destacados */
+#pilares .card {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+#pilares .card:hover {
+  transform: translateY(-2px);
+  background: rgba(255,255,255,0.1);
+}
