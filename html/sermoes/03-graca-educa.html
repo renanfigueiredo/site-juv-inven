@@ -11,49 +11,13 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
   <link rel="stylesheet" href="../../styles.css" />
   <style>
-    /* TEMA E LAYOUT RESPONSIVO */
-    body.dark{
-      --blue:#062434;
-      --black:#050505;
-      --orange:#ff814f;
-      --light:#e8e8e8;
-      background:linear-gradient(135deg,var(--black),#16232c)!important;
-    }
-    
-    .content{
-      max-width:900px;
-      margin:0 auto;
-      padding:2rem 1rem;
-      padding-top:4rem; /* Espaço para o botão voltar */
-    }
-    
-    /* BOTÃO VOLTAR RESPONSIVO */
-    .back-btn{
-      position:fixed;
-      top:1rem;
-      left:1rem;
-      z-index:1000;
-      transition: all 0.3s ease;
-    }
-    
-    /* RESPONSIVIDADE MOBILE */
-    @media (max-width: 768px) {
-      .content {
-        padding: 1rem 0.75rem;
-        padding-top: 4.5rem; /* Mais espaço no mobile */
-      }
-      
-      .back-btn {
-        top: 0.75rem;
-        left: 0.75rem;
-        font-size: 0.9rem;
-  <style>
-    /* DESIGN PREMIUM */
+    /* DESIGN PREMIUM IGUAL AO INDEX */
     :root {
       --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
       --gradient-accent: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
       --gradient-dark: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
+      --glow-color: #ff6b6b;
       --neon-blue: #00d4ff;
       --neon-purple: #bd5eff;
       --glass-bg: rgba(255, 255, 255, 0.05);
@@ -63,10 +27,22 @@
     body {
       font-family: 'Poppins', sans-serif !important;
       background: var(--gradient-dark) !important;
+      background-color: #0c0c0c !important;
       min-height: 100vh;
       color: #ffffff;
+      overflow-x: hidden;
     }
 
+    /* EFEITOS GLASSMORPHISM */
+    .glass-effect {
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+    }
+
+    /* BOTÃO VOLTAR PREMIUM */
     .back-btn {
       position: fixed;
       top: 2rem;
@@ -81,23 +57,28 @@
       text-decoration: none;
       font-weight: 500;
       transition: all 0.3s ease;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     }
 
     .back-btn:hover {
       background: rgba(255, 255, 255, 0.15);
       color: var(--neon-blue);
       transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(0, 212, 255, 0.3);
     }
 
+    /* CONTAINER PRINCIPAL */
     .sermon-container {
       max-width: 1000px;
       margin: 0 auto;
       padding: 6rem 2rem 4rem;
     }
 
+    /* HEADER DA MENSAGEM */
     .sermon-header {
       text-align: center;
       margin-bottom: 4rem;
+      position: relative;
     }
 
     .sermon-title {
@@ -107,10 +88,27 @@
       background: var(--gradient-accent);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      color: #4facfe;
+      background-clip: text;
       margin-bottom: 1rem;
+      text-shadow: 0 0 30px rgba(79, 172, 254, 0.5);
+      color: #4facfe;
     }
 
+    @supports not (-webkit-background-clip: text) {
+      .sermon-title {
+        color: #4facfe !important;
+        background: none !important;
+        text-shadow: 0 0 20px rgba(79, 172, 254, 0.8);
+      }
+    }
+
+    .sermon-subtitle {
+      font-size: 1.2rem;
+      color: rgba(255, 255, 255, 0.7);
+      font-weight: 300;
+    }
+
+    /* VERSÍCULO DESTAQUE */
     .verse-highlight {
       background: var(--glass-bg);
       backdrop-filter: blur(20px);
@@ -120,8 +118,24 @@
       margin: 3rem 0;
       text-align: center;
       font-size: 1.3rem;
+      line-height: 1.8;
+      color: #ffffff;
+      box-shadow: 0 0 40px rgba(0, 212, 255, 0.3);
       cursor: pointer;
       transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .verse-highlight::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(0, 212, 255, 0.1), transparent);
+      animation: sparkle 3s infinite;
     }
 
     .verse-highlight:hover {
@@ -129,6 +143,12 @@
       box-shadow: 0 0 60px rgba(0, 212, 255, 0.5);
     }
 
+    @keyframes sparkle {
+      0% { transform: rotate(0deg) translate(-50%, -50%); }
+      100% { transform: rotate(360deg) translate(-50%, -50%); }
+    }
+
+    /* SEÇÕES */
     .sermon-section {
       background: var(--glass-bg);
       backdrop-filter: blur(20px);
@@ -136,7 +156,20 @@
       border-radius: 20px;
       padding: 3rem;
       margin: 3rem 0;
+      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
       color: #ffffff;
+    }
+
+    .sermon-section p,
+    .sermon-section li,
+    .sermon-section .text-muted,
+    .sermon-section .small {
+      color: rgba(255, 255, 255, 0.9) !important;
+    }
+
+    .sermon-section .lead {
+      color: #ffffff !important;
+      font-weight: 500;
     }
 
     .section-title {
@@ -144,22 +177,65 @@
       font-size: 2.2rem;
       font-weight: 700;
       color: var(--neon-blue);
-      text-align: center;
       margin-bottom: 2rem;
+      text-align: center;
+      position: relative;
     }
 
-    .structure-card, .practice-card {
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 3px;
+      background: var(--gradient-accent);
+      border-radius: 2px;
+    }
+
+    /* CARDS ESTRUTURA */
+    .structure-card {
       background: var(--glass-bg);
       backdrop-filter: blur(15px);
       border: 1px solid var(--glass-border);
       border-radius: 15px;
       padding: 2rem;
-      transition: all 0.3s ease;
       height: 100%;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
       color: #ffffff;
     }
 
-    .structure-card:hover, .practice-card:hover {
+    .structure-card p,
+    .structure-card li,
+    .structure-card .text-muted,
+    .structure-card .small {
+      color: rgba(255, 255, 255, 0.9) !important;
+    }
+
+    .structure-card .bg-dark {
+      background: rgba(0, 0, 0, 0.4) !important;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .structure-card .bg-dark p,
+    .structure-card .bg-dark .small {
+      color: rgba(255, 255, 255, 0.95) !important;
+    }
+
+    .structure-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--gradient-secondary);
+    }
+
+    .structure-card:hover {
       transform: translateY(-8px);
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
     }
@@ -167,16 +243,57 @@
     .card-number {
       font-size: 3rem;
       font-weight: 800;
-      color: #667eea;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
       margin-bottom: 1rem;
+      color: #667eea;
     }
 
-    .card-title, .practice-title {
+    @supports not (-webkit-background-clip: text) {
+      .card-number {
+        color: #667eea !important;
+        background: none !important;
+      }
+    }
+
+    .card-title {
       font-family: 'Montserrat', sans-serif;
       font-size: 1.4rem;
       font-weight: 700;
       color: var(--neon-blue);
       margin-bottom: 1.5rem;
+    }
+
+    /* APLICAÇÕES PRÁTICAS */
+    .practice-card {
+      background: var(--glass-bg);
+      backdrop-filter: blur(15px);
+      border: 1px solid var(--glass-border);
+      border-radius: 15px;
+      padding: 2rem;
+      text-align: center;
+      transition: all 0.3s ease;
+      height: 100%;
+      color: #ffffff;
+    }
+
+    .practice-card p,
+    .practice-card li,
+    .practice-card .small,
+    .practice-card .text-muted {
+      color: rgba(255, 255, 255, 0.9) !important;
+    }
+
+    .practice-card .text-start ul {
+      color: rgba(255, 255, 255, 0.8) !important;
+    }
+
+    .practice-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 15px 35px rgba(189, 94, 255, 0.3);
     }
 
     .practice-icon {
@@ -185,37 +302,57 @@
       margin-bottom: 1rem;
     }
 
+    .practice-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--neon-purple);
+      margin-bottom: 1rem;
+    }
+
+    /* PERGUNTAS GCG */
     .question-item {
       background: var(--glass-bg);
-      border: 1px solid var(--glass-border);
-      border-radius: 15px;
-      padding: 2rem;
-      margin: 2rem 0;
-      display: flex;
-      align-items: flex-start;
-      gap: 1.5rem;
+      backdrop-filter: blur(10px);
+      border-left: 4px solid var(--neon-blue);
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      color: #ffffff;
+    }
+
+    .question-item p,
+    .question-item .small,
+    .question-item .text-muted {
+      color: rgba(255, 255, 255, 0.9) !important;
+    }
+
+    .question-item:hover {
+      background: rgba(255, 255, 255, 0.08);
+      transform: translateX(10px);
     }
 
     .question-number {
-      background: var(--gradient-primary);
-      color: white;
-      width: 40px;
-      height: 40px;
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      background: var(--gradient-accent);
+      color: #000;
       border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      text-align: center;
+      line-height: 30px;
       font-weight: 700;
-      flex-shrink: 0;
+      margin-right: 1rem;
     }
 
+    /* ORAÇÃO FINAL */
     .prayer-section {
-      background: linear-gradient(135deg, var(--neon-purple) 0%, var(--neon-blue) 100%);
+      background: var(--gradient-secondary);
       border-radius: 20px;
       padding: 3rem;
-      margin: 4rem 0;
       text-align: center;
       color: #ffffff;
+      box-shadow: 0 0 50px rgba(240, 147, 251, 0.4);
     }
 
     .prayer-title {
@@ -225,11 +362,65 @@
       margin-bottom: 2rem;
     }
 
+    .prayer-text {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      font-style: italic;
+    }
+
     /* RESPONSIVIDADE */
     @media (max-width: 768px) {
-      .sermon-container { padding: 4rem 1rem 2rem; }
-      .sermon-title { font-size: 2.5rem; }
-      .back-btn { top: 1rem; left: 1rem; }
+      .back-btn {
+        top: 1rem;
+        left: 1rem;
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+      }
+
+      .sermon-container {
+        padding: 5rem 1rem 3rem;
+      }
+
+      .sermon-title {
+        font-size: 2.5rem;
+      }
+
+      .verse-highlight {
+        padding: 2rem;
+        font-size: 1.1rem;
+      }
+
+      .sermon-section {
+        padding: 2rem;
+      }
+
+      .section-title {
+        font-size: 1.8rem;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .sermon-title {
+        font-size: 2rem;
+      }
+
+      .verse-highlight {
+        padding: 1.5rem;
+        font-size: 1rem;
+      }
+
+      .sermon-section {
+        padding: 1.5rem;
+      }
+    }
+
+    /* iOS Safari específico para títulos */
+    @supports (-webkit-appearance: none) {
+      .sermon-title {
+        color: #4facfe !important;
+        background: none !important;
+        -webkit-text-fill-color: #4facfe !important;
+      }
     }
   </style>
 </head>
@@ -255,12 +446,16 @@
       </div>
     </div>
 
+    <!-- OBJETIVO DA MENSAGEM -->
     <div class="sermon-section">
       <div class="text-center mb-4">
+        <i class="bi bi-bullseye fs-1 text-warning mb-3"></i>
         <h3 class="text-warning">Objetivo da Mensagem</h3>
       </div>
       <p class="lead text-center">
-        <strong>Entender que a graça não só salva, mas educa</strong> - transformando nosso caráter e conduta diária.
+        <strong>Transformar nossa compreensão da graça de Deus</strong>, descobrindo que ela não apenas nos salva do pecado, 
+        mas nos educa para uma vida santa, justa e piedosa, motivados pela esperança bendita da volta de Cristo 
+        e pelo zelo pelas boas obras que Ele preparou para nós.
       </p>
     </div>
 
@@ -272,12 +467,20 @@
           <div class="structure-card">
             <div class="card-number">1</div>
             <h3 class="card-title">Graça que Salva</h3>
-            <ul class="mb-3">
-              <li>Manifestação de Deus</li>
-              <li>Salvação para todos</li>
-              <li>Oferta universal</li>
-              <li>Base da transformação</li>
+            <p class="text-muted mb-3"><strong>Versículo 11</strong></p>
+            
+            <h5 class="text-success mb-3">🟢 A Manifestação da Graça:</h5>
+            <ul class="mb-4">
+              <li><strong>Manifestação divina:</strong> A graça não é teoria, é realidade histórica em Cristo</li>
+              <li><strong>Salvação universal:</strong> Oferecida a todos os homens, independente de status</li>
+              <li><strong>Iniciativa de Deus:</strong> Não merecemos, não conquistamos, apenas recebemos</li>
+              <li><strong>Base da transformação:</strong> Ponto de partida para toda mudança genuína</li>
             </ul>
+            
+            <div class="bg-dark p-3 rounded">
+              <h6 class="text-warning">💡 Reflexão:</h6>
+              <p class="mb-0 small">A palavra "manifestou" indica algo que estava oculto e agora foi revelado. A graça sempre existiu no coração de Deus, mas em Cristo ela se tornou visível, tangível e acessível a todos nós.</p>
+            </div>
           </div>
         </div>
 
@@ -285,12 +488,21 @@
           <div class="structure-card">
             <div class="card-number">2</div>
             <h3 class="card-title">Graça que Educa</h3>
-            <ul class="mb-3">
-              <li>Renegar impiedade</li>
-              <li>Deixar paixões mundanas</li>
-              <li>Viver com sensatez</li>
-              <li>Justiça e piedade</li>
+            <p class="text-muted mb-3"><strong>Versículo 12</strong></p>
+            
+            <h5 class="text-warning mb-3">🟡 O Processo Educativo:</h5>
+            <ul class="mb-4">
+              <li><strong>Renegar impiedade:</strong> Abandona atitudes que desonram a Deus</li>
+              <li><strong>Deixar paixões mundanas:</strong> Rompe com desejos que escravizam</li>
+              <li><strong>Viver com sensatez:</strong> Autocontrole e sabedoria nas decisões</li>
+              <li><strong>Praticar justiça:</strong> Relacionamentos corretos e íntegros</li>
+              <li><strong>Exercer piedade:</strong> Reverência genuína a Deus</li>
             </ul>
+            
+            <div class="bg-dark p-3 rounded">
+              <h6 class="text-warning">💡 Reflexão:</h6>
+              <p class="mb-0 small">A graça não apenas nos perdoa - ela nos transforma. Como um professor paciente, ela nos ensina a viver de forma que honre aquele que nos salvou. É educação divina para vida santa.</p>
+            </div>
           </div>
         </div>
 
@@ -298,12 +510,21 @@
           <div class="structure-card">
             <div class="card-number">3</div>
             <h3 class="card-title">Graça que Motiva</h3>
-            <ul class="mb-3">
-              <li>Esperança bendita</li>
-              <li>Volta de Cristo</li>
-              <li>Povo peculiar</li>
-              <li>Zelo pelas boas obras</li>
+            <p class="text-muted mb-3"><strong>Versículos 13-14</strong></p>
+            
+            <h5 class="text-info mb-3">🔵 A Esperança Futura:</h5>
+            <ul class="mb-4">
+              <li><strong>Esperança bendita:</strong> Expectativa alegre e certa da volta de Cristo</li>
+              <li><strong>Manifestação da glória:</strong> Jesus voltará em majestade e poder</li>
+              <li><strong>Povo peculiar:</strong> Comunidade especial, separada para Deus</li>
+              <li><strong>Zelo pelas boas obras:</strong> Entusiasmo em servir e abençoar outros</li>
+              <li><strong>Purificação contínua:</strong> Processo de santificação até sua volta</li>
             </ul>
+            
+            <div class="bg-dark p-3 rounded">
+              <h6 class="text-warning">💡 Reflexão:</h6>
+              <p class="mb-0 small">A esperança da volta de Cristo não é escapismo, mas motivação. Sabemos que um dia prestaremos contas, e isso nos inspira a viver com propósito e dedicação ao Reino de Deus hoje.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -311,66 +532,221 @@
 
     <div class="sermon-section">
       <h2 class="section-title">Aplicações Práticas</h2>
+      <p class="text-center mb-4 lead">Ações concretas para permitir que a graça eduque e transforme nossa vida diária</p>
       
       <div class="row g-4">
         <div class="col-12 col-md-4">
           <div class="practice-card">
-            <div class="practice-icon"><i class="bi bi-x-circle"></i></div>
-            <h4 class="practice-title">Renegar o Mal</h4>
-            <p>Identifique uma atitude impiedosa e peça graça para abandoná-la</p>
+            <div class="practice-icon">
+              <i class="bi bi-x-circle-fill"></i>
+            </div>
+            <h4 class="practice-title">Diário de Renúncia</h4>
+            <p><strong>Ação:</strong> Identifique uma atitude impiedosa específica em sua vida e pratique a renúncia diária.</p>
+            <hr class="my-3">
+            <div class="text-start">
+              <p class="small mb-2"><strong>Exemplos práticos:</strong></p>
+              <ul class="small">
+                <li>Fofoca → Escolher falar bem das pessoas</li>
+                <li>Comparação → Celebrar conquistas dos outros</li>
+                <li>Preguiça → Cumprir responsabilidades com excelência</li>
+                <li>Mentira → Compromisso radical com a verdade</li>
+              </ul>
+              <p class="small text-warning mt-2"><strong>Desafio semanal:</strong> Ore pedindo para a graça te ensinar a abandonar essa atitude.</p>
+            </div>
           </div>
         </div>
+
         <div class="col-12 col-md-4">
           <div class="practice-card">
-            <div class="practice-icon"><i class="bi bi-balance-scale"></i></div>
-            <h4 class="practice-title">Viver com Sensatez</h4>
-            <p>Pratique autocontrole em uma área específica esta semana</p>
+            <div class="practice-icon">
+              <i class="bi bi-balance-scale-fill"></i>
+            </div>
+            <h4 class="practice-title">Laboratório de Sensatez</h4>
+            <p><strong>Ação:</strong> Pratique autocontrole em uma área específica e documente os resultados.</p>
+            <hr class="my-3">
+            <div class="text-start">
+              <p class="small mb-2"><strong>Áreas para praticar:</strong></p>
+              <ul class="small">
+                <li>Redes sociais → Tempo limite diário</li>
+                <li>Palavras → Pensar antes de falar</li>
+                <li>Dinheiro → Orçamento consciente</li>
+                <li>Relacionamentos → Limites saudáveis</li>
+              </ul>
+              <p class="small text-warning mt-2"><strong>Meta desta semana:</strong> Anote 3 vitórias do autocontrole guiado pela graça.</p>
+            </div>
           </div>
         </div>
+
         <div class="col-12 col-md-4">
           <div class="practice-card">
-            <div class="practice-icon"><i class="bi bi-heart-pulse-fill"></i></div>
-            <h4 class="practice-title">Zelo pelas Boas Obras</h4>
-            <p>Escolha uma boa obra para praticar motivado pela graça</p>
+            <div class="practice-icon">
+              <i class="bi bi-heart-pulse-fill"></i>
+            </div>
+            <h4 class="practice-title">Missão Zelo Cristão</h4>
+            <p><strong>Ação:</strong> Escolha uma boa obra motivada pela gratidão à graça e execute com zelo.</p>
+            <hr class="my-3">
+            <div class="text-start">
+              <p class="small mb-2"><strong>Sugestões de boas obras:</strong></p>
+              <ul class="small">
+                <li>Visitar idosos em asilos</li>
+                <li>Ajudar vizinhos necessitados</li>
+                <li>Mentorear alguém mais novo na fé</li>
+                <li>Voluntariado em causas sociais</li>
+              </ul>
+              <p class="small text-warning mt-2"><strong>Lembrete importante:</strong> Faça por amor, não por obrigação - deixe a graça motivar!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row g-4 mt-4">
+        <div class="col-12">
+          <div class="practice-card">
+            <div class="practice-icon">
+              <i class="bi bi-calendar-week-fill"></i>
+            </div>
+            <h4 class="practice-title">Desafio Semanal: Vida Transformada pela Graça</h4>
+            <p class="mb-3"><strong>Compromisso de 7 dias para internalizar a mensagem:</strong></p>
+            <div class="text-start">
+              <div class="row">
+                <div class="col-md-6">
+                  <h6 class="text-info">📅 Rotina matinal (5 min):</h6>
+                  <ul class="small">
+                    <li>Agradecer pela graça salvadora</li>
+                    <li>Pedir para ser educado por ela hoje</li>
+                    <li>Declarar uma verdade sobre quem você é em Cristo</li>
+                  </ul>
+                </div>
+                <div class="col-md-6">
+                  <h6 class="text-info">🌙 Reflexão noturna (5 min):</h6>
+                  <ul class="small">
+                    <li>Em que área a graça me educou hoje?</li>
+                    <li>Onde ainda preciso permitir que ela atue?</li>
+                    <li>Como posso honrá-la amanhã?</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
     <div class="sermon-section">
-      <h2 class="section-title">Perguntas para GCG</h2>
+      <h2 class="section-title">Perguntas para Dinâmica de Grupo</h2>
+      <p class="text-center mb-4">Questões elaboradas para gerar diálogo profundo sobre como a graça transforma vidas</p>
       
       <div class="question-item">
         <span class="question-number">1</span>
         <div>
-          <p><strong>Como você tem permitido que a graça de Deus "eduque" você? Dê um exemplo prático.</strong></p>
+          <h5 class="text-info mb-2">Quebra-Gelo Reflexivo</h5>
+          <p class="mb-2"><strong>Se você pudesse comparar a graça de Deus a um professor ou educador que você já teve, como seria esse professor? (Paciente, exigente, motivador, etc.) Por quê?</strong></p>
+          <small class="text-muted">💡 <em>Objetivo: Conectar o conceito abstrato de "graça que educa" com experiências concretas de aprendizado, criando um ambiente descontraído para iniciar a conversa.</em></small>
         </div>
       </div>
-      
+
       <div class="question-item">
         <span class="question-number">2</span>
         <div>
-          <p><strong>Que "paixão mundana" você precisa renegar com a ajuda da graça divina?</strong></p>
+          <h5 class="text-info mb-2">Experiência Pessoal</h5>
+          <p class="mb-2"><strong>Conte sobre um momento específico em que você sentiu que a graça de Deus estava te "educando" - talvez através de uma situação difícil, um erro que você cometeu, ou uma lição que aprendeu.</strong></p>
+          <small class="text-muted">💡 <em>Objetivo: Ajudar o grupo a identificar como Deus trabalha na vida prática, reconhecendo sua mão educadora em experiências pessoais reais.</em></small>
         </div>
       </div>
-      
+
       <div class="question-item">
         <span class="question-number">3</span>
         <div>
-          <p><strong>Como a esperança da volta de Cristo motiva suas escolhas diárias?</strong></p>
+          <h5 class="text-info mb-2">Auto-avaliação Sincera</h5>
+          <p class="mb-2"><strong>Olhando para Tito 2:12, qual dessas áreas você sente que a graça mais precisa te educar neste momento: renegar impiedade, deixar paixões mundanas, viver com sensatez, justiça ou piedade? Por quê?</strong></p>
+          <small class="text-muted">💡 <em>Objetivo: Promover honestidade e vulnerabilidade apropriada, identificando áreas específicas de crescimento espiritual que o grupo pode apoiar mutuamente.</em></small>
+        </div>
+      </div>
+
+      <div class="question-item">
+        <span class="question-number">4</span>
+        <div>
+          <h5 class="text-info mb-2">Aplicação Prática</h5>
+          <p class="mb-2"><strong>Vamos ser bem concretos: se você realmente cresse que a graça pode te educar (e não apenas te perdoar), que mudança prática você faria na sua rotina desta semana?</strong></p>
+          <small class="text-muted">💡 <em>Objetivo: Conectar a verdade teológica com ação prática, criando compromissos específicos e prestação de contas dentro do grupo.</em></small>
+        </div>
+      </div>
+
+      <div class="question-item">
+        <span class="question-number">5</span>
+        <div>
+          <h5 class="text-info mb-2">Motivação Eterna</h5>
+          <p class="mb-2"><strong>Paulo fala sobre a "esperança bendita" da volta de Cristo. Como essa expectativa muda (ou deveria mudar) a forma como você vive hoje? Dê um exemplo prático.</strong></p>
+          <small class="text-muted">💡 <em>Objetivo: Explorar como a perspectiva eterna influencia decisões presentes, fortalecendo a motivação para viver de forma santa e com propósito.</em></small>
+        </div>
+      </div>
+
+      <div class="question-item">
+        <span class="question-number">6</span>
+        <div>
+          <h5 class="text-info mb-2">Encorajamento Mútuo</h5>
+          <p class="mb-2"><strong>Vamos fazer um círculo de afirmação: olhando para cada pessoa aqui, que "boa obra" ou característica de Cristo você consegue enxergar nela? Como podemos nos encorajar mutuamente a ter "zelo pelas boas obras"?</strong></p>
+          <small class="text-muted">💡 <em>Objetivo: Fortalecer vínculos do grupo através de afirmação mútua, criando um ambiente que inspira crescimento espiritual conjunto e zelo pelas boas obras.</em></small>
+        </div>
+      </div>
+
+      <div class="question-item">
+        <span class="question-number">7</span>
+        <div>
+          <h5 class="text-info mb-2">Compromisso e Oração</h5>
+          <p class="mb-2"><strong>Para encerrar: qual é uma oração específica que você gostaria que o grupo fizesse por você esta semana, relacionada ao que conversamos sobre a graça que educa?</strong></p>
+          <small class="text-muted">💡 <em>Objetivo: Criar um momento de vulnerabilidade e intercessão, estabelecendo uma rede de apoio espiritual e compromisso mútuo na jornada de santificação.</em></small>
         </div>
       </div>
     </div>
 
     <div class="prayer-section">
       <h2 class="prayer-title">
-        <i class="bi bi-bookmark-heart-fill me-3"></i>
-        Oração de Rendição à Graça
+        <i class="bi bi-mortarboard-fill me-3"></i>
+        Oração de Rendição à Graça Educadora
       </h2>
+      
       <div class="prayer-text">
-        <p><strong>"Pai, obrigado porque Tua graça não apenas me salvou, mas continua me educando."</strong></p>
-        <p>Permite que ela transforme minhas atitudes, pensamentos e ações. Que eu seja zeloso pelas boas obras, não por mérito, mas por gratidão.</p>
-        <p><strong>Que minha vida seja reflexo da Tua graça educadora. Amém.</strong></p>
+        <p class="lead mb-4">
+          <strong>"Pai Celestial, reconhecemos hoje uma verdade que transforma nossa perspectiva:"</strong>
+        </p>
+        
+        <p class="mb-4">
+          Tua graça não é apenas o portão de entrada para a salvação - é a escola onde aprendemos a viver como Teus filhos. 
+          <strong>Não nos salvaste apenas do inferno, mas nos matriculaste na universidade da santidade.</strong>
+        </p>
+        
+        <p class="mb-4">
+          Perdoa-nos, Senhor, por todas as vezes que resistimos ao Teu processo educativo, quando preferimos nossos velhos hábitos 
+          às Tuas novas maneiras, quando fugimos das lições que preparaste com amor para nosso crescimento.
+        </p>
+        
+        <p class="mb-4">
+          <strong>Hoje nos rendemos completamente ao Teu ensino gracioso.</strong> 
+          Pedimos humildemente que nos eduques para renegar toda impiedade que ainda habita em nós, 
+          para deixar as paixões mundanas que nos distraem de Ti, para viver com a sensatez que vem da Tua sabedoria.
+        </p>
+        
+        <p class="mb-4">
+          Ensina-nos a praticar justiça em nossos relacionamentos, a exercer piedade genuína em nossa adoração, 
+          a ter zelo pelas boas obras não por legalismo, mas por gratidão transbordante.
+        </p>
+        
+        <p class="mb-4">
+          <strong>Que a esperança bendita da volta de Cristo</strong> seja nossa motivação diária para viver de forma digna, 
+          sabendo que um dia nos apresentaremos diante daquele que nos amou e se entregou por nós.
+        </p>
+        
+        <p class="mb-4">
+          Faze-nos um povo peculiar, purificado, apaixonado pela justiça e movido pelo amor. 
+          Que nossa vida seja o reflexo vivo da Tua graça transformadora.
+        </p>
+        
+        <p class="mb-0">
+          <strong>Obrigado porque Tua graça não apenas nos perdoou - ela nos educa, nos transforma e nos prepara para a eternidade. 
+          Continuem, Senhor, este trabalho maravilhoso em nós, até que sejamos conformes à imagem de Cristo. 
+          Para glória do Teu santo nome. Amém.</strong>
+        </p>
       </div>
     </div>
   </div>
@@ -378,6 +754,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="../../verses.js"></script>
   <script>
+    // Expansão de versículos
     document.querySelectorAll('.verse-ref').forEach(ref => {
       ref.addEventListener('click', function() {
         const verseKey = this.getAttribute('data-ref');
@@ -398,6 +775,86 @@
         this.insertAdjacentElement('afterend', expanded);
       });
     });
+
+    // Animações suaves na entrada
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.animation = 'fadeInUp 0.6s ease forwards';
+        }
+      });
+    }, observerOptions);
+
+    // Adicionar CSS de animação
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      
+      .sermon-section, .structure-card, .practice-card {
+        opacity: 0;
+      }
+    `;
+    document.head.appendChild(style);
+
+    // Observar elementos para animação
+    document.querySelectorAll('.sermon-section, .structure-card, .practice-card').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Ripple effect nos cartões
+    document.querySelectorAll('.practice-card, .structure-card').forEach(card => {
+      card.addEventListener('click', function(e) {
+        const ripple = document.createElement('span');
+        const rect = this.getBoundingClientRect();
+        const size = 60;
+        const x = e.clientX - rect.left - size / 2;
+        const y = e.clientY - rect.top - size / 2;
+        
+        ripple.style.cssText = `
+          position: absolute;
+          width: ${size}px;
+          height: ${size}px;
+          background: rgba(255, 255, 255, 0.3);
+          border-radius: 50%;
+          left: ${x}px;
+          top: ${y}px;
+          animation: ripple 0.6s linear;
+          pointer-events: none;
+        `;
+        
+        this.style.position = 'relative';
+        this.style.overflow = 'hidden';
+        this.appendChild(ripple);
+        
+        setTimeout(() => ripple.remove(), 600);
+      });
+    });
+
+    // Adicionar animação ripple
+    const rippleStyle = document.createElement('style');
+    rippleStyle.textContent = `
+      @keyframes ripple {
+        to {
+          transform: scale(4);
+          opacity: 0;
+        }
+      }
+    `;
+    document.head.appendChild(rippleStyle);
   </script>
 </body>
 </html>
