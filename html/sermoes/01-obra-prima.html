@@ -3,265 +3,780 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Você é obra-prima — Efésios 2:10 — Jovens NV</title>
+  <title>Você é obra-prima — Efésios 2:10 — Jovens INVEN</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  <link rel="stylesheet" href="../../styles.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
   <style>
-    /* TEMA E LAYOUT RESPONSIVO */
-    body.dark{
-      --blue:#062434;
-      --black:#050505;
-      --orange:#ff814f;
-      --light:#e8e8e8;
-      background:linear-gradient(135deg,var(--black),#16232c)!important;
+  <style>
+    /* DESIGN PREMIUM IGUAL AO INDEX */
+    :root {
+      --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      --gradient-accent: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      --gradient-dark: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
+      --glow-color: #ff6b6b;
+      --neon-blue: #00d4ff;
+      --neon-purple: #bd5eff;
+      --glass-bg: rgba(255, 255, 255, 0.05);
+      --glass-border: rgba(255, 255, 255, 0.1);
     }
-    
-    .content{
-      max-width:900px;
-      margin:0 auto;
-      padding:2rem 1rem;
-      padding-top:4rem; /* Espaço para o botão voltar */
+
+    body {
+      font-family: 'Poppins', sans-serif !important;
+      background: var(--gradient-dark) !important;
+      background-color: #0c0c0c !important;
+      min-height: 100vh;
+      color: #ffffff;
+      overflow-x: hidden;
     }
-    
-    /* BOTÃO VOLTAR RESPONSIVO */
-    .back-btn{
-      position:fixed;
-      top:1rem;
-      left:1rem;
-      z-index:1000;
+
+    /* EFEITOS GLASSMORPHISM */
+    .glass-effect {
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+    }
+
+    /* BOTÃO VOLTAR PREMIUM */
+    .back-btn {
+      position: fixed;
+      top: 2rem;
+      left: 2rem;
+      z-index: 1000;
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+      padding: 0.8rem 1.5rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 500;
       transition: all 0.3s ease;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     }
-    
-    /* RESPONSIVIDADE MOBILE */
+
+    .back-btn:hover {
+      background: rgba(255, 255, 255, 0.15);
+      color: var(--neon-blue);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(0, 212, 255, 0.3);
+    }
+
+    /* CONTAINER PRINCIPAL */
+    .sermon-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 6rem 2rem 4rem;
+    }
+
+    /* HEADER DA MENSAGEM */
+    .sermon-header {
+      text-align: center;
+      margin-bottom: 4rem;
+      position: relative;
+    }
+
+    .sermon-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 3.5rem;
+      font-weight: 800;
+      background: var(--gradient-accent);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 30px rgba(79, 172, 254, 0.5);
+      /* Fallback para casos onde o gradient não funciona */
+      color: #4facfe;
+    }
+
+    /* Fallback específico para navegadores que não suportam background-clip */
+    @supports not (-webkit-background-clip: text) {
+      .sermon-title {
+        color: #4facfe !important;
+        background: none !important;
+        text-shadow: 0 0 20px rgba(79, 172, 254, 0.8);
+      }
+    }
+
+    .sermon-subtitle {
+      font-size: 1.2rem;
+      color: rgba(255, 255, 255, 0.7);
+      font-weight: 300;
+    }
+
+    /* VERSÍCULO DESTAQUE */
+    .verse-highlight {
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      border: 2px solid var(--neon-blue);
+      border-radius: 20px;
+      padding: 2.5rem;
+      margin: 3rem 0;
+      text-align: center;
+      font-size: 1.3rem;
+      line-height: 1.8;
+      color: #ffffff;
+      box-shadow: 0 0 40px rgba(0, 212, 255, 0.3);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .verse-highlight::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(0, 212, 255, 0.1), transparent);
+      animation: sparkle 3s infinite;
+    }
+
+    .verse-highlight:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 60px rgba(0, 212, 255, 0.5);
+    }
+
+    @keyframes sparkle {
+      0% { transform: rotate(0deg) translate(-50%, -50%); }
+      100% { transform: rotate(360deg) translate(-50%, -50%); }
+    }
+
+    /* SEÇÕES */
+    .sermon-section {
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+      border-radius: 20px;
+      padding: 3rem;
+      margin: 3rem 0;
+      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+      color: #ffffff;
+    }
+
+    .sermon-section p,
+    .sermon-section li,
+    .sermon-section .text-muted,
+    .sermon-section .small {
+      color: rgba(255, 255, 255, 0.9) !important;
+    }
+
+    .sermon-section .lead {
+      color: #ffffff !important;
+      font-weight: 500;
+    }
+
+    .section-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--neon-blue);
+      margin-bottom: 2rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 3px;
+      background: var(--gradient-accent);
+      border-radius: 2px;
+    }
+
+    /* CARDS ESTRUTURA */
+    .structure-card {
+      background: var(--glass-bg);
+      backdrop-filter: blur(15px);
+      border: 1px solid var(--glass-border);
+      border-radius: 15px;
+      padding: 2rem;
+      height: 100%;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      color: #ffffff;
+    }
+
+    .structure-card p,
+    .structure-card li,
+    .structure-card .text-muted,
+    .structure-card .small {
+      color: rgba(255, 255, 255, 0.9) !important;
+    }
+
+    .structure-card .bg-dark {
+      background: rgba(0, 0, 0, 0.4) !important;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .structure-card .bg-dark p,
+    .structure-card .bg-dark .small {
+      color: rgba(255, 255, 255, 0.95) !important;
+    }
+
+    .structure-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--gradient-secondary);
+    }
+
+    .structure-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .card-number {
+      font-size: 3rem;
+      font-weight: 800;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+      margin-bottom: 1rem;
+      /* Fallback para casos onde o gradient não funciona */
+      color: #667eea;
+    }
+
+    /* Fallback para números dos cards */
+    @supports not (-webkit-background-clip: text) {
+      .card-number {
+        color: #667eea !important;
+        background: none !important;
+      }
+    }
+
+    .card-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--neon-blue);
+      margin-bottom: 1.5rem;
+    }
+
+    /* APLICAÇÕES PRÁTICAS */
+    .practice-card {
+      background: var(--glass-bg);
+      backdrop-filter: blur(15px);
+      border: 1px solid var(--glass-border);
+      border-radius: 15px;
+      padding: 2rem;
+      text-align: center;
+      transition: all 0.3s ease;
+      height: 100%;
+      color: #ffffff;
+    }
+
+    .practice-card p,
+    .practice-card li,
+    .practice-card .small,
+    .practice-card .text-muted {
+      color: rgba(255, 255, 255, 0.9) !important;
+    }
+
+    .practice-card .text-start ul {
+      color: rgba(255, 255, 255, 0.8) !important;
+    }
+
+    .practice-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 15px 35px rgba(189, 94, 255, 0.3);
+    }
+
+    .practice-icon {
+      font-size: 3rem;
+      color: var(--neon-purple);
+      margin-bottom: 1rem;
+    }
+
+    .practice-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--neon-purple);
+      margin-bottom: 1rem;
+    }
+
+    /* PERGUNTAS GCG */
+    .question-item {
+      background: var(--glass-bg);
+      backdrop-filter: blur(10px);
+      border-left: 4px solid var(--neon-blue);
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      color: #ffffff;
+    }
+
+    .question-item p,
+    .question-item .small,
+    .question-item .text-muted {
+      color: rgba(255, 255, 255, 0.9) !important;
+    }
+
+    .question-item:hover {
+      background: rgba(255, 255, 255, 0.08);
+      transform: translateX(10px);
+    }
+
+    .question-number {
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      background: var(--gradient-accent);
+      color: #000;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 30px;
+      font-weight: 700;
+      margin-right: 1rem;
+    }
+
+    /* ORAÇÃO FINAL */
+    .prayer-section {
+      background: var(--gradient-secondary);
+      border-radius: 20px;
+      padding: 3rem;
+      text-align: center;
+      color: #ffffff;
+      box-shadow: 0 0 50px rgba(240, 147, 251, 0.4);
+    }
+
+    .prayer-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 2rem;
+    }
+
+    .prayer-text {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      font-style: italic;
+    }
+
+    /* RESPONSIVIDADE */
     @media (max-width: 768px) {
-      .content {
-        padding: 1rem 0.75rem;
-        padding-top: 4.5rem; /* Mais espaço no mobile */
-      }
-      
       .back-btn {
-        top: 0.75rem;
-        left: 0.75rem;
+        top: 1rem;
+        left: 1rem;
+        padding: 0.6rem 1.2rem;
         font-size: 0.9rem;
-        padding: 0.5rem 0.75rem;
       }
-      
-      .display-5 {
-        font-size: 2rem !important;
+
+      .sermon-container {
+        padding: 5rem 1rem 3rem;
       }
-      
+
+      .sermon-title {
+        font-size: 2.5rem;
+      }
+
       .verse-highlight {
-        font-size: 1rem !important;
-        padding: 0.75rem !important;
-        margin: 1rem 0 !important;
+        padding: 2rem;
+        font-size: 1.1rem;
       }
-      
-      .row.g-4 {
-        --bs-gutter-x: 0.75rem;
-        --bs-gutter-y: 0.75rem;
+
+      .sermon-section {
+        padding: 2rem;
       }
-      
-      .card {
-        margin-bottom: 1rem;
+
+      .section-title {
+        font-size: 1.8rem;
       }
     }
-    
-    /* EXTRA SMALL DEVICES (phones < 576px) */
+
     @media (max-width: 576px) {
-      .content {
-        padding: 0.75rem 0.5rem;
-        padding-top: 5rem;
+      .sermon-title {
+        font-size: 2rem;
       }
-      
-      .back-btn {
-        top: 0.5rem;
-        left: 0.5rem;
-        font-size: 0.85rem;
-        padding: 0.4rem 0.6rem;
-      }
-      
-      .display-5 {
-        font-size: 1.75rem !important;
-        line-height: 1.2;
-      }
-      
+
       .verse-highlight {
-        font-size: 0.95rem !important;
-        padding: 0.6rem !important;
+        padding: 1.5rem;
+        font-size: 1rem;
+      }
+
+      .sermon-section {
+        padding: 1.5rem;
+      }
+    }
+
+    /* TEMA CLARO (mantendo compatibilidade) */
+    body.light {
+      background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 50%, #ffffff 100%) !important;
+      background-color: #f1f5f9 !important;
+      color: #1a202c;
+    }
+
+    body.light .glass-effect,
+    body.light .sermon-section,
+    body.light .structure-card,
+    body.light .practice-card,
+    body.light .question-item {
+      background: rgba(255, 255, 255, 0.6);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      color: #1a202c;
+    }
+
+    body.light .sermon-section p,
+    body.light .sermon-section li,
+    body.light .sermon-section .text-muted,
+    body.light .sermon-section .small,
+    body.light .structure-card p,
+    body.light .structure-card li,
+    body.light .structure-card .text-muted,
+    body.light .structure-card .small,
+    body.light .practice-card p,
+    body.light .practice-card li,
+    body.light .practice-card .small,
+    body.light .practice-card .text-muted,
+    body.light .question-item p,
+    body.light .question-item .small,
+    body.light .question-item .text-muted {
+      color: #2d3748 !important;
+    }
+
+    body.light .sermon-section .lead {
+      color: #1a202c !important;
+      font-weight: 600;
+    }
+
+    body.light .structure-card .bg-dark {
+      background: rgba(0, 0, 0, 0.08) !important;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    body.light .structure-card .bg-dark p,
+    body.light .structure-card .bg-dark .small {
+      color: #2d3748 !important;
+    }
+
+    body.light .back-btn {
+      background: rgba(255, 255, 255, 0.6);
+      color: #1a202c;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    body.light .verse-highlight {
+      background: rgba(255, 255, 255, 0.6);
+      color: #1a202c;
+      border: 2px solid var(--neon-blue);
+    }
+
+    /* Forçar visibilidade do título em qualquer situação */
+    h1.sermon-title {
+      display: block !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+    }
+
+    /* iOS Safari específico para títulos */
+    @supports (-webkit-appearance: none) {
+      .sermon-title {
+        color: #4facfe !important;
+        background: none !important;
+        -webkit-text-fill-color: #4facfe !important;
       }
       
-      .alert {
-        padding: 0.75rem;
-        font-size: 0.9rem;
+      body.light .sermon-title {
+        color: #2563eb !important;
+        -webkit-text-fill-color: #2563eb !important;
       }
     }
-    
-    .verse-highlight{
-      font-size:1.2rem;
-      font-weight:600;
-      color:var(--orange);
-      text-align:center;
-      margin:1.5rem 0;
-      padding:1rem;
-      border:2px solid var(--orange);
-      border-radius:12px;
-    }
-    
-    .verse-ref{
-      color:var(--orange);
-      cursor:pointer;
-      text-decoration:underline;
-      font-weight:600;
-    }
-    
-    .verse-ref:hover{color:#ff8747}
-    
-    .verse-expanded{
-      margin-top:.5rem;
-      padding:.75rem;
-      background:rgba(255,255,255,.06);
-      border-left:3px solid var(--orange);
-      border-radius:6px;
-      font-size:.9rem;
-      line-height:1.4;
-    }
+  </style>
   </style>
 </head>
 <body>
-  <a href="../../index.html" class="btn btn-outline-warning back-btn">← Voltar</a>
+  <a href="../../index.html" class="back-btn">
+    <i class="bi bi-arrow-left me-2"></i>Voltar
+  </a>
   
-  <div class="content">
-    <header class="mb-4">
-      <h1 class="display-5 fw-bold text-warning">Você é obra-prima</h1>
-      <p class="text-secondary">Mensagem 01 • Efésios 2:10</p>
+  <div class="sermon-container">
+    <!-- HEADER -->
+    <header class="sermon-header">
+      <h1 class="sermon-title">Você é Obra-Prima</h1>
+      <p class="sermon-subtitle">Mensagem 01 • Efésios 2:10 • Descobrindo nossa identidade em Cristo</p>
     </header>
-    
-    <main>
-      <div class="verse-highlight verse-ref" data-ref="Ef 2:1-10">
-        "Pois somos feitura dele, criados em Cristo Jesus para boas obras, as quais Deus de antemão preparou para que andássemos nelas." — Efésios 2:10
-        <div class="small text-secondary mt-2">Clique para ver o texto completo</div>
-      </div>
 
-      <div class="alert alert-warning mb-4">
-        <strong>Objetivo:</strong> Firmar identidade em Cristo e propósito preparado por Deus.
+    <!-- VERSÍCULO PRINCIPAL -->
+    <div class="verse-highlight verse-ref" data-ref="Ef 2:1-10">
+      <i class="bi bi-quote fs-1 text-info mb-3"></i>
+      <p class="mb-3">"Pois somos feitura dele, criados em Cristo Jesus para boas obras, as quais Deus de antemão preparou para que andássemos nelas."</p>
+      <strong>— Efésios 2:10</strong>
+      <div class="mt-3 text-info">
+        <i class="bi bi-hand-index me-2"></i>
+        <small>Clique para ver o contexto completo (Ef 2:1-10)</small>
       </div>
+    </div>
 
-      <div class="row g-4 mb-5">
-        <div class="col-12">
-          <h2 class="text-warning">Estrutura da Mensagem</h2>
+    <!-- OBJETIVO DA MENSAGEM -->
+    <div class="sermon-section">
+      <div class="text-center mb-4">
+        <i class="bi bi-bullseye fs-1 text-warning mb-3"></i>
+        <h3 class="text-warning">Objetivo da Mensagem</h3>
+      </div>
+      <p class="lead text-center">
+        <strong>Firmar nossa identidade em Cristo</strong> e descobrir o propósito único que Deus preparou para cada um de nós, 
+        transformando nossa visão sobre quem somos e qual é nosso papel no Reino de Deus.
+      </p>
+    </div>
+
+    <!-- ESTRUTURA DA MENSAGEM -->
+    <div class="sermon-section">
+      <h2 class="section-title">Estrutura da Mensagem</h2>
+      
+      <div class="row g-4">
+        <div class="col-12 col-md-4">
+          <div class="structure-card">
+            <div class="card-number">1</div>
+            <h3 class="card-title">Quem Eu Era</h3>
+            <p class="text-muted mb-3"><strong>Versículos 1-3</strong></p>
+            
+            <h5 class="text-danger mb-3">🔴 Nossa Condição Anterior:</h5>
+            <ul class="mb-4">
+              <li><strong>Mortos em delitos e pecados:</strong> Espiritualmente separados de Deus, sem vida espiritual verdadeira</li>
+              <li><strong>Seguindo o curso deste mundo:</strong> Vivendo conforme padrões mundanos, sem direção divina</li>
+              <li><strong>Sob o príncipe das potestades do ar:</strong> Influenciados pelas forças espirituais do mal</li>
+              <li><strong>Filhos da ira:</strong> Destinados ao julgamento devido ao pecado</li>
+            </ul>
+            
+            <div class="bg-dark p-3 rounded">
+              <h6 class="text-warning">💡 Reflexão:</h6>
+              <p class="mb-0 small">Paulo não está nos humilhando, mas nos mostrando de onde viemos para que possamos valorizar onde chegamos. É como olhar uma foto de "antes e depois" - precisamos ver o "antes" para celebrar o "depois".</p>
+            </div>
+          </div>
         </div>
+
+        <div class="col-12 col-md-4">
+          <div class="structure-card">
+            <div class="card-number">2</div>
+            <h3 class="card-title">Quem Deus É</h3>
+            <p class="text-muted mb-3"><strong>Versículos 4-7</strong></p>
+            
+            <h5 class="text-warning mb-3">🟡 O Caráter de Deus:</h5>
+            <ul class="mb-4">
+              <li><strong>Rico em misericórdia:</strong> Não apenas tem misericórdia, mas é abundante nela</li>
+              <li><strong>Grande amor:</strong> Amor incondicional e imerecido (ágape)</li>
+              <li><strong>Nos vivificou:</strong> Trouxe vida onde havia morte espiritual</li>
+              <li><strong>Nos ressuscitou:</strong> Levantou-nos da nossa condição caída</li>
+              <li><strong>Nos fez assentar:</strong> Deu-nos posição de honra e autoridade</li>
+            </ul>
+            
+            <div class="bg-dark p-3 rounded">
+              <h6 class="text-warning">💡 Reflexão:</h6>
+              <p class="mb-0 small">Deus não apenas nos salvou da morte - Ele nos deu vida abundante. Não apenas nos tirou do buraco - Ele nos colocou no trono. É uma transformação completa de status e identidade.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4">
+          <div class="structure-card">
+            <div class="card-number">3</div>
+            <h3 class="card-title">Quem Me Tornei</h3>
+            <p class="text-muted mb-3"><strong>Versículos 8-10</strong></p>
+            
+            <h5 class="text-success mb-3">🟢 Nossa Nova Identidade:</h5>
+            <ul class="mb-4">
+              <li><strong>Salvos pela graça:</strong> Favor imerecido de Deus, não por mérito próprio</li>
+              <li><strong>Mediante a fé:</strong> Pela confiança em Jesus, não por obras</li>
+              <li><strong>Feitura de Deus:</strong> Obra-prima artesanal, criação única e especial</li>
+              <li><strong>Criados em Cristo:</strong> Nova criatura com nova natureza</li>
+              <li><strong>Para boas obras:</strong> Propósito divino preparado especificamente para nós</li>
+            </ul>
+            
+            <div class="bg-dark p-3 rounded">
+              <h6 class="text-warning">💡 Reflexão:</h6>
+              <p class="mb-0 small">A palavra "feitura" (poiema) significa obra-prima artística. Você não é produto de uma linha de montagem - é uma obra de arte única, criada com propósito específico e amor individual.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- APLICAÇÕES PRÁTICAS -->
+    <div class="sermon-section">
+      <h2 class="section-title">Aplicações Práticas</h2>
+      <p class="text-center mb-4 lead">Ações concretas para internalizar e viver essa verdade no dia a dia</p>
+      
+      <div class="row g-4">
+        <div class="col-12 col-md-4">
+          <div class="practice-card">
+            <div class="practice-icon">
+              <i class="bi bi-journal-text"></i>
+            </div>
+            <h4 class="practice-title">Diário da Identidade</h4>
+            <p><strong>Ação:</strong> Durante 7 dias, escreva 3 verdades sobre quem você é em Cristo a cada manhã.</p>
+            <hr class="my-3">
+            <div class="text-start">
+              <p class="small mb-2"><strong>Exemplos:</strong></p>
+              <ul class="small text-muted">
+                <li>Sou amado incondicionalmente</li>
+                <li>Tenho propósito divino</li>
+                <li>Sou nova criatura em Cristo</li>
+                <li>Tenho a mente de Cristo</li>
+                <li>Sou mais que vencedor</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4">
+          <div class="practice-card">
+            <div class="practice-icon">
+              <i class="bi bi-share"></i>
+            </div>
+            <h4 class="practice-title">Missão Encorajamento</h4>
+            <p><strong>Ação:</strong> Envie uma mensagem de encorajamento para 3 pessoas diferentes esta semana.</p>
+            <hr class="my-3">
+            <div class="text-start">
+              <p class="small mb-2"><strong>Como fazer:</strong></p>
+              <ul class="small text-muted">
+                <li>Mensagem no WhatsApp</li>
+                <li>Post no status/story</li>
+                <li>Conversa pessoal</li>
+                <li>Bilhete de incentivo</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4">
+          <div class="practice-card">
+            <div class="practice-icon">
+              <i class="bi bi-lightbulb"></i>
+            </div>
+            <h4 class="practice-title">Descoberta do Propósito</h4>
+            <p><strong>Ação:</strong> Identifique 1 talento seu e use-o para abençoar alguém esta semana.</p>
+            <hr class="my-3">
+            <div class="text-start">
+              <p class="small mb-2"><strong>Ideias:</strong></p>
+              <ul class="small text-muted">
+                <li>Ensinar algo que sabe</li>
+                <li>Ajudar com suas habilidades</li>
+                <li>Servir com seus dons</li>
+                <li>Criar algo para alguém</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PERGUNTAS PARA GCG -->
+    <div class="sermon-section">
+      <h2 class="section-title">Perguntas para Dinâmica de Grupo</h2>
+      <p class="text-center mb-4">Questões elaboradas para gerar diálogo profundo e conexão genuína</p>
+      
+      <div class="question-item">
+        <span class="question-number">1</span>
+        <div>
+          <h5 class="text-info mb-2">Quebra-Gelo Reflexivo</h5>
+          <p class="mb-2"><strong>Se você fosse descrever sua "jornada de transformação" usando uma metáfora (tipo borboleta, diamante sendo lapidado, casa sendo reformada), qual seria e por quê?</strong></p>
+          <small class="text-muted">💡 <em>Objetivo: Criar um ambiente descontraído onde cada pessoa pode compartilhar sua perspectiva única sobre crescimento pessoal.</em></small>
+        </div>
+      </div>
+
+      <div class="question-item">
+        <span class="question-number">2</span>
+        <div>
+          <h5 class="text-info mb-2">Conexão Pessoal</h5>
+          <p class="mb-2"><strong>Quando foi a última vez que você realmente se sentiu "obra-prima" de Deus? O que estava acontecendo na sua vida naquele momento?</strong></p>
+          <small class="text-muted">💡 <em>Objetivo: Ajudar o grupo a se conectar com experiências reais de valor próprio e presença de Deus em suas vidas.</em></small>
+        </div>
+      </div>
+
+      <div class="question-item">
+        <span class="question-number">3</span>
+        <div>
+          <h5 class="text-info mb-2">Identificação de Mentiras</h5>
+          <p class="mb-2"><strong>Sem entrar em detalhes íntimos, qual é uma mensagem negativa sobre você mesmo que você escuta com frequência? (Ex: "não sou bom o suficiente", "sempre erro", "não tenho valor")</strong></p>
+          <small class="text-muted">💡 <em>Objetivo: Identificar padrões de pensamento negativos de forma segura, criando oportunidade para substituí-los por verdades bíblicas.</em></small>
+        </div>
+      </div>
+
+      <div class="question-item">
+        <span class="question-number">4</span>
+        <div>
+          <h5 class="text-info mb-2">Descoberta de Dons</h5>
+          <p class="mb-2"><strong>Olhando para as pessoas ao seu redor no grupo, que "obra preparada por Deus" você consegue enxergar na vida de cada uma? Vamos fazer um círculo de afirmação!</strong></p>
+          <small class="text-muted">💡 <em>Objetivo: Prática de encorajamento mútuo e ajuda na identificação de dons e propósitos únicos através do olhar do outro.</em></small>
+        </div>
+      </div>
+
+      <div class="question-item">
+        <span class="question-number">5</span>
+        <div>
+          <h5 class="text-info mb-2">Aplicação Prática</h5>
+          <p class="mb-2"><strong>Se você realmente cresse 100% que é obra-prima de Deus, que mudança você faria na sua vida a partir de amanhã?</strong></p>
+          <small class="text-muted">💡 <em>Objetivo: Conectar a verdade teológica com ação prática, criando compromissos pessoais e prestação de contas no grupo.</em></small>
+        </div>
+      </div>
+    </div>
+
+    <!-- ORAÇÃO FINAL -->
+    <div class="prayer-section">
+      <h2 class="prayer-title">
+        <i class="bi bi-heart-fill me-3"></i>
+        Oração de Consagração
+      </h2>
+      
+      <div class="prayer-text">
+        <p class="lead mb-4">
+          <strong>"Pai Celestial, hoje reconhecemos uma verdade que transforma tudo:"</strong>
+        </p>
         
-        <div class="col-12 col-md-4">
-          <div class="card h-100 border-danger">
-            <div class="card-header bg-danger text-white">
-              <h4 class="h6 mb-0">1. Quem eu era</h4>
-            </div>
-            <div class="card-body">
-              <p><strong>Versículos 1–3</strong></p>
-              <ul class="small">
-                <li>Morto em pecados</li>
-                <li>Sem direção</li>
-                <li>Sob influência do mal</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-12 col-md-4">
-          <div class="card h-100 border-warning">
-            <div class="card-header bg-warning text-dark">
-              <h4 class="h6 mb-0">2. Quem Deus é</h4>
-            </div>
-            <div class="card-body">
-              <p><strong>Versículos 4–7</strong></p>
-              <ul class="small">
-                <li>Rico em misericórdia</li>
-                <li>Nos deu vida</li>
-                <li>Nos ressuscitou</li>
-                <li>Nos exaltou</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-12 col-md-4">
-          <div class="card h-100 border-success">
-            <div class="card-header bg-success text-white">
-              <h4 class="h6 mb-0">3. Quem me tornei</h4>
-            </div>
-            <div class="card-body">
-              <p><strong>Versículos 8–10</strong></p>
-              <ul class="small">
-                <li>Salvo pela graça</li>
-                <li>Feitura de Deus</li>
-                <li>Preparado para boas obras</li>
-              </ul>
-            </div>
-          </div>
-        </div>
+        <p class="mb-4">
+          Não somos acidentes do destino, não somos produtos de coincidências, não somos resultados de casualidades. 
+          <strong>Somos Tua obra-prima</strong>, criados com propósito, moldados com amor, destinados para a grandeza do Teu Reino.
+        </p>
+        
+        <p class="mb-4">
+          Perdoa-nos por todas as vezes que duvidamos do nosso valor, que nos comparamos com outros, 
+          que permitimos que vozes negativas definissem nossa identidade. 
+          <strong>Hoje escolhemos crer na Tua Palavra sobre nós.</strong>
+        </p>
+        
+        <p class="mb-4">
+          Pai, <strong>pedimos Teu apoio incondicional</strong> para vivermos como quem realmente somos: 
+          Teus filhos amados, Tua criação especial, Teus representantes na Terra. 
+          Dá-nos coragem para abraçar as boas obras que preparaste para nós.
+        </p>
+        
+        <p class="mb-4">
+          <strong>Capacita-nos</strong> para enxergar uns aos outros como Tu nos vês - como obras-primas únicas e preciosas. 
+          Usa-nos para afirmar, encorajar e edificar aqueles ao nosso redor.
+        </p>
+        
+        <p class="mb-0">
+          <strong>Que nossa vida seja a expressão viva dessa verdade transformadora: 
+          somos Tua feitura, criados em Cristo Jesus para boas obras. 
+          Para honra e glória do Teu nome. Amém.</strong>
+        </p>
       </div>
-
-      <div class="mb-5">
-        <h2 class="text-warning">Aplicações Práticas</h2>
-        <div class="row g-3">
-          <div class="col-12 col-md-4">
-            <div class="card bg-dark">
-              <div class="card-body text-center">
-                <h5 class="text-warning">Lista de Verdades</h5>
-                <p class="small">Escrever 10 verdades: "Em Cristo, eu sou…"</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-md-4">
-            <div class="card bg-dark">
-              <div class="card-body text-center">
-                <h5 class="text-warning">Troca de Hábito</h5>
-                <p class="small">10 min diários de devocional por 7 dias</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-md-4">
-            <div class="card bg-dark">
-              <div class="card-body text-center">
-                <h5 class="text-warning">Compartilhar</h5>
-                <p class="small">1 verdade com um amigo</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="mb-5">
-        <h2 class="text-warning">Perguntas para GCG</h2>
-        <div class="card">
-          <div class="card-body">
-            <ol>
-              <li class="mb-3"><strong>O que mais te marcou</strong> nesta mensagem?</li>
-              <li class="mb-3"><strong>Que mentira sobre você</strong> precisa ser confrontada pela verdade bíblica?</li>
-              <li class="mb-0"><strong>Que boa obra preparada</strong> você pode abraçar esta semana?</li>
-            </ol>
-          </div>
-        </div>
-      </div>
-
-      <div class="text-center">
-        <div class="card bg-warning text-dark">
-          <div class="card-body">
-            <h3 class="card-title">Oração Final</h3>
-            <p class="card-text mb-0">Por revelação de identidade e coragem para obedecer ao propósito de Deus.</p>
-          </div>
-        </div>
-      </div>
-    </main>
+    </div>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   <script src="../../verses.js"></script>
   <script>
-    // Toggle verses on click
+    // Expansão de versículos
     document.querySelectorAll('.verse-ref').forEach(ref => {
       ref.addEventListener('click', function() {
         const verseKey = this.getAttribute('data-ref');
@@ -274,17 +789,94 @@
         
         const verse = window.Verses?.[verseKey] || `[${verseKey}] Texto não encontrado.`;
         expanded = document.createElement('div');
-        expanded.className = 'verse-expanded';
-        expanded.textContent = verse;
+        expanded.className = 'verse-expanded mt-3 p-3 rounded';
+        expanded.style.background = 'rgba(255, 255, 255, 0.1)';
+        expanded.style.borderLeft = '4px solid var(--neon-blue)';
+        expanded.innerHTML = `<strong>${verseKey}:</strong><br>${verse}`;
         
-        // Para o verso destacado, adiciona após o elemento
-        if (this.classList.contains('verse-highlight')) {
-          this.insertAdjacentElement('afterend', expanded);
-        } else {
-          this.parentNode.appendChild(expanded);
-        }
+        this.insertAdjacentElement('afterend', expanded);
       });
     });
+
+    // Animações suaves na entrada
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.animation = 'fadeInUp 0.6s ease forwards';
+        }
+      });
+    }, observerOptions);
+
+    // Adicionar CSS de animação
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      
+      .sermon-section, .structure-card, .practice-card {
+        opacity: 0;
+      }
+    `;
+    document.head.appendChild(style);
+
+    // Observar elementos para animação
+    document.querySelectorAll('.sermon-section, .structure-card, .practice-card').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Ripple effect nos botões
+    document.querySelectorAll('.practice-card, .structure-card').forEach(card => {
+      card.addEventListener('click', function(e) {
+        const ripple = document.createElement('span');
+        const rect = this.getBoundingClientRect();
+        const size = 60;
+        const x = e.clientX - rect.left - size / 2;
+        const y = e.clientY - rect.top - size / 2;
+        
+        ripple.style.cssText = `
+          position: absolute;
+          width: ${size}px;
+          height: ${size}px;
+          background: rgba(255, 255, 255, 0.3);
+          border-radius: 50%;
+          left: ${x}px;
+          top: ${y}px;
+          animation: ripple 0.6s linear;
+          pointer-events: none;
+        `;
+        
+        this.style.position = 'relative';
+        this.style.overflow = 'hidden';
+        this.appendChild(ripple);
+        
+        setTimeout(() => ripple.remove(), 600);
+      });
+    });
+
+    // Adicionar animação ripple
+    const rippleStyle = document.createElement('style');
+    rippleStyle.textContent = `
+      @keyframes ripple {
+        to {
+          transform: scale(4);
+          opacity: 0;
+        }
+      }
+    `;
+    document.head.appendChild(rippleStyle);
   </script>
 </body>
 </html>

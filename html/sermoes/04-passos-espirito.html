@@ -3,267 +3,344 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Passos no Espírito — Gálatas 5:16-25 — Jovens NV</title>
+  <title>Passos do Espírito — Gálatas 5:16-25 — Jovens NV</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
   <link rel="stylesheet" href="../../styles.css" />
   <style>
-    /* TEMA E LAYOUT RESPONSIVO */
-    body.dark{
-      --blue:#062434;
-      --black:#050505;
-      --orange:#ff814f;
-      --light:#e8e8e8;
-      background:linear-gradient(135deg,var(--black),#16232c)!important;
+    :root {
+      --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      --gradient-accent: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      --gradient-dark: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
+      --neon-blue: #00d4ff;
+      --neon-purple: #bd5eff;
+      --glass-bg: rgba(255, 255, 255, 0.05);
+      --glass-border: rgba(255, 255, 255, 0.1);
     }
-    
-    .content{
-      max-width:900px;
-      margin:0 auto;
-      padding:2rem 1rem;
-      padding-top:4rem; /* Espaço para o botão voltar */
+
+    body {
+      font-family: 'Poppins', sans-serif !important;
+      background: var(--gradient-dark) !important;
+      min-height: 100vh;
+      color: #ffffff;
     }
-    
-    /* BOTÃO VOLTAR RESPONSIVO */
-    .back-btn{
-      position:fixed;
-      top:1rem;
-      left:1rem;
-      z-index:1000;
+
+    .back-btn {
+      position: fixed;
+      top: 2rem;
+      left: 2rem;
+      z-index: 1000;
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+      padding: 0.8rem 1.5rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 500;
       transition: all 0.3s ease;
     }
-    
-    /* RESPONSIVIDADE MOBILE */
+
+    .back-btn:hover {
+      background: rgba(255, 255, 255, 0.15);
+      color: var(--neon-blue);
+      transform: translateY(-2px);
+    }
+
+    .sermon-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 6rem 2rem 4rem;
+    }
+
+    .sermon-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .sermon-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 3.5rem;
+      font-weight: 800;
+      background: var(--gradient-accent);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: #4facfe;
+      margin-bottom: 1rem;
+    }
+
+    .verse-highlight {
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      border: 2px solid var(--neon-blue);
+      border-radius: 20px;
+      padding: 2.5rem;
+      margin: 3rem 0;
+      text-align: center;
+      font-size: 1.3rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .verse-highlight:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 60px rgba(0, 212, 255, 0.5);
+    }
+
+    .sermon-section {
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+      border-radius: 20px;
+      padding: 3rem;
+      margin: 3rem 0;
+      color: #ffffff;
+    }
+
+    .section-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--neon-blue);
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .structure-card, .practice-card {
+      background: var(--glass-bg);
+      backdrop-filter: blur(15px);
+      border: 1px solid var(--glass-border);
+      border-radius: 15px;
+      padding: 2rem;
+      transition: all 0.3s ease;
+      height: 100%;
+      color: #ffffff;
+    }
+
+    .structure-card:hover, .practice-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .card-number {
+      font-size: 3rem;
+      font-weight: 800;
+      color: #667eea;
+      margin-bottom: 1rem;
+    }
+
+    .card-title, .practice-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--neon-blue);
+      margin-bottom: 1.5rem;
+    }
+
+    .practice-icon {
+      font-size: 3rem;
+      color: var(--neon-purple);
+      margin-bottom: 1rem;
+    }
+
+    .question-item {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 15px;
+      padding: 2rem;
+      margin: 2rem 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 1.5rem;
+    }
+
+    .question-number {
+      background: var(--gradient-primary);
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .prayer-section {
+      background: linear-gradient(135deg, var(--neon-purple) 0%, var(--neon-blue) 100%);
+      border-radius: 20px;
+      padding: 3rem;
+      margin: 4rem 0;
+      text-align: center;
+      color: #ffffff;
+    }
+
+    .prayer-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 2rem;
+    }
+
     @media (max-width: 768px) {
-      .content {
-        padding: 1rem 0.75rem;
-        padding-top: 4.5rem; /* Mais espaço no mobile */
-      }
-      
-      .back-btn {
-        top: 0.75rem;
-        left: 0.75rem;
-        font-size: 0.9rem;
-        padding: 0.5rem 0.75rem;
-      }
-      
-      .display-5 {
-        font-size: 2rem !important;
-      }
-      
-      .verse-highlight {
-        font-size: 1rem !important;
-        padding: 0.75rem !important;
-        margin: 1rem 0 !important;
-      }
-      
-      .row.g-4 {
-        --bs-gutter-x: 0.75rem;
-        --bs-gutter-y: 0.75rem;
-      }
-      
-      .card {
-        margin-bottom: 1rem;
-      }
-    }
-    
-    /* EXTRA SMALL DEVICES (phones < 576px) */
-    @media (max-width: 576px) {
-      .content {
-        padding: 0.75rem 0.5rem;
-        padding-top: 5rem;
-      }
-      
-      .back-btn {
-        top: 0.5rem;
-        left: 0.5rem;
-        font-size: 0.85rem;
-        padding: 0.4rem 0.6rem;
-      }
-      
-      .display-5 {
-        font-size: 1.75rem !important;
-        line-height: 1.2;
-      }
-      
-      .verse-highlight {
-        font-size: 0.95rem !important;
-        padding: 0.6rem !important;
-      }
-      
-      .alert {
-        padding: 0.75rem;
-        font-size: 0.9rem;
-      }
-    }
-    
-    .verse-highlight{
-      font-size:1.2rem;
-      font-weight:600;
-      color:var(--orange);
-      text-align:center;
-      margin:1.5rem 0;
-      padding:1rem;
-      border:2px solid var(--orange);
-      border-radius:12px;
-    }
-    
-    .verse-ref{
-      color:var(--orange);
-      cursor:pointer;
-      text-decoration:underline;
-      font-weight:600;
-    }
-    
-    .verse-ref:hover{color:#ff8747}
-    
-    .verse-expanded{
-      margin-top:.5rem;
-      padding:.75rem;
-      background:rgba(255,255,255,.06);
-      border-left:3px solid var(--orange);
-      border-radius:6px;
-      font-size:.9rem;
-      line-height:1.4;
+      .sermon-container { padding: 4rem 1rem 2rem; }
+      .sermon-title { font-size: 2.5rem; }
+      .back-btn { top: 1rem; left: 1rem; }
+      .question-item { flex-direction: column; text-align: center; }
     }
   </style>
 </head>
+
 <body>
-  <a href="../../index.html" class="btn btn-outline-warning back-btn">← Voltar</a>
+  <a href="../../index.html" class="back-btn">
+    <i class="bi bi-arrow-left me-2"></i>Voltar
+  </a>
   
-  <div class="content">
-    <header class="mb-4">
-      <h1 class="display-5 fw-bold text-warning">Passos no Espírito</h1>
-      <p class="text-secondary">Mensagem 04 • Gálatas 5:16-25</p>
+  <div class="sermon-container">
+    <header class="sermon-header">
+      <h1 class="sermon-title">Passos do Espírito</h1>
+      <p class="sermon-subtitle">Mensagem 04 • Gálatas 5:16-25 • Andando no Espírito</p>
     </header>
-    
-    <main>
-      <div class="verse-highlight verse-ref" data-ref="Gl 5:16-25">
-        "Digo, porém: andai no Espírito e jamais satisfareis à concupiscência da carne... se vivemos no Espírito, andemos também no Espírito." — Gálatas 5:16,25
-        <div class="small text-secondary mt-2">Clique para ver o texto completo</div>
+
+    <div class="verse-highlight verse-ref" data-ref="Gl 5:16-17">
+      <i class="bi bi-wind fs-1 text-info mb-3"></i>
+      <p class="mb-3">"Andai em Espírito, e não cumprireis a concupiscência da carne. Porque a carne cobiça contra o Espírito..."</p>
+      <strong>— Gálatas 5:16-17</strong>
+      <div class="mt-3 text-info">
+        <i class="bi bi-hand-index me-2"></i>
+        <small>Clique para ver o texto completo</small>
       </div>
+    </div>
 
-      <div class="alert alert-warning mb-4">
-        <strong>Objetivo:</strong> Caminhar no Espírito e produzir frutos espirituais na vida diária.
+    <div class="sermon-section">
+      <div class="text-center mb-4">
+        <h3 class="text-warning">Objetivo da Mensagem</h3>
       </div>
+      <p class="lead text-center">
+        <strong>Aprender a andar no Espírito</strong> e desenvolver o fruto do Espírito na vida diária.
+      </p>
+    </div>
 
-      <div class="row g-4 mb-5">
-        <div class="col-12">
-          <h2 class="text-warning">Estrutura da Mensagem</h2>
-        </div>
-        
+    <div class="sermon-section">
+      <h2 class="section-title">Estrutura da Mensagem</h2>
+      
+      <div class="row g-4">
         <div class="col-12 col-md-4">
-          <div class="card h-100 border-danger">
-            <div class="card-header bg-danger text-white">
-              <h4 class="h6 mb-0">1. Conflito interno</h4>
-            </div>
-            <div class="card-body">
-              <p><strong>Versículos 16-18</strong></p>
-              <ul class="small">
-                <li>Carne vs Espírito</li>
-                <li>Desejos contrários</li>
-                <li>Batalha diária</li>
-                <li>Escolha consciente</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-12 col-md-4">
-          <div class="card h-100 border-dark">
-            <div class="card-header bg-dark text-white">
-              <h4 class="h6 mb-0">2. Obras vs Fruto</h4>
-            </div>
-            <div class="card-body">
-              <p><strong>Versículos 19-23</strong></p>
-              <ul class="small">
-                <li><strong>Obras da carne:</strong> manifestas</li>
-                <li><strong>Fruto do Espírito:</strong> amor, gozo, paz...</li>
-                <li>Contraste evidente</li>
-                <li>Herança do Reino</li>
-              </ul>
-            </div>
+          <div class="structure-card">
+            <div class="card-number">1</div>
+            <h3 class="card-title">Batalha Interior</h3>
+            <ul class="mb-3">
+              <li>Carne vs. Espírito</li>
+              <li>Conflito constante</li>
+              <li>Escolhas diárias</li>
+              <li>Não é automático</li>
+            </ul>
           </div>
         </div>
 
         <div class="col-12 col-md-4">
-          <div class="card h-100 border-success">
-            <div class="card-header bg-success text-white">
-              <h4 class="h6 mb-0">3. Vida no Espírito</h4>
-            </div>
-            <div class="card-body">
-              <p><strong>Versículos 24-25</strong></p>
-              <ul class="small">
-                <li>Crucificar a carne</li>
-                <li>Viver no Espírito</li>
-                <li>Andar no Espírito</li>
-                <li>Sensibilidade diária</li>
-              </ul>
-            </div>
+          <div class="structure-card">
+            <div class="card-number">2</div>
+            <h3 class="card-title">Obras da Carne</h3>
+            <ul class="mb-3">
+              <li>Imoralidade sexual</li>
+              <li>Idolatria e feitiçaria</li>
+              <li>Divisões e ira</li>
+              <li>Consequências graves</li>
+            </ul>
           </div>
         </div>
-      </div>
 
-      <div class="mb-5">
-        <h2 class="text-warning">Aplicações Práticas</h2>
-        <div class="row g-3">
-          <div class="col-12 col-md-4">
-            <div class="card bg-dark">
-              <div class="card-body text-center">
-                <h5 class="text-warning">Plano de Fuga</h5>
-                <p class="small">Criar estratégias específicas para tentações usando 1Co 10:13</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-md-4">
-            <div class="card bg-dark">
-              <div class="card-body text-center">
-                <h5 class="text-warning">Rotina Espiritual</h5>
-                <p class="small">Estabelecer 3 disciplinas: oração, Palavra e comunhão</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-md-4">
-            <div class="card bg-dark">
-              <div class="card-body text-center">
-                <h5 class="text-warning">Sensibilidade</h5>
-                <p class="small">Parar 3x ao dia e perguntar: "Como está meu espírito?"</p>
-              </div>
-            </div>
+        <div class="col-12 col-md-4">
+          <div class="structure-card">
+            <div class="card-number">3</div>
+            <h3 class="card-title">Fruto do Espírito</h3>
+            <ul class="mb-3">
+              <li>Amor, alegria, paz</li>
+              <li>Paciência, bondade</li>
+              <li>Fidelidade, mansidão</li>
+              <li>Domínio próprio</li>
+            </ul>
           </div>
         </div>
       </div>
+    </div>
 
-      <div class="mb-5">
-        <h2 class="text-warning">Perguntas para GCG</h2>
-        <div class="card">
-          <div class="card-body">
-            <ol>
-              <li class="mb-3"><strong>Quais gatilhos você precisa evitar</strong> esta semana?</li>
-              <li class="mb-3"><strong>Qual fruto do Espírito</strong> você pedirá para crescer?</li>
-              <li class="mb-0"><strong>Como você pode aumentar</strong> sua sensibilidade ao Espírito Santo diariamente?</li>
-            </ol>
+    <div class="sermon-section">
+      <h2 class="section-title">Aplicações Práticas</h2>
+      
+      <div class="row g-4">
+        <div class="col-12 col-md-4">
+          <div class="practice-card">
+            <div class="practice-icon"><i class="bi bi-person-walking"></i></div>
+            <h4 class="practice-title">Passos Diários</h4>
+            <p>Comece cada dia pedindo para andar no Espírito</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-4">
+          <div class="practice-card">
+            <div class="practice-icon"><i class="bi bi-emoji-smile-fill"></i></div>
+            <h4 class="practice-title">Fruto Específico</h4>
+            <p>Escolha 1 fruto do Espírito para desenvolver esta semana</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-4">
+          <div class="practice-card">
+            <div class="practice-icon"><i class="bi bi-x-square-fill"></i></div>
+            <h4 class="practice-title">Crucificar a Carne</h4>
+            <p>Identifique uma obra da carne e a "crucifique" diariamente</p>
           </div>
         </div>
       </div>
+    </div>
 
-      <div class="text-center">
-        <div class="card bg-warning text-dark">
-          <div class="card-body">
-            <h3 class="card-title">Oração Final</h3>
-            <p class="card-text mb-0">Para ser cheio, guiado e capacitado pelo Espírito Santo.</p>
-          </div>
+    <div class="sermon-section">
+      <h2 class="section-title">Perguntas para GCG</h2>
+      
+      <div class="question-item">
+        <span class="question-number">1</span>
+        <div>
+          <p><strong>Qual "obra da carne" você mais tem lutado para vencer?</strong></p>
         </div>
       </div>
-    </main>
+      
+      <div class="question-item">
+        <span class="question-number">2</span>
+        <div>
+          <p><strong>Que fruto do Espírito você gostaria de desenvolver mais?</strong></p>
+        </div>
+      </div>
+      
+      <div class="question-item">
+        <span class="question-number">3</span>
+        <div>
+          <p><strong>Como você pode "andar no Espírito" praticamente amanhã?</strong></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="prayer-section">
+      <h2 class="prayer-title">
+        <i class="bi bi-wind me-3"></i>
+        Oração pelo Espírito
+      </h2>
+      <div class="prayer-text">
+        <p><strong>"Espírito Santo, ensina-me a andar em Teus passos."</strong></p>
+        <p>Crucifica em mim as obras da carne e produz Teu fruto em minha vida. Que eu seja guiado por Ti em cada decisão.</p>
+        <p><strong>Que minha vida manifeste Tua presença transformadora. Amém.</strong></p>
+      </div>
+    </div>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="../../verses.js"></script>
   <script>
-    // Toggle verses on click
     document.querySelectorAll('.verse-ref').forEach(ref => {
       ref.addEventListener('click', function() {
         const verseKey = this.getAttribute('data-ref');
@@ -276,15 +353,12 @@
         
         const verse = window.Verses?.[verseKey] || `[${verseKey}] Texto não encontrado.`;
         expanded = document.createElement('div');
-        expanded.className = 'verse-expanded';
-        expanded.textContent = verse;
+        expanded.className = 'verse-expanded mt-3 p-3 rounded';
+        expanded.style.background = 'rgba(255, 255, 255, 0.1)';
+        expanded.style.borderLeft = '4px solid var(--neon-blue)';
+        expanded.innerHTML = `<strong>${verseKey}:</strong><br>${verse}`;
         
-        // Para o verso destacado, adiciona após o elemento
-        if (this.classList.contains('verse-highlight')) {
-          this.insertAdjacentElement('afterend', expanded);
-        } else {
-          this.parentNode.appendChild(expanded);
-        }
+        this.insertAdjacentElement('afterend', expanded);
       });
     });
   </script>
