@@ -1,0 +1,845 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jesus Virá — Apocalipse 22:20 — Jovens NV</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <!-- Arquivo CSS Otimizado -->
+  <link href="../../assets/css/sermon-styles.css" rel="stylesheet">
+</head>
+<body>
+  <style>
+    /* DESIGN PREMIUM IGUAL AO PADRÃO */
+    :root {
+      --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      --gradient-accent: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      --gradient-dark: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
+      --glow-color: #ff6b6b;
+      --neon-blue: #00d4ff;
+      --neon-purple: #bd5eff;
+      --glass-bg: rgba(255, 255, 255, 0.05);
+      --glass-border: rgba(255, 255, 255, 0.1);
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif !important;
+      background: var(--gradient-dark) !important;
+      background-color: #0c0c0c !important;
+      min-height: 100vh;
+      color: #ffffff;
+      overflow-x: hidden;
+    }
+
+    /* EFEITOS GLASSMORPHISM */
+    .glass-effect {
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+    }
+
+    /* BOTÃO VOLTAR PREMIUM */
+    .back-btn {
+      position: fixed;
+      top: 2rem;
+      left: 2rem;
+      z-index: 1000;
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+      padding: 0.8rem 1.5rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .back-btn:hover {
+      background: rgba(255, 255, 255, 0.15);
+      color: var(--neon-blue);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(0, 212, 255, 0.3);
+    }
+
+    /* CONTAINER PRINCIPAL */
+    .sermon-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 6rem 2rem 4rem;
+    }
+
+    /* HEADER DA MENSAGEM */
+    .sermon-header {
+      text-align: center;
+      margin-bottom: 4rem;
+      position: relative;
+    }
+
+    .sermon-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 3.5rem;
+      font-weight: 800;
+      background: var(--gradient-accent);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 30px rgba(79, 172, 254, 0.5);
+      color: #4facfe;
+    }
+
+    @supports not (-webkit-background-clip: text) {
+      .sermon-title {
+        color: #4facfe !important;
+        background: none !important;
+        text-shadow: 0 0 20px rgba(79, 172, 254, 0.8);
+      }
+    }
+
+    .sermon-subtitle {
+      font-size: 1.2rem;
+      color: rgba(255, 255, 255, 0.7);
+      font-weight: 300;
+    }
+
+    /* VERSÍCULO DESTAQUE */
+    .verse-highlight {
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      border: 2px solid var(--neon-blue);
+      border-radius: 20px;
+      padding: 2.5rem;
+      margin: 3rem 0;
+      text-align: center;
+      font-size: 1.3rem;
+      line-height: 1.8;
+      color: #ffffff;
+      box-shadow: 0 0 40px rgba(0, 212, 255, 0.3);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .verse-highlight::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(0, 212, 255, 0.1), transparent);
+      animation: sparkle 3s infinite;
+    }
+
+    .verse-highlight:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 60px rgba(0, 212, 255, 0.5);
+    }
+
+    @keyframes sparkle {
+      0% { transform: rotate(0deg) translate(-50%, -50%); }
+      100% { transform: rotate(360deg) translate(-50%, -50%); }
+    }
+
+    /* SEÇÕES */
+    .sermon-section {
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+      border-radius: 20px;
+      padding: 3rem;
+      margin: 3rem 0;
+      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+      color: #ffffff;
+    }
+
+    .sermon-section p,
+    .sermon-section li,
+    .sermon-section .text-muted,
+    .sermon-section .small {
+      color: rgba(255, 255, 255, 0.9) !important;
+    }
+
+    .sermon-section .lead {
+      color: #ffffff !important;
+      font-weight: 500;
+    }
+
+    .section-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--neon-blue);
+      margin-bottom: 2rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 3px;
+      background: var(--gradient-accent);
+      border-radius: 2px;
+    }
+
+    /* CARDS ESTRUTURA */
+    .structure-card {
+      background: var(--glass-bg);
+      backdrop-filter: blur(15px);
+      border: 1px solid var(--glass-border);
+      border-radius: 15px;
+      padding: 2rem;
+      height: 100%;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      color: #ffffff;
+    }
+
+    .structure-card p,
+    .structure-card li,
+    .structure-card .text-muted,
+    .structure-card .small {
+      color: rgba(255, 255, 255, 0.9) !important;
+    }
+
+    .structure-card .bg-dark {
+      background: rgba(0, 0, 0, 0.4) !important;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .structure-card .bg-dark p,
+    .structure-card .bg-dark .small {
+      color: rgba(255, 255, 255, 0.95) !important;
+    }
+
+    .structure-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--gradient-secondary);
+    }
+
+    .structure-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .card-number {
+      font-size: 3rem;
+      font-weight: 800;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+      margin-bottom: 1rem;
+      color: #667eea;
+    }
+
+    @supports not (-webkit-background-clip: text) {
+      .card-number {
+        color: #667eea !important;
+        background: none !important;
+      }
+    }
+
+    .card-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--neon-blue);
+      margin-bottom: 1.5rem;
+    }
+
+    /* APLICAÇÕES PRÁTICAS */
+    .application-card {
+      background: var(--glass-bg);
+      backdrop-filter: blur(15px);
+      border: 1px solid var(--glass-border);
+      border-radius: 15px;
+      padding: 2rem;
+      text-align: left;
+      transition: all 0.3s ease;
+      height: 100%;
+      color: #ffffff;
+    }
+
+    .application-card .card-header {
+      margin: -2rem -2rem 2rem -2rem;
+      padding: 1.5rem 2rem;
+      border-radius: 15px 15px 0 0;
+      border: none !important;
+    }
+
+    .application-card .card-body {
+      padding: 0;
+    }
+
+    .application-card h5,
+    .application-card h6 {
+      text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    }
+
+    .application-card ol,
+    .application-card ul {
+      padding-left: 1.5rem;
+    }
+
+    .application-card ol li,
+    .application-card ul li {
+      margin-bottom: 0.5rem;
+      line-height: 1.6;
+    }
+
+    .bg-info.bg-opacity-20,
+    .bg-warning.bg-opacity-20,
+    .bg-success.bg-opacity-20,
+    .bg-danger.bg-opacity-20 {
+      backdrop-filter: blur(5px);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+
+    .application-card p,
+    .application-card li,
+    .application-card .small,
+    .application-card .text-muted {
+      color: rgba(255, 255, 255, 0.9) !important;
+    }
+
+    .application-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 15px 35px rgba(189, 94, 255, 0.3);
+    }
+
+    /* PERGUNTAS GCG */
+    .question-item {
+      background: var(--glass-bg);
+      backdrop-filter: blur(10px);
+      border-left: 4px solid var(--neon-blue);
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      color: #ffffff;
+    }
+
+    .question-item p,
+    .question-item .small,
+    .question-item .text-muted {
+      color: rgba(255, 255, 255, 0.9) !important;
+    }
+
+    .question-item:hover {
+      background: rgba(255, 255, 255, 0.08);
+      transform: translateX(10px);
+    }
+
+    .question-number {
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      background: var(--gradient-accent);
+      color: #000;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 30px;
+      font-weight: 700;
+      margin-right: 1rem;
+    }
+
+    /* ORAÇÃO FINAL */
+    .prayer-section {
+      background: var(--gradient-secondary);
+      border-radius: 20px;
+      padding: 3rem;
+      text-align: center;
+      color: #ffffff;
+      box-shadow: 0 0 50px rgba(240, 147, 251, 0.4);
+    }
+
+    .prayer-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 2rem;
+    }
+
+    .prayer-text {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      font-style: italic;
+    }
+
+    .prayer-subsection {
+      background: rgba(0, 0, 0, 0.1);
+      border-radius: 15px;
+      padding: 2rem;
+      margin: 2rem 0;
+      text-align: left;
+    }
+
+    .prayer-list {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .prayer-list li {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .prayer-list li:last-child {
+      border-bottom: none;
+    }
+
+    .prayer-conclusion {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      padding: 2rem;
+      margin-top: 2rem;
+    }
+
+    .prayer-amen {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: #ffd700;
+      text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    }
+
+    /* RESPONSIVIDADE */
+    @media (max-width: 768px) {
+      .back-btn {
+        top: 1rem;
+        left: 1rem;
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+      }
+
+      .sermon-container {
+        padding: 5rem 1rem 3rem;
+      }
+
+      .sermon-title {
+        font-size: 2.5rem;
+      }
+
+      .verse-highlight {
+        padding: 2rem;
+        font-size: 1.1rem;
+      }
+
+      .sermon-section {
+        padding: 2rem;
+      }
+
+      .section-title {
+        font-size: 1.8rem;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .sermon-title {
+        font-size: 2rem;
+      }
+
+      .verse-highlight {
+        padding: 1.5rem;
+        font-size: 1rem;
+      }
+
+      .sermon-section {
+        padding: 1.5rem;
+      }
+    }
+
+    /* TEMA CLARO */
+    body.light {
+      background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 50%, #ffffff 100%) !important;
+      background-color: #f1f5f9 !important;
+      color: #1a202c;
+    }
+
+    body.light .glass-effect,
+    body.light .sermon-section,
+    body.light .structure-card,
+    body.light .application-card,
+    body.light .question-item {
+      background: rgba(255, 255, 255, 0.6);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      color: #1a202c;
+    }
+
+    body.light .sermon-section p,
+    body.light .sermon-section li,
+    body.light .sermon-section .text-muted,
+    body.light .sermon-section .small,
+    body.light .structure-card p,
+    body.light .structure-card li,
+    body.light .structure-card .text-muted,
+    body.light .structure-card .small,
+    body.light .application-card p,
+    body.light .application-card li,
+    body.light .application-card .small,
+    body.light .application-card .text-muted,
+    body.light .question-item p,
+    body.light .question-item .small,
+    body.light .question-item .text-muted {
+      color: #2d3748 !important;
+    }
+
+    body.light .sermon-section .lead {
+      color: #1a202c !important;
+      font-weight: 600;
+    }
+
+    body.light .structure-card .bg-dark {
+      background: rgba(0, 0, 0, 0.08) !important;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    body.light .structure-card .bg-dark p,
+    body.light .structure-card .bg-dark .small {
+      color: #2d3748 !important;
+    }
+
+    body.light .back-btn {
+      background: rgba(255, 255, 255, 0.6);
+      color: #1a202c;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    body.light .verse-highlight {
+      background: rgba(255, 255, 255, 0.6);
+      color: #1a202c;
+      border: 2px solid var(--neon-blue);
+    }
+
+    h1.sermon-title {
+      display: block !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+    }
+
+    @supports (-webkit-appearance: none) {
+      .sermon-title {
+        color: #4facfe !important;
+        background: none !important;
+        -webkit-text-fill-color: #4facfe !important;
+      }
+      
+      body.light .sermon-title {
+        color: #2563eb !important;
+        -webkit-text-fill-color: #2563eb !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <a href="../../index.html" class="back-btn">
+    <i class="bi bi-arrow-left me-2"></i>Voltar
+  </a>
+  
+  <div class="sermon-container">
+    <header class="sermon-header">
+      <h1 class="sermon-title">Jesus Virá</h1>
+      <p class="sermon-subtitle">Mensagem 12 • Apocalipse 22:20 • Dezembro 2025</p>
+    </header>
+
+    <div class="verse-highlight verse-ref" data-ref="Ap 22:20">
+      <i class="bi bi-cloud-arrow-down-fill fs-1 text-warning mb-3"></i>
+      <p class="mb-3">"Aquele que dá testemunho destas coisas diz: 'Certamente, venho sem demora.' Amém! Vem, Senhor Jesus!"</p>
+      <strong>— Apocalipse 22:20</strong>
+      <div class="mt-3 text-info">
+        <i class="bi bi-hand-index me-2"></i>
+        <small>Clique para ver o contexto completo</small>
+      </div>
+    </div>
+
+    <!-- OBJETIVO DA MENSAGEM -->
+    <div class="sermon-section">
+      <div class="text-center mb-4">
+        <i class="bi bi-bullseye fs-1 text-warning mb-3"></i>
+        <h3 class="text-warning">Objetivo da Mensagem</h3>
+      </div>
+      <p class="lead text-center">
+        <strong>Renovar nossa esperança na Segunda Vinda de Cristo</strong> e preparar nossos corações como jovens para 
+        viver com expectativa bendita, santidade e urgência missionária enquanto aguardamos Sua volta gloriosa.
+      </p>
+    </div>
+
+    <div class="sermon-section">
+      <h2 class="section-title">Estrutura da Mensagem</h2>
+      
+      <div class="row g-4">
+        <div class="col-12 col-md-4">
+          <div class="structure-card">
+            <div class="card-number">1</div>
+            <h3 class="card-title">A Promessa Certa</h3>
+            <p class="text-muted mb-3"><strong>Jesus Confirmou Sua Volta</strong></p>
+            
+            <h5 class="text-success mb-3">✅ Certezas Bíblicas:</h5>
+            <ul class="mb-4">
+              <li><strong>"Certamente":</strong> Não é probabilidade, é garantia divina</li>
+              <li><strong>"Venho":</strong> Promessa pessoal do próprio Jesus</li>
+              <li><strong>"Sem demora":</strong> Na perspectiva da eternidade</li>
+              <li><strong>Mesmo Jesus:</strong> Que morreu, ressuscitou e subiu aos céus</li>
+              <li><strong>Testemunho final:</strong> Última declaração no Apocalipse</li>
+            </ul>
+            
+            <div class="bg-dark p-3 rounded">
+              <h6 class="text-warning">💡 Reflexão:</h6>
+              <p class="mb-0 small">Para uma geração que questiona tudo, temos a palavra final do próprio Cristo: "Eu volto!" É a promessa mais certa do universo, mais garantida que o nascer do sol amanhã.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4">
+          <div class="structure-card">
+            <div class="card-number">2</div>
+            <h3 class="card-title">Nossa Resposta: "Amém!"</h3>
+            <p class="text-muted mb-3"><strong>Como Reagir à Promessa</strong></p>
+            
+            <h5 class="text-warning mb-3">🟡 Atitudes Corretas:</h5>
+            <ul class="mb-4">
+              <li><strong>"Amém" (assim seja):</strong> Concordância total e fé</li>
+              <li><strong>Não ansiedade:</strong> Paz que excede o entendimento</li>
+              <li><strong>Não desespero:</strong> Esperança que não confunde</li>
+              <li><strong>Não preguiça:</strong> Atividade constante no Reino</li>
+              <li><strong>Não medo:</strong> Alegria pela consumação dos tempos</li>
+            </ul>
+            
+            <div class="bg-dark p-3 rounded">
+              <h6 class="text-warning">💡 Reflexão:</h6>
+              <p class="mb-0 small">Muitos cristãos vivem como se Jesus nunca fosse voltar. Como jovens, nosso "Amém!" deve ser audível em nossas prioridades, relacionamentos, carreira e ministério.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4">
+          <div class="structure-card">
+            <div class="card-number">3</div>
+            <h3 class="card-title">Súplica: "Vem!"</h3>
+            <p class="text-muted mb-3"><strong>Ansiando Sua Volta</strong></p>
+            
+            <h5 class="text-info mb-3">🔵 Nosso Clamor:</h5>
+            <ul class="mb-4">
+              <li><strong>Saudade santa:</strong> Desejo genuíno de vê-Lo face a face</li>
+              <li><strong>Descanso das lutas:</strong> Fim das tentações e sofrimentos</li>
+              <li><strong>Justiça plena:</strong> Todas as injustiças serão corrigidas</li>
+              <li><strong>Corpo glorificado:</strong> Não mais limitações físicas</li>
+              <li><strong>Reino consumado:</strong> "Seja feita Tua vontade" completo</li>
+            </ul>
+            
+            <div class="bg-dark p-3 rounded">
+              <h6 class="text-warning">💡 Reflexão:</h6>
+              <p class="mb-0 small">Se você não tem saudade de Jesus e anseia por Sua volta, talvez seu relacionamento com Ele precise ser renovado. O "Vem!" brota de um coração apaixonado.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sermon-section">
+      <h2 class="section-title">Aplicações Práticas</h2>
+      
+      <div class="row g-4">
+        <div class="col-12 col-lg-6">
+          <div class="application-card">
+            <div class="card-header bg-primary">
+              <h4 class="mb-0 text-white">⏰ Vivendo na Expectativa</h4>
+            </div>
+            <div class="card-body">
+              <h5 class="text-primary mb-3">🎯 Perspectiva Eterna</h5>
+              <p class="mb-3"><strong>Como viver sabendo que Jesus pode voltar hoje:</strong></p>
+              <ul class="mb-4">
+                <li><strong>Prioridades reajustadas:</strong> "O que realmente importa?"</li>
+                <li><strong>Relacionamentos restaurados:</strong> Perdoar e pedir perdão</li>
+                <li><strong>Testemunho urgente:</strong> Compartilhar Cristo com todos</li>
+                <li><strong>Santidade pessoal:</strong> Viver como se Ele estivesse vendo</li>
+                <li><strong>Recursos generosos:</strong> Investir no Reino, não no mundo</li>
+              </ul>
+              
+              <h5 class="text-warning mb-3">📅 Plano "Viver para Sua Volta"</h5>
+              <p class="mb-3"><strong>Mudanças práticas desta semana:</strong></p>
+              <ol>
+                <li><strong>Relacionamentos:</strong> Listar pessoas que preciso perdoar ou evangelizar</li>
+                <li><strong>Hábitos:</strong> Abandonar o que não me agrada se Jesus voltasse hoje</li>
+                <li><strong>Tempo:</strong> Reduzir futilidades e aumentar o devocional/ministério</li>
+                <li><strong>Dinheiro:</strong> Avaliar gastos com perspectiva eterna</li>
+                <li><strong>Sonhos:</strong> Alinhar meus planos com a vontade de Deus</li>
+              </ol>
+              
+              <div class="bg-info bg-opacity-20 border border-info border-opacity-30 p-3 rounded mt-3">
+                <h6 class="text-info fw-bold">📝 Compromisso Pessoal:</h6>
+                <p class="mb-0 text-white">Fazer uma lista das 3 coisas mais importantes que eu faria se soubesse que Jesus volta em 30 dias, e começar a executá-las imediatamente.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-lg-6">
+          <div class="application-card">
+            <div class="card-header bg-success">
+              <h4 class="mb-0 text-white">🔥 Urgência Missionária</h4>
+            </div>
+            <div class="card-body">
+              <h5 class="text-success mb-3">🌍 "Enquanto é Dia..."</h5>
+              <p class="mb-3"><strong>João 9:4 - "Enquanto é dia, importa que eu faça as obras daquele que me enviou; a noite vem, quando ninguém pode trabalhar."</strong></p>
+              <ul class="mb-4">
+                <li><strong>Família não convertida:</strong> Intensificar orações e testemunho</li>
+                <li><strong>Amigos na escola/trabalho:</strong> Ser mais intencional no evangelismo</li>
+                <li><strong>Redes sociais:</strong> Usar plataformas para glorificar a Cristo</li>
+                <li><strong>Talentos e dons:</strong> Colocar tudo a serviço do Reino</li>
+                <li><strong>Discipulado:</strong> Ensinar outros a ensinar outros</li>
+              </ul>
+              
+              <h5 class="text-warning mb-3">🎬 Projeto: "Última Geração"</h5>
+              <p class="mb-3"><strong>Campanha de impacto para 2025:</strong></p>
+              <ul class="mb-4">
+                <li><strong>Janeiro:</strong> "Mês da Família" - evangelismo familiar intenso</li>
+                <li><strong>Fevereiro:</strong> "Mês dos Amigos" - cada jovem traz um amigo</li>
+                <li><strong>Março:</strong> "Mês da Escola" - ação evangelística nas escolas</li>
+                <li><strong>Todo ano:</strong> "1 alma por mês" - meta de 12 pessoas impactadas</li>
+              </ul>
+              
+              <div class="bg-warning bg-opacity-20 border border-warning border-opacity-30 p-3 rounded">
+                <h6 class="text-warning fw-bold">⚡ Lema do Ano:</h6>
+                <p class="mb-0 text-white"><strong>"JESUS VIRÁ - NÃO PODEMOS ESPERAR!"</strong> Que este seja nosso grito de guerra em cada oportunidade de testemunho e ministério.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sermon-section">
+      <h2 class="section-title">Perguntas para GCG</h2>
+      
+      <div class="question-item">
+        <span class="question-number">1</span>
+        <div>
+          <p><strong>Expectativa Pessoal:</strong> Se Jesus voltasse hoje, você estaria pronto? O que mudaria em sua vida se soubesse com certeza que Ele volta este ano?</p>
+          <p class="text-muted"><em>Objetivo: Autoavaliação honesta sobre preparação espiritual e prioridades de vida</em></p>
+        </div>
+      </div>
+      
+      <div class="question-item">
+        <span class="question-number">2</span>
+        <div>
+          <p><strong>Relacionamentos Eternos:</strong> Existe alguém em sua família ou círculo de amizades que você sabe que não está preparado para a volta de Jesus? Como você pode impactá-los?</p>
+          <p class="text-muted"><em>Objetivo: Identificar alvos de intercessão e evangelismo pessoal urgente</em></p>
+        </div>
+      </div>
+      
+      <div class="question-item">
+        <span class="question-number">3</span>
+        <div>
+          <p><strong>Uso do Tempo:</strong> Como você tem gastado a maior parte do seu tempo livre? Essas atividades fazem sentido considerando que Jesus pode voltar a qualquer momento?</p>
+          <p class="text-muted"><em>Objetivo: Reajustar prioridades e maximizar impacto eterno do tempo disponível</em></p>
+        </div>
+      </div>
+      
+      <div class="question-item">
+        <span class="question-number">4</span>
+        <div>
+          <p><strong>Saudade de Jesus:</strong> Você realmente tem saudade de Jesus e anseia por vê-Lo face a face? Se não, o que pode estar impedindo essa paixão por Ele?</p>
+          <p class="text-muted"><em>Objetivo: Avaliar intimidade do relacionamento pessoal com Cristo</em></p>
+        </div>
+      </div>
+      
+      <div class="question-item">
+        <span class="question-number">5</span>
+        <div>
+          <p><strong>Compromisso Final:</strong> Que compromisso específico você fará hoje para viver como alguém que realmente crê que Jesus virá? Como podemos nos apoiar mutuamente nessa jornada?</p>
+          <p class="text-muted"><em>Objetivo: Gerar compromissos concretos com acompanhamento mútuo do grupo</em></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="prayer-section">
+      <h2 class="prayer-title">
+        <i class="bi bi-cloud-arrow-down-fill me-3"></i>
+        Oração pela Volta de Jesus
+      </h2>
+      <div class="prayer-text">
+        <p class="text-center mb-4"><em>"Aquele que dá testemunho destas coisas diz: 'Certamente, venho sem demora.' Amém! Vem, Senhor Jesus!" - Apocalipse 22:20</em></p>
+        
+        <div class="prayer-subsection">
+          <h4 class="text-primary">🙌 Gratidão pela Promessa</h4>
+          <p><strong>"Senhor Jesus, obrigado por Sua promessa certa de voltar!"</strong></p>
+          <ul class="prayer-list">
+            <li>Por não nos deixar órfãos neste mundo</li>
+            <li>Por nos dar esperança que não confunde nem decepciona</li>
+            <li>Por provar Teu amor ao prometer Tua volta</li>
+            <li>Por revelar os sinais dos tempos em Tua Palavra</li>
+            <li>Por nos permitir ser a geração que pode vê-Lo voltar</li>
+          </ul>
+        </div>
+
+        <div class="prayer-subsection">
+          <h4 class="text-warning">🔥 Preparação dos Nossos Corações</h4>
+          <p><strong>"Prepara nossos corações para Tua gloriosa aparição!"</strong></p>
+          <ul class="prayer-list">
+            <li>Purifica-nos de todo pecado que nos envergonharia</li>
+            <li>Acende em nós saudade genuína pela Tua presença</li>
+            <li>Remove de nós todo amor excessivo ao mundo</li>
+            <li>Dá-nos coragem para viver de forma diferente</li>
+            <li>Fortalece nossa fé para os dias difíceis que antecedem Tua volta</li>
+          </ul>
+        </div>
+
+        <div class="prayer-subsection">
+          <h4 class="text-success">⏰ Urgência pelas Almas</h4>
+          <p><strong>"Usa-nos para alcançar o maior número de pessoas antes que seja tarde!"</strong></p>
+          <ul class="prayer-list">
+            <li>Quebra nosso coração por aqueles que não Te conhecem</li>
+            <li>Dá-nos palavras certas para evangelizar nossa geração</li>
+            <li>Abre portas sobrenaturais para o Evangelho</li>
+            <li>Salva nossas famílias e pessoas que amamos</li>
+            <li>Usa nossa juventude para um grande avivamento final</li>
+          </ul>
+        </div>
+
+        <div class="prayer-conclusion">
+          <p class="text-center"><strong>"Senhor Jesus, nós cremos que Tu vens! Nossa resposta é um Amém decidido e um Vem apaixonado!</strong></p>
+          
+          <p class="text-center"><strong>Que vivamos cada dia como se fosse o último. Que amemos as pessoas como se não houvesse amanhã. Que trabalhemos no Teu Reino como se a eternidade dependesse das nossas ações hoje.</strong></p>
+          
+          <p class="text-center"><strong>Vem, Senhor Jesus! Vem com poder e grande glória! Vem buscar Tua Igreja fiel! Vem estabelecer Teu Reino eterno!</strong></p>
+          
+          <p class="text-center"><strong>Até que Te vejamos face a face, que sejamos fiéis na corrida e irrepreensíveis na espera.</strong></p>
+          
+          <p class="text-center prayer-amen"><strong>Maranata! O Senhor Jesus vem! Amém e amém!</strong></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../../verses.js"></script>
+  <!-- Arquivo JavaScript Otimizado -->
+  <script src="../../assets/js/sermon-scripts.js"></script>
+</body>
+</html>
+</body>
+</html>

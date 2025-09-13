@@ -6,557 +6,12 @@
   <title>Relacionamentos Saudáveis — Efésios 4:32 — Jovens NV</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
-  <style>
-    /* DESIGN PREMIUM COMPLETO - BASEADO NA PÁGINA 01 */
-    :root {
-      --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-      --gradient-accent: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-      --gradient-dark: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
-      --glow-color: #ff6b6b;
-      --neon-blue: #00d4ff;
-      --neon-purple: #bd5eff;
-      --neon-cyan: #00f2fe;
-      --glass-bg: rgba(255, 255, 255, 0.05);
-      --glass-border: rgba(255, 255, 255, 0.1);
-    }
-
-    body {
-      font-family: 'Poppins', sans-serif !important;
-      background: var(--gradient-dark) !important;
-      background-color: #0c0c0c !important;
-      min-height: 100vh;
-      color: #ffffff;
-      overflow-x: hidden;
-    }
-
-    /* EFEITOS GLASSMORPHISM */
-    .glass-effect {
-      background: var(--glass-bg);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid var(--glass-border);
-      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
-    }
-
-    /* BOTÃO VOLTAR PREMIUM */
-    .back-btn {
-      position: fixed;
-      top: 2rem;
-      left: 2rem;
-      z-index: 1000;
-      background: var(--glass-bg);
-      backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      color: #ffffff;
-      padding: 0.8rem 1.5rem;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 500;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    }
-
-    .back-btn:hover {
-      background: rgba(255, 255, 255, 0.15);
-      color: var(--neon-blue);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 30px rgba(0, 212, 255, 0.3);
-    }
-
-    /* CONTAINER PRINCIPAL */
-    .sermon-container {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 6rem 2rem 4rem;
-    }
-
-    /* HEADER DA MENSAGEM */
-    .sermon-header {
-      text-align: center;
-      margin-bottom: 4rem;
-      position: relative;
-    }
-
-    .sermon-title {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 3.5rem;
-      font-weight: 800;
-      background: var(--gradient-accent);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      margin-bottom: 1rem;
-      text-shadow: 0 0 30px rgba(79, 172, 254, 0.5);
-      color: #4facfe;
-    }
-
-    @supports not (-webkit-background-clip: text) {
-      .sermon-title {
-        color: #4facfe !important;
-        background: none !important;
-        text-shadow: 0 0 20px rgba(79, 172, 254, 0.8);
-      }
-    }
-
-    .sermon-subtitle {
-      font-size: 1.2rem;
-      color: rgba(255, 255, 255, 0.7);
-      font-weight: 300;
-    }
-
-    /* VERSÍCULO DESTAQUE */
-    .verse-highlight {
-      background: var(--glass-bg);
-      backdrop-filter: blur(20px);
-      border: 2px solid var(--neon-blue);
-      border-radius: 20px;
-      padding: 2.5rem;
-      margin: 3rem 0;
-      text-align: center;
-      font-size: 1.3rem;
-      line-height: 1.8;
-      color: #ffffff;
-      box-shadow: 0 0 40px rgba(0, 212, 255, 0.3);
-      cursor: pointer;
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .verse-highlight::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: linear-gradient(45deg, transparent, rgba(0, 212, 255, 0.1), transparent);
-      animation: sparkle 3s infinite;
-    }
-
-    .verse-highlight:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 0 60px rgba(0, 212, 255, 0.5);
-    }
-
-    @keyframes sparkle {
-      0% { transform: rotate(0deg) translate(-50%, -50%); }
-      100% { transform: rotate(360deg) translate(-50%, -50%); }
-    }
-
-    /* SEÇÕES */
-    .sermon-section {
-      background: var(--glass-bg);
-      backdrop-filter: blur(20px);
-      border: 1px solid var(--glass-border);
-      border-radius: 20px;
-      padding: 3rem;
-      margin: 3rem 0;
-      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
-      color: #ffffff;
-    }
-
-    .sermon-section p,
-    .sermon-section li,
-    .sermon-section .text-muted,
-    .sermon-section .small {
-      color: rgba(255, 255, 255, 0.9) !important;
-    }
-
-    .sermon-section .lead {
-      color: #ffffff !important;
-      font-weight: 500;
-    }
-
-    .section-title {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 2.2rem;
-      font-weight: 700;
-      color: var(--neon-blue);
-      margin-bottom: 2rem;
-      text-align: center;
-      position: relative;
-    }
-
-    .section-title::after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 100px;
-      height: 3px;
-      background: var(--gradient-accent);
-      border-radius: 2px;
-    }
-
-    /* CARDS ESTRUTURA */
-    .structure-card {
-      background: var(--glass-bg);
-      backdrop-filter: blur(15px);
-      border: 1px solid var(--glass-border);
-      border-radius: 15px;
-      padding: 2rem;
-      height: 100%;
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-      color: #ffffff;
-    }
-
-    .structure-card p,
-    .structure-card li,
-    .structure-card .text-muted,
-    .structure-card .small {
-      color: rgba(255, 255, 255, 0.9) !important;
-    }
-
-    .structure-card .bg-dark {
-      background: rgba(0, 0, 0, 0.4) !important;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .structure-card .bg-dark p,
-    .structure-card .bg-dark .small {
-      color: rgba(255, 255, 255, 0.95) !important;
-    }
-
-    .structure-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: var(--gradient-secondary);
-    }
-
-    .structure-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-    }
-
-    .card-number {
-      font-size: 3rem;
-      font-weight: 800;
-      background: var(--gradient-primary);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      line-height: 1;
-      margin-bottom: 1rem;
-      color: #667eea;
-    }
-
-    @supports not (-webkit-background-clip: text) {
-      .card-number {
-        color: #667eea !important;
-        background: none !important;
-      }
-    }
-
-    .card-title {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: var(--neon-blue);
-      margin-bottom: 1.5rem;
-    }
-
-    /* APLICAÇÕES PRÁTICAS */
-    .practice-card, .application-card {
-      background: var(--glass-bg);
-      backdrop-filter: blur(15px);
-      border: 1px solid var(--glass-border);
-      border-radius: 15px;
-      padding: 2rem;
-      text-align: center;
-      transition: all 0.3s ease;
-      height: 100%;
-      color: #ffffff;
-    }
-
-    .application-card {
-      text-align: left;
-    }
-
-    .application-card .card-header {
-      margin: -2rem -2rem 2rem -2rem;
-      padding: 1.5rem 2rem;
-      border-radius: 15px 15px 0 0;
-    }
-
-    .practice-card p,
-    .practice-card li,
-    .practice-card .small,
-    .practice-card .text-muted,
-    .application-card p,
-    .application-card li,
-    .application-card .small,
-    .application-card .text-muted {
-      color: rgba(255, 255, 255, 0.9) !important;
-    }
-
-    .practice-card:hover,
-    .application-card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 15px 35px rgba(189, 94, 255, 0.3);
-    }
-
-    .practice-title {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1.3rem;
-      font-weight: 600;
-      color: var(--neon-purple);
-      margin-bottom: 1rem;
-    }
-
-    .practice-icon {
-      font-size: 3rem;
-      color: var(--neon-purple);
-      margin-bottom: 1rem;
-    }
-
-    /* PERGUNTAS GCG */
-    .question-item {
-      background: var(--glass-bg);
-      backdrop-filter: blur(10px);
-      border-left: 4px solid var(--neon-blue);
-      padding: 1.5rem;
-      margin: 1.5rem 0;
-      border-radius: 10px;
-      transition: all 0.3s ease;
-      color: #ffffff;
-    }
-
-    .question-item p,
-    .question-item .small,
-    .question-item .text-muted {
-      color: rgba(255, 255, 255, 0.9) !important;
-    }
-
-    .question-item:hover {
-      background: rgba(255, 255, 255, 0.08);
-      transform: translateX(10px);
-    }
-
-    .question-number {
-      display: inline-block;
-      width: 30px;
-      height: 30px;
-      background: var(--gradient-accent);
-      color: #000;
-      border-radius: 50%;
-      text-align: center;
-      line-height: 30px;
-      font-weight: 700;
-      margin-right: 1rem;
-    }
-
-    /* ORAÇÃO FINAL */
-    .prayer-section {
-      background: var(--gradient-secondary);
-      border-radius: 20px;
-      padding: 3rem;
-      text-align: center;
-      color: #ffffff;
-      box-shadow: 0 0 50px rgba(240, 147, 251, 0.4);
-    }
-
-    .prayer-title {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 2.5rem;
-      font-weight: 800;
-      margin-bottom: 2rem;
-    }
-
-    .prayer-text {
-      font-size: 1.1rem;
-      line-height: 1.8;
-      font-style: italic;
-    }
-
-    .prayer-subsection {
-      margin: 2rem 0;
-      text-align: left;
-    }
-
-    .prayer-list {
-      list-style: none;
-      padding-left: 1rem;
-    }
-
-    .prayer-list li {
-      margin: 0.5rem 0;
-      position: relative;
-    }
-
-    .prayer-list li::before {
-      content: "💝";
-      position: absolute;
-      left: -1rem;
-    }
-
-    .prayer-conclusion {
-      margin-top: 3rem;
-      font-size: 1.2rem;
-    }
-
-    .prayer-amen {
-      font-size: 1.4rem;
-      font-weight: bold;
-      color: var(--neon-cyan);
-    }
-
-    /* RESPONSIVIDADE E ANIMATIONS */
-    @keyframes ripple {
-      0% {
-        transform: scale(0);
-        opacity: 0.7;
-      }
-      100% {
-        transform: scale(4);
-        opacity: 0;
-      }
-    }
-
-    @keyframes slideInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .animate-on-scroll {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.6s ease;
-    }
-
-    .animate-on-scroll.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .ripple-effect {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .ripple-effect::after {
-      content: '';
-      position: absolute;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.3);
-      width: 20px;
-      height: 20px;
-      animation: ripple 0.6s ease-out;
-      pointer-events: none;
-      opacity: 0;
-    }
-
-    /* Mobile First Responsive Design */
-    @media (max-width: 768px) {
-      .back-btn {
-        top: 1rem;
-        left: 1rem;
-        padding: 0.6rem 1.2rem;
-        font-size: 0.9rem;
-      }
-
-      .sermon-container {
-        padding: 5rem 1rem 3rem;
-      }
-
-      .sermon-title {
-        font-size: 2.5rem;
-      }
-
-      .verse-highlight {
-        padding: 2rem;
-        font-size: 1.1rem;
-      }
-
-      .sermon-section {
-        padding: 2rem;
-      }
-
-      .section-title {
-        font-size: 1.8rem;
-      }
-
-      .practice-card, .application-card {
-        margin: 1rem 0;
-      }
-
-      .question-item {
-        padding: 1rem;
-        margin: 1rem 0;
-      }
-
-      .prayer-section {
-        padding: 2rem 1rem;
-      }
-    }
-
-    @media (max-width: 576px) {
-      .sermon-title {
-        font-size: 2rem;
-      }
-
-      .verse-highlight {
-        padding: 1.5rem;
-        font-size: 1rem;
-      }
-
-      .sermon-section {
-        padding: 1.5rem;
-      }
-
-      .section-title {
-        font-size: 1.6rem;
-      }
-
-      .structure-card {
-        padding: 1rem;
-      }
-
-      .practice-title {
-        font-size: 1.1rem;
-      }
-
-      .question-number {
-        width: 25px;
-        height: 25px;
-        line-height: 25px;
-      }
-    }
-
-    /* Forçar visibilidade do título */
-    h1.sermon-title {
-      display: block !important;
-      visibility: visible !important;
-      opacity: 1 !important;
-    }
-
-    @supports (-webkit-appearance: none) {
-      .sermon-title {
-        color: #4facfe !important;
-        background: none !important;
-        -webkit-text-fill-color: #4facfe !important;
-      }
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <!-- Arquivos CSS Externos -->
+  <link rel="stylesheet" href="../../assets/css/sermon-styles.css" />
 </head>
-
 <body>
   <a href="../../index.html" class="back-btn">
     <i class="bi bi-arrow-left me-2"></i>Voltar
@@ -581,177 +36,81 @@
     </div>
 
     <!-- OBJETIVO DA MENSAGEM -->
-    <div class="sermon-section animate-on-scroll">
-      <h2 class="section-title">🎯 Objetivo da Mensagem</h2>
-      <div class="row g-4">
-        <div class="col-md-12">
-          <div class="bg-dark p-4 rounded-3 mb-4" style="background: var(--glass-bg) !important; backdrop-filter: blur(15px); border: 1px solid var(--glass-border);">
-            <p class="lead mb-3" style="color: rgba(255, 255, 255, 0.9);">
-              <strong>Capacitar os jovens para construírem relacionamentos verdadeiramente saudáveis e duradouros,</strong> 
-              fundamentados nos princípios bíblicos de benignidade, misericórdia e perdão, criando uma geração que 
-              reflete o caráter de Cristo em todas as suas conexões interpessoais.
-            </p>
-            
-            <div class="row g-3 mt-3">
-              <div class="col-md-6">
-                <div class="p-3 rounded" style="background: rgba(0, 212, 255, 0.1); border-left: 3px solid var(--neon-cyan);">
-                  <h5 style="color: var(--neon-cyan);"><i class="bi bi-people me-2"></i>Meta Principal</h5>
-                  <p class="small mb-0" style="color: rgba(255, 255, 255, 0.8);">
-                    Desenvolver habilidades relacionais baseadas no caráter de Cristo, criando vínculos profundos, 
-                    saudáveis e que promovem crescimento mútuo em amor e maturidade espiritual.
-                  </p>
-                </div>
-              </div>
-              
-              <div class="col-md-6">
-                <div class="p-3 rounded" style="background: rgba(189, 94, 255, 0.1); border-left: 3px solid var(--neon-purple);">
-                  <h5 style="color: var(--neon-purple);"><i class="bi bi-heart-pulse me-2"></i>Visão Transformadora</h5>
-                  <p class="small mb-0" style="color: rgba(255, 255, 255, 0.8);">
-                    Formar jovens que sejam agentes de cura, reconciliação e amor em todas as esferas relacionais - 
-                    família, amizades, namoro, casamento e comunidade cristã.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div class="mt-4 p-3 rounded" style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1);">
-              <h6 style="color: var(--neon-blue);"><i class="bi bi-target me-2"></i>Objetivos Específicos:</h6>
-              <ul class="small mb-0" style="color: rgba(255, 255, 255, 0.8);">
-                <li>Compreender os fundamentos bíblicos para relacionamentos saudáveis</li>
-                <li>Desenvolver competências emocionais de empatia, perdão e comunicação</li>
-                <li>Identificar padrões relacionais tóxicos e aprender a transformá-los</li>
-                <li>Praticar o amor incondicional e a graça no dia a dia</li>
-                <li>Criar uma cultura de relacionamentos restaurativos na comunidade jovem</li>
-              </ul>
-            </div>
-          </div>
-        </div>
+    <div class="sermon-section">
+      <div class="text-center mb-4">
+        <i class="bi bi-bullseye fs-1 text-warning mb-3"></i>
+        <h3 class="text-warning">Objetivo da Mensagem</h3>
       </div>
+      <p class="lead text-center">
+        <strong>Transformar relacionamentos através dos princípios bíblicos</strong> de benignidade, misericórdia e perdão, 
+        capacitando jovens a construir vínculos saudáveis que reflitam o caráter de Cristo e promovam cura relacional.
+      </p>
     </div>
 
     <!-- ESTRUTURA DA MENSAGEM -->
-    <div class="sermon-section animate-on-scroll">
-      <h2 class="section-title">🏗️ Estrutura da Mensagem</h2>
-      
-      <div class="row g-4 mb-4">
-        <div class="col-md-12">
-          <div class="bg-dark p-4 rounded-3" style="background: var(--glass-bg) !important; backdrop-filter: blur(15px); border: 1px solid var(--glass-border);">
-            <h4 style="color: var(--neon-blue);"><i class="bi bi-book me-2"></i>Contexto Bíblico de Efésios 4:32</h4>
-            <div class="row g-3 mt-2">
-              <div class="col-md-6">
-                <h6 style="color: var(--neon-purple);">Contexto Anterior (vs. 25-31):</h6>
-                <p class="small" style="color: rgba(255, 255, 255, 0.8);">
-                  Paulo lista comportamentos destrutivos que devem ser abandonados: mentira, ira descontrolada, 
-                  furto, palavras corruptas, amargura, cólera, gritaria e malícia.
-                </p>
-              </div>
-              <div class="col-md-6">
-                <h6 style="color: var(--neon-cyan);">O Contraste (v. 32):</h6>
-                <p class="small" style="color: rgba(255, 255, 255, 0.8);">
-                  Em contraste direto ("Antes"), Paulo apresenta o padrão divino para relacionamentos: 
-                  benignidade, misericórdia e perdão baseados no exemplo de Cristo.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div class="sermon-section">
+      <h2 class="section-title">Estrutura da Mensagem</h2>
       
       <div class="row g-4">
         <div class="col-12 col-md-4">
           <div class="structure-card">
             <div class="card-number">1</div>
-            <h3 class="card-title"><i class="bi bi-heart me-2"></i>BENIGNIDADE</h3>
-            <div class="bg-dark p-3 rounded mb-3" style="background: rgba(0, 0, 0, 0.4) !important; border: 1px solid rgba(255, 255, 255, 0.1);">
-              <h6 style="color: var(--neon-cyan);">Definição Bíblica:</h6>
-              <p class="small mb-2">A palavra grega "chrestos" significa "bondade útil, gentileza ativa". Não é apenas ser legal - é ser ativamente bom para o outro.</p>
-            </div>
-            <ul style="color: rgba(255, 255, 255, 0.9);">
-              <li><strong>Gentileza Ativa:</strong> Iniciativa de fazer o bem</li>
-              <li><strong>Bondade Prática:</strong> Ações concretas de cuidado</li>
-              <li><strong>Coração Terno:</strong> Sensibilidade às necessidades alheias</li>
-              <li><strong>Disposição Servil:</strong> Alegria em ajudar sem esperar retorno</li>
+            <h3 class="card-title">Benignidade</h3>
+            <p class="text-muted mb-3"><strong>"Sede benignos"</strong></p>
+            
+            <h5 class="text-success mb-3">🟢 Definição Bíblica:</h5>
+            <ul class="mb-4">
+              <li><strong>Bondade ativa:</strong> Não apenas ausência do mal, mas presença do bem</li>
+              <li><strong>Gentileza intencional:</strong> Escolha deliberada de ser gentil</li>
+              <li><strong>Coração generoso:</strong> Disposição para abençoar mesmo sem reciprocidade</li>
+              <li><strong>Graça em ação:</strong> Demonstração prática do amor divino</li>
             </ul>
-            <div class="mt-3 p-2 rounded" style="background: rgba(0, 212, 255, 0.1); border-left: 3px solid var(--neon-cyan);">
-              <small style="color: rgba(255, 255, 255, 0.8);">
-                <strong>💡 Aplicação:</strong> Ser a pessoa que sempre procura maneiras de abençoar outros, mesmo em pequenos gestos.
-              </small>
+            
+            <div class="bg-dark p-3 rounded">
+              <h6 class="text-warning">💡 Reflexão:</h6>
+              <p class="mb-0 small">Benignidade não é fraqueza - é força controlada. É escolher o bem quando seria mais fácil ser indiferente ou hostil.</p>
             </div>
           </div>
         </div>
-        
+
         <div class="col-12 col-md-4">
           <div class="structure-card">
             <div class="card-number">2</div>
-            <h3 class="card-title"><i class="bi bi-shield-heart me-2"></i>MISERICÓRDIA</h3>
-            <div class="bg-dark p-3 rounded mb-3" style="background: rgba(0, 0, 0, 0.4) !important; border: 1px solid rgba(255, 255, 255, 0.1);">
-              <h6 style="color: var(--neon-purple);">Essência Divina:</h6>
-              <p class="small mb-2">"Eusplagchnos" - literalmente "bem-entranhas", indica compaixão visceral. É sentir a dor do outro como se fosse sua.</p>
-            </div>
-            <ul style="color: rgba(255, 255, 255, 0.9);">
-              <li><strong>Compaixão Genuína:</strong> Sentir com o outro, não apenas por ele</li>
-              <li><strong>Empatia Cristã:</strong> Ver com os olhos de Cristo</li>
-              <li><strong>Cuidado Mútuo:</strong> Preocupação ativa pelo bem-estar alheio</li>
-              <li><strong>Sensibilidade Espiritual:</strong> Discernir necessidades profundas</li>
+            <h3 class="card-title">Misericórdia</h3>
+            <p class="text-muted mb-3"><strong>"Misericordiosos"</strong></p>
+            
+            <h5 class="text-info mb-3">🔵 Coração Compassivo:</h5>
+            <ul class="mb-4">
+              <li><strong>Compaixão profunda:</strong> Sentir genuinamente a dor do outro</li>
+              <li><strong>Não dar o que merece:</strong> Reter consequências merecidas</li>
+              <li><strong>Dar segundas chances:</strong> Acreditar na possibilidade de mudança</li>
+              <li><strong>Amor incondicional:</strong> Amar apesar das falhas</li>
             </ul>
-            <div class="mt-3 p-2 rounded" style="background: rgba(189, 94, 255, 0.1); border-left: 3px solid var(--neon-purple);">
-              <small style="color: rgba(255, 255, 255, 0.8);">
-                <strong>🎯 Meta:</strong> Desenvolver um coração que se comove genuinamente pela situação dos outros.
-              </small>
+            
+            <div class="bg-dark p-3 rounded">
+              <h6 class="text-warning">💡 Reflexão:</h6>
+              <p class="mb-0 small">Misericórdia é o reflexo do coração de Deus em nós. Ela transforma não apenas quem a recebe, mas principalmente quem a oferece.</p>
             </div>
           </div>
         </div>
-        
+
         <div class="col-12 col-md-4">
           <div class="structure-card">
             <div class="card-number">3</div>
-            <h3 class="card-title"><i class="bi bi-arrow-through-heart me-2"></i>PERDÃO</h3>
-            <div class="bg-dark p-3 rounded mb-3" style="background: rgba(0, 0, 0, 0.4) !important; border: 1px solid rgba(255, 255, 255, 0.1);">
-              <h6 style="color: var(--neon-cyan);">Padrão Divino:</h6>
-              <p class="small mb-2">"Como também Deus vos perdoou em Cristo" - nosso perdão deve espelhar o perdão divino: completo, incondicional, restaurador.</p>
-            </div>
-            <ul style="color: rgba(255, 255, 255, 0.9);">
-              <li><strong>Como Cristo Perdoou:</strong> Total, imediato, sem condições</li>
-              <li><strong>Libertar o Ofensor:</strong> Soltar a dívida emocional</li>
-              <li><strong>Restaurar Relações:</strong> Buscar reconciliação verdadeira</li>
-              <li><strong>Quebrar Ciclos:</strong> Interromper padrões de mágoa</li>
+            <h3 class="card-title">Perdão</h3>
+            <p class="text-muted mb-3"><strong>"Como Deus vos perdoou"</strong></p>
+            
+            <h5 class="text-warning mb-3">🟡 Libertação Mútua:</h5>
+            <ul class="mb-4">
+              <li><strong>Libertar o devedor:</strong> Cancelar a dívida emocional</li>
+              <li><strong>Libertar-se a si mesmo:</strong> Não carregar mais o peso</li>
+              <li><strong>Restaurar relacionamentos:</strong> Abrir caminho para reconciliação</li>
+              <li><strong>Imitar Cristo:</strong> Seguir o exemplo máximo de perdão</li>
             </ul>
-            <div class="mt-3 p-2 rounded" style="background: rgba(0, 242, 254, 0.1); border-left: 3px solid var(--neon-cyan);">
-              <small style="color: rgba(255, 255, 255, 0.8);">
-                <strong>🔥 Desafio:</strong> Perdoar não é sentir, é decidir. É escolha, não emoção.
-              </small>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Análise Teológica Profunda -->
-      <div class="row g-4 mt-4">
-        <div class="col-md-12">
-          <div class="bg-dark p-4 rounded-3" style="background: var(--glass-bg) !important; backdrop-filter: blur(15px); border: 1px solid var(--glass-border);">
-            <h4 style="color: var(--neon-blue);"><i class="bi bi-lightbulb me-2"></i>Conexão Trinitária dos Relacionamentos</h4>
-            <div class="row g-3 mt-2">
-              <div class="col-md-4">
-                <div class="p-3 rounded text-center" style="background: rgba(0, 212, 255, 0.1); border: 1px solid rgba(0, 212, 255, 0.3);">
-                  <i class="bi bi-person-heart fs-2 mb-2" style="color: var(--neon-cyan);"></i>
-                  <h6 style="color: var(--neon-cyan);">PAI - Benignidade</h6>
-                  <small style="color: rgba(255, 255, 255, 0.8);">O Pai demonstra bondade incondicional e iniciativa de amor</small>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="p-3 rounded text-center" style="background: rgba(189, 94, 255, 0.1); border: 1px solid rgba(189, 94, 255, 0.3);">
-                  <i class="bi bi-heart-pulse fs-2 mb-2" style="color: var(--neon-purple);"></i>
-                  <h6 style="color: var(--neon-purple);">JESUS - Misericórdia</h6>
-                  <small style="color: rgba(255, 255, 255, 0.8);">Cristo modelou compaixão perfeita, sentindo nossas dores</small>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="p-3 rounded text-center" style="background: rgba(0, 242, 254, 0.1); border: 1px solid rgba(0, 242, 254, 0.3);">
-                  <i class="bi bi-wind fs-2 mb-2" style="color: var(--neon-cyan);"></i>
-                  <h6 style="color: var(--neon-cyan);">ESPÍRITO - Perdão</h6>
-                  <small style="color: rgba(255, 255, 255, 0.8);">O Espírito capacita-nos a perdoar sobrenaturalmente</small>
-                </div>
-              </div>
+            
+            <div class="bg-dark p-3 rounded">
+              <h6 class="text-warning">💡 Reflexão:</h6>
+              <p class="mb-0 small">Perdão não é esquecer ou minimizar a dor - é escolher deliberadamente não usar a ofensa contra o ofensor.</p>
             </div>
           </div>
         </div>
@@ -759,600 +118,180 @@
     </div>
 
     <!-- APLICAÇÕES PRÁTICAS -->
-    <div class="sermon-section animate-on-scroll">
-      <h2 class="section-title">💡 Aplicações Práticas - Relacionamentos à Imagem de Cristo</h2>
+    <div class="sermon-section">
+      <h2 class="section-title">Aplicações Práticas</h2>
       
-      <!-- Princípios Relacionais Fundamentais -->
-      <div class="row g-4 mb-5">
-        <div class="col-md-12">
-          <div class="bg-dark p-4 rounded-3 mb-4" style="background: var(--glass-bg) !important; backdrop-filter: blur(15px); border: 1px solid var(--glass-border);">
-            <h4 style="color: var(--neon-blue);"><i class="bi bi-compass me-2"></i>Os 3 Pilares dos Relacionamentos Cristãos</h4>
-            <p style="color: rgba(255, 255, 255, 0.9);">
-              Estes princípios devem governar todos os nossos relacionamentos - família, amizades, namoro, comunidade:
-            </p>
-            <div class="row g-3 mt-3">
-              <div class="col-md-4">
-                <div class="p-3 rounded text-center" style="background: rgba(0, 212, 255, 0.1); border: 1px solid rgba(0, 212, 255, 0.3);">
-                  <i class="bi bi-heart-fill fs-2 mb-2" style="color: var(--neon-cyan);"></i>
-                  <h6 style="color: var(--neon-cyan);">BENIGNIDADE ATIVA</h6>
-                  <small style="color: rgba(255, 255, 255, 0.8);">Sempre busque o bem do outro</small>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="p-3 rounded text-center" style="background: rgba(189, 94, 255, 0.1); border: 1px solid rgba(189, 94, 255, 0.3);">
-                  <i class="bi bi-shield-heart fs-2 mb-2" style="color: var(--neon-purple);"></i>
-                  <h6 style="color: var(--neon-purple);">MISERICÓRDIA GENUÍNA</h6>
-                  <small style="color: rgba(255, 255, 255, 0.8);">Sinta com o coração de Cristo</small>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="p-3 rounded text-center" style="background: rgba(0, 242, 254, 0.1); border: 1px solid rgba(0, 242, 254, 0.3);">
-                  <i class="bi bi-arrow-through-heart fs-2 mb-2" style="color: var(--neon-cyan);"></i>
-                  <h6 style="color: var(--neon-cyan);">PERDÃO SOBRENATURAL</h6>
-                  <small style="color: rgba(255, 255, 255, 0.8);">Liberte e restaure sempre</small>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Cards de Aplicação Prática Detalhada -->
-      <div class="row g-4 mb-5">
-        <div class="col-12 col-md-6">
-          <div class="application-card">
-            <div class="card-header" style="background: var(--gradient-primary);">
-              <i class="bi bi-hand-thumbs-up-fill fs-3 mb-2"></i>
-              <h4 class="practice-title mb-0">1. PRATICANDO BENIGNIDADE</h4>
-            </div>
-            
-            <h6 style="color: var(--neon-cyan);">🎯 Transformação de Atitude:</h6>
-            <ul class="mb-3">
-              <li><strong>ANTES:</strong> "Como essa pessoa pode me ajudar?"</li>
-              <li><strong>DEPOIS:</strong> "Como posso ser uma bênção para essa pessoa?"</li>
-            </ul>
-            
-            <h6 style="color: var(--neon-purple);">📋 Estratégias Práticas:</h6>
-            <ul class="mb-3">
-              <li><strong>Regra das 24 horas:</strong> Em 24h, faça algo bom por alguém sem esperar retorno</li>
-              <li><strong>Elogios específicos:</strong> Reconheça qualidades únicas nas pessoas</li>
-              <li><strong>Atos de serviço:</strong> Identifique necessidades e aja discretamente</li>
-              <li><strong>Presença atenta:</strong> Dê atenção total quando alguém falar com você</li>
-            </ul>
-
-            <div class="p-3 rounded mt-3" style="background: rgba(0, 212, 255, 0.1); border-left: 3px solid var(--neon-cyan);">
-              <small><strong>💡 Desafio Semanal:</strong> Escolha uma pessoa e pratique benignidade intencional com ela por 7 dias. Observe como o relacionamento se transforma.</small>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-12 col-md-6">
-          <div class="application-card">
-            <div class="card-header" style="background: var(--gradient-secondary);">
-              <i class="bi bi-heart-pulse-fill fs-3 mb-2"></i>
-              <h4 class="practice-title mb-0">2. DESENVOLVENDO MISERICÓRDIA</h4>
-            </div>
-            
-            <h6 style="color: var(--neon-cyan);">💝 Empatia Cristã Ativa:</h6>
-            <ul class="mb-3">
-              <li><strong>Escuta Profunda:</strong> Ouça não apenas palavras, mas emoções</li>
-              <li><strong>Validação Emocional:</strong> "Entendo que isso deve ser difícil para você"</li>
-              <li><strong>Presença Consoladora:</strong> Às vezes, só estar presente já é ministério</li>
-              <li><strong>Oração Intercessa:</strong> Ore pelas dores que as pessoas compartilham</li>
-            </ul>
-            
-            <h6 style="color: var(--neon-purple);">🔥 Sinais de Misericórdia Madura:</h6>
-            <ul class="mb-3">
-              <li>Você se comove com as dores alheias como se fossem suas</li>
-              <li>Busca ativamente maneiras de consolar e encorajar</li>
-              <li>Não julga rapidamente, mas procura entender contextos</li>
-              <li>Sua presença traz paz e esperança para pessoas feridas</li>
-            </ul>
-
-            <div class="p-3 rounded mt-3" style="background: rgba(189, 94, 255, 0.1); border-left: 3px solid var(--neon-purple);">
-              <small><strong>🎯 Teste de Misericórdia:</strong> Quando alguém está sofrendo, sua primeira reação é julgar ou consolar? Peça ao Espírito para sensibilizar seu coração.</small>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Segunda linha de aplicações -->
-      <div class="row g-4 mb-5">
-        <div class="col-12 col-md-6">
-          <div class="application-card">
-            <div class="card-header" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
-              <i class="bi bi-check-circle-fill fs-3 mb-2"></i>
-              <h4 class="practice-title mb-0">3. PERDÃO SOBRENATURAL</h4>
-            </div>
-            
-            <h6 style="color: var(--neon-cyan);">⚡ Protocolo do Perdão Bíblico:</h6>
-            <ul class="mb-3">
-              <li><strong>RECONHEÇA a dor:</strong> "Isso realmente me machucou"</li>
-              <li><strong>DECIDA perdoar:</strong> "Escolho perdoar como Cristo me perdoou"</li>
-              <li><strong>DECLARE o perdão:</strong> "Eu te perdoo e liberto esta dívida"</li>
-              <li><strong>BUSQUE restauração:</strong> "Como podemos reconstruir a confiança?"</li>
-            </ul>
-            
-            <h6 style="color: var(--neon-purple);">🚫 Mitos sobre Perdão:</h6>
-            <ul class="mb-3">
-              <li>❌ "Preciso sentir vontade de perdoar"</li>
-              <li>✅ <strong>Verdade:</strong> Perdão é decisão, não sentimento</li>
-              <li>❌ "Perdoar significa esquecer"</li>
-              <li>✅ <strong>Verdade:</strong> Perdão é lembrar sem amargura</li>
-              <li>❌ "Perdão significa não haver consequências"</li>
-              <li>✅ <strong>Verdade:</strong> Perdão pode coexistir com limites saudáveis</li>
-            </ul>
-
-            <div class="p-3 rounded mt-3" style="background: rgba(0, 242, 254, 0.1); border-left: 3px solid var(--neon-cyan);">
-              <small><strong>🔥 Desafio Radical:</strong> Existe alguém que você precisa perdoar? Tome essa decisão hoje, mesmo que os sentimentos ainda não tenham mudado.</small>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-12 col-md-6">
-          <div class="application-card">
-            <div class="card-header" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
-              <i class="bi bi-arrow-repeat fs-3 mb-2"></i>
-              <h4 class="practice-title mb-0">4. RESTAURAÇÃO RELACIONAL</h4>
-            </div>
-            
-            <h6 style="color: var(--neon-cyan);">🔧 Passos para Restauração:</h6>
-            <ul class="mb-3">
-              <li><strong>Autoexame:</strong> "Qual foi minha parte no conflito?"</li>
-              <li><strong>Aproximação Humilde:</strong> "Posso conversar com você?"</li>
-              <li><strong>Confissão Específica:</strong> "Eu errei quando..."</li>
-              <li><strong>Pedido de Perdão:</strong> "Você pode me perdoar?"</li>
-              <li><strong>Compromisso de Mudança:</strong> "Como posso fazer diferente?"</li>
-            </ul>
-            
-            <h6 style="color: var(--neon-purple);">💎 Sinais de Restauração Genuína:</h6>
-            <ul class="mb-3">
-              <li>Transparência mútua sobre sentimentos</li>
-              <li>Compromisso conjunto com mudança</li>
-              <li>Reestabelecimento gradual da confiança</li>
-              <li>Crescimento do relacionamento a partir da crise</li>
-            </ul>
-
-            <div class="p-3 rounded mt-3" style="background: rgba(245, 87, 108, 0.1); border-left: 3px solid #f5576c;">
-              <small><strong>📖 Promessa:</strong> "Bem-aventurados os pacificadores, porque serão chamados filhos de Deus" (Mateus 5:9)</small>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Metodologia AMOR - Ferramenta Prática -->
-      <div class="row g-4 mb-4">
-        <div class="col-md-12">
-          <div class="bg-dark p-4 rounded-3" style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.2) 0%, rgba(118, 75, 162, 0.2) 100%); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.2);">
-            <h4 style="color: var(--neon-blue);"><i class="bi bi-heart-arrow me-2"></i>Metodologia AMOR - Para Relacionamentos Saudáveis</h4>
-            <p class="mb-4" style="color: rgba(255, 255, 255, 0.9);">
-              Use este acróstico diariamente para avaliar e melhorar seus relacionamentos:
-            </p>
-            
-            <div class="row g-3">
-              <div class="col-md-6 col-lg-3">
-                <div class="p-3 rounded" style="background: rgba(255, 255, 255, 0.1); border-left: 4px solid var(--neon-cyan);">
-                  <h6 style="color: var(--neon-cyan);"><strong>A</strong> - Aceitar Incondicionalmente</h6>
-                  <small style="color: rgba(255, 255, 255, 0.8);">Ame a pessoa como ela é, enquanto ora por quem ela pode se tornar</small>
-                </div>
-              </div>
-              
-              <div class="col-md-6 col-lg-3">
-                <div class="p-3 rounded" style="background: rgba(255, 255, 255, 0.1); border-left: 4px solid var(--neon-purple);">
-                  <h6 style="color: var(--neon-purple);"><strong>M</strong> - Mostrar Misericórdia</h6>
-                  <small style="color: rgba(255, 255, 255, 0.8);">Seja compassivo com as falhas e fraquezas dos outros</small>
-                </div>
-              </div>
-              
-              <div class="col-md-6 col-lg-3">
-                <div class="p-3 rounded" style="background: rgba(255, 255, 255, 0.1); border-left: 4px solid var(--neon-cyan);">
-                  <h6 style="color: var(--neon-cyan);"><strong>O</strong> - Ouvir Ativamente</h6>
-                  <small style="color: rgba(255, 255, 255, 0.8);">Dê atenção total às palavras e emoções do outro</small>
-                </div>
-              </div>
-              
-              <div class="col-md-6 col-lg-3">
-                <div class="p-3 rounded" style="background: rgba(255, 255, 255, 0.1); border-left: 4px solid var(--neon-purple);">
-                  <h6 style="color: var(--neon-purple);"><strong>R</strong> - Restaurar Sempre</h6>
-                  <small style="color: rgba(255, 255, 255, 0.8);">Busque reconciliação e perdão em todos os conflitos</small>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Aplicações por Tipo de Relacionamento -->
       <div class="row g-4">
-        <div class="col-md-12">
-          <div class="bg-dark p-4 rounded-3" style="background: var(--glass-bg) !important; backdrop-filter: blur(15px); border: 1px solid var(--glass-border);">
-            <h4 style="color: var(--neon-blue);"><i class="bi bi-people-fill me-2"></i>Aplicações por Esfera Relacional</h4>
-            <div class="row g-4 mt-2">
-              <div class="col-md-6">
-                <h6 style="color: var(--neon-purple);">👨‍👩‍👧‍👦 FAMÍLIA:</h6>
-                <ul style="color: rgba(255, 255, 255, 0.9);">
-                  <li>Honre pais mesmo quando discordam</li>
-                  <li>Seja pacificador entre irmãos</li>
-                  <li>Expresse gratidão por pequenas coisas</li>
-                  <li>Peça perdão rapidamente quando errar</li>
-                </ul>
-                
-                <h6 style="color: var(--neon-cyan);">👥 AMIZADES:</h6>
-                <ul style="color: rgba(255, 255, 255, 0.9);">
-                  <li>Seja leal nas dificuldades</li>
-                  <li>Celebre os sucessos dos amigos</li>
-                  <li>Fale a verdade em amor</li>
-                  <li>Invista tempo de qualidade consistente</li>
-                </ul>
-              </div>
-              
-              <div class="col-md-6">
-                <h6 style="color: var(--neon-purple);">💕 NAMORO/CASAMENTO:</h6>
-                <ul style="color: rgba(255, 255, 255, 0.9);">
-                  <li>Pratique comunicação não-violenta</li>
-                  <li>Coloque Cristo no centro da relação</li>
-                  <li>Mantenha pureza física e emocional</li>
-                  <li>Busque crescimento espiritual conjunto</li>
-                </ul>
-                
-                <h6 style="color: var(--neon-cyan);">⛪ COMUNIDADE CRISTÃ:</h6>
-                <ul style="color: rgba(255, 255, 255, 0.9);">
-                  <li>Seja edificante em palavras e ações</li>
-                  <li>Compartilhe vulnerabilidades apropriadas</li>
-                  <li>Ore uns pelos outros regularmente</li>
-                  <li>Pratique hospitalidade genuína</li>
-                </ul>
-              </div>
+        <div class="col-12 col-md-6">
+          <div class="practice-card">
+            <div class="practice-icon">
+              <i class="bi bi-heart-pulse"></i>
+            </div>
+            <h4 class="practice-title">Praticar Benignidade Diária</h4>
+            <div class="text-start">
+              <p><strong>Pequenos atos que transformam:</strong></p>
+              <ul>
+                <li>Responder com gentileza mesmo quando tratado mal</li>
+                <li>Oferecer ajuda sem esperar retorno</li>
+                <li>Falar palavras de encorajamento intencionalmente</li>
+                <li>Demonstrar interesse genuíno pelas pessoas</li>
+              </ul>
+              <p class="small text-info"><strong>💡 Desafio:</strong> Esta semana, faça um ato de benignidade por dia sem que ninguém saiba.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6">
+          <div class="practice-card">
+            <div class="practice-icon">
+              <i class="bi bi-shield-heart"></i>
+            </div>
+            <h4 class="practice-title">Desenvolver Misericórdia</h4>
+            <div class="text-start">
+              <p><strong>Cultivando um coração compassivo:</strong></p>
+              <ul>
+                <li>Procurar entender antes de julgar</li>
+                <li>Lembrar de suas próprias falhas quando criticar outros</li>
+                <li>Orar por pessoas que o irritam ou magoam</li>
+                <li>Dar segundas (e terceiras) chances</li>
+              </ul>
+              <p class="small text-info"><strong>💡 Versículo:</strong> "Bem-aventurados os misericordiosos, porque alcançarão misericórdia" (Mt 5:7)</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6">
+          <div class="practice-card">
+            <div class="practice-icon">
+              <i class="bi bi-arrow-through-heart"></i>
+            </div>
+            <h4 class="practice-title">Processo do Perdão</h4>
+            <div class="text-start">
+              <p><strong>Passos práticos para perdoar:</strong></p>
+              <ul>
+                <li><strong>Reconhecer:</strong> "Fui ferido e isso é real"</li>
+                <li><strong>Decidir:</strong> "Escolho perdoar como Cristo me perdoou"</li>
+                <li><strong>Liberar:</strong> "Entrego a justiça nas mãos de Deus"</li>
+                <li><strong>Restaurar:</strong> "Buscarei reconciliação quando possível"</li>
+              </ul>
+              <p class="small text-info"><strong>💡 Importante:</strong> Perdão é decisão, não sentimento. Os sentimentos vêm depois da obediência.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6">
+          <div class="practice-card">
+            <div class="practice-icon">
+              <i class="bi bi-people-fill"></i>
+            </div>
+            <h4 class="practice-title">Restaurar Relacionamentos</h4>
+            <div class="text-start">
+              <p><strong>Construindo pontes relacionais:</strong></p>
+              <ul>
+                <li>Tomar iniciativa para resolver conflitos</li>
+                <li>Pedir desculpas de forma específica e sincera</li>
+                <li>Investir tempo de qualidade nos relacionamentos</li>
+                <li>Comunicar expectativas com clareza e amor</li>
+              </ul>
+              <p class="small text-info"><strong>💡 Princípio:</strong> "Se possível, quanto depender de vós, tende paz com todos" (Rm 12:18)</p>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- PERGUNTAS PARA GCG -->
-    <div class="sermon-section animate-on-scroll">
-      <h2 class="section-title">❓ Perguntas para GCG - Relacionamentos que Transformam</h2>
-      
-      <div class="mb-4 p-4 rounded-3" style="background: var(--glass-bg); backdrop-filter: blur(15px); border: 1px solid var(--glass-border);">
-        <p style="color: rgba(255, 255, 255, 0.9);">
-          <i class="bi bi-info-circle me-2" style="color: var(--neon-cyan);"></i>
-          <strong>Orientação para Líderes:</strong> Estas perguntas foram criadas para promover vulnerabilidade saudável e 
-          crescimento relacional mútuo. Crie um ambiente seguro onde todos possam compartilhar e crescer juntos.
-        </p>
-      </div>
+    <!-- PERGUNTAS PARA GRUPOS DE CRESCIMENTO -->
+    <div class="sermon-section">
+      <h2 class="section-title">Perguntas para Grupos de Crescimento</h2>
       
       <div class="question-item">
-        <div class="question-number">1</div>
-        <div>
-          <p><strong>Qual relacionamento em sua vida mais reflete o amor de Cristo, e o que você aprende com essa pessoa sobre como amar melhor?</strong></p>
-          <small class="text-muted">
-            <strong>Objetivo:</strong> Começar positivamente, identificando modelos de relacionamento saudável e reconhecendo 
-            características do amor cristão que podem ser replicadas em outros relacionamentos.
-          </small>
-          <div class="mt-2 p-2 rounded" style="background: rgba(0, 212, 255, 0.1); border-left: 2px solid var(--neon-cyan);">
-            <small style="color: rgba(255, 255, 255, 0.7);">
-              💡 <strong>Dinâmica:</strong> Cada pessoa compartilha por 2 minutos. Foquem nas qualidades específicas que admiram.
-            </small>
+        <div class="d-flex">
+          <span class="question-number">1</span>
+          <div>
+            <p><strong>Qual relacionamento em sua vida mais reflete o amor de Cristo, e o que você aprende com essa pessoa sobre como amar melhor?</strong></p>
+            <p class="small text-muted">Reflita sobre exemplos práticos de benignidade, misericórdia e perdão que você tem observado.</p>
           </div>
         </div>
       </div>
 
       <div class="question-item">
-        <div class="question-number">2</div>
-        <div>
-          <p><strong>Entre benignidade, misericórdia e perdão, qual você considera seu maior desafio pessoal? Por que essa área é mais difícil para você?</strong></p>
-          <small class="text-muted">
-            <strong>Objetivo:</strong> Criar autoconhecimento sobre pontos de crescimento pessoal, permitindo que o grupo 
-            entenda as lutas específicas de cada membro e ore de forma direcionada.
-          </small>
-          <div class="mt-2 p-2 rounded" style="background: rgba(189, 94, 255, 0.1); border-left: 2px solid var(--neon-purple);">
-            <small style="color: rgba(255, 255, 255, 0.7);">
-              🔥 <strong>Prático:</strong> Sem julgamento - todos têm áreas de crescimento. Foquem na honestidade e encorajamento mútuo.
-            </small>
+        <div class="d-flex">
+          <span class="question-number">2</span>
+          <div>
+            <p><strong>Entre benignidade, misericórdia e perdão, qual você considera seu maior desafio pessoal? Por que essa área é mais difícil para você?</strong></p>
+            <p class="small text-muted">Seja honesto sobre suas lutas e identifique padrões que precisam ser transformados pelo Espírito Santo.</p>
           </div>
         </div>
       </div>
 
       <div class="question-item">
-        <div class="question-number">3</div>
-        <div>
-          <p><strong>Conte sobre um momento em que alguém demonstrou perdão radical com você. Como isso impactou sua vida e seus relacionamentos?</strong></p>
-          <small class="text-muted">
-            <strong>Objetivo:</strong> Conectar experiências pessoais com o poder transformador do perdão, inspirando o grupo 
-            através de testemunhos reais de graça e restauração.
-          </small>
-          <div class="mt-2 p-2 rounded" style="background: rgba(0, 242, 254, 0.1); border-left: 2px solid var(--neon-cyan);">
-            <small style="color: rgba(255, 255, 255, 0.7);">
-              ⭐ <strong>Alternativa:</strong> Se ninguém tem essa experiência, discutam um exemplo bíblico que os inspira.
-            </small>
+        <div class="d-flex">
+          <span class="question-number">3</span>
+          <div>
+            <p><strong>Conte sobre um momento em que alguém demonstrou perdão radical com você. Como isso impactou sua vida e seus relacionamentos?</strong></p>
+            <p class="small text-muted">Explore como experiências de graça recebida podem nos motivar a oferecer graça a outros.</p>
           </div>
         </div>
       </div>
 
       <div class="question-item">
-        <div class="question-number">4</div>
-        <div>
-          <p><strong>Existe algum relacionamento ferido em sua vida que você gostaria de restaurar? O que tem impedido você de dar o primeiro passo?</strong></p>
-          <small class="text-muted">
-            <strong>Objetivo:</strong> Identificar relacionamentos que precisam de cura e os obstáculos emocionais, criando 
-            oportunidade para o grupo oferecer encorajamento prático e oração específica.
-          </small>
-          <div class="mt-2 p-2 rounded" style="background: rgba(102, 126, 234, 0.1); border-left: 2px solid #667eea;">
-            <small style="color: rgba(255, 255, 255, 0.7);">
-              🎯 <strong>Cuidado:</strong> Mantenham confidencialidade. Não pressionem quem não quiser compartilhar detalhes específicos.
-            </small>
+        <div class="d-flex">
+          <span class="question-number">4</span>
+          <div>
+            <p><strong>Existe algum relacionamento ferido em sua vida que você gostaria de restaurar? O que tem impedido você de dar o primeiro passo?</strong></p>
+            <p class="small text-muted">Identifique barreiras específicas (orgulho, medo, mágoa) e desenvolvam estratégias bíblicas para superá-las.</p>
           </div>
         </div>
       </div>
 
       <div class="question-item">
-        <div class="question-number">5</div>
-        <div>
-          <p><strong>Como vocês podem ser mais intencionais em demonstrar benignidade no dia a dia? Criem juntos um plano prático para esta semana.</strong></p>
-          <small class="text-muted">
-            <strong>Objetivo:</strong> Transformar reflexão em ação concreta, desenvolvendo accountability mútua e compromissos 
-            específicos que o grupo pode acompanhar e encorajar.
-          </small>
-          <div class="mt-2 p-2 rounded" style="background: rgba(240, 147, 251, 0.1); border-left: 2px solid #f093fb;">
-            <small style="color: rgba(255, 255, 255, 0.7);">
-              💭 <strong>Brainstorm:</strong> Façam uma lista coletiva de 20 maneiras práticas de demonstrar benignidade.
-            </small>
+        <div class="d-flex">
+          <span class="question-number">5</span>
+          <div>
+            <p><strong>Como vocês podem ser mais intencionais em demonstrar benignidade no dia a dia? Criem juntos um plano prático para esta semana.</strong></p>
+            <p class="small text-muted">Desenvolvam ações concretas que cada membro do grupo pode implementar nos próximos dias.</p>
           </div>
         </div>
       </div>
 
       <div class="question-item">
-        <div class="question-number">6</div>
-        <div>
-          <p><strong>Qual é a diferença entre um relacionamento baseado em "sentimentos" e um baseado no "caráter de Cristo"? Como isso muda nossa abordagem aos conflitos?</strong></p>
-          <small class="text-muted">
-            <strong>Objetivo:</strong> Aprofundar a compreensão teológica sobre a fundação dos relacionamentos cristãos, 
-            diferenciando amor emocional de amor de decisão (ágape).
-          </small>
-          <div class="mt-2 p-2 rounded" style="background: rgba(245, 87, 108, 0.1); border-left: 2px solid #f5576c;">
-            <small style="color: rgba(255, 255, 255, 0.7);">
-              🌍 <strong>Aplicação:</strong> Discutam como isso se aplica a namoro, casamento, amizades e família.
-            </small>
+        <div class="d-flex">
+          <span class="question-number">6</span>
+          <div>
+            <p><strong>Qual é a diferença entre um relacionamento baseado em "sentimentos" e um baseado no "caráter de Cristo"? Como isso muda nossa abordagem aos conflitos?</strong></p>
+            <p class="small text-muted">Explore como relacionamentos centrados em Cristo são mais estáveis e transformadores que aqueles baseados apenas em emoções.</p>
           </div>
-        </div>
-      </div>
-
-      <div class="question-item">
-        <div class="question-number">7</div>
-        <div>
-          <p><strong>Se vocês fossem conhecidos na escola/trabalho/bairro por UMA característica relacional, qual gostariam que fosse? Como podem cultivar essa característica juntos como grupo?</strong></p>
-          <small class="text-muted">
-            <strong>Objetivo:</strong> Estabelecer uma visão coletiva de impacto relacional, criando identidade de grupo 
-            e compromisso mútuo de crescimento em amor e testemunho cristão.
-          </small>
-          <div class="mt-2 p-2 rounded" style="background: rgba(0, 255, 127, 0.1); border-left: 2px solid #00ff7f;">
-            <small style="color: rgba(255, 255, 255, 0.7);">
-              ✅ <strong>Compromisso:</strong> Terminem escolhendo UMA característica para trabalhar juntos neste mês.
-            </small>
-          </div>
-        </div>
-      </div>
-
-      <!-- Dinâmicas Adicionais para o GCG -->
-      <div class="mt-5 p-4 rounded-3" style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.2) 0%, rgba(118, 75, 162, 0.2) 100%); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.2);">
-        <h4 style="color: var(--neon-blue);"><i class="bi bi-lightbulb me-2"></i>Dinâmicas Relacionais Sugeridas</h4>
-        
-        <div class="row g-4 mt-2">
-          <div class="col-md-6">
-            <h6 style="color: var(--neon-purple);">💡 Atividades Interativas:</h6>
-            <ul style="color: rgba(255, 255, 255, 0.9);">
-              <li><strong>Círculo de Afirmação:</strong> Cada pessoa recebe 3 elogios específicos</li>
-              <li><strong>Cartas de Perdão:</strong> Escrevam (mas não enviem ainda) cartas para pessoas que magoaram vocês</li>
-              <li><strong>Plano Benignidade:</strong> Cada um escolhe uma pessoa para abençoar esta semana</li>
-              <li><strong>Oração por Relacionamentos:</strong> Orem especificamente por conflitos compartilhados</li>
-            </ul>
-          </div>
-          
-          <div class="col-md-6">
-            <h6 style="color: var(--neon-cyan);">📖 Versículos de Apoio:</h6>
-            <ul style="color: rgba(255, 255, 255, 0.9);">
-              <li><strong>João 13:34-35</strong> - "Novo mandamento vos dou"</li>
-              <li><strong>1 Coríntios 13:4-7</strong> - "O amor é paciente"</li>
-              <li><strong>Mateus 6:14-15</strong> - "Se perdoardes"</li>
-              <li><strong>Colossenses 3:12-14</strong> - "Revesti-vos de misericórdia"</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="mt-3 p-3 rounded" style="background: rgba(255, 255, 255, 0.1); border-left: 3px solid var(--neon-cyan);">
-          <small style="color: rgba(255, 255, 255, 0.8);">
-            <strong>🎯 Dica para Líderes:</strong> Terminem o encontro com cada pessoa assumindo UM compromisso relacional 
-            específico para a semana. Comecem o próximo encontro checando como foram esses compromissos!
-          </small>
         </div>
       </div>
     </div>
 
     <!-- ORAÇÃO FINAL -->
-    <div class="prayer-section animate-on-scroll">
-      <h2 class="prayer-title">
-        <i class="bi bi-heart-fill me-3"></i>Oração pela Restauração dos Relacionamentos
-      </h2>
-      
+    <div class="prayer-section">
+      <h2 class="prayer-title">Oração pela Restauração dos Relacionamentos</h2>
       <div class="prayer-text">
-        <div class="prayer-subsection">
-          <p><strong>Deus de todo amor e relacionamento perfeito,</strong></p>
-          <p>
-            Tu que és Pai, Filho e Espírito Santo - o exemplo supremo de relacionamento harmônico e amor incondicional - 
-            venho diante de Ti reconhecendo que os relacionamentos são sagrados porque refletem Tua própria natureza.
-          </p>
-        </div>
-
-        <div class="prayer-subsection">
-          <p><strong>Confissão e Arrependimento:</strong></p>
-          <p>
-            Perdoa-me por todas as vezes que feri relacionamentos através de palavras duras, atitudes orgulhosas, 
-            falta de perdão, egoísmo, ou indiferença às necessidades dos outros. 
-            Reconheço que quando machuco pessoas, machuco o Teu coração.
-          </p>
-        </div>
-
-        <div class="prayer-subsection">
-          <p><strong>Capacita-me, Senhor, para relacionamentos à Tua semelhança:</strong></p>
-          <ul class="prayer-list">
-            <li><strong>BENIGNIDADE que transborda</strong> - Que eu sempre busque o bem dos outros, mesmo quando não merecem</li>
-            <li><strong>MISERICÓRDIA que cura</strong> - Que meu coração se comova genuinamente pelas dores alheias</li>
-            <li><strong>PERDÃO que liberta</strong> - Que eu perdoe como Tu me perdoaste: completa e incondicionalmente</li>
-            <li><strong>AMOR que persevera</strong> - Que eu ame não apenas quando é fácil, mas especialmente quando é difícil</li>
-            <li><strong>PACIÊNCIA que edifica</strong> - Que eu dê tempo e espaço para outros crescerem</li>
-            <li><strong>HUMILDADE que une</strong> - Que eu prefira ser reconciliado a ter razão</li>
-            <li><strong>SABEDORIA que orienta</strong> - Que eu saiba quando falar, quando calar, quando agir</li>
-          </ul>
-        </div>
-
-        <div class="prayer-subsection">
-          <p><strong>Transformação dos Meus Relacionamentos:</strong></p>
-          <p>
-            Senhor, oro especificamente por cada relacionamento em minha vida:
-          </p>
-          <ul class="prayer-list">
-            <li><strong>Família:</strong> Que eu honre meus pais, ame meus irmãos e seja ponte de paz em casa</li>
-            <li><strong>Amizades:</strong> Que eu seja amigo leal, confiável e que aponta para Ti</li>
-            <li><strong>Namoro/Casamento:</strong> Que esses relacionamentos sejam puros, edificantes e centrados em Cristo</li>
-            <li><strong>Igreja:</strong> Que eu contribua para a unidade do Corpo de Cristo</li>
-            <li><strong>Comunidade:</strong> Que eu seja sal e luz onde quer que esteja</li>
-          </ul>
-        </div>
-
-        <div class="prayer-subsection">
-          <p><strong>Cura e Restauração:</strong></p>
-          <p>
-            Pai, existe ferida em meu coração causada por relacionamentos quebrados. 
-            Tu conheces cada mágoa, cada decepção, cada traição que carreguei. 
-            Peço Tua cura sobrenatural sobre essas áreas feridas.
-          </p>
-          <p>
-            Dá-me coragem para procurar aqueles que machuquei e pedir perdão. 
-            Dá-me força para perdoar aqueles que me feriram. 
-            Que Tua graça seja maior que qualquer ressentimento ou orgulho.
-          </p>
-        </div>
-
-        <div class="prayer-subsection">
-          <p><strong>Impacto Multiplicador:</strong></p>
-          <p>
-            Que meus relacionamentos saudáveis inspirem outros a buscarem o mesmo. 
-            Que eu seja instrumento de reconciliação onde há conflito, 
-            de esperança onde há desespero, de amor onde há ódio.
-          </p>
-        </div>
-
-        <div class="prayer-subsection">
-          <p><strong>Compromisso Renovado:</strong></p>
-          <p>
-            Diante de Ti, comprometo-me a ser intencional em amar melhor. 
-            A buscar primeiro compreender, depois ser compreendido. 
-            A perdoar 70 vezes 7. A amar como Tu me amaste.
-          </p>
-        </div>
-
-        <div class="prayer-conclusion">
-          <p>
-            <strong>Que cada relacionamento em minha vida seja um reflexo do Teu amor, 
-            uma demonstração da Tua graça, e um testemunho do Teu poder transformador.</strong><br>
-            <em>Que as pessoas vejam Jesus através da forma como amo e me relaciono.</em>
-          </p>
-        </div>
-
-        <div class="prayer-amen">
-          Em nome de Jesus, o maior exemplo de amor relacionál, que deu Sua vida pelos que Ele amava.<br>
-          <strong>Amém e Amém! 💝🙏</strong>
-        </div>
-      </div>
-
-      <!-- Momento de Reflexão Pessoal -->
-      <div class="mt-5 p-4 rounded-3" style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2);">
-        <h5 style="color: var(--neon-cyan); text-align: center;">
-          <i class="bi bi-heart-pulse me-2"></i>Momento de Reflexão Pessoal
-        </h5>
-        <p class="text-center mt-3" style="color: rgba(255, 255, 255, 0.9);">
-          Reserve alguns minutos para pedir ao Espírito Santo que traga à sua mente relacionamentos 
-          específicos que precisam de cura, perdão ou restauração.
-        </p>
-        <div class="text-center mt-4">
-          <small style="color: rgba(255, 255, 255, 0.7);">
-            💭 Pense: "Senhor, que relacionamento em minha vida mais precisa da Tua graça transformadora hoje?"
-          </small>
-        </div>
+        <p><em>"Deus de todo amor e relacionamento perfeito, reconheço que Tu criaste os seres humanos para viverem em comunidade e que nossos relacionamentos são reflexos da Tua natureza trinitária.</em></p>
+        
+        <p><em>Confesso que nem sempre tenho amado como Tu me amaste. Perdoa-me pelas vezes em que fui duro quando deveria ser gentil, implacável quando deveria ser misericordioso, e vingativo quando deveria perdoar.</em></p>
+        
+        <p><em>Capacita-me, Senhor, para relacionamentos à Tua semelhança:</em></p>
+        <p><em>Que eu demonstre <strong>benignidade</strong> que transborda, sendo sempre intencional em buscar o bem dos outros, mesmo quando não merecem.</em></p>
+        
+        <p><em>Que eu cultive <strong>misericórdia</strong> que cura, permitindo que meu coração se comova genuinamente pelas dores alheias e oferecendo graça no lugar de julgamento.</em></p>
+        
+        <p><em>Que eu pratique <strong>perdão</strong> que liberta, escolhendo perdoar como Tu me perdoaste: completa e incondicionalmente, liberando tanto a mim quanto ao ofensor do peso do ressentimento.</em></p>
+        
+        <p><em>Senhor, oro especificamente pelos relacionamentos feridos em minha vida. Dá-me coragem para procurar aqueles que machuquei e humildade para pedir perdão. Dá-me força para perdoar aqueles que me feriram e sabedoria para restaurar relacionamentos de forma saudável.</em></p>
+        
+        <p><em>Que meus relacionamentos sejam ponte de reconciliação onde há conflito, fonte de esperança onde há desespero, e demonstração do Teu amor onde há ferida.</em></p>
+        
+        <p><em>Em nome de Jesus, o maior exemplo de amor relacional, que deu Sua vida pelos que Ele amava. Amém.</em></p>
       </div>
     </div>
-
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Scripts externos -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   <script src="../../verses.js"></script>
-  <script>
-    // Expansão de versículos
-    document.querySelectorAll('.verse-ref').forEach(ref => {
-      ref.addEventListener('click', function() {
-        const verseKey = this.getAttribute('data-ref');
-        let expanded = this.parentNode.querySelector('.verse-expanded');
-        
-        if (expanded) {
-          expanded.remove();
-          return;
-        }
-        
-        const verse = window.Verses?.[verseKey] || `[${verseKey}] Texto não encontrado.`;
-        expanded = document.createElement('div');
-        expanded.className = 'verse-expanded mt-3 p-3 rounded';
-        expanded.style.background = 'rgba(255, 255, 255, 0.1)';
-        expanded.style.borderLeft = '4px solid var(--neon-blue)';
-        expanded.innerHTML = `<strong>${verseKey}:</strong><br>${verse}`;
-        
-        this.insertAdjacentElement('afterend', expanded);
-      });
-    });
-
-    // Animações de scroll
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, observerOptions);
-
-    document.querySelectorAll('.animate-on-scroll').forEach(el => {
-      observer.observe(el);
-    });
-
-    // Efeito ripple nos cards
-    document.querySelectorAll('.ripple-effect').forEach(card => {
-      card.addEventListener('click', function(e) {
-        const ripple = this.querySelector('::after');
-        const rect = this.getBoundingClientRect();
-        const size = Math.max(rect.width, rect.height);
-        
-        this.style.setProperty('--ripple-x', e.clientX - rect.left - size / 2 + 'px');
-        this.style.setProperty('--ripple-y', e.clientY - rect.top - size / 2 + 'px');
-        
-        this.classList.add('ripple-active');
-        setTimeout(() => this.classList.remove('ripple-active'), 600);
-      });
-    });
-
-    // Animação de fade in suave
-    const style = document.createElement('style');
-    style.textContent = `
-      @keyframes fadeInUp {
-        from { opacity: 0; transform: translateY(30px); }
-        to { opacity: 1; transform: translateY(0); }
-      }
-      .animate-on-scroll { opacity: 0; }
-      .animate-on-scroll.visible { animation: fadeInUp 0.6s ease forwards; }
-    `;
-    document.head.appendChild(style);
-  </script>
+  <script src="../../assets/js/sermon-scripts.js"></script>
 </body>
 </html>

@@ -38,5 +38,23 @@ window.Verses = {
   
   "1Co 4:2": "Ora, além disso, o que se requer dos despenseiros é que cada um deles seja encontrado fiel.",
   
-  "Tg 1:5": "E, se algum de vós tem falta de sabedoria, peça-a a Deus, que a todos dá liberalmente e não o lança em rosto; e ser-lhe-á dada."
+  "Tg 1:5": "E, se algum de vós tem falta de sabedoria, peça-a a Deus, que a todos dá liberalmente e não o lança em rosto; e ser-lhe-á dada.",
+
+  "Gl 5:16-17": "Digo, porém: Andai pelo Espírito e não cumprireis a concupiscência da carne. Porque a carne milita contra o Espírito, e o Espírito, contra a carne; porque são opostos entre si, para que não façais o que quereis.",
+
+  "Fp 4:8-9": "Finalmente, irmãos, tudo o que é verdadeiro, tudo o que é respeitável, tudo o que é justo, tudo o que é puro, tudo o que é amável, tudo o que é de boa fama, se alguma virtude há e se algum louvor existe, seja isso o que ocupe o vosso pensamento. O que também aprendestes, e recebestes, e ouvistes, e vistes em mim, isso praticai; e o Deus da paz será convosco.",
+
+  "1Co 10:13": "Não vos sobreveio tentação que não fosse humana; mas Deus é fiel, o qual não permitirá que sejais tentados além do que podeis suportar, antes, com a tentação, dará também o escape, para que a possais suportar.",
+
+  "Cl 3:23": "Tudo quanto fizerdes, fazei-o de todo o coração, como para o Senhor e não para homens, cientes de que recebereis do Senhor a recompensa da herança. A Cristo, o Senhor, é que estais servindo.",
+
+  "Ef 4:32": "Antes, sede uns para com os outros benignos, misericordiosos, perdoando-vos uns aos outros, como também Deus vos perdoou em Cristo.",
+
+  "1Co 3:11": "Porque ninguém pode lançar outro fundamento além do que já está lançado, o qual é Jesus Cristo.",
+
+  "1Pe 2:9-10": "Vós, porém, sois geração eleita, sacerdócio real, nação santa, povo exclusivo de Deus, para que anuncieis as virtudes daquele que vos chamou das trevas para a sua maravilhosa luz; vós, que noutro tempo não éreis povo, mas agora sois povo de Deus; que não tínheis alcançado misericórdia, mas agora alcançastes misericórdia.",
+
+  "1Jo 2:14": "Eu vos escrevi, pais, porque conhecestes aquele que é desde o princípio. Eu vos escrevi, jovens, porque sois fortes e a palavra de Deus permanece em vós, e já vencestes o maligno.",
+
+  "Ap 22:20": "Aquele que testifica estas coisas diz: Certamente, cedo venho. Amém. Vem, Senhor Jesus."
 };

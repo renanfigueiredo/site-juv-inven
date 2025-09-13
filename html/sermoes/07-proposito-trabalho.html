@@ -6,1130 +6,276 @@
   <title>Propósito no Trabalho — Colossenses 3:23 — Jovens NV</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
-  <style>
-    /* DESIGN PREMIUM IGUAL AO INDEX */
-    :root {
-      --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-      --gradient-accent: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-      --gradient-dark: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
-      --glow-color: #ff6b6b;
-      --neon-blue: #00d4ff;
-      --neon-purple: #bd5eff;
-      --neon-cyan: #00f2fe;
-      --glass-bg: rgba(255, 255, 255, 0.05);
-      --glass-border: rgba(255, 255, 255, 0.1);
-    }
-
-    body {
-      font-family: 'Poppins', sans-serif !important;
-      background: var(--gradient-dark) !important;
-      background-color: #0c0c0c !important;
-      min-height: 100vh;
-      color: #ffffff;
-      overflow-x: hidden;
-    }
-
-    /* EFEITOS GLASSMORPHISM */
-    .glass-effect {
-      background: var(--glass-bg);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid var(--glass-border);
-      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
-    }
-
-    /* BOTÃO VOLTAR PREMIUM */
-    .back-btn {
-      position: fixed;
-      top: 2rem;
-      left: 2rem;
-      z-index: 1000;
-      background: var(--glass-bg);
-      backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      color: #ffffff;
-      padding: 0.8rem 1.5rem;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 500;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    }
-
-    .back-btn:hover {
-      background: rgba(255, 255, 255, 0.15);
-      color: var(--neon-blue);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 30px rgba(0, 212, 255, 0.3);
-    }
-
-    /* CONTAINER PRINCIPAL */
-    .sermon-container {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 6rem 2rem 4rem;
-    }
-
-    /* HEADER DA MENSAGEM */
-    .sermon-header {
-      text-align: center;
-      margin-bottom: 4rem;
-      position: relative;
-    }
-
-    .sermon-title {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 3.5rem;
-      font-weight: 800;
-      background: var(--gradient-accent);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      margin-bottom: 1rem;
-      text-shadow: 0 0 30px rgba(79, 172, 254, 0.5);
-      color: #4facfe;
-    }
-
-    @supports not (-webkit-background-clip: text) {
-      .sermon-title {
-        color: #4facfe !important;
-        background: none !important;
-        text-shadow: 0 0 20px rgba(79, 172, 254, 0.8);
-      }
-    }
-
-    .sermon-subtitle {
-      font-size: 1.2rem;
-      color: rgba(255, 255, 255, 0.7);
-      font-weight: 300;
-    }
-
-    /* VERSÍCULO DESTAQUE */
-    .verse-highlight {
-      background: var(--glass-bg);
-      backdrop-filter: blur(20px);
-      border: 2px solid var(--neon-blue);
-      border-radius: 20px;
-      padding: 2.5rem;
-      margin: 3rem 0;
-      text-align: center;
-      font-size: 1.3rem;
-      line-height: 1.8;
-      color: #ffffff;
-      box-shadow: 0 0 40px rgba(0, 212, 255, 0.3);
-      cursor: pointer;
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .verse-highlight::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: linear-gradient(45deg, transparent, rgba(0, 212, 255, 0.1), transparent);
-      animation: sparkle 3s infinite;
-    }
-
-    .verse-highlight:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 0 60px rgba(0, 212, 255, 0.5);
-    }
-
-    @keyframes sparkle {
-      0% { transform: rotate(0deg) translate(-50%, -50%); }
-      100% { transform: rotate(360deg) translate(-50%, -50%); }
-    }
-
-    /* SEÇÕES */
-    .sermon-section {
-      background: var(--glass-bg);
-      backdrop-filter: blur(20px);
-      border: 1px solid var(--glass-border);
-      border-radius: 20px;
-      padding: 3rem;
-      margin: 3rem 0;
-      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
-      color: #ffffff;
-    }
-
-    .sermon-section p,
-    .sermon-section li,
-    .sermon-section .text-muted,
-    .sermon-section .small {
-      color: rgba(255, 255, 255, 0.9) !important;
-    }
-
-    .sermon-section .lead {
-      color: #ffffff !important;
-      font-weight: 500;
-    }
-
-    .section-title {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 2.2rem;
-      font-weight: 700;
-      color: var(--neon-blue);
-      margin-bottom: 2rem;
-      text-align: center;
-      position: relative;
-    }
-
-    .section-title::after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 100px;
-      height: 3px;
-      background: var(--gradient-accent);
-      border-radius: 2px;
-    }
-
-    /* CARDS ESTRUTURA */
-    .structure-card {
-      background: var(--glass-bg);
-      backdrop-filter: blur(15px);
-      border: 1px solid var(--glass-border);
-      border-radius: 15px;
-      padding: 2rem;
-      height: 100%;
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-      color: #ffffff;
-    }
-
-    .structure-card p,
-    .structure-card li,
-    .structure-card .text-muted,
-    .structure-card .small {
-      color: rgba(255, 255, 255, 0.9) !important;
-    }
-
-    .structure-card .bg-dark {
-      background: rgba(0, 0, 0, 0.4) !important;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .structure-card .bg-dark p,
-    .structure-card .bg-dark .small {
-      color: rgba(255, 255, 255, 0.95) !important;
-    }
-
-    .structure-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: var(--gradient-secondary);
-    }
-
-    .structure-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-    }
-
-    .card-number {
-      font-size: 3rem;
-      font-weight: 800;
-      background: var(--gradient-primary);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      line-height: 1;
-      margin-bottom: 1rem;
-      color: #667eea;
-    }
-
-    @supports not (-webkit-background-clip: text) {
-      .card-number {
-        color: #667eea !important;
-        background: none !important;
-      }
-    }
-
-    .card-title {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: var(--neon-blue);
-      margin-bottom: 1.5rem;
-    }
-
-    /* APLICAÇÕES PRÁTICAS */
-    .practice-card, .application-card {
-      background: var(--glass-bg);
-      backdrop-filter: blur(15px);
-      border: 1px solid var(--glass-border);
-      border-radius: 15px;
-      padding: 2rem;
-      text-align: center;
-      transition: all 0.3s ease;
-      height: 100%;
-      color: #ffffff;
-    }
-
-    .application-card {
-      text-align: left;
-    }
-
-    .application-card .card-header {
-      margin: -2rem -2rem 2rem -2rem;
-      padding: 1.5rem 2rem;
-      border-radius: 15px 15px 0 0;
-    }
-
-    .practice-card p,
-    .practice-card li,
-    .practice-card .small,
-    .practice-card .text-muted,
-    .application-card p,
-    .application-card li,
-    .application-card .small,
-    .application-card .text-muted {
-      color: rgba(255, 255, 255, 0.9) !important;
-    }
-
-    .practice-card:hover,
-    .application-card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 15px 35px rgba(189, 94, 255, 0.3);
-    }
-
-    .practice-title {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1.3rem;
-      font-weight: 600;
-      color: var(--neon-purple);
-      margin-bottom: 1rem;
-    }
-
-    .practice-icon {
-      font-size: 3rem;
-      color: var(--neon-purple);
-      margin-bottom: 1rem;
-    }
-
-    /* PERGUNTAS GCG */
-    .question-item {
-      background: var(--glass-bg);
-      backdrop-filter: blur(10px);
-      border-left: 4px solid var(--neon-blue);
-      padding: 1.5rem;
-      margin: 1.5rem 0;
-      border-radius: 10px;
-      transition: all 0.3s ease;
-      color: #ffffff;
-    }
-
-    .question-item p,
-    .question-item .small,
-    .question-item .text-muted {
-      color: rgba(255, 255, 255, 0.9) !important;
-    }
-
-    .question-item:hover {
-      background: rgba(255, 255, 255, 0.08);
-      transform: translateX(10px);
-    }
-
-    .question-number {
-      display: inline-block;
-      width: 30px;
-      height: 30px;
-      background: var(--gradient-accent);
-      color: #000;
-      border-radius: 50%;
-      text-align: center;
-      line-height: 30px;
-      font-weight: 700;
-      margin-right: 1rem;
-    }
-
-    /* ORAÇÃO FINAL */
-    .prayer-section {
-      background: var(--gradient-secondary);
-      border-radius: 20px;
-      padding: 3rem;
-      text-align: center;
-      color: #ffffff;
-      box-shadow: 0 0 50px rgba(240, 147, 251, 0.4);
-    }
-
-    .prayer-title {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 2.5rem;
-      font-weight: 800;
-      margin-bottom: 2rem;
-    }
-
-    .prayer-text {
-      font-size: 1.1rem;
-      line-height: 1.8;
-      font-style: italic;
-    }
-
-    .prayer-subsection {
-      margin: 2rem 0;
-      text-align: left;
-    }
-
-    .prayer-list {
-      list-style: none;
-      padding-left: 1rem;
-    }
-
-    .prayer-list li {
-      margin: 0.5rem 0;
-      position: relative;
-    }
-
-    .prayer-list li::before {
-      content: "✨";
-      position: absolute;
-      left: -1rem;
-    }
-
-    .prayer-conclusion {
-      margin-top: 3rem;
-      font-size: 1.2rem;
-    }
-
-    .prayer-amen {
-      font-size: 1.4rem;
-      font-weight: bold;
-      color: var(--neon-cyan);
-    }
-
-    @media (max-width: 768px) {
-      .sermon-container { padding: 4rem 1rem 2rem; }
-      .sermon-title { font-size: 2.5rem; }
-      .back-btn { top: 1rem; left: 1rem; }
-      .question-item { flex-direction: column; text-align: center; }
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <!-- Arquivos CSS Externos -->
+  <link rel="stylesheet" href="../../assets/css/sermon-styles.css" />
 </head>
-
 <body>
   <a href="../../index.html" class="back-btn">
     <i class="bi bi-arrow-left me-2"></i>Voltar
   </a>
   
   <div class="sermon-container">
+    <!-- HEADER -->
     <header class="sermon-header">
       <h1 class="sermon-title">Propósito no Trabalho</h1>
-      <p class="sermon-subtitle">Mensagem 07 • Colossenses 3:23 • Vocação e chamado</p>
+      <p class="sermon-subtitle">Mensagem 07 • Colossenses 3:23 • Vocação e chamado no Reino de Deus</p>
     </header>
 
-    <div class="sermon-section">
-      <h2 class="section-title">🎯 Objetivo da Mensagem</h2>
-      <div class="row g-4">
-        <div class="col-md-12">
-          <div class="bg-dark p-4 rounded-3 mb-4" style="background: var(--glass-bg) !important; backdrop-filter: blur(15px); border: 1px solid var(--glass-border);">
-            <p class="lead mb-3" style="color: rgba(255, 255, 255, 0.9);">
-              <strong>Esta mensagem visa transformar radicalmente a perspectiva dos jovens sobre o trabalho,</strong> 
-              revelando que toda atividade laboral - desde os estudos até a profissão futura - pode se tornar um ato 
-              sagrado de adoração quando executada com excelência e para a glória de Deus.
-            </p>
-            
-            <div class="row g-3 mt-3">
-              <div class="col-md-6">
-                <div class="p-3 rounded" style="background: rgba(0, 212, 255, 0.1); border-left: 3px solid var(--neon-cyan);">
-                  <h5 style="color: var(--neon-cyan);"><i class="bi bi-target me-2"></i>Meta Principal</h5>
-                  <p class="small mb-0" style="color: rgba(255, 255, 255, 0.8);">
-                    Despertar nos jovens uma compreensão profunda de que não existe trabalho secular ou sagrado - 
-                    toda vocação é uma extensão do ministério quando vivida com propósito divino.
-                  </p>
-                </div>
-              </div>
-              
-              <div class="col-md-6">
-                <div class="p-3 rounded" style="background: rgba(189, 94, 255, 0.1); border-left: 3px solid var(--neon-purple);">
-                  <h5 style="color: var(--neon-purple);"><i class="bi bi-lightbulb me-2"></i>Visão Transformadora</h5>
-                  <p class="small mb-0" style="color: rgba(255, 255, 255, 0.8);">
-                    Equipar os jovens com uma teologia bíblica do trabalho que os capacite a encontrar 
-                    significado, propósito e alegria em sua futura jornada profissional.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div class="mt-4 p-3 rounded" style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1);">
-              <h6 style="color: var(--neon-blue);"><i class="bi bi-bullseye me-2"></i>Objetivos Específicos:</h6>
-              <ul class="small mb-0" style="color: rgba(255, 255, 255, 0.8);">
-                <li>Demonstrar que o trabalho faz parte do design original de Deus para a humanidade</li>
-                <li>Desenvolver uma mentalidade de excelência cristã em todas as atividades</li>
-                <li>Capacitar os jovens a serem embaixadores de Cristo no ambiente profissional</li>
-                <li>Conectar vocação profissional com chamado divino e propósito eterno</li>
-                <li>Inspirar uma geração que vê o trabalho como plataforma de impacto e transformação</li>
-              </ul>
-            </div>
-          </div>
-        </div>
+    <!-- VERSÍCULO PRINCIPAL -->
+    <div class="verse-highlight verse-ref" data-ref="Cl 3:23">
+      <i class="bi bi-briefcase-fill fs-1 text-info mb-3"></i>
+      <p class="mb-3">"Tudo quanto fizerdes, fazei-o de todo o coração, como ao Senhor, e não aos homens."</p>
+      <strong>— Colossenses 3:23</strong>
+      <div class="mt-3 text-info">
+        <i class="bi bi-hand-index me-2"></i>
+        <small>Clique para ver o contexto completo (Cl 3:22-25)</small>
       </div>
-    }
+    </div>
 
+    <!-- OBJETIVO DA MENSAGEM -->
     <div class="sermon-section">
-      <h2 class="section-title">🏗️ Estrutura da Mensagem</h2>
-      <div class="row g-4 mb-4">
-        <div class="col-md-12">
-          <div class="verse-highlight verse-ref" data-ref="Cl 3:23" style="margin-bottom: 2rem;">
-            <i class="bi bi-briefcase-fill fs-1 text-info mb-3"></i>
-            <p class="mb-3" style="font-size: 1.3rem;">"Tudo quanto fizerdes, fazei-o de todo o coração, como ao Senhor, e não aos homens."</p>
-            <strong>— Colossenses 3:23</strong>
-          </div>
-        </div>
+      <div class="text-center mb-4">
+        <i class="bi bi-bullseye fs-1 text-warning mb-3"></i>
+        <h3 class="text-warning">Objetivo da Mensagem</h3>
       </div>
+      <p class="lead text-center">
+        <strong>Transformar a perspectiva dos jovens sobre o trabalho</strong>, revelando que toda vocação pode se tornar um ato sagrado de adoração quando executada com excelência e para a glória de Deus, conectando propósito divino com chamado profissional.
+      </p>
+    </div>
+
+    <!-- ESTRUTURA DA MENSAGEM -->
+    <div class="sermon-section">
+      <h2 class="section-title">Estrutura da Mensagem</h2>
       
       <div class="row g-4">
         <div class="col-12 col-md-4">
           <div class="structure-card">
             <div class="card-number">1</div>
-            <h3 class="card-title"><i class="bi bi-heart-fill me-2"></i>Trabalho como Adoração</h3>
-            <div class="bg-dark p-3 rounded mb-3" style="background: rgba(0, 0, 0, 0.4) !important; border: 1px solid rgba(255, 255, 255, 0.1);">
-              <h6 style="color: var(--neon-cyan);">Fundamento Teológico:</h6>
-              <p class="small mb-2">Desde Gênesis 2:15, Deus colocou o homem no jardim para "cultivar e guardar". O trabalho precede a queda e faz parte da natureza divina.</p>
-            </div>
-            <ul style="color: rgba(255, 255, 255, 0.9);">
-              <li><strong>"De todo coração"</strong> - Paixão e dedicação integral</li>
-              <li><strong>"Como ao Senhor"</strong> - Perspectiva eterna e sagrada</li>
-              <li><strong>"Não aos homens"</strong> - Motivação transcendental</li>
+            <h3 class="card-title">Trabalho como Adoração</h3>
+            <p class="text-muted mb-3"><strong>"De todo o coração"</strong></p>
+            
+            <h5 class="text-success mb-3">🟢 Fundamento Bíblico:</h5>
+            <ul class="mb-4">
+              <li><strong>Design original:</strong> Gênesis 2:15 - cultivar e guardar</li>
+              <li><strong>Pré-queda:</strong> Trabalho faz parte da natureza divina</li>
+              <li><strong>Paixão integral:</strong> "De todo coração" - não meia dedicação</li>
+              <li><strong>Perspectiva eterna:</strong> "Como ao Senhor" - motivação transcendental</li>
             </ul>
-            <div class="mt-3 p-2 rounded" style="background: rgba(0, 212, 255, 0.1); border-left: 3px solid var(--neon-cyan);">
-              <small style="color: rgba(255, 255, 255, 0.8);">
-                <strong>Aplicação:</strong> Transformar a mentalidade de "tenho que trabalhar" para "posso adorar através do trabalho"
-              </small>
+            
+            <div class="bg-dark p-3 rounded">
+              <h6 class="text-warning">💡 Reflexão:</h6>
+              <p class="mb-0 small">O trabalho não é maldição, mas bênção. Deus trabalha (João 5:17) e nos convida a participar de Sua obra criativa e transformadora no mundo.</p>
             </div>
           </div>
         </div>
-        
+
         <div class="col-12 col-md-4">
           <div class="structure-card">
             <div class="card-number">2</div>
-            <h3 class="card-title"><i class="bi bi-gem me-2"></i>Excelência Cristã</h3>
-            <div class="bg-dark p-3 rounded mb-3" style="background: rgba(0, 0, 0, 0.4) !important; border: 1px solid rgba(255, 255, 255, 0.1);">
-              <h6 style="color: var(--neon-purple);">Padrão Bíblico:</h6>
-              <p class="small mb-2">Daniel se destacou no governo babilônico por seu "espírito excelente" (Daniel 6:3). A excelência cristã é um testemunho poderoso.</p>
-            </div>
-            <ul style="color: rgba(255, 255, 255, 0.9);">
-              <li><strong>Qualidade Superior</strong> - Superar expectativas</li>
-              <li><strong>Integridade Absoluta</strong> - Caráter inabalável</li>
-              <li><strong>Testemunho Natural</strong> - Sal e luz no ambiente</li>
+            <h3 class="card-title">Excelência Cristã</h3>
+            <p class="text-muted mb-3"><strong>"Como ao Senhor"</strong></p>
+            
+            <h5 class="text-info mb-3">🔵 Padrão Divino:</h5>
+            <ul class="mb-4">
+              <li><strong>Qualidade superior:</strong> O melhor que podemos oferecer</li>
+              <li><strong>Integridade total:</strong> Honestidade em todas as áreas</li>
+              <li><strong>Responsabilidade:</strong> Cumprimento fiel dos compromissos</li>
+              <li><strong>Inovação:</strong> Criatividade como reflexo do Criador</li>
             </ul>
-            <div class="mt-3 p-2 rounded" style="background: rgba(189, 94, 255, 0.1); border-left: 3px solid var(--neon-purple);">
-              <small style="color: rgba(255, 255, 255, 0.8);">
-                <strong>Desafio:</strong> Ser reconhecido pela excelência antes mesmo de mencionar que é cristão
-              </small>
+            
+            <div class="bg-dark p-3 rounded">
+              <h6 class="text-warning">💡 Reflexão:</h6>
+              <p class="mb-0 small">Cristãos devem ser conhecidos pela excelência. Não fazemos "qualquer trabalho" - fazemos o melhor trabalho, porque representamos o Reino de Deus.</p>
             </div>
           </div>
         </div>
-        
+
         <div class="col-12 col-md-4">
           <div class="structure-card">
             <div class="card-number">3</div>
-            <h3 class="card-title"><i class="bi bi-crown-fill me-2"></i>Recompensa Eterna</h3>
-            <div class="bg-dark p-3 rounded mb-3" style="background: rgba(0, 0, 0, 0.4) !important; border: 1px solid rgba(255, 255, 255, 0.1);">
-              <h6 style="color: var(--neon-cyan);">Perspectiva Eterna:</h6>
-              <p class="small mb-2">Colossenses 3:24 promete que "do Senhor recebereis o galardão da herança". Nosso trabalho tem impacto eterno.</p>
-            </div>
-            <ul style="color: rgba(255, 255, 255, 0.9);">
-              <li><strong>Galardão Celestial</strong> - Recompensa divina</li>
-              <li><strong>Propósito Transcendente</strong> - Além do salário</li>
-              <li><strong>Reino de Deus</strong> - Construção do Reino</li>
+            <h3 class="card-title">Recompensa Eterna</h3>
+            <p class="text-muted mb-3"><strong>"Não aos homens"</strong></p>
+            
+            <h5 class="text-warning mb-3">🟡 Motivação Transcendental:</h5>
+            <ul class="mb-4">
+              <li><strong>Aprovação divina:</strong> Buscar o "muito bem" de Deus</li>
+              <li><strong>Impacto eterno:</strong> Obras que permanecem no Reino</li>
+              <li><strong>Transformação social:</strong> Sal e luz no ambiente de trabalho</li>
+              <li><strong>Testemunho vivo:</strong> Cristãos excepcionais chamam atenção</li>
             </ul>
-            <div class="mt-3 p-2 rounded" style="background: rgba(0, 242, 254, 0.1); border-left: 3px solid var(--neon-cyan);">
-              <small style="color: rgba(255, 255, 255, 0.8);">
-                <strong>Motivação:</strong> Trabalhar para recompensas que não se deterioram nem são roubadas
-              </small>
+            
+            <div class="bg-dark p-3 rounded">
+              <h6 class="text-warning">💡 Reflexão:</h6>
+              <p class="mb-0 small">Trabalhar "não aos homens" liberta da pressão humana e da busca por reconhecimento. Nossa recompensa vem de Deus - isso muda tudo.</p>
             </div>
           </div>
         </div>
       </div>
+    </div>
 
-      <!-- Análise Contextual -->
-      <div class="row g-4 mt-4">
-        <div class="col-md-12">
-          <div class="bg-dark p-4 rounded-3" style="background: var(--glass-bg) !important; backdrop-filter: blur(15px); border: 1px solid var(--glass-border);">
-            <h4 style="color: var(--neon-blue);"><i class="bi bi-book me-2"></i>Contexto Bíblico de Colossenses 3:23</h4>
-            <div class="row g-3 mt-2">
-              <div class="col-md-6">
-                <h6 style="color: var(--neon-purple);">Contexto Histórico:</h6>
-                <p class="small" style="color: rgba(255, 255, 255, 0.8);">
-                  Paulo escreve aos colossenses sobre a nova vida em Cristo. No cap. 3, ele aborda relacionamentos 
-                  práticos, incluindo as relações trabalhistas da época (senhores e servos).
-                </p>
-              </div>
-              <div class="col-md-6">
-                <h6 style="color: var(--neon-cyan);">Aplicação Contemporânea:</h6>
-                <p class="small" style="color: rgba(255, 255, 255, 0.8);">
-                  O princípio transcende épocas: seja estudante, estagiário, funcionário ou empresário, 
-                  nossa atitude no trabalho deve refletir nosso relacionamento com Cristo.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    }
-
+    <!-- APLICAÇÕES PRÁTICAS -->
     <div class="sermon-section">
-      <h2 class="section-title">💡 Aplicações Práticas - Vivendo o Propósito no Trabalho</h2>
+      <h2 class="section-title">Aplicações Práticas</h2>
       
-      <!-- Princípios Fundamentais -->
-      <div class="row g-4 mb-5">
-        <div class="col-md-12">
-          <div class="bg-dark p-4 rounded-3 mb-4" style="background: var(--glass-bg) !important; backdrop-filter: blur(15px); border: 1px solid var(--glass-border);">
-            <h4 style="color: var(--neon-blue);"><i class="bi bi-compass me-2"></i>Princípios Norteadores</h4>
-            <p style="color: rgba(255, 255, 255, 0.9);">
-              Estes princípios devem governar nossa atitude em qualquer ambiente de trabalho, desde a escola até a profissão:
-            </p>
-            <div class="row g-3 mt-3">
-              <div class="col-md-4">
-                <div class="p-3 rounded text-center" style="background: rgba(0, 212, 255, 0.1); border: 1px solid rgba(0, 212, 255, 0.3);">
-                  <i class="bi bi-heart-fill fs-2 mb-2" style="color: var(--neon-cyan);"></i>
-                  <h6 style="color: var(--neon-cyan);">PAIXÃO</h6>
-                  <small style="color: rgba(255, 255, 255, 0.8);">Trabalhe com amor e entusiasmo</small>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="p-3 rounded text-center" style="background: rgba(189, 94, 255, 0.1); border: 1px solid rgba(189, 94, 255, 0.3);">
-                  <i class="bi bi-gem fs-2 mb-2" style="color: var(--neon-purple);"></i>
-                  <h6 style="color: var(--neon-purple);">EXCELÊNCIA</h6>
-                  <small style="color: rgba(255, 255, 255, 0.8);">Supere expectativas sempre</small>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="p-3 rounded text-center" style="background: rgba(0, 242, 254, 0.1); border: 1px solid rgba(0, 242, 254, 0.3);">
-                  <i class="bi bi-people-fill fs-2 mb-2" style="color: var(--neon-cyan);"></i>
-                  <h6 style="color: var(--neon-cyan);">PROPÓSITO</h6>
-                  <small style="color: rgba(255, 255, 255, 0.8);">Trabalhe para glorificar a Deus</small>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Cards de Aplicação Prática -->
-      <div class="row g-4 mb-5">
-        <div class="col-12 col-md-6">
-          <div class="application-card">
-            <div class="card-header" style="background: var(--gradient-primary);">
-              <i class="bi bi-heart-fill fs-3 mb-2"></i>
-              <h4 class="practice-title mb-0">1. TRANSFORMAÇÃO DA ATITUDE</h4>
-            </div>
-            
-            <h6 style="color: var(--neon-cyan);">🎯 Mudança de Perspectiva:</h6>
-            <ul class="mb-3">
-              <li><strong>ANTES:</strong> "Tenho que trabalhar para sobreviver"</li>
-              <li><strong>DEPOIS:</strong> "Posso adorar a Deus através do meu trabalho"</li>
-            </ul>
-            
-            <h6 style="color: var(--neon-purple);">📋 Passos Práticos:</h6>
-            <ul class="mb-3">
-              <li>Ore antes de começar qualquer tarefa</li>
-              <li>Dedique seu trabalho diário a Deus</li>
-              <li>Veja cada projeto como oportunidade de honrar Cristo</li>
-              <li>Transforme reclamações em oportunidades de crescimento</li>
-            </ul>
-
-            <div class="p-3 rounded mt-3" style="background: rgba(0, 212, 255, 0.1); border-left: 3px solid var(--neon-cyan);">
-              <small><strong>💡 Dica Prática:</strong> Comece cada dia de trabalho/estudo com esta oração: "Senhor, que tudo que eu fizer hoje traga glória ao Teu nome."</small>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-12 col-md-6">
-          <div class="application-card">
-            <div class="card-header" style="background: var(--gradient-secondary);">
-              <i class="bi bi-gem fs-3 mb-2"></i>
-              <h4 class="practice-title mb-0">2. EXCELÊNCIA EM AÇÃO</h4>
-            </div>
-            
-            <h6 style="color: var(--neon-cyan);">⭐ Padrão de Qualidade:</h6>
-            <ul class="mb-3">
-              <li>Sempre entregue mais do que foi pedido</li>
-              <li>Seja pontual e organizado em tudo</li>
-              <li>Mantenha área de trabalho limpa e organizada</li>
-              <li>Seja proativo, não apenas reativo</li>
-            </ul>
-            
-            <h6 style="color: var(--neon-purple);">🔥 Diferencial Cristão:</h6>
-            <ul class="mb-3">
-              <li><strong>Honestidade absoluta</strong> - Mesmo em pequenas coisas</li>
-              <li><strong>Responsabilidade total</strong> - Assuma seus erros</li>
-              <li><strong>Trabalho em equipe</strong> - Ajude outros a brilharem</li>
-              <li><strong>Atitude positiva</strong> - Seja solução, não problema</li>
-            </ul>
-
-            <div class="p-3 rounded mt-3" style="background: rgba(189, 94, 255, 0.1); border-left: 3px solid var(--neon-purple);">
-              <small><strong>🎯 Meta Daniel:</strong> Seja reconhecido por ter "espírito excelente" antes mesmo de mencionarem que você é cristão.</small>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Segunda linha de aplicações -->
-      <div class="row g-4 mb-5">
-        <div class="col-12 col-md-6">
-          <div class="application-card">
-            <div class="card-header" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
-              <i class="bi bi-lightbulb-fill fs-3 mb-2"></i>
-              <h4 class="practice-title mb-0">3. TESTEMUNHO NATURAL</h4>
-            </div>
-            
-            <h6 style="color: var(--neon-cyan);">🌟 Sendo Sal e Luz:</h6>
-            <ul class="mb-3">
-              <li><strong>Influência Positiva:</strong> Mude o clima do ambiente</li>
-              <li><strong>Conversas Construtivas:</strong> Evite fofocas e críticas</li>
-              <li><strong>Ajuda Genuína:</strong> Seja alguém em quem confiam</li>
-              <li><strong>Esperança Contagiante:</strong> Traga otimismo baseado em Cristo</li>
-            </ul>
-            
-            <h6 style="color: var(--neon-purple);">💬 Oportunidades de Ministério:</h6>
-            <ul class="mb-3">
-              <li>Ore discretamente por colegas em dificuldades</li>
-              <li>Ofereça ajuda prática em momentos difíceis</li>
-              <li>Seja conhecido como alguém que pode dar conselhos sábios</li>
-              <li>Convide para eventos da igreja quando apropriado</li>
-            </ul>
-
-            <div class="p-3 rounded mt-3" style="background: rgba(0, 242, 254, 0.1); border-left: 3px solid var(--neon-cyan);">
-              <small><strong>🔥 Lembrete:</strong> Sua conduta fala mais alto que suas palavras. Seja um evangelho vivo!</small>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-12 col-md-6">
-          <div class="application-card">
-            <div class="card-header" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
-              <i class="bi bi-compass-fill fs-3 mb-2"></i>
-              <h4 class="practice-title mb-0">4. DESCOBRINDO SUA VOCAÇÃO</h4>
-            </div>
-            
-            <h6 style="color: var(--neon-cyan);">🎯 Autoconhecimento Cristão:</h6>
-            <ul class="mb-3">
-              <li><strong>Dons Espirituais:</strong> Que talentos Deus me deu?</li>
-              <li><strong>Paixões do Coração:</strong> O que me motiva profundamente?</li>
-              <li><strong>Necessidades do Mundo:</strong> Como posso fazer diferença?</li>
-              <li><strong>Oportunidades Abertas:</strong> Onde Deus está me direcionando?</li>
-            </ul>
-            
-            <h6 style="color: var(--neon-purple);">🔍 Processo de Descoberta:</h6>
-            <ul class="mb-3">
-              <li>Faça testes vocacionais com oração</li>
-              <li>Converse com mentores e líderes</li>
-              <li>Experimente diferentes áreas através de estágios</li>
-              <li>Observe onde você naturalmente se destaca</li>
-            </ul>
-
-            <div class="p-3 rounded mt-3" style="background: rgba(245, 87, 108, 0.1); border-left: 3px solid #f5576c;">
-              <small><strong>📖 Promessa:</strong> "Confia no Senhor e Ele dirigirá teus passos" (Provérbios 3:5-6)</small>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Protocolo TRABALHO - Metodologia Prática -->
-      <div class="row g-4 mb-4">
-        <div class="col-md-12">
-          <div class="bg-dark p-4 rounded-3" style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.2) 0%, rgba(118, 75, 162, 0.2) 100%); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.2);">
-            <h4 style="color: var(--neon-blue);"><i class="bi bi-clipboard-check me-2"></i>Protocolo TRABALHO - Metodologia Diária</h4>
-            <p class="mb-4" style="color: rgba(255, 255, 255, 0.9);">
-              Use este acróstico para lembrar-se diariamente de como viver o propósito no trabalho:
-            </p>
-            
-            <div class="row g-3">
-              <div class="col-md-6 col-lg-4">
-                <div class="p-3 rounded" style="background: rgba(255, 255, 255, 0.1); border-left: 4px solid var(--neon-cyan);">
-                  <h6 style="color: var(--neon-cyan);"><strong>T</strong> - Transformar Atitude</h6>
-                  <small style="color: rgba(255, 255, 255, 0.8);">Comece cada dia dedicando seu trabalho a Deus</small>
-                </div>
-              </div>
-              
-              <div class="col-md-6 col-lg-4">
-                <div class="p-3 rounded" style="background: rgba(255, 255, 255, 0.1); border-left: 4px solid var(--neon-purple);">
-                  <h6 style="color: var(--neon-purple);"><strong>R</strong> - Realizar com Excelência</h6>
-                  <small style="color: rgba(255, 255, 255, 0.8);">Faça tudo com qualidade superior</small>
-                </div>
-              </div>
-              
-              <div class="col-md-6 col-lg-4">
-                <div class="p-3 rounded" style="background: rgba(255, 255, 255, 0.1); border-left: 4px solid var(--neon-cyan);">
-                  <h6 style="color: var(--neon-cyan);"><strong>A</strong> - Amar as Pessoas</h6>
-                  <small style="color: rgba(255, 255, 255, 0.8);">Trate colegas com amor genuíno</small>
-                </div>
-              </div>
-              
-              <div class="col-md-6 col-lg-4">
-                <div class="p-3 rounded" style="background: rgba(255, 255, 255, 0.1); border-left: 4px solid var(--neon-purple);">
-                  <h6 style="color: var(--neon-purple);"><strong>B</strong> - Buscar Oportunidades</h6>
-                  <small style="color: rgba(255, 255, 255, 0.8);">Procure chances de servir e ajudar</small>
-                </div>
-              </div>
-              
-              <div class="col-md-6 col-lg-4">
-                <div class="p-3 rounded" style="background: rgba(255, 255, 255, 0.1); border-left: 4px solid var(--neon-cyan);">
-                  <h6 style="color: var(--neon-cyan);"><strong>A</strong> - Adorar Através do Fazer</h6>
-                  <small style="color: rgba(255, 255, 255, 0.8);">Transforme tarefas em atos de adoração</small>
-                </div>
-              </div>
-              
-              <div class="col-md-6 col-lg-4">
-                <div class="p-3 rounded" style="background: rgba(255, 255, 255, 0.1); border-left: 4px solid var(--neon-purple);">
-                  <h6 style="color: var(--neon-purple);"><strong>L</strong> - Liderar com Integridade</h6>
-                  <small style="color: rgba(255, 255, 255, 0.8);">Seja exemplo de caráter cristão</small>
-                </div>
-              </div>
-              
-              <div class="col-md-6 col-lg-4">
-                <div class="p-3 rounded" style="background: rgba(255, 255, 255, 0.1); border-left: 4px solid var(--neon-cyan);">
-                  <h6 style="color: var(--neon-cyan);"><strong>H</strong> - Honrar a Deus</h6>
-                  <small style="color: rgba(255, 255, 255, 0.8);">Que tudo seja para a glória divina</small>
-                </div>
-              </div>
-              
-              <div class="col-md-6 col-lg-4">
-                <div class="p-3 rounded" style="background: rgba(255, 255, 255, 0.1); border-left: 4px solid var(--neon-purple);">
-                  <h6 style="color: var(--neon-purple);"><strong>O</strong> - Orar Continuamente</h6>
-                  <small style="color: rgba(255, 255, 255, 0.8);">Mantenha comunhão com Deus durante o trabalho</small>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Desafios Específicos para Jovens -->
       <div class="row g-4">
-        <div class="col-md-12">
-          <div class="bg-dark p-4 rounded-3" style="background: var(--glass-bg) !important; backdrop-filter: blur(15px); border: 1px solid var(--glass-border);">
-            <h4 style="color: var(--neon-blue);"><i class="bi bi-lightning-fill me-2"></i>Desafios Específicos da Juventude</h4>
-            <div class="row g-4 mt-2">
-              <div class="col-md-6">
-                <h6 style="color: var(--neon-purple);">🎓 Para Estudantes:</h6>
-                <ul style="color: rgba(255, 255, 255, 0.9);">
-                  <li>Veja os estudos como preparação para servir melhor</li>
-                  <li>Seja testemunho na escola/universidade</li>
-                  <li>Use conhecimento para edificar, não competir</li>
-                  <li>Ore pela sabedoria divina nos estudos</li>
-                </ul>
-              </div>
-              
-              <div class="col-md-6">
-                <h6 style="color: var(--neon-cyan);">💼 Para Primeiro Emprego:</h6>
-                <ul style="color: rgba(255, 255, 255, 0.9);">
-                  <li>Chegue sempre 10 minutos mais cedo</li>
-                  <li>Faça perguntas inteligentes</li>
-                  <li>Aceite tarefas "menores" com alegria</li>
-                  <li>Seja conhecido pela confiabilidade</li>
-                </ul>
-              </div>
+        <div class="col-12 col-md-6">
+          <div class="practice-card">
+            <div class="practice-icon">
+              <i class="bi bi-heart"></i>
+            </div>
+            <h4 class="practice-title">Mudança de Perspectiva</h4>
+            <div class="text-start">
+              <p><strong>Veja seu trabalho como ministério:</strong></p>
+              <ul>
+                <li>Seus estudos são preparo para servir a Deus</li>
+                <li>Sua profissão é plataforma para impacto do Reino</li>
+                <li>Cada tarefa é oportunidade de adorar</li>
+                <li>Colegas são campo missionário</li>
+              </ul>
+              <p class="small text-info"><strong>💡 Dica:</strong> Ore antes de começar qualquer trabalho: "Senhor, faça isso para Tua glória".</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6">
+          <div class="practice-card">
+            <div class="practice-icon">
+              <i class="bi bi-gem"></i>
+            </div>
+            <h4 class="practice-title">Padrão de Excelência</h4>
+            <div class="text-start">
+              <p><strong>Seja conhecido pela qualidade:</strong></p>
+              <ul>
+                <li>Chegue no horário, saia no horário certo</li>
+                <li>Entregue mais do que prometeu</li>
+                <li>Seja honesto em tudo, mesmo no pequeno</li>
+                <li>Ajude colegas sem esperar retorno</li>
+              </ul>
+              <p class="small text-info"><strong>💡 Versículo:</strong> "O que faz um trabalho com destreza permanecerá perante reis" (Pv 22:29)</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6">
+          <div class="practice-card">
+            <div class="practice-icon">
+              <i class="bi bi-lightbulb"></i>
+            </div>
+            <h4 class="practice-title">Sendo Sal e Luz</h4>
+            <div class="text-start">
+              <p><strong>Testemunhe através da conduta:</strong></p>
+              <ul>
+                <li>Seja positivo em meio às reclamações</li>
+                <li>Ofereça ajuda em momentos difíceis</li>
+                <li>Demonstre integridade em decisões éticas</li>
+                <li>Compartilhe esperança nas conversas</li>
+              </ul>
+              <p class="small text-info"><strong>💡 Dica:</strong> Deixe as pessoas curiosas sobre a fonte da sua diferença.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6">
+          <div class="practice-card">
+            <div class="practice-icon">
+              <i class="bi bi-compass"></i>
+            </div>
+            <h4 class="practice-title">Descobrindo Seus Dons</h4>
+            <div class="text-start">
+              <p><strong>Identifique como Deus te formou:</strong></p>
+              <ul>
+                <li>No que você é naturalmente bom?</li>
+                <li>O que te dá energia e prazer?</li>
+                <li>Onde você vê necessidades no mundo?</li>
+                <li>Como seus dons podem servir ao Reino?</li>
+              </ul>
+              <p class="small text-info"><strong>💡 Versículo:</strong> "Os dons e a vocação de Deus são irrevogáveis" (Rm 11:29)</p>
             </div>
           </div>
         </div>
       </div>
-    }
+    </div>
 
+    <!-- PERGUNTAS PARA GRUPOS DE CRESCIMENTO -->
     <div class="sermon-section">
-      <h2 class="section-title">❓ Perguntas para GCG - Conectando Fé e Trabalho</h2>
-      
-      <div class="mb-4 p-4 rounded-3" style="background: var(--glass-bg); backdrop-filter: blur(15px); border: 1px solid var(--glass-border);">
-        <p style="color: rgba(255, 255, 255, 0.9);">
-          <i class="bi bi-info-circle me-2" style="color: var(--neon-cyan);"></i>
-          <strong>Orientação para Líderes:</strong> Estas perguntas foram desenvolvidas para provocar reflexão profunda sobre 
-          vocação, propósito e o papel do trabalho na vida cristã. Reserve tempo adequado para cada uma.
-        </p>
-      </div>
+      <h2 class="section-title">Perguntas para Grupos de Crescimento</h2>
       
       <div class="question-item">
-        <div class="question-number">1</div>
-        <div>
-          <p><strong>Como você enxerga sua futura profissão ou trabalho atual - como meio de sustento ou como chamado de Deus?</strong></p>
-          <small class="text-muted">
-            <strong>Objetivo:</strong> Ajudar a descobrir se veem o trabalho apenas como necessidade ou como oportunidade de servir a Deus. 
-            Discutam exemplos de profissionais que transformaram suas carreiras em ministério.
-          </small>
-          <div class="mt-2 p-2 rounded" style="background: rgba(0, 212, 255, 0.1); border-left: 2px solid var(--neon-cyan);">
-            <small style="color: rgba(255, 255, 255, 0.7);">
-              💡 <strong>Aprofundamento:</strong> Compartilhem sonhos profissionais e orem juntos pela direção divina nas escolhas de carreira.
-            </small>
+        <div class="d-flex">
+          <span class="question-number">1</span>
+          <div>
+            <p><strong>Como você enxerga sua futura profissão ou trabalho atual - como meio de sustento ou como chamado de Deus?</strong></p>
+            <p class="small text-muted">Reflita sobre como essa perspectiva afeta sua motivação e dedicação ao trabalho.</p>
           </div>
         </div>
       </div>
 
       <div class="question-item">
-        <div class="question-number">2</div>
-        <div>
-          <p><strong>Quais são os maiores desafios éticos e espirituais que vocês antecipam (ou enfrentam) no ambiente de trabalho?</strong></p>
-          <small class="text-muted">
-            <strong>Objetivo:</strong> Identificar situações específicas onde valores cristãos podem ser testados (corrupção, mentiras, competição desleal, etc.) 
-            e desenvolver estratégias bíblicas para lidar com elas.
-          </small>
-          <div class="mt-2 p-2 rounded" style="background: rgba(189, 94, 255, 0.1); border-left: 2px solid var(--neon-purple);">
-            <small style="color: rgba(255, 255, 255, 0.7);">
-              🔥 <strong>Prático:</strong> Criem cenários hipotéticos e discutam como Daniel lidou com pressões no governo babilônico.
-            </small>
+        <div class="d-flex">
+          <span class="question-number">2</span>
+          <div>
+            <p><strong>Quais são os maiores desafios éticos que você antecipa (ou enfrenta) no ambiente de trabalho?</strong></p>
+            <p class="small text-muted">Identifique situações onde valores cristãos podem ser testados e desenvolva estratégias bíblicas.</p>
           </div>
         </div>
       </div>
 
       <div class="question-item">
-        <div class="question-number">3</div>
-        <div>
-          <p><strong>De que maneiras práticas vocês podem ser "sal e luz" no ambiente de trabalho sem serem invasivos ou inadequados?</strong></p>
-          <small class="text-muted">
-            <strong>Objetivo:</strong> Desenvolver estratégias concretas de testemunho através da conduta exemplar, relacionamentos genuínos 
-            e oportunidades naturais de compartilhar a fé.
-          </small>
-          <div class="mt-2 p-2 rounded" style="background: rgba(0, 242, 254, 0.1); border-left: 2px solid var(--neon-cyan);">
-            <small style="color: rgba(255, 255, 255, 0.7);">
-              ⭐ <strong>Ideia:</strong> Listem características que fazem alguém ser respeitado no trabalho independente da religião.
-            </small>
+        <div class="d-flex">
+          <span class="question-number">3</span>
+          <div>
+            <p><strong>De que maneiras práticas você pode ser "sal e luz" no trabalho sem ser invasivo ou inadequado?</strong></p>
+            <p class="small text-muted">Pense em estratégias de testemunho através da conduta exemplar e relacionamentos genuínos.</p>
           </div>
         </div>
       </div>
 
       <div class="question-item">
-        <div class="question-number">4</div>
-        <div>
-          <p><strong>Como vocês podem descobrir e desenvolver os dons que Deus lhes deu para usar em sua vocação profissional?</strong></p>
-          <small class="text-muted">
-            <strong>Objetivo:</strong> Conectar dons espirituais com habilidades profissionais, ajudando cada jovem a identificar 
-            seus talentos únicos e como usá-los para impactar o Reino de Deus.
-          </small>
-          <div class="mt-2 p-2 rounded" style="background: rgba(102, 126, 234, 0.1); border-left: 2px solid #667eea;">
-            <small style="color: rgba(255, 255, 255, 0.7);">
-              🎯 <strong>Atividade:</strong> Façam uns aos outros elogios sobre talentos que observam. Orem pelos dons ainda não descobertos.
-            </small>
+        <div class="d-flex">
+          <span class="question-number">4</span>
+          <div>
+            <p><strong>Como você pode descobrir e desenvolver os dons que Deus lhe deu para usar em sua vocação?</strong></p>
+            <p class="small text-muted">Conecte dons espirituais com habilidades profissionais para impactar o Reino de Deus.</p>
           </div>
         </div>
       </div>
 
       <div class="question-item">
-        <div class="question-number">5</div>
-        <div>
-          <p><strong>Qual é a diferença entre trabalhar "para os homens" e trabalhar "para o Senhor"? Como isso muda nossa motivação diária?</strong></p>
-          <small class="text-muted">
-            <strong>Objetivo:</strong> Aprofundar o entendimento de Colossenses 3:23, explorando como a perspectiva eterna transforma 
-            nossa atitude em relação a tarefas mundanas e relacionamentos no trabalho.
-          </small>
-          <div class="mt-2 p-2 rounded" style="background: rgba(240, 147, 251, 0.1); border-left: 2px solid #f093fb;">
-            <small style="color: rgba(255, 255, 255, 0.7);">
-              💭 <strong>Reflexão:</strong> Discutam como esta mudança de perspectiva afeta até tarefas que consideramos "chatas".
-            </small>
+        <div class="d-flex">
+          <span class="question-number">5</span>
+          <div>
+            <p><strong>Qual é a diferença entre trabalhar "para os homens" e "para o Senhor"? Como isso muda nossa motivação?</strong></p>
+            <p class="small text-muted">Explore como a perspectiva eterna transforma nossa atitude diária no trabalho.</p>
           </div>
         </div>
       </div>
+    </div>
 
-      <div class="question-item">
-        <div class="question-number">6</div>
-        <div>
-          <p><strong>Como vocês podem usar sua futura posição profissional para ser instrumento de transformação social e espiritual?</strong></p>
-          <small class="text-muted">
-            <strong>Objetivo:</strong> Expandir a visão além do crescimento pessoal para o impacto no Reino, pensando em como cada 
-            profissão pode ser uma plataforma para transformar sociedade e levar esperança às pessoas.
-          </small>
-          <div class="mt-2 p-2 rounded" style="background: rgba(245, 87, 108, 0.1); border-left: 2px solid #f5576c;">
-            <small style="color: rgba(255, 255, 255, 0.7);">
-              🌍 <strong>Visão:</strong> Sonhem grande! Como médico, professor, engenheiro, artista... como podem impactar para Cristo?
-            </small>
-          </div>
-        </div>
-      </div>
-
-      <div class="question-item">
-        <div class="question-number">7</div>
-        <div>
-          <p><strong>Qual compromisso específico vocês podem assumir esta semana para começar a viver o "trabalho como adoração"?</strong></p>
-          <small class="text-muted">
-            <strong>Objetivo:</strong> Transformar reflexão em ação prática. Cada jovem deve sair com um compromisso concreto e 
-            mensurável que possa implementar imediatamente em seus estudos ou trabalho atual.
-          </small>
-          <div class="mt-2 p-2 rounded" style="background: rgba(0, 255, 127, 0.1); border-left: 2px solid #00ff7f;">
-            <small style="color: rgba(255, 255, 255, 0.7);">
-              ✅ <strong>Ação:</strong> Escrevam compromissos específicos e compartilhem para criar accountability mútua.
-            </small>
-          </div>
-        </div>
-      </div>
-
-      <!-- Sugestões Adicionais para o Líder -->
-      <div class="mt-5 p-4 rounded-3" style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.2) 0%, rgba(118, 75, 162, 0.2) 100%); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.2);">
-        <h4 style="color: var(--neon-blue);"><i class="bi bi-lightbulb me-2"></i>Sugestões para Dinamizar o GCG</h4>
-        
-        <div class="row g-4 mt-2">
-          <div class="col-md-6">
-            <h6 style="color: var(--neon-purple);">💡 Dinâmicas Sugeridas:</h6>
-            <ul style="color: rgba(255, 255, 255, 0.9);">
-              <li><strong>Roleplay:</strong> Simulem situações de trabalho com dilemas éticos</li>
-              <li><strong>Teste Vocacional Cristão:</strong> Ajudem a descobrir chamados únicos</li>
-              <li><strong>Oração Direcionada:</strong> Orem especificamente pelas escolhas profissionais</li>
-              <li><strong>Accountability Partners:</strong> Formem duplas para acompanhamento</li>
-            </ul>
-          </div>
-          
-          <div class="col-md-6">
-            <h6 style="color: var(--neon-cyan);">📖 Versículos de Apoio:</h6>
-            <ul style="color: rgba(255, 255, 255, 0.9);">
-              <li><strong>Provérbios 16:3</strong> - "Consagra ao Senhor as tuas obras"</li>
-              <li><strong>1 Coríntios 10:31</strong> - "Para glória de Deus"</li>
-              <li><strong>Efésios 4:28</strong> - "Trabalhe para poder repartir"</li>
-              <li><strong>2 Tessalonicenses 3:10</strong> - "Dignidade do trabalho"</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="mt-3 p-3 rounded" style="background: rgba(255, 255, 255, 0.1); border-left: 3px solid var(--neon-cyan);">
-          <small style="color: rgba(255, 255, 255, 0.8);">
-            <strong>🎯 Dica Final:</strong> Encerrem com cada jovem declarando uma frase sobre como vê seu futuro profissional 
-            após esta discussão. Registrem para acompanhar o crescimento!
-          </small>
-        </div>
-      </div>
-    }
-
+    <!-- ORAÇÃO FINAL -->
     <div class="prayer-section">
-      <h2 class="prayer-title">
-        <i class="bi bi-briefcase-heart me-3"></i>Oração de Consagração Profissional
-      </h2>
-      
+      <h2 class="prayer-title">Oração de Consagração Profissional</h2>
       <div class="prayer-text">
-        <div class="prayer-subsection">
-          <p><strong>Pai Celestial, Arquiteto do Universo,</strong></p>
-          <p>
-            Reconhecemos que Tu foste o primeiro trabalhador, criando os céus e a terra com perfeição e propósito. 
-            Do Éden aos nossos dias, o trabalho faz parte do Teu design original para nossas vidas.
-          </p>
-        </div>
-
-        <div class="prayer-subsection">
-          <p><strong>Transformação da Nossa Perspectiva:</strong></p>
-          <p>
-            Perdoa-nos quando vemos o trabalho apenas como obrigação ou meio de sustento. 
-            Abre nossos olhos para compreender que cada tarefa, cada projeto, cada responsabilidade 
-            pode ser um altar de adoração ao Teu nome.
-          </p>
-        </div>
-
-        <div class="prayer-subsection">
-          <p><strong>Capacita-nos, Senhor, para que possamos trabalhar:</strong></p>
-          <ul class="prayer-list">
-            <li><strong>Com Paixão Renovada</strong> - Que nosso coração se alegre em cada oportunidade de servir</li>
-            <li><strong>Com Excelência Cristã</strong> - Superando expectativas como testemunho da Tua grandeza</li>
-            <li><strong>Com Integridade Inabalável</strong> - Mantendo caráter mesmo quando ninguém está vendo</li>
-            <li><strong>Com Amor Genuíno</strong> - Vendo pessoas, não apenas colegas de trabalho</li>
-            <li><strong>Com Propósito Eterno</strong> - Lembrando que trabalhamos para Ti, não apenas para homens</li>
-            <li><strong>Com Esperança Contagiante</strong> - Sendo luz em ambientes que às vezes parecem sombrios</li>
-            <li><strong>Com Sabedoria Divina</strong> - Tomando decisões que honrem Teu nome</li>
-          </ul>
-        </div>
-
-        <div class="prayer-subsection">
-          <p><strong>Direção Vocacional:</strong></p>
-          <p>
-            Guia-nos na descoberta dos dons únicos que depositaste em cada um de nós. 
-            Que possamos encontrar nossa vocação no ponto de interseção entre nossos talentos, 
-            as necessidades do mundo e os desejos do nosso coração transformado por Ti.
-          </p>
-        </div>
-
-        <div class="prayer-subsection">
-          <p><strong>Impacto no Reino:</strong></p>
-          <p>
-            Usa-nos como instrumentos de transformação em nossos futuros ambientes profissionais. 
-            Que através de médicos que curam com compaixão, professores que educam com amor, 
-            engenheiros que constroem com sabedoria, artistas que criam beleza, empresários que lideram com justiça, 
-            o Teu Reino se manifeste na terra.
-          </p>
-        </div>
-
-        <div class="prayer-subsection">
-          <p><strong>Proteção e Provisão:</strong></p>
-          <p>
-            Protege-nos das tentações do orgulho quando formos bem-sucedidos, 
-            e do desânimo quando enfrentarmos dificuldades. 
-            Lembra-nos constantemente de que nossa identidade não está no que fazemos, 
-            mas em quem somos em Ti.
-          </p>
-        </div>
-
-        <div class="prayer-subsection">
-          <p><strong>Compromisso Renovado:</strong></p>
-          <p>
-            Diante de Ti, comprometemo-nos a viver cada dia profissional como um ato de adoração. 
-            Que nossas mãos sejam Tuas mãos trabalhando no mundo, 
-            nossos talentos sejam ofertas em Teu altar, 
-            e nosso sucesso seja sempre para a glória do Teu nome.
-          </p>
-        </div>
-
-        <div class="prayer-conclusion">
-          <p>
-            <strong>Que possamos ouvir ao final de nossas carreiras as palavras que todo servo fiel anhela:</strong><br>
-            <em>"Muito bem, servo bom e fiel! Foste fiel no pouco, sobre o muito te colocarei. 
-            Entra no gozo do teu Senhor!" (Mateus 25:23)</em>
-          </p>
-        </div>
-
-        <div class="prayer-amen">
-          Em nome de Jesus, nosso Senhor e Salvador, que sendo carpinteiro conhece o valor do trabalho bem feito.<br>
-          <strong>Amém e Amém! 🙏✨</strong>
-        </div>
+        <p><em>"Pai Celestial, Arquiteto do Universo e Senhor de toda vocação, reconheço que Tu me formaste com dons únicos e me chamaste para um propósito específico nesta terra.</em></p>
+        
+        <p><em>Peço perdão por ter visto o trabalho apenas como obrigação ou meio de sustento. Hoje entendo que toda atividade laboral pode se tornar um ato sagrado de adoração quando feita de todo coração para Ti.</em></p>
+        
+        <p><em>Ajuda-me a aplicar Colossenses 3:23 em tudo: que eu faça tudo de todo coração, como ao Senhor, e não aos homens. Que minha dedicação, honestidade e excelência sejam testemunho do Teu caráter.</em></p>
+        
+        <p><em>Capacita-me para ser sal e luz no ambiente de trabalho. Usa-me para abençoar colegas, transformar culturas organizacionais e demonstrar que é possível viver com integridade e propósito.</em></p>
+        
+        <p><em>Guia-me na descoberta da vocação que planejaste para mim. Que meus dons, paixões e as necessidades do mundo se encontrem na profissão perfeita para impactar Teu Reino.</em></p>
+        
+        <p><em>Em nome de Jesus, que sendo carpinteiro conhece o valor do trabalho bem feito e me chamou para ser Seu seguidor em todas as áreas da vida. Amém.</em></p>
       </div>
-
-      <!-- Momento de Reflexão Pessoal -->
-      <div class="mt-5 p-4 rounded-3" style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2);">
-        <h5 style="color: var(--neon-cyan); text-align: center;">
-          <i class="bi bi-heart-fill me-2"></i>Momento de Reflexão Pessoal
-        </h5>
-        <p class="text-center mt-3" style="color: rgba(255, 255, 255, 0.9);">
-          Reserve alguns minutos para orar silenciosamente sobre sua futura vocação. 
-          Peça a Deus para revelar como Ele quer usar seus dons únicos para impactar o mundo.
-        </p>
-        <div class="text-center mt-4">
-          <small style="color: rgba(255, 255, 255, 0.7);">
-            💭 Pense: "Deus, como posso usar minha futura profissão para trazer Teu Reino à terra?"
-          </small>
-        </div>
-      </div>
-    }
+    </div>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Scripts externos -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   <script src="../../verses.js"></script>
-  <script>
-    document.querySelectorAll('.verse-ref').forEach(ref => {
-      ref.addEventListener('click', function() {
-        const verseKey = this.getAttribute('data-ref');
-        let expanded = this.parentNode.querySelector('.verse-expanded');
-        
-        if (expanded) {
-          expanded.remove();
-          return;
-        }
-        
-        const verse = window.Verses?.[verseKey] || `[${verseKey}] Texto não encontrado.`;
-        expanded = document.createElement('div');
-        expanded.className = 'verse-expanded mt-3 p-3 rounded';
-        expanded.style.background = 'rgba(255, 255, 255, 0.1)';
-        expanded.style.borderLeft = '4px solid var(--neon-blue)';
-        expanded.innerHTML = `<strong>${verseKey}:</strong><br>${verse}`;
-        
-        this.insertAdjacentElement('afterend', expanded);
-      });
-    });
-  </script>
+  <script src="../../assets/js/sermon-scripts.js"></script>
 </body>
 </html>

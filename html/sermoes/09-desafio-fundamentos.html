@@ -1,0 +1,837 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Desafio dos Fundamentos da Fé — 1 Coríntios 3:11 — Jovens NV</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <!-- Arquivo CSS Otimizado -->
+  <link href="../../assets/css/sermon-styles.css" rel="stylesheet">
+</head>
+<body>
+  <style>
+    /* DESIGN PREMIUM IGUAL AO PADRÃO */
+    :root {
+      --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      --gradient-accent: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      --gradient-dark: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
+      --glow-color: #ff6b6b;
+      --neon-blue: #00d4ff;
+      --neon-purple: #bd5eff;
+      --glass-bg: rgba(255, 255, 255, 0.05);
+      --glass-border: rgba(255, 255, 255, 0.1);
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif !important;
+      background: var(--gradient-dark) !important;
+      background-color: #0c0c0c !important;
+      min-height: 100vh;
+      color: #ffffff;
+      overflow-x: hidden;
+    }
+
+    /* EFEITOS GLASSMORPHISM */
+    .glass-effect {
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+    }
+
+    /* BOTÃO VOLTAR PREMIUM */
+    .back-btn {
+      position: fixed;
+      top: 2rem;
+      left: 2rem;
+      z-index: 1000;
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+      padding: 0.8rem 1.5rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .back-btn:hover {
+      background: rgba(255, 255, 255, 0.15);
+      color: var(--neon-blue);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(0, 212, 255, 0.3);
+    }
+
+    /* CONTAINER PRINCIPAL */
+    .sermon-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 6rem 2rem 4rem;
+    }
+
+    /* HEADER DA MENSAGEM */
+    .sermon-header {
+      text-align: center;
+      margin-bottom: 4rem;
+      position: relative;
+    }
+
+    .sermon-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 3.5rem;
+      font-weight: 800;
+      background: var(--gradient-accent);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 30px rgba(79, 172, 254, 0.5);
+      color: #4facfe;
+    }
+
+    @supports not (-webkit-background-clip: text) {
+      .sermon-title {
+        color: #4facfe !important;
+        background: none !important;
+        text-shadow: 0 0 20px rgba(79, 172, 254, 0.8);
+      }
+    }
+
+    .sermon-subtitle {
+      font-size: 1.2rem;
+      color: rgba(255, 255, 255, 0.7);
+      font-weight: 300;
+    }
+
+    /* VERSÍCULO DESTAQUE */
+    .verse-highlight {
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      border: 2px solid var(--neon-blue);
+      border-radius: 20px;
+      padding: 2.5rem;
+      margin: 3rem 0;
+      text-align: center;
+      font-size: 1.3rem;
+      line-height: 1.8;
+      color: #ffffff;
+      box-shadow: 0 0 40px rgba(0, 212, 255, 0.3);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .verse-highlight::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(0, 212, 255, 0.1), transparent);
+      animation: sparkle 3s infinite;
+    }
+
+    .verse-highlight:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 60px rgba(0, 212, 255, 0.5);
+    }
+
+    @keyframes sparkle {
+      0% { transform: rotate(0deg) translate(-50%, -50%); }
+      100% { transform: rotate(360deg) translate(-50%, -50%); }
+    }
+
+    /* SEÇÕES */
+    .sermon-section {
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+      border-radius: 20px;
+      padding: 3rem;
+      margin: 3rem 0;
+      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+      color: #ffffff;
+    }
+
+    .sermon-section p,
+    .sermon-section li,
+    .sermon-section .text-muted,
+    .sermon-section .small {
+      color: rgba(255, 255, 255, 0.9) !important;
+    }
+
+    .sermon-section .lead {
+      color: #ffffff !important;
+      font-weight: 500;
+    }
+
+    .section-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--neon-blue);
+      margin-bottom: 2rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 3px;
+      background: var(--gradient-accent);
+      border-radius: 2px;
+    }
+
+    /* CARDS ESTRUTURA */
+    .structure-card {
+      background: var(--glass-bg);
+      backdrop-filter: blur(15px);
+      border: 1px solid var(--glass-border);
+      border-radius: 15px;
+      padding: 2rem;
+      height: 100%;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      color: #ffffff;
+    }
+
+    .structure-card p,
+    .structure-card li,
+    .structure-card .text-muted,
+    .structure-card .small {
+      color: rgba(255, 255, 255, 0.9) !important;
+    }
+
+    .structure-card .bg-dark {
+      background: rgba(0, 0, 0, 0.4) !important;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .structure-card .bg-dark p,
+    .structure-card .bg-dark .small {
+      color: rgba(255, 255, 255, 0.95) !important;
+    }
+
+    .structure-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--gradient-secondary);
+    }
+
+    .structure-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .card-number {
+      font-size: 3rem;
+      font-weight: 800;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+      margin-bottom: 1rem;
+      color: #667eea;
+    }
+
+    @supports not (-webkit-background-clip: text) {
+      .card-number {
+        color: #667eea !important;
+        background: none !important;
+      }
+    }
+
+    .card-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--neon-blue);
+      margin-bottom: 1.5rem;
+    }
+
+    /* APLICAÇÕES PRÁTICAS */
+    .application-card {
+      background: var(--glass-bg);
+      backdrop-filter: blur(15px);
+      border: 1px solid var(--glass-border);
+      border-radius: 15px;
+      padding: 2rem;
+      text-align: left;
+      transition: all 0.3s ease;
+      height: 100%;
+      color: #ffffff;
+    }
+
+    .application-card .card-header {
+      margin: -2rem -2rem 2rem -2rem;
+      padding: 1.5rem 2rem;
+      border-radius: 15px 15px 0 0;
+      border: none !important;
+    }
+
+    .application-card .card-body {
+      padding: 0;
+    }
+
+    .application-card h5,
+    .application-card h6 {
+      text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    }
+
+    .application-card ol,
+    .application-card ul {
+      padding-left: 1.5rem;
+    }
+
+    .application-card ol li,
+    .application-card ul li {
+      margin-bottom: 0.5rem;
+      line-height: 1.6;
+    }
+
+    .bg-info.bg-opacity-20,
+    .bg-warning.bg-opacity-20,
+    .bg-success.bg-opacity-20,
+    .bg-danger.bg-opacity-20 {
+      backdrop-filter: blur(5px);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+
+    .application-card p,
+    .application-card li,
+    .application-card .small,
+    .application-card .text-muted {
+      color: rgba(255, 255, 255, 0.9) !important;
+    }
+
+    .application-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 15px 35px rgba(189, 94, 255, 0.3);
+    }
+
+    /* PERGUNTAS GCG */
+    .question-item {
+      background: var(--glass-bg);
+      backdrop-filter: blur(10px);
+      border-left: 4px solid var(--neon-blue);
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      color: #ffffff;
+    }
+
+    .question-item p,
+    .question-item .small,
+    .question-item .text-muted {
+      color: rgba(255, 255, 255, 0.9) !important;
+    }
+
+    .question-item:hover {
+      background: rgba(255, 255, 255, 0.08);
+      transform: translateX(10px);
+    }
+
+    .question-number {
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      background: var(--gradient-accent);
+      color: #000;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 30px;
+      font-weight: 700;
+      margin-right: 1rem;
+    }
+
+    /* ORAÇÃO FINAL */
+    .prayer-section {
+      background: var(--gradient-secondary);
+      border-radius: 20px;
+      padding: 3rem;
+      text-align: center;
+      color: #ffffff;
+      box-shadow: 0 0 50px rgba(240, 147, 251, 0.4);
+    }
+
+    .prayer-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 2rem;
+    }
+
+    .prayer-text {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      font-style: italic;
+    }
+
+    .prayer-subsection {
+      background: rgba(0, 0, 0, 0.1);
+      border-radius: 15px;
+      padding: 2rem;
+      margin: 2rem 0;
+      text-align: left;
+    }
+
+    .prayer-list {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .prayer-list li {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .prayer-list li:last-child {
+      border-bottom: none;
+    }
+
+    .prayer-conclusion {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      padding: 2rem;
+      margin-top: 2rem;
+    }
+
+    .prayer-amen {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: #ffd700;
+      text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    }
+
+    /* RESPONSIVIDADE */
+    @media (max-width: 768px) {
+      .back-btn {
+        top: 1rem;
+        left: 1rem;
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+      }
+
+      .sermon-container {
+        padding: 5rem 1rem 3rem;
+      }
+
+      .sermon-title {
+        font-size: 2.5rem;
+      }
+
+      .verse-highlight {
+        padding: 2rem;
+        font-size: 1.1rem;
+      }
+
+      .sermon-section {
+        padding: 2rem;
+      }
+
+      .section-title {
+        font-size: 1.8rem;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .sermon-title {
+        font-size: 2rem;
+      }
+
+      .verse-highlight {
+        padding: 1.5rem;
+        font-size: 1rem;
+      }
+
+      .sermon-section {
+        padding: 1.5rem;
+      }
+    }
+
+    /* TEMA CLARO */
+    body.light {
+      background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 50%, #ffffff 100%) !important;
+      background-color: #f1f5f9 !important;
+      color: #1a202c;
+    }
+
+    body.light .glass-effect,
+    body.light .sermon-section,
+    body.light .structure-card,
+    body.light .application-card,
+    body.light .question-item {
+      background: rgba(255, 255, 255, 0.6);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      color: #1a202c;
+    }
+
+    body.light .sermon-section p,
+    body.light .sermon-section li,
+    body.light .sermon-section .text-muted,
+    body.light .sermon-section .small,
+    body.light .structure-card p,
+    body.light .structure-card li,
+    body.light .structure-card .text-muted,
+    body.light .structure-card .small,
+    body.light .application-card p,
+    body.light .application-card li,
+    body.light .application-card .small,
+    body.light .application-card .text-muted,
+    body.light .question-item p,
+    body.light .question-item .small,
+    body.light .question-item .text-muted {
+      color: #2d3748 !important;
+    }
+
+    body.light .sermon-section .lead {
+      color: #1a202c !important;
+      font-weight: 600;
+    }
+
+    body.light .structure-card .bg-dark {
+      background: rgba(0, 0, 0, 0.08) !important;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    body.light .structure-card .bg-dark p,
+    body.light .structure-card .bg-dark .small {
+      color: #2d3748 !important;
+    }
+
+    body.light .back-btn {
+      background: rgba(255, 255, 255, 0.6);
+      color: #1a202c;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    body.light .verse-highlight {
+      background: rgba(255, 255, 255, 0.6);
+      color: #1a202c;
+      border: 2px solid var(--neon-blue);
+    }
+
+    h1.sermon-title {
+      display: block !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+    }
+
+    @supports (-webkit-appearance: none) {
+      .sermon-title {
+        color: #4facfe !important;
+        background: none !important;
+        -webkit-text-fill-color: #4facfe !important;
+      }
+      
+      body.light .sermon-title {
+        color: #2563eb !important;
+        -webkit-text-fill-color: #2563eb !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <a href="../../index.html" class="back-btn">
+    <i class="bi bi-arrow-left me-2"></i>Voltar
+  </a>
+  
+  <div class="sermon-container">
+    <header class="sermon-header">
+      <h1 class="sermon-title">Desafio dos Fundamentos da Fé</h1>
+      <p class="sermon-subtitle">Mensagem 09 • 1 Coríntios 3:11 • Dezembro 2025</p>
+    </header>
+
+    <div class="verse-highlight verse-ref" data-ref="1Co 3:11">
+      <i class="bi bi-house-fill fs-1 text-warning mb-3"></i>
+      <p class="mb-3">"Porque ninguém pode colocar outro fundamento além do que já está posto, o qual é Jesus Cristo."</p>
+      <strong>— 1 Coríntios 3:11</strong>
+      <div class="mt-3 text-info">
+        <i class="bi bi-hand-index me-2"></i>
+        <small>Clique para ver o contexto completo</small>
+      </div>
+    </div>
+
+    <!-- OBJETIVO DA MENSAGEM -->
+    <div class="sermon-section">
+      <div class="text-center mb-4">
+        <i class="bi bi-bullseye fs-1 text-warning mb-3"></i>
+        <h3 class="text-warning">Objetivo da Mensagem</h3>
+      </div>
+      <p class="lead text-center">
+        <strong>Fortalecer os fundamentos bíblicos da nossa fé</strong>, identificando e rejeitando falsas doutrinas, 
+        construindo uma base sólida sobre Cristo Jesus que resista aos desafios contemporâneos e às pressões do mundo.
+      </p>
+    </div>
+
+    <div class="sermon-section">
+      <h2 class="section-title">Estrutura da Mensagem</h2>
+      
+      <div class="row g-4">
+        <div class="col-12 col-md-4">
+          <div class="structure-card">
+            <div class="card-number">1</div>
+            <h3 class="card-title">O Único Fundamento</h3>
+            <p class="text-muted mb-3"><strong>Cristo, a Pedra Angular</strong></p>
+            
+            <h5 class="text-success mb-3">✅ Base Inquebrantável:</h5>
+            <ul class="mb-4">
+              <li><strong>Jesus é o fundamento:</strong> Não há salvação em outro nome (Atos 4:12)</li>
+              <li><strong>Pedra angular:</strong> Tudo se alinha com Ele (Efésios 2:20)</li>
+              <li><strong>Rocha firme:</strong> Permanece para sempre (Mateus 16:18)</li>
+              <li><strong>Verdade absoluta:</strong> "Eu sou o caminho, a verdade e a vida" (João 14:6)</li>
+            </ul>
+            
+            <div class="bg-dark p-3 rounded">
+              <h6 class="text-warning">💡 Reflexão:</h6>
+              <p class="mb-0 small">Em uma época de relativismo e pluralismo religioso, Cristo permanece como o único fundamento sólido. Não podemos construir nossa fé sobre filosofias humanas ou tendências culturais.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4">
+          <div class="structure-card">
+            <div class="card-number">2</div>
+            <h3 class="card-title">Desafios Atuais</h3>
+            <p class="text-muted mb-3"><strong>Ameaças aos Fundamentos</strong></p>
+            
+            <h5 class="text-danger mb-3">⚠️ Falsas Doutrinas Modernas:</h5>
+            <ul class="mb-4">
+              <li><strong>Evangelho da prosperidade:</strong> Fé como meio de enriquecimento material</li>
+              <li><strong>Relativismo moral:</strong> "Cada um tem sua verdade"</li>
+              <li><strong>Teologia liberal:</strong> Questionamento da autoridade bíblica</li>
+              <li><strong>Sincretismo religioso:</strong> Mistura do cristianismo com outras crenças</li>
+              <li><strong>Humanismo secular:</strong> Homem como centro, não Deus</li>
+            </ul>
+            
+            <div class="bg-dark p-3 rounded">
+              <h6 class="text-warning">💡 Reflexão:</h6>
+              <p class="mb-0 small">Paulo alertou: "Virá tempo em que não suportarão a sã doutrina" (2 Timóteo 4:3). Precisamos estar preparados para discernir e resistir aos enganos.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4">
+          <div class="structure-card">
+            <div class="card-number">3</div>
+            <h3 class="card-title">Construindo Sobre a Rocha</h3>
+            <p class="text-muted mb-3"><strong>Fundamentos Práticos</strong></p>
+            
+            <h5 class="text-info mb-3">🔵 Pilares da Fé Sólida:</h5>
+            <ul class="mb-4">
+              <li><strong>Estudo bíblico consistente:</strong> "Toda Escritura é inspirada" (2 Tim 3:16)</li>
+              <li><strong>Oração constante:</strong> Comunhão íntima com Deus</li>
+              <li><strong>Comunhão cristã:</strong> Edificação mútua no corpo</li>
+              <li><strong>Serviço ao Reino:</strong> Obras que glorificam a Deus</li>
+              <li><strong>Testemunho corajoso:</strong> Proclamar Cristo em amor</li>
+            </ul>
+            
+            <div class="bg-dark p-3 rounded">
+              <h6 class="text-warning">💡 Reflexão:</h6>
+              <p class="mb-0 small">Como jovens cristãos, precisamos ser como Daniel: firmes na fé mesmo quando toda cultura ao redor nos pressiona a comprometer nossos princípios.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sermon-section">
+      <h2 class="section-title">Aplicações Práticas</h2>
+      
+      <div class="row g-4">
+        <div class="col-12 col-lg-6">
+          <div class="application-card">
+            <div class="card-header bg-primary">
+              <h4 class="mb-0 text-white">📚 Fortalecimento dos Fundamentos</h4>
+            </div>
+            <div class="card-body">
+              <h5 class="text-primary mb-3">📖 Plano de Estudo Bíblico (30 min diários)</h5>
+              <ul class="mb-4">
+                <li><strong>Semana 1:</strong> Doutrinas fundamentais (salvação, trindade, autoridade bíblica)</li>
+                <li><strong>Semana 2:</strong> Estudo dos credos históricos (Apostólico, Niceno)</li>
+                <li><strong>Semana 3:</strong> Análise de falsas doutrinas comuns</li>
+                <li><strong>Semana 4:</strong> Desenvolvimento da apologética cristã</li>
+              </ul>
+              
+              <h5 class="text-warning mb-3">🎯 Teste de Fundamentos</h5>
+              <p class="mb-3">Perguntas para autoavaliação:</p>
+              <ol>
+                <li>Posso explicar o plano de salvação claramente?</li>
+                <li>Conheço versículos-chave sobre divindade de Cristo?</li>
+                <li>Sei defender a veracidade das Escrituras?</li>
+                <li>Reconheço heresias quando as ouço?</li>
+              </ol>
+              
+              <div class="bg-info bg-opacity-20 border border-info border-opacity-30 p-3 rounded mt-3">
+                <h6 class="text-info fw-bold">📝 Meta Prática:</h6>
+                <p class="mb-0 text-white"><strong>Compromisso:</strong> Memorizar 1 versículo fundamental por semana e compartilhar com alguém o que aprendi sobre os fundamentos da fé.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-lg-6">
+          <div class="application-card">
+            <div class="card-header bg-success">
+              <h4 class="mb-0 text-white">⚔️ Apologética Prática</h4>
+            </div>
+            <div class="card-body">
+              <h5 class="text-success mb-3">🛡️ Defesa da Fé</h5>
+              <ul class="mb-4">
+                <li><strong>Conheça as objeções comuns:</strong> "A Bíblia foi escrita por homens", "Existem muitos caminhos para Deus"</li>
+                <li><strong>Estude evidências:</strong> Arqueologia bíblica, manuscritos antigos, profecias cumpridas</li>
+                <li><strong>Pratique respostas amorosas:</strong> "Sempre prontos para responder... com mansidão" (1 Pe 3:15)</li>
+                <li><strong>Desenvolva relacionamentos:</strong> Apologética relacional é mais eficaz</li>
+              </ul>
+              
+              <h5 class="text-info mb-3">💬 Diálogo Inteligente</h5>
+              <ul class="mb-4">
+                <li><strong>Escute antes de falar:</strong> Entenda a real objeção da pessoa</li>
+                <li><strong>Faça perguntas:</strong> "O que te faz pensar isso?"</li>
+                <li><strong>Use histórias:</strong> Testemunhos pessoais são poderosos</li>
+                <li><strong>Plante sementes:</strong> Nem sempre veremos os frutos imediatamente</li>
+              </ul>
+              
+              <div class="bg-warning bg-opacity-20 border border-warning border-opacity-30 p-3 rounded">
+                <h6 class="text-warning fw-bold">⚡ Desafio Semanal:</h6>
+                <p class="mb-2 text-white"><strong>Segunda:</strong> Leia um artigo de apologética cristã</p>
+                <p class="mb-2 text-white"><strong>Terça:</strong> Assista a um debate ou palestra sobre fé e razão</p>
+                <p class="mb-2 text-white"><strong>Quarta:</strong> Converse com um amigo não-cristão sobre fé</p>
+                <p class="mb-0 text-white"><strong>Quinta a domingo:</strong> Ore pelos amigos e pratique respostas amorosas</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sermon-section">
+      <h2 class="section-title">Perguntas para GCG</h2>
+      
+      <div class="question-item">
+        <span class="question-number">1</span>
+        <div>
+          <p><strong>Teste dos Fundamentos:</strong> Se alguém perguntasse "Por que você acredita que Jesus é o único caminho para Deus?", como você responderia? Pratique sua resposta com o grupo.</p>
+          <p class="text-muted"><em>Objetivo: Fortalecer a capacidade de articular e defender fundamentos básicos da fé cristã</em></p>
+        </div>
+      </div>
+      
+      <div class="question-item">
+        <span class="question-number">2</span>
+        <div>
+          <p><strong>Desafios Pessoais:</strong> Qual ensinamento ou doutrina cristã você tem mais dificuldade de aceitar ou explicar? Vamos ajudar uns aos outros com dúvidas honestas.</p>
+          <p class="text-muted"><em>Objetivo: Criar espaço seguro para dúvidas e fortalecer pontos fracos na fé</em></p>
+        </div>
+      </div>
+      
+      <div class="question-item">
+        <span class="question-number">3</span>
+        <div>
+          <p><strong>Influências Externas:</strong> Que mensagens ou filosofias você mais ouve que contradizem os fundamentos bíblicos? Como você tem lidado com essas pressões?</p>
+          <p class="text-muted"><em>Objetivo: Identificar desafios específicos do contexto de cada jovem</em></p>
+        </div>
+      </div>
+      
+      <div class="question-item">
+        <span class="question-number">4</span>
+        <div>
+          <p><strong>Evangelismo Inteligente:</strong> Compartilhe sobre uma conversa que você teve (ou gostaria de ter) com alguém sobre fé. Como podemos ser mais preparados para essas oportunidades?</p>
+          <p class="text-muted"><em>Objetivo: Desenvolver habilidades práticas de evangelismo e apologética</em></p>
+        </div>
+      </div>
+      
+      <div class="question-item">
+        <span class="question-number">5</span>
+        <div>
+          <p><strong>Compromisso de Crescimento:</strong> Que área dos fundamentos da fé você quer estudar mais profundamente neste mês? Como o grupo pode te ajudar nessa jornada?</p>
+          <p class="text-muted"><em>Objetivo: Criar compromissos de crescimento com prestação de contas mútua</em></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="prayer-section">
+      <h2 class="prayer-title">
+        <i class="bi bi-shield-fill-check me-3"></i>
+        Oração pelos Fundamentos da Fé
+      </h2>
+      <div class="prayer-text">
+        <p class="text-center mb-4"><em>"Porque ninguém pode colocar outro fundamento além do que já está posto, o qual é Jesus Cristo." - 1 Coríntios 3:11</em></p>
+        
+        <div class="prayer-subsection">
+          <h4 class="text-primary">🙏 Gratidão pelo Fundamento Seguro</h4>
+          <p><strong>"Pai celestial, Te agradecemos por Jesus Cristo, o fundamento inabalável da nossa fé.</strong></p>
+          <ul class="prayer-list">
+            <li>Por Sua obra completa na cruz que nos garantiu salvação eterna</li>
+            <li>Por Sua ressurreição que confirmou Sua divindade e poder</li>
+            <li>Por Sua Palavra que permanece para sempre como nossa autoridade</li>
+            <li>Por Seu Espírito que nos guia em toda verdade</li>
+            <li>Por esta igreja que nos ensina os fundamentos sólidos</li>
+          </ul>
+        </div>
+
+        <div class="prayer-subsection">
+          <h4 class="text-warning">⚔️ Proteção Contra Enganos</h4>
+          <p><strong>"Senhor, protege-nos de falsas doutrinas e ensinamentos que desviam do Evangelho verdadeiro."</strong></p>
+          <ul class="prayer-list">
+            <li>Dá-nos discernimento para identificar heresias sutis</li>
+            <li>Fortalece nossa mente contra o relativismo da nossa época</li>
+            <li>Capacita-nos a resistir às pressões para comprometer a verdade</li>
+            <li>Ajuda-nos a amar a verdade mais que a popularidade</li>
+            <li>Guarda nosso coração de doutrinas que prometem facilidades</li>
+          </ul>
+        </div>
+
+        <div class="prayer-subsection">
+          <h4 class="text-success">📚 Sede de Conhecimento</h4>
+          <p><strong>"Desperta em nós uma fome genuína pelo conhecimento das Tuas verdades."</strong></p>
+          <ul class="prayer-list">
+            <li>Que amemos estudar Tua Palavra com dedicação diária</li>
+            <li>Que busquemos entender as doutrinas fundamentais profundamente</li>
+            <li>Que não nos contentemos com conhecimento superficial</li>
+            <li>Que sejamos humildes para aprender e crescer sempre</li>
+            <li>Que o conhecimento se transforme em sabedoria prática</li>
+          </ul>
+        </div>
+
+        <div class="prayer-conclusion">
+          <p class="text-center"><strong>"Que nossa fé seja edificada sobre a Rocha que é Cristo Jesus. Que possamos responder com mansidão e reverência a todo aquele que nos pedir a razão da esperança que há em nós.</strong></p>
+          
+          <p class="text-center"><strong>Torna-nos jovens sólidos na fé, preparados para os desafios desta geração, e sempre prontos para defender o Evangelho com amor e verdade.</strong></p>
+          
+          <p class="text-center prayer-amen"><strong>Em nome de Jesus, o fundamento inabalável da nossa fé. Amém!</strong></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../../verses.js"></script>
+  <!-- Arquivo JavaScript Otimizado -->
+  <script src="../../assets/js/sermon-scripts.js"></script>
+</body>
+</html>
+</body>
+</html>
