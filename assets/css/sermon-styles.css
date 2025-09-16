@@ -6,7 +6,7 @@
 /* VARIÁVEIS CSS */
 :root {
   --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  --gradient-secondary: linear-gradient(135deg, #000 0%, #f5576c 100%);
   --gradient-accent: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
   --gradient-dark: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
   --glow-color: #ff6b6b;
@@ -389,7 +389,7 @@ body {
   padding: 3rem;
   text-align: center;
   color: #ffffff;
-  box-shadow: 0 0 50px rgba(240, 147, 251, 0.4);
+  box-shadow: 0 0 50px rgba(200, 193, 201, 0.4);
 }
 
 .prayer-title {

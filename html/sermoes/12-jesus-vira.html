@@ -12,547 +12,6 @@
   <!-- Arquivo CSS Otimizado -->
   <link href="../../assets/css/sermon-styles.css" rel="stylesheet">
 </head>
-<body>
-  <style>
-    /* DESIGN PREMIUM IGUAL AO PADRÃO */
-    :root {
-      --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-      --gradient-accent: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-      --gradient-dark: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
-      --glow-color: #ff6b6b;
-      --neon-blue: #00d4ff;
-      --neon-purple: #bd5eff;
-      --glass-bg: rgba(255, 255, 255, 0.05);
-      --glass-border: rgba(255, 255, 255, 0.1);
-    }
-
-    body {
-      font-family: 'Poppins', sans-serif !important;
-      background: var(--gradient-dark) !important;
-      background-color: #0c0c0c !important;
-      min-height: 100vh;
-      color: #ffffff;
-      overflow-x: hidden;
-    }
-
-    /* EFEITOS GLASSMORPHISM */
-    .glass-effect {
-      background: var(--glass-bg);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid var(--glass-border);
-      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
-    }
-
-    /* BOTÃO VOLTAR PREMIUM */
-    .back-btn {
-      position: fixed;
-      top: 2rem;
-      left: 2rem;
-      z-index: 1000;
-      background: var(--glass-bg);
-      backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      color: #ffffff;
-      padding: 0.8rem 1.5rem;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 500;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    }
-
-    .back-btn:hover {
-      background: rgba(255, 255, 255, 0.15);
-      color: var(--neon-blue);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 30px rgba(0, 212, 255, 0.3);
-    }
-
-    /* CONTAINER PRINCIPAL */
-    .sermon-container {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 6rem 2rem 4rem;
-    }
-
-    /* HEADER DA MENSAGEM */
-    .sermon-header {
-      text-align: center;
-      margin-bottom: 4rem;
-      position: relative;
-    }
-
-    .sermon-title {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 3.5rem;
-      font-weight: 800;
-      background: var(--gradient-accent);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      margin-bottom: 1rem;
-      text-shadow: 0 0 30px rgba(79, 172, 254, 0.5);
-      color: #4facfe;
-    }
-
-    @supports not (-webkit-background-clip: text) {
-      .sermon-title {
-        color: #4facfe !important;
-        background: none !important;
-        text-shadow: 0 0 20px rgba(79, 172, 254, 0.8);
-      }
-    }
-
-    .sermon-subtitle {
-      font-size: 1.2rem;
-      color: rgba(255, 255, 255, 0.7);
-      font-weight: 300;
-    }
-
-    /* VERSÍCULO DESTAQUE */
-    .verse-highlight {
-      background: var(--glass-bg);
-      backdrop-filter: blur(20px);
-      border: 2px solid var(--neon-blue);
-      border-radius: 20px;
-      padding: 2.5rem;
-      margin: 3rem 0;
-      text-align: center;
-      font-size: 1.3rem;
-      line-height: 1.8;
-      color: #ffffff;
-      box-shadow: 0 0 40px rgba(0, 212, 255, 0.3);
-      cursor: pointer;
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .verse-highlight::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: linear-gradient(45deg, transparent, rgba(0, 212, 255, 0.1), transparent);
-      animation: sparkle 3s infinite;
-    }
-
-    .verse-highlight:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 0 60px rgba(0, 212, 255, 0.5);
-    }
-
-    @keyframes sparkle {
-      0% { transform: rotate(0deg) translate(-50%, -50%); }
-      100% { transform: rotate(360deg) translate(-50%, -50%); }
-    }
-
-    /* SEÇÕES */
-    .sermon-section {
-      background: var(--glass-bg);
-      backdrop-filter: blur(20px);
-      border: 1px solid var(--glass-border);
-      border-radius: 20px;
-      padding: 3rem;
-      margin: 3rem 0;
-      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
-      color: #ffffff;
-    }
-
-    .sermon-section p,
-    .sermon-section li,
-    .sermon-section .text-muted,
-    .sermon-section .small {
-      color: rgba(255, 255, 255, 0.9) !important;
-    }
-
-    .sermon-section .lead {
-      color: #ffffff !important;
-      font-weight: 500;
-    }
-
-    .section-title {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 2.2rem;
-      font-weight: 700;
-      color: var(--neon-blue);
-      margin-bottom: 2rem;
-      text-align: center;
-      position: relative;
-    }
-
-    .section-title::after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 100px;
-      height: 3px;
-      background: var(--gradient-accent);
-      border-radius: 2px;
-    }
-
-    /* CARDS ESTRUTURA */
-    .structure-card {
-      background: var(--glass-bg);
-      backdrop-filter: blur(15px);
-      border: 1px solid var(--glass-border);
-      border-radius: 15px;
-      padding: 2rem;
-      height: 100%;
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-      color: #ffffff;
-    }
-
-    .structure-card p,
-    .structure-card li,
-    .structure-card .text-muted,
-    .structure-card .small {
-      color: rgba(255, 255, 255, 0.9) !important;
-    }
-
-    .structure-card .bg-dark {
-      background: rgba(0, 0, 0, 0.4) !important;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .structure-card .bg-dark p,
-    .structure-card .bg-dark .small {
-      color: rgba(255, 255, 255, 0.95) !important;
-    }
-
-    .structure-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: var(--gradient-secondary);
-    }
-
-    .structure-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-    }
-
-    .card-number {
-      font-size: 3rem;
-      font-weight: 800;
-      background: var(--gradient-primary);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      line-height: 1;
-      margin-bottom: 1rem;
-      color: #667eea;
-    }
-
-    @supports not (-webkit-background-clip: text) {
-      .card-number {
-        color: #667eea !important;
-        background: none !important;
-      }
-    }
-
-    .card-title {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: var(--neon-blue);
-      margin-bottom: 1.5rem;
-    }
-
-    /* APLICAÇÕES PRÁTICAS */
-    .application-card {
-      background: var(--glass-bg);
-      backdrop-filter: blur(15px);
-      border: 1px solid var(--glass-border);
-      border-radius: 15px;
-      padding: 2rem;
-      text-align: left;
-      transition: all 0.3s ease;
-      height: 100%;
-      color: #ffffff;
-    }
-
-    .application-card .card-header {
-      margin: -2rem -2rem 2rem -2rem;
-      padding: 1.5rem 2rem;
-      border-radius: 15px 15px 0 0;
-      border: none !important;
-    }
-
-    .application-card .card-body {
-      padding: 0;
-    }
-
-    .application-card h5,
-    .application-card h6 {
-      text-shadow: 0 1px 3px rgba(0,0,0,0.3);
-    }
-
-    .application-card ol,
-    .application-card ul {
-      padding-left: 1.5rem;
-    }
-
-    .application-card ol li,
-    .application-card ul li {
-      margin-bottom: 0.5rem;
-      line-height: 1.6;
-    }
-
-    .bg-info.bg-opacity-20,
-    .bg-warning.bg-opacity-20,
-    .bg-success.bg-opacity-20,
-    .bg-danger.bg-opacity-20 {
-      backdrop-filter: blur(5px);
-      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-    }
-
-    .application-card p,
-    .application-card li,
-    .application-card .small,
-    .application-card .text-muted {
-      color: rgba(255, 255, 255, 0.9) !important;
-    }
-
-    .application-card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 15px 35px rgba(189, 94, 255, 0.3);
-    }
-
-    /* PERGUNTAS GCG */
-    .question-item {
-      background: var(--glass-bg);
-      backdrop-filter: blur(10px);
-      border-left: 4px solid var(--neon-blue);
-      padding: 1.5rem;
-      margin: 1.5rem 0;
-      border-radius: 10px;
-      transition: all 0.3s ease;
-      color: #ffffff;
-    }
-
-    .question-item p,
-    .question-item .small,
-    .question-item .text-muted {
-      color: rgba(255, 255, 255, 0.9) !important;
-    }
-
-    .question-item:hover {
-      background: rgba(255, 255, 255, 0.08);
-      transform: translateX(10px);
-    }
-
-    .question-number {
-      display: inline-block;
-      width: 30px;
-      height: 30px;
-      background: var(--gradient-accent);
-      color: #000;
-      border-radius: 50%;
-      text-align: center;
-      line-height: 30px;
-      font-weight: 700;
-      margin-right: 1rem;
-    }
-
-    /* ORAÇÃO FINAL */
-    .prayer-section {
-      background: var(--gradient-secondary);
-      border-radius: 20px;
-      padding: 3rem;
-      text-align: center;
-      color: #ffffff;
-      box-shadow: 0 0 50px rgba(240, 147, 251, 0.4);
-    }
-
-    .prayer-title {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 2.5rem;
-      font-weight: 800;
-      margin-bottom: 2rem;
-    }
-
-    .prayer-text {
-      font-size: 1.1rem;
-      line-height: 1.8;
-      font-style: italic;
-    }
-
-    .prayer-subsection {
-      background: rgba(0, 0, 0, 0.1);
-      border-radius: 15px;
-      padding: 2rem;
-      margin: 2rem 0;
-      text-align: left;
-    }
-
-    .prayer-list {
-      list-style: none;
-      padding-left: 0;
-    }
-
-    .prayer-list li {
-      padding: 0.5rem 0;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .prayer-list li:last-child {
-      border-bottom: none;
-    }
-
-    .prayer-conclusion {
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 15px;
-      padding: 2rem;
-      margin-top: 2rem;
-    }
-
-    .prayer-amen {
-      font-size: 1.3rem;
-      font-weight: 800;
-      color: #ffd700;
-      text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
-    }
-
-    /* RESPONSIVIDADE */
-    @media (max-width: 768px) {
-      .back-btn {
-        top: 1rem;
-        left: 1rem;
-        padding: 0.6rem 1.2rem;
-        font-size: 0.9rem;
-      }
-
-      .sermon-container {
-        padding: 5rem 1rem 3rem;
-      }
-
-      .sermon-title {
-        font-size: 2.5rem;
-      }
-
-      .verse-highlight {
-        padding: 2rem;
-        font-size: 1.1rem;
-      }
-
-      .sermon-section {
-        padding: 2rem;
-      }
-
-      .section-title {
-        font-size: 1.8rem;
-      }
-    }
-
-    @media (max-width: 576px) {
-      .sermon-title {
-        font-size: 2rem;
-      }
-
-      .verse-highlight {
-        padding: 1.5rem;
-        font-size: 1rem;
-      }
-
-      .sermon-section {
-        padding: 1.5rem;
-      }
-    }
-
-    /* TEMA CLARO */
-    body.light {
-      background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 50%, #ffffff 100%) !important;
-      background-color: #f1f5f9 !important;
-      color: #1a202c;
-    }
-
-    body.light .glass-effect,
-    body.light .sermon-section,
-    body.light .structure-card,
-    body.light .application-card,
-    body.light .question-item {
-      background: rgba(255, 255, 255, 0.6);
-      border: 1px solid rgba(0, 0, 0, 0.1);
-      color: #1a202c;
-    }
-
-    body.light .sermon-section p,
-    body.light .sermon-section li,
-    body.light .sermon-section .text-muted,
-    body.light .sermon-section .small,
-    body.light .structure-card p,
-    body.light .structure-card li,
-    body.light .structure-card .text-muted,
-    body.light .structure-card .small,
-    body.light .application-card p,
-    body.light .application-card li,
-    body.light .application-card .small,
-    body.light .application-card .text-muted,
-    body.light .question-item p,
-    body.light .question-item .small,
-    body.light .question-item .text-muted {
-      color: #2d3748 !important;
-    }
-
-    body.light .sermon-section .lead {
-      color: #1a202c !important;
-      font-weight: 600;
-    }
-
-    body.light .structure-card .bg-dark {
-      background: rgba(0, 0, 0, 0.08) !important;
-      border: 1px solid rgba(0, 0, 0, 0.1);
-    }
-
-    body.light .structure-card .bg-dark p,
-    body.light .structure-card .bg-dark .small {
-      color: #2d3748 !important;
-    }
-
-    body.light .back-btn {
-      background: rgba(255, 255, 255, 0.6);
-      color: #1a202c;
-      border: 1px solid rgba(0, 0, 0, 0.1);
-    }
-
-    body.light .verse-highlight {
-      background: rgba(255, 255, 255, 0.6);
-      color: #1a202c;
-      border: 2px solid var(--neon-blue);
-    }
-
-    h1.sermon-title {
-      display: block !important;
-      visibility: visible !important;
-      opacity: 1 !important;
-    }
-
-    @supports (-webkit-appearance: none) {
-      .sermon-title {
-        color: #4facfe !important;
-        background: none !important;
-        -webkit-text-fill-color: #4facfe !important;
-      }
-      
-      body.light .sermon-title {
-        color: #2563eb !important;
-        -webkit-text-fill-color: #2563eb !important;
-      }
-    }
-  </style>
-</head>
 
 <body>
   <a href="../../index.html" class="back-btn">
@@ -778,56 +237,56 @@
 
     <div class="prayer-section">
       <h2 class="prayer-title">
-        <i class="bi bi-cloud-arrow-down-fill me-3"></i>
-        Oração pela Volta de Jesus
+        <i class="bi bi-lightbulb-fill me-3"></i>
+        Reflexão Final: A Esperança da Volta
       </h2>
       <div class="prayer-text">
         <p class="text-center mb-4"><em>"Aquele que dá testemunho destas coisas diz: 'Certamente, venho sem demora.' Amém! Vem, Senhor Jesus!" - Apocalipse 22:20</em></p>
         
         <div class="prayer-subsection">
           <h4 class="text-primary">🙌 Gratidão pela Promessa</h4>
-          <p><strong>"Senhor Jesus, obrigado por Sua promessa certa de voltar!"</strong></p>
+          <p><strong>A reflexão sobre a volta de Jesus começa com uma profunda gratidão pela Sua promessa.</strong></p>
           <ul class="prayer-list">
-            <li>Por não nos deixar órfãos neste mundo</li>
-            <li>Por nos dar esperança que não confunde nem decepciona</li>
-            <li>Por provar Teu amor ao prometer Tua volta</li>
-            <li>Por revelar os sinais dos tempos em Tua Palavra</li>
-            <li>Por nos permitir ser a geração que pode vê-Lo voltar</li>
+            <li>Somos gratos por Ele não nos deixar órfãos neste mundo.</li>
+            <li>Pela esperança que Ele nos deu, uma esperança que não decepciona.</li>
+            <li>Pela prova do Seu amor ao prometer que voltaria.</li>
+            <li>Pela revelação dos sinais dos tempos em Sua Palavra.</li>
+            <li>Pela possibilidade de sermos a geração que verá Sua volta.</li>
           </ul>
         </div>
 
         <div class="prayer-subsection">
           <h4 class="text-warning">🔥 Preparação dos Nossos Corações</h4>
-          <p><strong>"Prepara nossos corações para Tua gloriosa aparição!"</strong></p>
+          <p><strong>Essa promessa nos chama a preparar nossos corações para o Seu glorioso retorno.</strong></p>
           <ul class="prayer-list">
-            <li>Purifica-nos de todo pecado que nos envergonharia</li>
-            <li>Acende em nós saudade genuína pela Tua presença</li>
-            <li>Remove de nós todo amor excessivo ao mundo</li>
-            <li>Dá-nos coragem para viver de forma diferente</li>
-            <li>Fortalece nossa fé para os dias difíceis que antecedem Tua volta</li>
+            <li>Isso significa buscar a purificação de todo pecado que nos envergonharia.</li>
+            <li>É cultivar uma saudade genuína pela Sua presença.</li>
+            <li>É pedir a Deus que remova de nós o amor excessivo por este mundo.</li>
+            <li>É ter coragem para viver de uma forma diferente da que o mundo vive.</li>
+            <li>É fortalecer a fé para os dias difíceis que virão antes da Sua volta.</li>
           </ul>
         </div>
 
         <div class="prayer-subsection">
           <h4 class="text-success">⏰ Urgência pelas Almas</h4>
-          <p><strong>"Usa-nos para alcançar o maior número de pessoas antes que seja tarde!"</strong></p>
+          <p><strong>A certeza da Sua volta nos enche de urgência para alcançar as pessoas ao nosso redor.</strong></p>
           <ul class="prayer-list">
-            <li>Quebra nosso coração por aqueles que não Te conhecem</li>
-            <li>Dá-nos palavras certas para evangelizar nossa geração</li>
-            <li>Abre portas sobrenaturais para o Evangelho</li>
-            <li>Salva nossas famílias e pessoas que amamos</li>
-            <li>Usa nossa juventude para um grande avivamento final</li>
+            <li>O coração se quebra por aqueles que ainda não conhecem a Jesus.</li>
+            <li>É um chamado para pedir a Deus as palavras certas para evangelizar.</li>
+            <li>É um desejo de ver portas se abrindo para o Evangelho.</li>
+            <li>A oração se intensifica pela salvação de nossas famílias e amigos.</li>
+            <li>A juventude pode ser usada por Deus para um grande avivamento final.</li>
           </ul>
         </div>
 
         <div class="prayer-conclusion">
-          <p class="text-center"><strong>"Senhor Jesus, nós cremos que Tu vens! Nossa resposta é um Amém decidido e um Vem apaixonado!</strong></p>
+          <p class="text-center"><strong>A nossa resposta a essa promessa deve ser um "Amém" decidido e um "Vem" apaixonado.</strong></p>
           
-          <p class="text-center"><strong>Que vivamos cada dia como se fosse o último. Que amemos as pessoas como se não houvesse amanhã. Que trabalhemos no Teu Reino como se a eternidade dependesse das nossas ações hoje.</strong></p>
+          <p class="text-center"><strong>Isso nos desafia a viver cada dia como se fosse o último. A amar as pessoas como se não houvesse amanhã. A trabalhar no Reino de Deus como se a eternidade dependesse de nossas ações hoje.</strong></p>
           
-          <p class="text-center"><strong>Vem, Senhor Jesus! Vem com poder e grande glória! Vem buscar Tua Igreja fiel! Vem estabelecer Teu Reino eterno!</strong></p>
+          <p class="text-center"><strong>O clamor da Igreja é: Vem, Senhor Jesus! Vem com poder e glória! Vem buscar Teu povo fiel e estabelecer Teu Reino eterno!</strong></p>
           
-          <p class="text-center"><strong>Até que Te vejamos face a face, que sejamos fiéis na corrida e irrepreensíveis na espera.</strong></p>
+          <p class="text-center"><strong>Até que Ele volte, o objetivo é sermos fiéis na corrida e irrepreensíveis na espera.</strong></p>
           
           <p class="text-center prayer-amen"><strong>Maranata! O Senhor Jesus vem! Amém e amém!</strong></p>
         </div>

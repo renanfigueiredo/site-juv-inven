@@ -12,547 +12,6 @@
   <!-- Arquivo CSS Otimizado -->
   <link href="../../assets/css/sermon-styles.css" rel="stylesheet">
 </head>
-<body>
-  <style>
-    /* DESIGN PREMIUM IGUAL AO PADRÃO */
-    :root {
-      --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-      --gradient-accent: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-      --gradient-dark: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
-      --glow-color: #ff6b6b;
-      --neon-blue: #00d4ff;
-      --neon-purple: #bd5eff;
-      --glass-bg: rgba(255, 255, 255, 0.05);
-      --glass-border: rgba(255, 255, 255, 0.1);
-    }
-
-    body {
-      font-family: 'Poppins', sans-serif !important;
-      background: var(--gradient-dark) !important;
-      background-color: #0c0c0c !important;
-      min-height: 100vh;
-      color: #ffffff;
-      overflow-x: hidden;
-    }
-
-    /* EFEITOS GLASSMORPHISM */
-    .glass-effect {
-      background: var(--glass-bg);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid var(--glass-border);
-      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
-    }
-
-    /* BOTÃO VOLTAR PREMIUM */
-    .back-btn {
-      position: fixed;
-      top: 2rem;
-      left: 2rem;
-      z-index: 1000;
-      background: var(--glass-bg);
-      backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      color: #ffffff;
-      padding: 0.8rem 1.5rem;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 500;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    }
-
-    .back-btn:hover {
-      background: rgba(255, 255, 255, 0.15);
-      color: var(--neon-blue);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 30px rgba(0, 212, 255, 0.3);
-    }
-
-    /* CONTAINER PRINCIPAL */
-    .sermon-container {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 6rem 2rem 4rem;
-    }
-
-    /* HEADER DA MENSAGEM */
-    .sermon-header {
-      text-align: center;
-      margin-bottom: 4rem;
-      position: relative;
-    }
-
-    .sermon-title {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 3.5rem;
-      font-weight: 800;
-      background: var(--gradient-accent);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      margin-bottom: 1rem;
-      text-shadow: 0 0 30px rgba(79, 172, 254, 0.5);
-      color: #4facfe;
-    }
-
-    @supports not (-webkit-background-clip: text) {
-      .sermon-title {
-        color: #4facfe !important;
-        background: none !important;
-        text-shadow: 0 0 20px rgba(79, 172, 254, 0.8);
-      }
-    }
-
-    .sermon-subtitle {
-      font-size: 1.2rem;
-      color: rgba(255, 255, 255, 0.7);
-      font-weight: 300;
-    }
-
-    /* VERSÍCULO DESTAQUE */
-    .verse-highlight {
-      background: var(--glass-bg);
-      backdrop-filter: blur(20px);
-      border: 2px solid var(--neon-blue);
-      border-radius: 20px;
-      padding: 2.5rem;
-      margin: 3rem 0;
-      text-align: center;
-      font-size: 1.3rem;
-      line-height: 1.8;
-      color: #ffffff;
-      box-shadow: 0 0 40px rgba(0, 212, 255, 0.3);
-      cursor: pointer;
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .verse-highlight::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: linear-gradient(45deg, transparent, rgba(0, 212, 255, 0.1), transparent);
-      animation: sparkle 3s infinite;
-    }
-
-    .verse-highlight:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 0 60px rgba(0, 212, 255, 0.5);
-    }
-
-    @keyframes sparkle {
-      0% { transform: rotate(0deg) translate(-50%, -50%); }
-      100% { transform: rotate(360deg) translate(-50%, -50%); }
-    }
-
-    /* SEÇÕES */
-    .sermon-section {
-      background: var(--glass-bg);
-      backdrop-filter: blur(20px);
-      border: 1px solid var(--glass-border);
-      border-radius: 20px;
-      padding: 3rem;
-      margin: 3rem 0;
-      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
-      color: #ffffff;
-    }
-
-    .sermon-section p,
-    .sermon-section li,
-    .sermon-section .text-muted,
-    .sermon-section .small {
-      color: rgba(255, 255, 255, 0.9) !important;
-    }
-
-    .sermon-section .lead {
-      color: #ffffff !important;
-      font-weight: 500;
-    }
-
-    .section-title {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 2.2rem;
-      font-weight: 700;
-      color: var(--neon-blue);
-      margin-bottom: 2rem;
-      text-align: center;
-      position: relative;
-    }
-
-    .section-title::after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 100px;
-      height: 3px;
-      background: var(--gradient-accent);
-      border-radius: 2px;
-    }
-
-    /* CARDS ESTRUTURA */
-    .structure-card {
-      background: var(--glass-bg);
-      backdrop-filter: blur(15px);
-      border: 1px solid var(--glass-border);
-      border-radius: 15px;
-      padding: 2rem;
-      height: 100%;
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-      color: #ffffff;
-    }
-
-    .structure-card p,
-    .structure-card li,
-    .structure-card .text-muted,
-    .structure-card .small {
-      color: rgba(255, 255, 255, 0.9) !important;
-    }
-
-    .structure-card .bg-dark {
-      background: rgba(0, 0, 0, 0.4) !important;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .structure-card .bg-dark p,
-    .structure-card .bg-dark .small {
-      color: rgba(255, 255, 255, 0.95) !important;
-    }
-
-    .structure-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: var(--gradient-secondary);
-    }
-
-    .structure-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-    }
-
-    .card-number {
-      font-size: 3rem;
-      font-weight: 800;
-      background: var(--gradient-primary);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      line-height: 1;
-      margin-bottom: 1rem;
-      color: #667eea;
-    }
-
-    @supports not (-webkit-background-clip: text) {
-      .card-number {
-        color: #667eea !important;
-        background: none !important;
-      }
-    }
-
-    .card-title {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: var(--neon-blue);
-      margin-bottom: 1.5rem;
-    }
-
-    /* APLICAÇÕES PRÁTICAS */
-    .application-card {
-      background: var(--glass-bg);
-      backdrop-filter: blur(15px);
-      border: 1px solid var(--glass-border);
-      border-radius: 15px;
-      padding: 2rem;
-      text-align: left;
-      transition: all 0.3s ease;
-      height: 100%;
-      color: #ffffff;
-    }
-
-    .application-card .card-header {
-      margin: -2rem -2rem 2rem -2rem;
-      padding: 1.5rem 2rem;
-      border-radius: 15px 15px 0 0;
-      border: none !important;
-    }
-
-    .application-card .card-body {
-      padding: 0;
-    }
-
-    .application-card h5,
-    .application-card h6 {
-      text-shadow: 0 1px 3px rgba(0,0,0,0.3);
-    }
-
-    .application-card ol,
-    .application-card ul {
-      padding-left: 1.5rem;
-    }
-
-    .application-card ol li,
-    .application-card ul li {
-      margin-bottom: 0.5rem;
-      line-height: 1.6;
-    }
-
-    .bg-info.bg-opacity-20,
-    .bg-warning.bg-opacity-20,
-    .bg-success.bg-opacity-20,
-    .bg-danger.bg-opacity-20 {
-      backdrop-filter: blur(5px);
-      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-    }
-
-    .application-card p,
-    .application-card li,
-    .application-card .small,
-    .application-card .text-muted {
-      color: rgba(255, 255, 255, 0.9) !important;
-    }
-
-    .application-card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 15px 35px rgba(189, 94, 255, 0.3);
-    }
-
-    /* PERGUNTAS GCG */
-    .question-item {
-      background: var(--glass-bg);
-      backdrop-filter: blur(10px);
-      border-left: 4px solid var(--neon-blue);
-      padding: 1.5rem;
-      margin: 1.5rem 0;
-      border-radius: 10px;
-      transition: all 0.3s ease;
-      color: #ffffff;
-    }
-
-    .question-item p,
-    .question-item .small,
-    .question-item .text-muted {
-      color: rgba(255, 255, 255, 0.9) !important;
-    }
-
-    .question-item:hover {
-      background: rgba(255, 255, 255, 0.08);
-      transform: translateX(10px);
-    }
-
-    .question-number {
-      display: inline-block;
-      width: 30px;
-      height: 30px;
-      background: var(--gradient-accent);
-      color: #000;
-      border-radius: 50%;
-      text-align: center;
-      line-height: 30px;
-      font-weight: 700;
-      margin-right: 1rem;
-    }
-
-    /* ORAÇÃO FINAL */
-    .prayer-section {
-      background: var(--gradient-secondary);
-      border-radius: 20px;
-      padding: 3rem;
-      text-align: center;
-      color: #ffffff;
-      box-shadow: 0 0 50px rgba(240, 147, 251, 0.4);
-    }
-
-    .prayer-title {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 2.5rem;
-      font-weight: 800;
-      margin-bottom: 2rem;
-    }
-
-    .prayer-text {
-      font-size: 1.1rem;
-      line-height: 1.8;
-      font-style: italic;
-    }
-
-    .prayer-subsection {
-      background: rgba(0, 0, 0, 0.1);
-      border-radius: 15px;
-      padding: 2rem;
-      margin: 2rem 0;
-      text-align: left;
-    }
-
-    .prayer-list {
-      list-style: none;
-      padding-left: 0;
-    }
-
-    .prayer-list li {
-      padding: 0.5rem 0;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .prayer-list li:last-child {
-      border-bottom: none;
-    }
-
-    .prayer-conclusion {
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 15px;
-      padding: 2rem;
-      margin-top: 2rem;
-    }
-
-    .prayer-amen {
-      font-size: 1.3rem;
-      font-weight: 800;
-      color: #ffd700;
-      text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
-    }
-
-    /* RESPONSIVIDADE */
-    @media (max-width: 768px) {
-      .back-btn {
-        top: 1rem;
-        left: 1rem;
-        padding: 0.6rem 1.2rem;
-        font-size: 0.9rem;
-      }
-
-      .sermon-container {
-        padding: 5rem 1rem 3rem;
-      }
-
-      .sermon-title {
-        font-size: 2.5rem;
-      }
-
-      .verse-highlight {
-        padding: 2rem;
-        font-size: 1.1rem;
-      }
-
-      .sermon-section {
-        padding: 2rem;
-      }
-
-      .section-title {
-        font-size: 1.8rem;
-      }
-    }
-
-    @media (max-width: 576px) {
-      .sermon-title {
-        font-size: 2rem;
-      }
-
-      .verse-highlight {
-        padding: 1.5rem;
-        font-size: 1rem;
-      }
-
-      .sermon-section {
-        padding: 1.5rem;
-      }
-    }
-
-    /* TEMA CLARO */
-    body.light {
-      background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 50%, #ffffff 100%) !important;
-      background-color: #f1f5f9 !important;
-      color: #1a202c;
-    }
-
-    body.light .glass-effect,
-    body.light .sermon-section,
-    body.light .structure-card,
-    body.light .application-card,
-    body.light .question-item {
-      background: rgba(255, 255, 255, 0.6);
-      border: 1px solid rgba(0, 0, 0, 0.1);
-      color: #1a202c;
-    }
-
-    body.light .sermon-section p,
-    body.light .sermon-section li,
-    body.light .sermon-section .text-muted,
-    body.light .sermon-section .small,
-    body.light .structure-card p,
-    body.light .structure-card li,
-    body.light .structure-card .text-muted,
-    body.light .structure-card .small,
-    body.light .application-card p,
-    body.light .application-card li,
-    body.light .application-card .small,
-    body.light .application-card .text-muted,
-    body.light .question-item p,
-    body.light .question-item .small,
-    body.light .question-item .text-muted {
-      color: #2d3748 !important;
-    }
-
-    body.light .sermon-section .lead {
-      color: #1a202c !important;
-      font-weight: 600;
-    }
-
-    body.light .structure-card .bg-dark {
-      background: rgba(0, 0, 0, 0.08) !important;
-      border: 1px solid rgba(0, 0, 0, 0.1);
-    }
-
-    body.light .structure-card .bg-dark p,
-    body.light .structure-card .bg-dark .small {
-      color: #2d3748 !important;
-    }
-
-    body.light .back-btn {
-      background: rgba(255, 255, 255, 0.6);
-      color: #1a202c;
-      border: 1px solid rgba(0, 0, 0, 0.1);
-    }
-
-    body.light .verse-highlight {
-      background: rgba(255, 255, 255, 0.6);
-      color: #1a202c;
-      border: 2px solid var(--neon-blue);
-    }
-
-    h1.sermon-title {
-      display: block !important;
-      visibility: visible !important;
-      opacity: 1 !important;
-    }
-
-    @supports (-webkit-appearance: none) {
-      .sermon-title {
-        color: #4facfe !important;
-        background: none !important;
-        -webkit-text-fill-color: #4facfe !important;
-      }
-      
-      body.light .sermon-title {
-        color: #2563eb !important;
-        -webkit-text-fill-color: #2563eb !important;
-      }
-    }
-  </style>
-</head>
 
 <body>
   <a href="../../index.html" class="back-btn">
@@ -772,59 +231,61 @@
       </div>
     </div>
 
+    
     <div class="prayer-section">
       <h2 class="prayer-title">
         <i class="bi bi-shield-fill-check me-3"></i>
-        Oração pelos Fundamentos da Fé
+        Reflexão Final: Construindo sobre a Rocha
       </h2>
       <div class="prayer-text">
         <p class="text-center mb-4"><em>"Porque ninguém pode colocar outro fundamento além do que já está posto, o qual é Jesus Cristo." - 1 Coríntios 3:11</em></p>
         
         <div class="prayer-subsection">
           <h4 class="text-primary">🙏 Gratidão pelo Fundamento Seguro</h4>
-          <p><strong>"Pai celestial, Te agradecemos por Jesus Cristo, o fundamento inabalável da nossa fé.</strong></p>
+          <p><strong>A jornada da fé começa com um profundo sentimento de gratidão por Jesus Cristo, o único fundamento seguro que existe.</strong></p>
           <ul class="prayer-list">
-            <li>Por Sua obra completa na cruz que nos garantiu salvação eterna</li>
-            <li>Por Sua ressurreição que confirmou Sua divindade e poder</li>
-            <li>Por Sua Palavra que permanece para sempre como nossa autoridade</li>
-            <li>Por Seu Espírito que nos guia em toda verdade</li>
-            <li>Por esta igreja que nos ensina os fundamentos sólidos</li>
+            <li>Somos gratos por Sua obra na cruz, que nos deu a salvação.</li>
+            <li>Por Sua ressurreição, que provou Seu poder e divindade.</li>
+            <li>Por Sua Palavra, que é nosso guia confiável e autoridade final.</li>
+            <li>Pelo Espírito Santo, que nos direciona em toda a verdade.</li>
+            <li>Pela comunidade da igreja, que nos ajuda a aprender e firmar esses princípios.</li>
           </ul>
         </div>
 
         <div class="prayer-subsection">
-          <h4 class="text-warning">⚔️ Proteção Contra Enganos</h4>
-          <p><strong>"Senhor, protege-nos de falsas doutrinas e ensinamentos que desviam do Evangelho verdadeiro."</strong></p>
+          <h4 class="text-warning">⚔️ A Necessidade de Proteção</h4>
+          <p><strong>Em um mundo cheio de ideias, a proteção contra o engano é essencial. A reflexão nos leva a buscar a ajuda de Deus para nos mantermos firmes.</strong></p>
           <ul class="prayer-list">
-            <li>Dá-nos discernimento para identificar heresias sutis</li>
-            <li>Fortalece nossa mente contra o relativismo da nossa época</li>
-            <li>Capacita-nos a resistir às pressões para comprometer a verdade</li>
-            <li>Ajuda-nos a amar a verdade mais que a popularidade</li>
-            <li>Guarda nosso coração de doutrinas que prometem facilidades</li>
+            <li>Precisamos de discernimento para identificar ensinamentos falsos.</li>
+            <li>Nossa mente precisa ser fortalecida contra a ideia de que "tudo é relativo".</li>
+            <li>É necessário ter capacidade para resistir à pressão de abandonar a verdade.</li>
+            <li>O amor pela verdade deve ser maior que o desejo de ser popular.</li>
+            <li>Nosso coração deve ser guardado de ensinos que só oferecem um caminho fácil.</li>
           </ul>
         </div>
 
         <div class="prayer-subsection">
-          <h4 class="text-success">📚 Sede de Conhecimento</h4>
-          <p><strong>"Desperta em nós uma fome genuína pelo conhecimento das Tuas verdades."</strong></p>
+          <h4 class="text-success">📚 O Desejo por Conhecimento</h4>
+          <p><strong>Uma fé sólida exige um desejo genuíno de conhecer as verdades de Deus de forma mais profunda.</strong></p>
           <ul class="prayer-list">
-            <li>Que amemos estudar Tua Palavra com dedicação diária</li>
-            <li>Que busquemos entender as doutrinas fundamentais profundamente</li>
-            <li>Que não nos contentemos com conhecimento superficial</li>
-            <li>Que sejamos humildes para aprender e crescer sempre</li>
-            <li>Que o conhecimento se transforme em sabedoria prática</li>
+            <li>Isso se traduz em um amor pelo estudo diário da Palavra.</li>
+            <li>Em um esforço para entender as doutrinas mais importantes da fé.</li>
+            <li>Na decisão de não se contentar com um conhecimento superficial.</li>
+            <li>Na humildade para estar sempre aprendendo e crescendo.</li>
+            <li>E no objetivo de que todo conhecimento se torne sabedoria para o dia a dia.</li>
           </ul>
         </div>
 
         <div class="prayer-conclusion">
-          <p class="text-center"><strong>"Que nossa fé seja edificada sobre a Rocha que é Cristo Jesus. Que possamos responder com mansidão e reverência a todo aquele que nos pedir a razão da esperança que há em nós.</strong></p>
+          <p class="text-center"><strong>O objetivo final é que nossa fé seja construída sobre a Rocha, que é Cristo. Que estejamos sempre preparados para explicar a razão da nossa esperança com respeito e amor.</strong></p>
           
-          <p class="text-center"><strong>Torna-nos jovens sólidos na fé, preparados para os desafios desta geração, e sempre prontos para defender o Evangelho com amor e verdade.</strong></p>
+          <p class="text-center"><strong>Que nos tornemos jovens com uma fé sólida, prontos para os desafios da nossa geração e para defender o Evangelho com amor e verdade.</strong></p>
           
           <p class="text-center prayer-amen"><strong>Em nome de Jesus, o fundamento inabalável da nossa fé. Amém!</strong></p>
         </div>
       </div>
     </div>
+  
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
