@@ -56,5 +56,16 @@ window.Verses = {
 
   "1Jo 2:14": "Eu vos escrevi, pais, porque conhecestes aquele que é desde o princípio. Eu vos escrevi, jovens, porque sois fortes e a palavra de Deus permanece em vós, e já vencestes o maligno.",
 
-  "Ap 22:20": "Aquele que testifica estas coisas diz: Certamente, cedo venho. Amém. Vem, Senhor Jesus."
+  "Ap 22:20": "Aquele que testifica estas coisas diz: Certamente, cedo venho. Amém. Vem, Senhor Jesus.",
+
+  "Jo 1:12-13": "Mas, a todos quantos o receberam, deu-lhes o poder de serem feitos filhos de Deus, a saber, aos que creem no seu nome; os quais não nasceram do sangue, nem da vontade da carne, nem da vontade do homem, mas de Deus.",
+
+  "Jo 1:1": "No princípio era o Verbo, e o Verbo estava com Deus, e o Verbo era Deus.",
+
+  "Jo 2:11": "Com este, deu Jesus princípio aos seus sinais em Caná da Galileia; manifestou a sua glória, e os seus discípulos creram nele.",
+
+  "Jo 8:58": "Disse-lhes Jesus: Em verdade, em verdade vos digo: antes que Abraão existisse, EU SOU.",
+
+  "Jo 19:30": "Quando, pois, Jesus tomou o vinagre, disse: Está consumado! E, inclinando a cabeça, rendeu o espírito."
+  
 };
