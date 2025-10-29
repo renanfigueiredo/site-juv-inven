@@ -66,6 +66,8 @@ window.Verses = {
 
   "Jo 8:58": "Disse-lhes Jesus: Em verdade, em verdade vos digo: antes que Abraão existisse, EU SOU.",
 
-  "Jo 19:30": "Quando, pois, Jesus tomou o vinagre, disse: Está consumado! E, inclinando a cabeça, rendeu o espírito."
+  "Jo 19:30": "Quando, pois, Jesus tomou o vinagre, disse: Está consumado! E, inclinando a cabeça, rendeu o espírito.",
+
+  "Rm 13:1-7": "Toda alma esteja sujeita às autoridades superiores; porque não há autoridade que não venha de Deus; e as autoridades que há foram ordenadas por Deus. Por isso, quem se opõe à autoridade resiste à ordenação de Deus; e os que resistem trarão sobre si mesmos condenação. Porque os magistrados não são terror para as boas obras, e sim para as más. Queres tu não temer a autoridade? Faze o bem e terás louvor dela, visto que a autoridade é ministro de Deus para teu bem. Entretanto, se fizeres o mal, teme; porque não é sem motivo que ela traz a espada; pois é ministro de Deus, vingador, para castigar o que pratica o mal. É necessário que lhe estejais sujeitos, não somente por causa do temor da punição, mas também por dever de consciência. Por esse motivo, também pagais tributos, porque são ministros de Deus, atendendo, constantemente, a este serviço. Pagai a todos o que lhes é devido: a quem tributo, tributo; a quem imposto, imposto; a quem temor, temor; a quem honra, honra."
   
 };
