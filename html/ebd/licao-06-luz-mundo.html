@@ -10,6 +10,32 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
   <link rel="stylesheet" href="../../assets/css/sermon-styles.css" />
+  <style>
+    /* Estilo específico para os blocos de debate */
+    .debate-box {
+      background-color: #212529;
+      border-left: 4px solid #ffc107;
+      padding: 1.5rem;
+      margin-top: 1rem;
+      margin-bottom: 2rem;
+      border-radius: 0 8px 8px 0;
+    }
+    .debate-title {
+      color: #ffc107;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .time-badge {
+      font-size: 0.8rem;
+      background: rgba(255,255,255,0.1);
+      padding: 2px 8px;
+      border-radius: 4px;
+      color: #adb5bd;
+    }
+  </style>
 </head>
 <body>
   <a href="../../index.html" class="back-btn">
@@ -18,446 +44,142 @@
   
   <div class="sermon-container">
     <!-- HEADER -->
-    <header class="sermon-header">
+    <header class="sermon-header text-center">
+      <span class="badge rounded-pill text-bg-primary mb-2">Lição 06 • João 8-9</span>
       <h1 class="sermon-title">Eu Sou a Luz do Mundo</h1>
-      <p class="sermon-subtitle">EBD Lição 06 • 07/12/2025 • João 8:12-9:41</p>
-      <div class="d-flex flex-wrap gap-2 mt-3">
-        <span class="badge rounded-pill text-bg-warning"><i class="bi bi-sun me-1"></i> Luz do Mundo</span>
-        <span class="badge rounded-pill text-bg-primary"><i class="bi bi-eye me-1"></i> Cura do Cego</span>
-        <span class="badge rounded-pill text-bg-danger"><i class="bi bi-moon me-1"></i> Trevas</span>
-        <span class="badge rounded-pill text-bg-success"><i class="bi bi-lightbulb me-1"></i> Revelação</span>
-      </div>
+      <p class="sermon-subtitle">
+        A visão espiritual e a libertação das trevas
+      </p>
     </header>
 
-    <!-- VERSÍCULO PRINCIPAL -->
-    <div class="verse-highlight verse-ref" data-ref="Jo 8:12">
-      <i class="bi bi-sun-fill fs-1 text-warning mb-3"></i>
-      <p class="mb-3">"Falou-lhes, pois, Jesus outra vez, dizendo: Eu sou a luz do mundo; quem me segue não andará em trevas, mas terá a luz da vida."</p>
-      <strong>— João 8:12</strong>
-      <div class="mt-3 text-warning">
-        <i class="bi bi-hand-index me-2"></i>
-        <small>A segunda grande declaração "EU SOU" de Jesus</small>
-      </div>
-    </div>
-
-    <!-- OBJETIVO DA LIÇÃO -->
+    <!-- INTRODUÇÃO (5 min) -->
     <div class="sermon-section">
-      <div class="text-center mb-4">
-        <i class="bi bi-bullseye fs-1 text-warning mb-3"></i>
-        <h3 class="text-warning">Objetivo da Lição</h3>
-      </div>
-      <p class="lead text-center mb-3">
-        <strong>Compreender como Jesus é a Luz que dissipa as trevas espirituais e nos guia à verdade, através da cura do cego e dos ensinos profundos.</strong>
+      <h2 class="section-title"><i class="bi bi-hourglass-split me-2"></i>Introdução: Vendo Além do Óbvio (5 min)</h2>
+      <p>
+        O pregador <strong>Martyn Lloyd-Jones</strong> dizia: <em>"Não há nada mais trágico que andar em meio à luz e permanecer na escuridão, porque você se recusa a abrir os olhos"</em>.
       </p>
-      <div class="bg-dark p-3 rounded small text-center">
-        <span class="me-2">Cegueira Física ➜ Lição Espiritual</span> | <span class="me-2">Trevas ➜ Luz</span> | <span>Ignorância ➜ Conhecimento</span>
-      </div>
+      <p>
+        Nesta lição, Jesus não apenas faz um milagre físico; Ele nos confronta com uma verdade profunda: existem dois tipos de cegueira. A cegueira do nascimento que pede ajuda, e a cegueira espiritual que nega sua própria condição. Estudaremos como Jesus ilumina tanto os olhos quanto a alma, e como a verdadeira visão requer mais do que ver — requer reconhecer a verdade.
+      </p>
     </div>
 
-    <!-- CONTEXTO: FESTA DOS TABERNÁCULOS -->
+    <!-- BLOCO 1: LUZ E TREVAS (15 min) -->
     <div class="sermon-section">
-      <h2 class="section-title">Contexto: Festa dos Tabernáculos</h2>
-      <div class="row g-4">
-        <div class="col-12 col-md-6">
-          <div class="structure-card h-100">
-            <h3 class="card-title">A Cerimônia das Luzes</h3>
-            <ul class="mb-3">
-              <li><strong>Pátio das Mulheres:</strong> Local da festa</li>
-              <li><strong>4 castiçais gigantes:</strong> Iluminavam o templo</li>
-              <li><strong>Toda Jerusalém:</strong> Banhada em luz</li>
-              <li><strong>Lembrança:</strong> Coluna de fogo no deserto</li>
-              <li><strong>Expectativa:</strong> Luz messiânica</li>
-            </ul>
-            <div class="bg-dark p-2 rounded small">🕯️ Jesus declara ser a luz no momento perfeito</div>
-          </div>
+      <h2 class="section-title text-primary">1. A Declaração: Luz em Meio às Trevas</h2>
+      
+      <div class="verse-highlight verse-ref" data-ref="Jo 8:12">
+        <p>"Falou-lhes, pois, Jesus outra vez, dizendo: Eu sou a luz do mundo; quem me segue não andará em trevas, mas terá a luz da vida."</p>
+        <strong>— João 8:12</strong>
+      </div>
+
+      <h5 class="mt-4 text-white">A Reivindicação Divina:</h5>
+      <p>
+        Jesus faz essa declaração durante a Festa dos Tabernáculos, momento em que quatro grandes castiçais iluminavam o Pátio das Mulheres. No auge da iluminação religiosa e simbólica, Jesus proclama ser a <strong>verdadeira Luz</strong>. Não uma luz entre outras, mas A Luz que dissipa todas as trevas.
+      </p>
+      <p>
+        Quando Jesus diz "quem me segue não andará em trevas", Ele estabelece uma verdade ontológica: seguir Jesus significa sair da escuridão. Trevas não são apenas ausência de conhecimento, mas estado de escravidão espiritual. Muitos em Jerusalém viviam à luz do templo, mas em trevas espirituais. Jesus aponta para uma realidade que os olhos religiosos se recusavam a ver.
+      </p>
+
+      <!-- DINÂMICA DE DEBATE 1 -->
+      <div class="debate-box">
+        <div class="debate-title">
+          <i class="bi bi-chat-quote-fill"></i> REFLEXÃO E DEBATE
         </div>
-        <div class="col-12 col-md-6">
-          <div class="structure-card h-100">
-            <h3 class="card-title">Simbolismo do AT</h3>
-            <ul class="mb-3">
-              <li><strong>Gênesis 1:3:</strong> "Haja luz" - primeira palavra</li>
-              <li><strong>Êxodo 13:21:</strong> Coluna de fogo guiando</li>
-              <li><strong>Salmo 27:1:</strong> "O Senhor é minha luz"</li>
-              <li><strong>Isaías 9:2:</strong> "Luz para os que andam em trevas"</li>
-              <li><strong>Malaquias 4:2:</strong> "Sol da justiça"</li>
-            </ul>
-            <div class="bg-dark p-2 rounded small">📖 Jesus cumpre todas as promessas sobre luz</div>
-          </div>
-        </div>
+        <p class="mb-2 text-white"><strong>Questão para análise:</strong></p>
+        <p class="mb-0 text-light">O que significa "andar em trevas" no contexto moderno? Como os jovens podem estar cercados de tecnologia e informação, mas ainda viverem em escuridão espiritual?</p>
       </div>
     </div>
 
-    <!-- A DECLARAÇÃO DE JESUS -->
+    <!-- BLOCO 2: O MILAGRE E A CEGUEIRA (20 min) -->
     <div class="sermon-section">
-      <h2 class="section-title">A Grande Declaração (João 8:12)</h2>
-      <div class="row g-4">
-        <div class="col-12">
-          <div class="structure-card">
-            <h3 class="card-title text-center mb-4">Anatomia da Declaração</h3>
-            <div class="verse-highlight text-center mb-4">
-              "Eu sou a luz do mundo; quem me segue não andará em trevas, mas terá a luz da vida."
-            </div>
-            <div class="row g-3">
-              <div class="col-12 col-md-3">
-                <div class="bg-warning bg-opacity-10 p-3 rounded h-100">
-                  <h5 class="text-warning">EU SOU</h5>
-                  <ul class="small">
-                    <li>Nome divino (Êx 3:14)</li>
-                    <li>Reivindicação de divindade</li>
-                    <li>Presente contínuo</li>
-                    <li>Essência, não apenas função</li>
-                  </ul>
-                </div>
-              </div>
-              <div class="col-12 col-md-3">
-                <div class="bg-info bg-opacity-10 p-3 rounded h-100">
-                  <h5 class="text-info">A LUZ</h5>
-                  <ul class="small">
-                    <li>Único artigo definido</li>
-                    <li>Não uma luz entre outras</li>
-                    <li>Fonte original</li>
-                    <li>Luz verdadeira</li>
-                  </ul>
-                </div>
-              </div>
-              <div class="col-12 col-md-3">
-                <div class="bg-success bg-opacity-10 p-3 rounded h-100">
-                  <h5 class="text-success">DO MUNDO</h5>
-                  <ul class="small">
-                    <li>Alcance universal</li>
-                    <li>Para toda humanidade</li>
-                    <li>Não apenas para Israel</li>
-                    <li>Missão global</li>
-                  </ul>
-                </div>
-              </div>
-              <div class="col-12 col-md-3">
-                <div class="bg-danger bg-opacity-10 p-3 rounded h-100">
-                  <h5 class="text-danger">QUEM ME SEGUE</h5>
-                  <ul class="small">
-                    <li>Condição para benefício</li>
-                    <li>Seguir = crer + obedecer</li>
-                    <li>Relacionamento ativo</li>
-                    <li>Compromisso pessoal</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="row g-3 mt-3">
-              <div class="col-12 col-md-6">
-                <div class="bg-dark bg-opacity-50 p-3 rounded h-100">
-                  <h6 class="text-light">NÃO ANDARÁ EM TREVAS</h6>
-                  <p class="small text-muted mb-2">Libertação de:</p>
-                  <ul class="small text-light">
-                    <li>Ignorância espiritual</li>
-                    <li>Pecado e suas consequências</li>
-                    <li>Confusão e engano</li>
-                    <li>Morte espiritual</li>
-                  </ul>
-                </div>
-              </div>
-              <div class="col-12 col-md-6">
-                <div class="bg-light bg-opacity-10 p-3 rounded h-100">
-                  <h6 class="text-light">TERÁ A LUZ DA VIDA</h6>
-                  <p class="small text-muted mb-2">Recebimento de:</p>
-                  <ul class="small text-light">
-                    <li>Conhecimento da verdade</li>
-                    <li>Direção divina</li>
-                    <li>Vida espiritual</li>
-                    <li>Esperança eterna</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
+      <h2 class="section-title text-warning">2. O Milagre: Cura Física e Investigação Espiritual</h2>
+      
+      <div class="verse-highlight verse-ref" data-ref="Jo 9:1-7">
+        <p>"Passou Jesus e viu um homem cego de nascença... Disse ele: Enquanto estou no mundo, sou a luz do mundo. Tendo dito isto, cuspiu na terra, fez lodo com a saliva, e untou com lodo os olhos do cego"</p>
+        <strong>— João 9:1-7</strong>
+      </div>
+
+      <h5 class="mt-4 text-white">O Paradoxo da Cegueira:</h5>
+      <p>
+        Os discípulos perguntam: "Rabi, quem pecou, este ou seus pais?" Eles reduzem o sofrimento a culpa, ignorando propósitos maiores. Jesus corrige essa teologia simplista: nem sempre o sofrimento é resultado de pecado, às vezes é oportunidade para Deus manifestar sua obra.
+      </p>
+      <p>
+        Após a cura, os líderes religiosos iniciam uma investigação. Não examinam o milagre com gratidão, mas com suspeita. Por quê? Porque a verdadeira visão espiritual exigiria que reconhecessem Jesus. É mais fácil ficar cego espiritualmente do que aceitar uma verdade que desafia nossos preconceitos. O cego nascente, em sua simplicidade, vê o que os mestres da lei recusam enxergar.
+      </p>
+
+      <!-- DINÂMICA DE DEBATE 2 -->
+      <div class="debate-box">
+        <div class="debate-title">
+          <i class="bi bi-chat-quote-fill"></i> REFLEXÃO E DEBATE
         </div>
+        <p class="mb-2 text-white"><strong>Questão para análise:</strong></p>
+        <p class="mb-0 text-light">O cego foi expulso da sinagoga por dar testemunho. Qual é o preço de testemunhar verdades impopulares? Quando você escolhe calar em vez de testemunhar?</p>
       </div>
     </div>
 
-    <!-- O CEGO DE NASCENÇA -->
+    <!-- BLOCO 3: RECONHECIMENTO E ADORAÇÃO (15 min) -->
     <div class="sermon-section">
-      <h2 class="section-title">O Cego de Nascença (João 9:1-12)</h2>
-      <div class="row g-4">
-        <div class="col-12 col-md-4">
-          <div class="structure-card h-100">
-            <div class="card-number">1</div>
-            <h3 class="card-title">A Pergunta dos Discípulos</h3>
-            <div class="verse-highlight mb-3">
-              "Rabi, quem pecou, este ou seus pais, para que nascesse cego?" (v. 2)
-            </div>
-            <ul class="small mb-3">
-              <li><strong>Teologia popular:</strong> Sofrimento = castigo</li>
-              <li><strong>Lógica simples:</strong> Causa e efeito</li>
-              <li><strong>Julgamento humano:</strong> Busca de culpado</li>
-              <li><strong>Falta de compaixão:</strong> Mais interesse na teoria</li>
-            </ul>
-            <div class="bg-dark p-2 rounded small">❓ Nem todo sofrimento é resultado direto de pecado</div>
+      <h2 class="section-title text-danger">3. A Conclusão: Adorar o que Vemos</h2>
+      
+      <div class="verse-highlight verse-ref" data-ref="Jo 9:38">
+        <p>"E ele disse: Creio, Senhor. E o adorou."</p>
+        <strong>— João 9:38</strong>
+      </div>
+
+      <h5 class="mt-4 text-white">Quando a Visão Leva à Fé:</h5>
+      <p>
+        O cego agora vê fisicamente, mas ainda passa por um processo espiritual. Primeiro, testemunha a cura. Depois, defende sua experiência contra a autoridade religiosa. Finalmente, quando Jesus se revela pessoalmente, ele não apenas crê — ele <strong>adora</strong>.
+      </p>
+      <p>
+        Enquanto isso, os fariseus, que possuem visão física perfeita, terminam a narrativa em trevas. Jesus diz: "Se fôsseis cegos, não teríeis pecado; mas agora dizeis: Vemos, portanto o vosso pecado permanece." A maior cegueira é não reconhecer que se está cego. O recurso é <strong>reconhecer nossa necessidade de visão espiritual</strong> e correr para a Luz que Jesus oferece.
+      </p>
+
+      <!-- DINÂMICA DE DEBATE 3 -->
+      <div class="debate-box">
+        <div class="debate-title">
+          <i class="bi bi-chat-quote-fill"></i> REFLEXÃO E DEBATE
+        </div>
+        <p class="mb-2 text-white"><strong>Questão para análise:</strong></p>
+        <p class="mb-0 text-light">O cego começou cego fisicamente, mas terminou com visão completa (física e espiritual). Como sua experiência de transformação o diferencia dos fariseus que recusam enxergar?</p>
+      </div>
+    </div>
+
+    <!-- SÍNTESE FINAL (5 min) -->
+    <div class="sermon-section bg-dark border border-secondary rounded p-4">
+      <h3 class="text-center text-info mb-3"><i class="bi bi-check-circle-fill me-2"></i>Síntese do Estudo</h3>
+      <div class="row g-3">
+        <div class="col-md-4">
+          <div class="p-3 border border-secondary rounded h-100 text-center">
+            <h5 class="text-primary">Jesus é a Luz</h5>
+            <p class="small text-muted mb-0">Não uma luz entre muitas, mas A Luz verdadeira que dissipa toda escuridão espiritual.</p>
           </div>
         </div>
-        <div class="col-12 col-md-4">
-          <div class="structure-card h-100">
-            <div class="card-number">2</div>
-            <h3 class="card-title">A Resposta de Jesus</h3>
-            <div class="verse-highlight mb-3">
-              "Nem ele pecou nem seus pais; mas foi assim para que se manifestem nele as obras de Deus." (v. 3)
-            </div>
-            <ul class="small mb-3">
-              <li><strong>Quebra paradigmas:</strong> Não foi por pecado</li>
-              <li><strong>Propósito divino:</strong> Manifestar obras de Deus</li>
-              <li><strong>Oportunidade:</strong> Não tragédia sem sentido</li>
-              <li><strong>Glória de Deus:</strong> Objetivo maior</li>
-            </ul>
-            <div class="bg-dark p-2 rounded small">🎯 Deus pode usar limitações para sua glória</div>
+        <div class="col-md-4">
+          <div class="p-3 border border-secondary rounded h-100 text-center">
+            <h5 class="text-warning">Visão Exige Humildade</h5>
+            <p class="small text-muted mb-0">O cego viu porque reconheceu sua necessidade. Os fariseus permaneceram cegos porque recusavam admitir cegueira.</p>
           </div>
         </div>
-        <div class="col-12 col-md-4">
-          <div class="structure-card h-100">
-            <div class="card-number">3</div>
-            <h3 class="card-title">O Método de Cura</h3>
-            <ul class="small mb-3">
-              <li><strong>Lodo + saliva:</strong> Elementos simples</li>
-              <li><strong>Aplicação nos olhos:</strong> Ação concreta</li>
-              <li><strong>Tanque de Siloé:</strong> "Enviado"</li>
-              <li><strong>Obediência necessária:</strong> Ir e lavar</li>
-              <li><strong>Cura instantânea:</strong> Voltou vendo</li>
-            </ul>
-            <div class="bg-dark p-2 rounded small">👁️ Deus usa meios simples para grandes milagres</div>
+        <div class="col-md-4">
+          <div class="p-3 border border-secondary rounded h-100 text-center">
+            <h5 class="text-danger">Testemunho Custa</h5>
+            <p class="small text-muted mb-0">Defender a verdade pode levar ao isolamento social, mas resulta em encontro pessoal com Jesus.</p>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- AS INVESTIGAÇÕES -->
-    <div class="sermon-section">
-      <h2 class="section-title">As Investigações (João 9:13-34)</h2>
-      <div class="row g-4">
-        <div class="col-12 col-md-4">
-          <div class="structure-card h-100">
-            <h3 class="card-title">Primeira Investigação (v. 13-17)</h3>
-            <ul class="small mb-3">
-              <li><strong>Problema:</strong> Cura no sábado</li>
-              <li><strong>Divisão:</strong> Uns dizem pecador, outros profeta</li>
-              <li><strong>Pergunta ao cego:</strong> "Que dizes tu?"</li>
-              <li><strong>Resposta simples:</strong> "É profeta"</li>
-              <li><strong>Foco no método:</strong> Ignoram o milagre</li>
-            </ul>
-            <div class="bg-dark p-2 rounded small">⚖️ Tradição cegou os que tinham olhos</div>
-          </div>
-        </div>
-        <div class="col-12 col-md-4">
-          <div class="structure-card h-100">
-            <h3 class="card-title">Chamam os Pais (v. 18-23)</h3>
-            <ul class="small mb-3">
-              <li><strong>Dúvida:</strong> Era mesmo cego?</li>
-              <li><strong>Confirmação:</strong> "Este é nosso filho"</li>
-              <li><strong>Esquiva:</strong> "Perguntai a ele"</li>
-              <li><strong>Medo:</strong> Expulsão da sinagoga</li>
-              <li><strong>Acordo:</strong> Confessar Cristo = exclusão</li>
-            </ul>
-            <div class="bg-dark p-2 rounded small">😨 Medo da rejeição impede testemunho</div>
-          </div>
-        </div>
-        <div class="col-12 col-md-4">
-          <div class="structure-card h-100">
-            <h3 class="card-title">Segunda Investigação (v. 24-34)</h3>
-            <ul class="small mb-3">
-              <li><strong>Pressão:</strong> "Dá glória a Deus"</li>
-              <li><strong>Afirmação:</strong> "Sabemos que este homem é pecador"</li>
-              <li><strong>Resposta sábia:</strong> "Se é pecador, não sei"</li>
-              <li><strong>Certeza:</strong> "Era cego e agora vejo"</li>
-              <li><strong>Resultado:</strong> Expulsão da sinagoga</li>
-            </ul>
-            <div class="bg-dark p-2 rounded small">💪 Testemunho baseado em experiência é irrefutável</div>
-          </div>
-        </div>
+    <!-- ORAÇÃO FINAL -->
+    <div class="prayer-section mt-4">
+      <h2 class="prayer-title">Palavra de Transformação</h2>
+      <div class="prayer-text text-center">
+        <p><em>"Senhor Jesus, reconhecemos que frequentemente andamos em trevas mesmo cercados de religião e informação. Abra nossos olhos espirituais para vermos a Tua verdade. Que possamos ser como o cego: humildes em admitir nossa cegueira e corajosos em testemunhar o que vimos. Que não permaneçamos na incredulidade dos fariseus. Somos Tua Luz no mundo. Amém."</em></p>
       </div>
     </div>
 
-    <!-- O ENCONTRO FINAL -->
-    <div class="sermon-section">
-      <h2 class="section-title">O Encontro Final (João 9:35-41)</h2>
-      <div class="row g-4">
-        <div class="col-12 col-md-6">
-          <div class="structure-card h-100">
-            <h3 class="card-title">Jesus Procura o Rejeitado (v. 35-38)</h3>
-            <div class="verse-highlight mb-3">
-              "Ouvindo Jesus que o tinham expulsado, encontrando-o, disse-lhe: Crês tu no Filho de Deus?"
-            </div>
-            <ul class="small mb-3">
-              <li><strong>Jesus toma iniciativa:</strong> Procura o rejeitado</li>
-              <li><strong>Pergunta sobre fé:</strong> "Crês no Filho de Deus?"</li>
-              <li><strong>Disposição para crer:</strong> "Quem é ele?"</li>
-              <li><strong>Revelação pessoal:</strong> "És tu mesmo"</li>
-              <li><strong>Adoração imediata:</strong> "Creio, Senhor"</li>
-            </ul>
-            <div class="bg-dark p-2 rounded small">❤️ Jesus cuida dos que são rejeitados por causa dele</div>
-          </div>
-        </div>
-        <div class="col-12 col-md-6">
-          <div class="structure-card h-100">
-            <h3 class="card-title">O Julgamento Reverso (v. 39-41)</h3>
-            <div class="verse-highlight mb-3">
-              "Para juízo vim eu a este mundo: para que os que não veem vejam, e os que veem sejam cegos."
-            </div>
-            <ul class="small mb-3">
-              <li><strong>Inversão divina:</strong> Cegos veem, videntes cegam</li>
-              <li><strong>Fariseus questionam:</strong> "Também nós somos cegos?"</li>
-              <li><strong>Resposta de Jesus:</strong> Se fossem cegos, não teriam pecado</li>
-              <li><strong>Problema:</strong> "Nós vemos" - orgulho espiritual</li>
-              <li><strong>Conclusão:</strong> Pecado permanece</li>
-            </ul>
-            <div class="bg-dark p-2 rounded small">👁️ Pior cegueira é não reconhecer que se está cego</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- TIPOS DE CEGUEIRA -->
-    <div class="sermon-section">
-      <h2 class="section-title">Tipos de Cegueira na Narrativa</h2>
-      <div class="row g-4">
-        <div class="col-12 col-md-4">
-          <div class="structure-card h-100">
-            <div class="card-number">👁️</div>
-            <h3 class="card-title">Cegueira Física</h3>
-            <ul class="small mb-3">
-              <li><strong>O cego de nascença</strong></li>
-              <li>Condição involuntária</li>
-              <li>Limitação desde nascimento</li>
-              <li>Consciente de sua necessidade</li>
-              <li><strong>Resultado:</strong> Curado e vê</li>
-            </ul>
-            <div class="bg-success bg-opacity-10 p-2 rounded small text-success">✅ Reconhece limitação, busca cura</div>
-          </div>
-        </div>
-        <div class="col-12 col-md-4">
-          <div class="structure-card h-100">
-            <div class="card-number">🙈</div>
-            <h3 class="card-title">Cegueira por Medo</h3>
-            <ul class="small mb-3">
-              <li><strong>Os pais do cego</strong></li>
-              <li>Veem o milagre claramente</li>
-              <li>Mas temem as consequências</li>
-              <li>Escolhem segurança social</li>
-              <li><strong>Resultado:</strong> Perdem oportunidade</li>
-            </ul>
-            <div class="bg-warning bg-opacity-10 p-2 rounded small text-warning">⚠️ Medo impede testemunho</div>
-          </div>
-        </div>
-        <div class="col-12 col-md-4">
-          <div class="structure-card h-100">
-            <div class="card-number">😎</div>
-            <h3 class="card-title">Cegueira Espiritual</h3>
-            <ul class="small mb-3">
-              <li><strong>Os fariseus</strong></li>
-              <li>Orgulhosos de sua "visão"</li>
-              <li>Rejeitam evidências claras</li>
-              <li>Tradição acima da verdade</li>
-              <li><strong>Resultado:</strong> Permanecem cegos</li>
-            </ul>
-            <div class="bg-danger bg-opacity-10 p-2 rounded small text-danger">❌ Pior cegueira: negar que se está cego</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- PERGUNTAS PARA DISCUSSÃO -->
-    <div class="sermon-section">
-      <h2 class="section-title">Perguntas para Discussão (15 min)</h2>
-      <div class="question-item">
-        <span class="question-number">1</span>
-        <div>
-          <p><strong>Por que Jesus escolheu fazer lodo para curar o cego quando poderia ter curado apenas com uma palavra?</strong></p>
-          <small class="text-muted">O que isso nos ensina sobre os métodos de Deus?</small>
-        </div>
-      </div>
-      <div class="question-item">
-        <span class="question-number">2</span>
-        <div>
-          <p><strong>Como você responderia se alguém perguntasse: "Por que Deus permite que pessoas nasçam com deficiências?"</strong></p>
-          <small class="text-muted">Use a resposta de Jesus como base.</small>
-        </div>
-      </div>
-      <div class="question-item">
-        <span class="question-number">3</span>
-        <div>
-          <p><strong>Qual tipo de cegueira é mais perigosa: física, por medo ou espiritual? Por quê?</strong></p>
-          <small class="text-muted">Como podemos evitar cada tipo?</small>
-        </div>
-      </div>
-      <div class="question-item">
-        <span class="question-number">4</span>
-        <div>
-          <p><strong>Os pais do cego tinham medo de serem expulsos da sinagoga. Que "sinagogas" modernas nos intimidam?</strong></p>
-          <small class="text-muted">Como podemos ter coragem para testemunhar?</small>
-        </div>
-      </div>
-      <div class="question-item">
-        <span class="question-number">5</span>
-        <div>
-          <p><strong>Como Jesus sendo "a luz do mundo" afeta sua vida diária e suas decisões?</strong></p>
-          <small class="text-muted">Seja específico e prático.</small>
-        </div>
-      </div>
-    </div>
-
-    <!-- APLICAÇÃO PRÁTICA -->
-    <div class="sermon-section">
-      <h2 class="section-title">Aplicação Prática</h2>
-      <div class="row g-4">
-        <div class="col-12 col-md-6">
-          <div class="practice-card">
-            <div class="practice-icon">
-              <i class="bi bi-lightbulb-fill"></i>
-            </div>
-            <h4 class="practice-title">Ande na Luz</h4>
-            <p class="small mb-2">Como seguir Jesus, a Luz:</p>
-            <ul class="small">
-              <li>Busque a verdade na Palavra</li>
-              <li>Evite "caminhos sombrios"</li>
-              <li>Seja transparente em relacionamentos</li>
-              <li>Deixe a luz de Cristo brilhar através de você</li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-12 col-md-6">
-          <div class="practice-card">
-            <div class="practice-icon">
-              <i class="bi bi-eye-fill"></i>
-            </div>
-            <h4 class="practice-title">Testemunhe como o Ex-Cego</h4>
-            <p class="small mb-2">Elementos de um testemunho poderoso:</p>
-            <ul class="small">
-              <li>Simplicidade: "Era cego, agora vejo"</li>
-              <li>Experiência pessoal: "Sei o que aconteceu comigo"</li>
-              <li>Coragem: Não se intimidar pela oposição</li>
-              <li>Gratidão: Adorar quem o transformou</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- PRÓXIMA SEMANA -->
-    <div class="prayer-section">
-      <h2 class="prayer-title"><i class="bi bi-arrow-right me-2"></i>Próxima Semana</h2>
-      <div class="prayer-text">
-        <p class="lead mb-3"><strong>Lição 07: "Eu Sou a Ressurreição e a Vida" - Lázaro e a Vitória sobre a Morte</strong></p>
-        <p class="mb-3">Estudaremos João 11:1-57, a ressurreição de Lázaro e o ensino de Jesus sobre ser a Ressurreição e a Vida, mostrando seu poder sobre a morte.</p>
-        <p class="mb-3"><strong>Para estudar em casa:</strong> Leia João 11:1-57. Observe como Jesus lida com a dor e a morte.</p>
-        <div class="bg-dark p-2 rounded small">📖 Memorize: "Eu sou a ressurreição e a vida; quem crê em mim, ainda que esteja morto, viverá." (João 11:25)</div>
-      </div>
-    </div>
-
-    <!-- ORAÇÃO FINAL 
-    <div class="prayer-section">
-      <h2 class="prayer-title"><i class="bi bi-heart-fill me-2"></i>Oração</h2>
-      <div class="prayer-text">
-        <p class="mb-3"><em>"Senhor Jesus, obrigado por ser a Luz do mundo que dissipa nossas trevas. Como o cego de nascença, reconhecemos nossa necessidade de visão espiritual. Cure nossa cegueira espiritual e nos ajude a andar na luz. Dê-nos coragem para testemunhar de sua obra em nossa vida, mesmo quando outros se opõem. Que possamos adorá-lo como nosso Senhor e Salvador. No nome de Jesus, amém."</em></p>
-      </div>
-    </div>-->
   </div>
 
+  <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   <script src="../../verses.js"></script>
   <script src="../../assets/js/sermon-scripts.js"></script>

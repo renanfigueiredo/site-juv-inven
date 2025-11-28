@@ -68,6 +68,70 @@ window.Verses = {
 
   "Jo 19:30": "Quando, pois, Jesus tomou o vinagre, disse: Está consumado! E, inclinando a cabeça, rendeu o espírito.",
 
-  "Rm 13:1-7": "Toda alma esteja sujeita às autoridades superiores; porque não há autoridade que não venha de Deus; e as autoridades que há foram ordenadas por Deus. Por isso, quem se opõe à autoridade resiste à ordenação de Deus; e os que resistem trarão sobre si mesmos condenação. Porque os magistrados não são terror para as boas obras, e sim para as más. Queres tu não temer a autoridade? Faze o bem e terás louvor dela, visto que a autoridade é ministro de Deus para teu bem. Entretanto, se fizeres o mal, teme; porque não é sem motivo que ela traz a espada; pois é ministro de Deus, vingador, para castigar o que pratica o mal. É necessário que lhe estejais sujeitos, não somente por causa do temor da punição, mas também por dever de consciência. Por esse motivo, também pagais tributos, porque são ministros de Deus, atendendo, constantemente, a este serviço. Pagai a todos o que lhes é devido: a quem tributo, tributo; a quem imposto, imposto; a quem temor, temor; a quem honra, honra."
+  "Rm 13:1-7": "Toda alma esteja sujeita às autoridades superiores; porque não há autoridade que não venha de Deus; e as autoridades que há foram ordenadas por Deus. Por isso, quem se opõe à autoridade resiste à ordenação de Deus; e os que resistem trarão sobre si mesmos condenação. Porque os magistrados não são terror para as boas obras, e sim para as más. Queres tu não temer a autoridade? Faze o bem e terás louvor dela, visto que a autoridade é ministro de Deus para teu bem. Entretanto, se fizeres o mal, teme; porque não é sem motivo que ela traz a espada; pois é ministro de Deus, vingador, para castigar o que pratica o mal. É necessário que lhe estejais sujeitos, não somente por causa do temor da punição, mas também por dever de consciência. Por esse motivo, também pagais tributos, porque são ministros de Deus, atendendo, constantemente, a este serviço. Pagai a todos o que lhes é devido: a quem tributo, tributo; a quem imposto, imposto; a quem temor, temor; a quem honra, honra.",
+
+  // Versículos da Lição 05: O Pão da Vida
+  "Jo 6:26-27": "Jesus respondeu: A verdade é que vocês estão me procurando, não porque viram os sinais miraculosos, mas porque comeram os pães e ficaram satisfeitos. Não trabalhem pela comida que se estraga, mas pela comida que permanece para a vida eterna, a qual o Filho do Homem lhes dará. Pois Deus, o Pai, colocou nele o seu carimbo de aprovação.",
+
+  "Jo 4:13-14": "Jesus respondeu: Quem beber desta água terá sede outra vez, mas quem beber da água que eu lhe der nunca mais terá sede. Pelo contrário, a água que eu lhe der se tornará nele uma fonte de água a jorrar para a vida eterna.",
+
+  "Jo 6:35": "Então Jesus declarou: Eu sou o pão da vida. Aquele que vem a mim nunca terá fome; aquele que crê em mim nunca terá sede.",
+
+  "Jo 6:66-68": "Daquela hora em diante, muitos dos seus discípulos voltaram atrás e deixaram de segui-lo. Jesus perguntou aos Doze: Vocês também não querem ir? Simão Pedro lhe respondeu: Senhor, para quem iremos? Tu tens as palavras de vida eterna. Nós cremos e reconhecemos que tu és o Santo de Deus.",
+
+  // Versículos da Lição 06: A Luz do Mundo
+  "Jo 8:12": "Falou-lhes, pois, Jesus, dizendo: Eu sou a luz do mundo; quem me segue não andará nas trevas; pelo contrário, terá a luz da vida.",
+
+  "Jo 9:1-7": "Passando, viu um homem cego de nascença. Perguntaram-lhe os seus discípulos: Rabi, quem pecou, este ou seus pais, para que nascesse cego? Respondeu Jesus: Nem ele pecou nem seus pais; mas foi para que se manifestem nele as obras de Deus. Enquanto é dia, importa que eu faça as obras daquele que me enviou; a noite vem, quando ninguém pode trabalhar. Enquanto estou no mundo, sou a luz do mundo. Dito isto, cuspiu na terra, fez lodo com a saliva e passou-o sobre os olhos do cego, e disse-lhe: Vai, lava-te na piscina de Siloé (que quer dizer Enviado). Ele foi, lavou-se e voltou vendo.",
+
+  "Jo 9:38": "E ele disse: Creio, Senhor. E o adorou.",
+
+  // Versículos da Lição 07: Ressurreição e Vida
+  "Jo 11:25-26": "Disse-lhe Jesus: Eu sou a ressurreição e a vida. Quem crê em mim, ainda que morra, viverá; e todo aquele que vive e crê em mim nunca morrerá. Crês isto?",
+
+  "Jo 11:35": "Jesus chorou.",
+
+  "Jo 11:4": "Jesus respondeu: Esta doença não é para morte, mas para glória de Deus, a fim de que o Filho de Deus seja glorificado por ela.",
+
+  // Versículos da Lição 08: O Caminho, a Verdade e a Vida
+  "Jo 14:6": "Disse-lhe Jesus: Eu sou o caminho, e a verdade, e a vida; ninguém vem ao Pai senão por mim.",
+
+  "Jo 14:1": "Não se turbe o vosso coração; credes em Deus, crede também em mim.",
+
+  "Jo 20:30-31": "Jesus, na verdade, operou diante de seus discípulos muitos outros sinais que não estão escritos neste livro. Estes, porém, foram escritos para que creiais que Jesus é o Cristo, o Filho de Deus, e para que, crendo, tenhais vida em seu nome.",
+
+  // Versículos da Lição Bônus: João 3:16
+  "Jo 3:16": "Porque Deus amou ao mundo de tal maneira que deu o seu Filho unigênito, para que todo o que nele crê não pereça, mas tenha a vida eterna.",
+  "Jo 3:3": "A isto respondeu Jesus: Em verdade, em verdade te digo que, se alguém não nascer de novo, não pode ver o reino de Deus.",
+  "Jo 3:5-6": "Respondeu Jesus: Em verdade, em verdade te digo: quem não nascer da água e do Espírito não pode entrar no reino de Deus. O que é nascido da carne é carne; e o que é nascido do Espírito é espírito.",
+  "Jo 3:14-15": "E, do modo por que Moisés levantou a serpente no deserto, assim importa que o Filho do Homem seja levantado, para que todo o que nele crê tenha a vida eterna.",
+
+  "1Jo 4:10": "Nisto consiste o amor: não em que nós tenhamos amado a Deus, mas em que ele nos amou e enviou o seu Filho como propiciação pelos nossos pecados.",
+  "1Jo 4:8": "Aquele que não ama não conhece a Deus, pois Deus é amor.",
+  "Rm 5:8": "Mas Deus prova o seu próprio amor para conosco pelo fato de ter Cristo morrido por nós, sendo nós ainda pecadores.",
+  "Jo 1:10": "O Verbo estava no mundo, o mundo foi feito por intermédio dele, mas o mundo não o conheceu.",
+  "Jo 7:7": "O mundo não vos pode odiar, mas a mim me odeia, porque eu dou testemunho a seu respeito de que as suas obras são más.",
+  "1Jo 2:15-17": "Não ameis o mundo nem as coisas que há no mundo. Se alguém amar o mundo, o amor do Pai não está nele; porque tudo o que há no mundo, a concupiscência da carne, a concupiscência dos olhos e a soberba da vida, não procede do Pai, mas procede do mundo. Ora, o mundo passa, bem como a sua concupiscência; aquele, porém, que faz a vontade de Deus permanece eternamente.",
+  "Gn 12:3": "Abençoarei os que te abençoarem e amaldiçoarei os que te amaldiçoarem; em ti serão benditas todas as famílias da terra.",
+  "Gl 3:16": "Ora, as promessas foram feitas a Abraão e ao seu descendente. Não diz: E aos descendentes, como se falando de muitos, porém como de um só: E ao teu descendente, que é Cristo.",
+  "Gn 22:1-14": "Depois destas coisas, pôs Deus Abraão à prova e lhe disse: Abraão! Este lhe respondeu: Eis-me aqui! Acrescentou Deus: Toma teu filho, teu único filho, Isaque, a quem amas, e vai-te à terra de Moriá; oferece-o ali em holocausto, sobre um dos montes, que eu te mostrarei. Levantou-se, pois, Abraão de madrugada e, tendo preparado o seu jumento, tomou consigo dois dos seus servos e a Isaque, seu filho, rachou lenha para o holocausto e foi para o lugar que Deus lhe havia indicado. Ao terceiro dia, erguendo Abraão os olhos, viu o lugar de longe. Então, disse a seus servos: Esperai aqui com o jumento; eu e o rapaz iremos até lá e, havendo adorado, voltaremos para junto de vós. Tomou Abraão a lenha do holocausto e a colocou sobre Isaque, seu filho; ele, porém, levava nas mãos o fogo e o cutelo; assim caminhavam ambos juntos. Quando Isaque disse a Abraão, seu pai: Meu pai! Respondeu Abraão: Eis-me aqui, meu filho! Perguntou-lhe Isaque: Eis o fogo e a lenha, mas onde está o cordeiro para o holocausto? Respondeu Abraão: Deus proverá para si, meu filho, o cordeiro para o holocausto; e seguiam ambos juntos. Chegaram ao lugar que Deus lhe havia designado; ali edificou Abraão um altar, sobre ele dispôs a lenha, amarrou Isaque, seu filho, e o deitou no altar, em cima da lenha; e, estendendo a mão, tomou o cutelo para imolar o filho. Mas do céu lhe bradou o Anjo do Senhor: Abraão! Abraão! Ele respondeu: Eis-me aqui! Então, lhe disse: Não estendas a mão sobre o rapaz e nada lhe faças; pois agora sei que temes a Deus, porquanto não me negaste o filho, o teu único filho. Tendo Abraão erguido os olhos, viu atrás de si um carneiro preso pelos chifres entre os arbustos; tomou Abraão o carneiro e o ofereceu em holocausto, em lugar de seu filho. E pôs Abraão por nome àquele lugar: O Senhor proverá. Daí dizer-se até ao dia de hoje: No monte do Senhor se proverá.",
+  "Nm 21:4-9": "Então, partiram do monte Hor, pelo caminho do mar Vermelho, a rodear a terra de Edom; porém o povo se tornou impaciente no caminho. E o povo falou contra Deus e contra Moisés: Por que nos fizeste subir do Egito, para morrermos neste deserto, onde não há pão nem água? E a nossa alma tem fastio deste pão vil. Então, o Senhor mandou entre o povo serpentes abrasadoras, que mordiam o povo; e morreu muita gente em Israel. Veio o povo a Moisés e disse: Havemos pecado, porquanto temos falado contra o Senhor e contra ti; ora ao Senhor que tire de nós as serpentes. Então, Moisés orou pelo povo. Disse o Senhor a Moisés: Faze uma serpente abrasadora e põe-na sobre uma haste; e será que todo mordido que a mirar viverá. Fez Moisés uma serpente de bronze e a pôs sobre uma haste; sendo alguém mordido por alguma serpente, se olhava para a de bronze, sarava.",
+  "Ex 34:6-7": "Tendo o Senhor descido na nuvem, ali esteve junto dele e proclamou o nome do Senhor. E, passando o Senhor por diante dele, clamou: Senhor, Senhor Deus compassivo, clemente e longânimo e grande em misericórdia e fidelidade; que guarda a misericórdia em mil gerações, que perdoa a iniquidade, a transgressão e o pecado; ainda que não inocenta o culpado, e visita a iniquidade dos pais nos filhos e nos filhos dos filhos, até à terceira e quarta geração.",
+  "Sl 136:1": "Rendei graças ao Senhor, porque ele é bom, porque a sua misericórdia dura para sempre.",
+  "Ef 2:4-5": "Mas Deus, sendo rico em misericórdia, por causa do grande amor com que nos amou, e estando nós mortos em nossos delitos, nos deu vida juntamente com Cristo, — pela graça sois salvos.",
+  "Tt 3:5": "Não por obras de justiça praticadas por nós, mas segundo sua misericórdia, ele nos salvou mediante o lavar regenerador e renovador do Espírito Santo.",
+  "1Pe 2:24": "Carregando ele mesmo em seu corpo, sobre o madeiro, os nossos pecados, para que nós, mortos para os pecados, vivamos para a justiça; por suas chagas fostes sarados.",
+  "Ef 2:8-9": "Porque pela graça sois salvos, mediante a fé; e isto não vem de vós; é dom de Deus; não de obras, para que ninguém se glorie.",
+  "2Co 5:17": "E, assim, se alguém está em Cristo, é nova criatura; as coisas antigas já passaram; eis que se fizeram novas.",
+  "Tg 2:19": "Crês, tu, que Deus é um só? Fazes bem; até os demônios creem e tremem.",
+  "Jo 3:36": "Por isso, quem crê no Filho tem a vida eterna; o que, todavia, se mantém rebelde contra o Filho não verá a vida, mas sobre ele permanece a ira de Deus.",
+  "Mt 10:28": "Não temais os que matam o corpo e não podem matar a alma; temei, antes, aquele que pode fazer perecer no inferno tanto a alma como o corpo.",
+  "2Ts 1:9": "Estes sofrerão penalidade de eterna destruição, banidos da face do Senhor e da glória do seu poder.",
+  "Jo 17:3": "E a vida eterna é esta: que te conheçam a ti, o único Deus verdadeiro, e a Jesus Cristo, a quem enviaste.",
+  "1Jo 5:13": "Estas coisas vos escrevi, a fim de saberdes que tendes a vida eterna, a vós outros que credes em o nome do Filho de Deus.",
+  "2Jo 1:3": "A graça, a misericórdia e a paz, da parte de Deus Pai e da de Jesus Cristo, o Filho do Pai, serão conosco em verdade e amor.",
+  "3Jo 1:4": "Não tenho maior alegria do que esta, a de ouvir que meus filhos andam na verdade.",
+  "Ap 5:9-10": "E entoavam novo cântico, dizendo: Digno és de tomar o livro e de abrir-lhe os selos, porque foste morto e com o teu sangue compraste para Deus os que procedem de toda tribo, língua, povo e nação e para o nosso Deus os constituíste reino e sacerdotes; e reinarão sobre a terra.",
+  "Ap 21:1-4": "Vi novo céu e nova terra, pois o primeiro céu e a primeira terra passaram, e o mar já não existe. Vi também a cidade santa, a nova Jerusalém, que descia do céu, da parte de Deus, ataviada como noiva adornada para o seu esposo. Então, ouvi grande voz vinda do trono, dizendo: Eis o tabernáculo de Deus com os homens. Deus habitará com eles. Eles serão povos de Deus, e Deus mesmo estará com eles. E lhes enxugará dos olhos toda lágrima, e já não haverá morte, já não haverá luto, nem pranto, nem dor, porque as primeiras coisas passaram."
   
 };
