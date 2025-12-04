@@ -132,6 +132,20 @@ window.Verses = {
   "2Jo 1:3": "A graça, a misericórdia e a paz, da parte de Deus Pai e da de Jesus Cristo, o Filho do Pai, serão conosco em verdade e amor.",
   "3Jo 1:4": "Não tenho maior alegria do que esta, a de ouvir que meus filhos andam na verdade.",
   "Ap 5:9-10": "E entoavam novo cântico, dizendo: Digno és de tomar o livro e de abrir-lhe os selos, porque foste morto e com o teu sangue compraste para Deus os que procedem de toda tribo, língua, povo e nação e para o nosso Deus os constituíste reino e sacerdotes; e reinarão sobre a terra.",
-  "Ap 21:1-4": "Vi novo céu e nova terra, pois o primeiro céu e a primeira terra passaram, e o mar já não existe. Vi também a cidade santa, a nova Jerusalém, que descia do céu, da parte de Deus, ataviada como noiva adornada para o seu esposo. Então, ouvi grande voz vinda do trono, dizendo: Eis o tabernáculo de Deus com os homens. Deus habitará com eles. Eles serão povos de Deus, e Deus mesmo estará com eles. E lhes enxugará dos olhos toda lágrima, e já não haverá morte, já não haverá luto, nem pranto, nem dor, porque as primeiras coisas passaram."
-  
-};
+  "Ap 21:1-4": "Vi novo céu e nova terra, pois o primeiro céu e a primeira terra passaram, e o mar já não existe. Vi também a cidade santa, a nova Jerusalém, que descia do céu, da parte de Deus, ataviada como noiva adornada para o seu esposo. Então, ouvi grande voz vinda do trono, dizendo: Eis o tabernáculo de Deus com os homens. Deus habitará com eles. Eles serão povos de Deus, e Deus mesmo estará com eles. E lhes enxugará dos olhos toda lágrima, e já não haverá morte, já não haverá luto, nem pranto, nem dor, porque as primeiras coisas passaram.",
+
+  // Versículos para Relacionamentos com Propósito (Mensagem 08)
+  "Pv 13:20": "Quem anda com os sábios será sábio, mas o companheiro dos tolos acabará mal.",
+  "Pv 27:17": "Como o ferro com o ferro se afia, assim o homem, ao seu amigo.",
+  "Hb 3:13": "Pelo contrário, exortai-vos mutuamente cada dia, durante o tempo que se chama Hoje, a fim de que nenhum de vós seja endurecido pelo engano do pecado.",
+  "Jo 13:34-35": "Novo mandamento vos dou: que vos ameis uns aos outros; assim como eu vos amei, que também vos ameis uns aos outros. Nisto conhecerão todos que sois meus discípulos: se tiverdes amor uns aos outros.",
+  "Ef 4:15": "Mas, seguindo a verdade em amor, cresçamos em tudo naquele que é a cabeça, Cristo.",
+  "Gl 6:2": "Levai as cargas uns dos outros e, assim, cumprireis a lei de Cristo.",
+  "Rm 12:15": "Alegrai-vos com os que se alegram e chorai com os que choram.",
+  "Hb 10:24-25": "Consideremo-nos também uns aos outros, para nos estimularmos ao amor e às boas obras. Não deixemos de congregar-nos, como é costume de alguns; antes, façamos admoestações e tanto mais quanto vedes que o Dia se aproxima.",
+  "Sl 1:1": "Bem-aventurado o homem que não anda no conselho dos ímpios, não se detém no caminho dos pecadores, nem se assenta na roda dos escarnecedores.",
+  "1Co 15:33": "Não vos enganeis: as más conversações corrompem os bons costumes.",
+  "Pv 16:28": "O homem perverso espalha contenda, e o difamador separa os maiores amigos.",
+  "Cl 3:8-9": "Agora, porém, despojai-vos igualmente de tudo isto: ira, indignação, maldade, maledicência, linguagem obscena do vosso falar. Não mintais uns aos outros, uma vez que vos despistes do velho homem com os seus feitos.",
+  "Pv 4:23": "Sobre tudo o que se deve guardar, guarda o coração, porque dele procedem as fontes da vida.",
+}
