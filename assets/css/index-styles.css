@@ -93,6 +93,50 @@ body::before {
   box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
 }
 
+/* BOTÃO FIXO: VOLTAR PARA O INÍCIO */
+.back-home {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 1101;
+
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 999px;
+  color: var(--text-primary, #fff);
+  text-decoration: none;
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+
+.back-home:hover {
+  transform: translateY(-1px) scale(1.02);
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+.back-home:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.back-home:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 0.25rem rgba(0, 212, 255, 0.18);
+}
+
+.back-home i {
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
 /* HERO SECTION */
 .hero-section {
   min-height: 50vh;
