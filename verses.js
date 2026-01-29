@@ -143,6 +143,11 @@ window.Verses = {
   "Gl 6:2": "Levai as cargas uns dos outros e, assim, cumprireis a lei de Cristo.",
   "Rm 12:15": "Alegrai-vos com os que se alegram e chorai com os que choram.",
   "Hb 10:24-25": "Consideremo-nos também uns aos outros, para nos estimularmos ao amor e às boas obras. Não deixemos de congregar-nos, como é costume de alguns; antes, façamos admoestações e tanto mais quanto vedes que o Dia se aproxima.",
+
+  // Versículos usados nas Lições de Hebreus (EBD 2026)
+  "Hb 1:1-2": "Havendo Deus, outrora, falado, muitas vezes e de muitas maneiras, aos pais, pelos profetas, nestes últimos dias, nos falou pelo Filho.",
+  "Hb 4:16": "Aproximemo-nos, portanto, confiadamente, do trono da graça, a fim de recebermos misericórdia e acharmos graça para socorro em ocasião oportuna.",
+  "Hb 12:28": "Por isso, recebendo nós um reino inabalável, retenhamos a graça, pela qual sirvamos a Deus de modo agradável, com reverência e santo temor.",
   "Sl 1:1": "Bem-aventurado o homem que não anda no conselho dos ímpios, não se detém no caminho dos pecadores, nem se assenta na roda dos escarnecedores.",
   "1Co 15:33": "Não vos enganeis: as más conversações corrompem os bons costumes.",
   "Pv 16:28": "O homem perverso espalha contenda, e o difamador separa os maiores amigos.",
