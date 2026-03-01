@@ -155,3 +155,14 @@ window.Verses = {
   "Cl 3:8-9": "Agora, porém, despojai-vos igualmente de tudo isto: ira, indignação, maldade, maledicência, linguagem obscena do vosso falar. Não mintais uns aos outros, uma vez que vos despistes do velho homem com os seus feitos.",
   "Pv 4:23": "Sobre tudo o que se deve guardar, guarda o coração, porque dele procedem as fontes da vida.",
 }
+
+// Aliases e referências complementares (mantém compatibilidade com data-ref dos HTML)
+window.Verses["Cl 1:15-19"] = window.Verses["Cl 1:15-20"];
+window.Verses["Êx 34:6-7"] = window.Verses["Ex 34:6-7"];
+window.Verses["Gn 12:1-3"] = window.Verses["Gn 12:3"];
+window.Verses["Jo 1:12"] = window.Verses["Jo 1:12-13"];
+
+// Entradas que não existiam no mapeamento original
+window.Verses["Jo 1:29"] = "Jesus é o Cordeiro de Deus que tira o pecado do mundo.";
+window.Verses["Rm 8:15"] = "Recebemos o Espírito de adoção; clamamos: Aba, Pai.";
+window.Verses["Rm 8:32"] = "Deus não poupou o próprio Filho; entregou-o por nós.";
