@@ -148,6 +148,7 @@ window.Verses = {
   "Hb 1:1-2": "Havendo Deus, outrora, falado, muitas vezes e de muitas maneiras, aos pais, pelos profetas, nestes últimos dias, nos falou pelo Filho.",
   "Hb 4:16": "Aproximemo-nos, portanto, confiadamente, do trono da graça, a fim de recebermos misericórdia e acharmos graça para socorro em ocasião oportuna.",
   "Hb 12:28": "Por isso, recebendo nós um reino inabalável, retenhamos a graça, pela qual sirvamos a Deus de modo agradável, com reverência e santo temor.",
+  "Hb 11:1": "Ora, a fé é a certeza das coisas que se esperam, a convicção de fatos que se não veem.",
   "Sl 1:1": "Bem-aventurado o homem que não anda no conselho dos ímpios, não se detém no caminho dos pecadores, nem se assenta na roda dos escarnecedores.",
   "1Co 15:33": "Não vos enganeis: as más conversações corrompem os bons costumes.",
   "Pv 16:28": "O homem perverso espalha contenda, e o difamador separa os maiores amigos.",
